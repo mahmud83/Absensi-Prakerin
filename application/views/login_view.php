@@ -36,13 +36,13 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="#" method="post">
+    <form role="form" action="<?php echo base_url(); ?>index.php/login/masuk" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Username">
+        <input type="text" class="form-control" name="username" placeholder="Username" autofocus>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" name="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -60,11 +60,11 @@
 <!-- /.login-box -->
 
 <!-- jQuery 3 -->
-<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
-<script src="../../plugins/iCheck/icheck.min.js"></script>
+<script src="<?php echo base_url(); ?>plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {
     $('input').iCheck({
