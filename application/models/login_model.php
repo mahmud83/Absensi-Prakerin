@@ -8,11 +8,11 @@ class Login_model extends CI_Model {
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 
-		//
-		/*$query = $this->db->where('username', $username)
+		$query = $this->db->where('username', $username)
 						  ->where('password', $password)
-						  ->get('user');
+						  ->get('tb_user');
 
+		//cek db
 		if ($query->num_rows() > 0) {
 			$data = array('username' => $username, 
 						  'logged_in' => TRUE, 
@@ -22,7 +22,7 @@ class Login_model extends CI_Model {
 			return TRUE;
 		} else {
 			return FALSE;
-		}*/
+		}
 	}
 
 }

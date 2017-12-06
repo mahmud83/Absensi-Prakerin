@@ -12,7 +12,13 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		if($this->session->userdata('logged_in') == TRUE) {
-			redirect(base_url('index.php/dashboard_admin'));
+			if ($this->session->userdata('role') == '1') {
+				redirect('dashboard_admin');
+			} else if ($this->session->userdata('role') == '2') {
+				redirect('dashboard_guru');
+			} else if ($this->session->userdata('role') == '3') {
+				redirect('dashboard_siswa');
+			}
 		} else {
 			$this->load->view('login_view');
 		}
@@ -21,17 +27,17 @@ class Login extends CI_Controller {
 	//login
 	public function masuk()
 	{
-		if ($this->input->post('login')) {
+		if ($this->input->post('submit')) {
 			$this->form_validation->set_rules('username', 'Username', 'trim|required');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 			
-			/*if ($this->form_validation->run() == TRUE ) {
+			if ($this->form_validation->run() == TRUE ) {
 				if ($this->login_model->cek() == TRUE) {
-					if ($this->session->userdata('role') == 'ad') {
+					if ($this->session->userdata('role') == 'Admin') {
 						redirect('dashboard_admin');
-					} else if ($this->session->userdata('role') == 'pb') {
+					} else if ($this->session->userdata('role') == 'Guru') {
 						redirect('dashboard_guru');
-					} else if ($this->session->userdata('role') == 'sw') {
+					} else if ($this->session->userdata('role') == 'Siswa') {
 						redirect('dashboard_siswa');
 					}
 				} else {
@@ -41,10 +47,20 @@ class Login extends CI_Controller {
 			} else {
 				$data = $this->session->set_flashdata('notif', validation_errors());
 					redirect('login');
-			}*/
+			}
 		}
 	}
 
+	//tambah data guru
+	public function addguru()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view']='add_guru_view';
+			$this->load->view('template_admin_view', $data);
+		} else {
+			redirect('login');
+		}
+	}
 
 }
 

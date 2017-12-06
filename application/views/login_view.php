@@ -36,22 +36,32 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form role="form" action="<?php echo base_url(); ?>index.php/login/masuk" method="post">
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="username" placeholder="Username" autofocus>
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password" placeholder="Password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <!-- /.col -->
-        <div class="col-md-12">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+    <form role="form" method="post" action="<?php echo base_url(); ?>index.php/login/masuk">
+      <?php 
+          $notif = $this->session->flashdata('notif');
+          if (!empty($notif)) {
+              echo '<div class="alert alert-danger">';
+              echo $notif;
+              echo '</div>';
+          }
+      ?>
+      <fieldset>
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control" name="username" placeholder="Username" autofocus>
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
-        <!-- /.col -->
-      </div>
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" name="password" placeholder="Password">
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-md-12">
+            <input type="submit" name="submit" value="Sign In" class="btn btn-primary btn-block btn-flat">
+          </div>
+          <!-- /.col -->
+        </div>
+      </fieldset>
     </form>
 
   </div>
