@@ -88,11 +88,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url(); ?>index.php/dashboard_admin/addguru"><i class="fa fa-circle-o"></i> Data Guru Pembimbing</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/dashboard_admin/addsiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
+            <li class="active"><a href="<?php echo base_url(); ?>index.php/admin/addguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/admin/addsiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
           </ul>
         </li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-search"></i> <span>Lihat Data</span>
             <span class="pull-right-container">
@@ -100,8 +100,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url(); ?>index.php/dashboard_admin/showguru"><i class="fa fa-circle-o"></i> Data Guru Pembimbing</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/dashboard_admin/showsiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/admin/dataguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/admin/datasiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
           </ul>
         </li>
       </ul>

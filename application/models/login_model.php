@@ -10,13 +10,13 @@ class Login_model extends CI_Model {
 
 		$query = $this->db->where('username', $username)
 						  ->where('password', $password)
-						  ->get('tb_user');
+						  ->get('tb_login');
 
 		//cek db
 		if ($query->num_rows() > 0) {
 			$data = array('username' => $username, 
 						  'logged_in' => TRUE, 
-						  'role' => $query->row()->level
+						  'role' => $query->row()->id_level
 						 );
 			$this->session->set_userdata( $data );
 			return TRUE;

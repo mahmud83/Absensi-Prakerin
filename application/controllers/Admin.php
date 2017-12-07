@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard_admin extends CI_Controller {
+class Admin extends CI_Controller {
 
 	public function __construct()
 	{
@@ -70,21 +70,21 @@ class Dashboard_admin extends CI_Controller {
 				if($this->admin_model->tambahguru($this->upload->data()) == TRUE) {
 					$data['main_view'] = 'add_guru_view';
 					$this->session->set_flashdata('notif', 'Berhasil menambahkan data guru');
-					redirect('dashboard_admin/addguru');
+					redirect('admin/addguru');
 				} else {
 					$data['main_view'] = 'add_guru_view';
 					$this->session->set_flashdata('notif', 'Gagal menambahkan data guru');
-					redirect('dashboard_admin/addguru');
+					redirect('admin/addguru');
 				}
 			} else {
-				$data['main_view'] = 'dashboard_admin';
+				$data['main_view'] = 'admin';
 				$this->session->set_flashdata('notif', $this->upload->display_errors());
-				redirect('dashboard_admin/addguru');
+				redirect('admin/addguru');
 			}
 		} else {
-			$data['main_view'] = 'dashboard_admin';
+			$data['main_view'] = 'admin';
 			$this->session->set_flashdata('notif', validation_errors());
-			redirect('dashboard_admin/addguru');
+			redirect('admin/addguru');
 		}
 	}
 
@@ -94,7 +94,7 @@ class Dashboard_admin extends CI_Controller {
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]');
 		$this->form_validation->set_rules('nama_siswa', 'Nama guru', 'trim|required');
-		$this->form_validation->set_rules('telp', 'No. Telp', 'trim|required|min_length[11]|max_length[12]');
+		$this->form_validation->set_rules('telp', 'No. Telp', 'trim|required|min_length[11]|max_length[12]|numeric');
 		$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
 		$this->form_validation->set_rules('industri', 'Industri', 'trim|required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
@@ -110,36 +110,47 @@ class Dashboard_admin extends CI_Controller {
 				if($this->admin_model->tambahsiswa($this->upload->data()) == TRUE) {
 					$data['main_view'] = 'add_siswa_view';
 					$this->session->set_flashdata('notif', 'Berhasil menambahkan data siswa');
-					redirect('dashboard_admin/addsiswa');
+					redirect('admin/addsiswa');
 				} else {
 					$data['main_view'] = 'add_siswa_view';
 					$this->session->set_flashdata('notif', 'Gagal menambahkan data siswa');
-					redirect('dashboard_admin/addsiswa');
+					redirect('admin/addsiswa');
 				}
 			} else {
 				$data['main_view'] = 'dashboard_admin';
 				$this->session->set_flashdata('notif', $this->upload->display_errors());
-				redirect('dashboard_admin/addsiswa');
+				redirect('admin/addsiswa');
 			}
 		} else {
 			$data['main_view'] = 'dashboard_admin';
 			$this->session->set_flashdata('notif', validation_errors());
-			redirect('dashboard_admin/addsiswa');
+			redirect('admin/addsiswa');
+		}
+	}
+
+	//show data siswa
+	public function datasiswa()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view']='data_siswa_view';
+			$data['siswa'] = $this->admin_model->getDataSiswa();
+			$this->load->view('template_admin_view', $data);
+		} else {
+			redirect('admin');
 		}
 	}
 
 	//show data guru
-	/*public function showguru()
+	public function dataguru()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='data_guru_view';
-			$data['obat'] = $this->obat_model->getDataObat();
-			$data['supplier'] = $this->obat_model->getDataSupp();
-			$this->load->view('template_view', $data);
+			$data['guru'] = $this->admin_model->getDataGuru();
+			$this->load->view('template_admin_view', $data);
 		} else {
 			redirect('admin');
 		}
-	}*/
+	}
 
 }
 

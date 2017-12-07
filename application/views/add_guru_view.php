@@ -20,7 +20,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/dashboard_admin/insertguru">
+                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/insertguru">
                                 <div class="form-group">
                                     <label>Username</label>
                                     <input class="form-control" placeholder="Username" name="username" type="text" required>
@@ -30,16 +30,16 @@
                                     <input class="form-control" placeholder="Password" name="password" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Nama Guru</label>
-                                    <input class="form-control" placeholder="Nama Guru" name="nama_guru" required>
+                                    <label>Nama</label>
+                                    <input class="form-control" placeholder="Nama" name="nama_guru" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Foto Guru</label>
+                                    <label>Foto</label>
                                     <input type="file" id="foto" name="foto" required>
                                 </div>
                                 <div class="form-group">
                                     <label>No. Telepon</label>
-                                    <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required>
+                                    <input class="form-control" placeholder="No. Telepon" name="telp" type="text" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Pembimbing di Kota</label>

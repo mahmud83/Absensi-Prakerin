@@ -13,7 +13,7 @@ class Login extends CI_Controller {
 	{
 		if($this->session->userdata('logged_in') == TRUE) {
 			if ($this->session->userdata('role') == '1') {
-				redirect('dashboard_admin');
+				redirect('admin');
 			} else if ($this->session->userdata('role') == '2') {
 				redirect('dashboard_guru');
 			} else if ($this->session->userdata('role') == '3') {
@@ -33,11 +33,11 @@ class Login extends CI_Controller {
 			
 			if ($this->form_validation->run() == TRUE ) {
 				if ($this->login_model->cek() == TRUE) {
-					if ($this->session->userdata('role') == 'Admin') {
-						redirect('dashboard_admin');
-					} else if ($this->session->userdata('role') == 'Guru') {
+					if ($this->session->userdata('role') == '1') {
+						redirect('admin');
+					} else if ($this->session->userdata('role') == '2') {
 						redirect('dashboard_guru');
-					} else if ($this->session->userdata('role') == 'Siswa') {
+					} else if ($this->session->userdata('role') == '3') {
 						redirect('dashboard_siswa');
 					}
 				} else {
