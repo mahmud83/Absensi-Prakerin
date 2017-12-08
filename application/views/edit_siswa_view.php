@@ -20,7 +20,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updatesiswa">
+                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updatesiswa/<?php echo $id_sw = $this->uri->segment(3); ?>">
                                 <!-- <div class="form-group">
                                     <label>Username</label>
                                     <input class="form-control" placeholder="Username" name="username" type="text" required>
@@ -256,11 +256,14 @@
                                             <input type="submit" name="insert" value="UPDATE" class="btn btn-primary btn-flat">
                                         </div>
                                         <div>
-                                            <a href="<?php echo base_url(); ?>index.php/admin" class="btn btn-danger btn-flat">KEMBALI</a>
+                                            <a href="<?php echo base_url(); ?>index.php/admin/datasiswa" class="btn btn-danger btn-flat">KEMBALI</a>
                                         </div>
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                        <div class="col-lg-6">
+                          <img style="height:200px; width:150px;" src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $detil->foto_siswa; ?>">
                         </div>
                     </div>
                     <!-- /.row (nested) -->

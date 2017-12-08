@@ -20,7 +20,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updateguru">
+                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updateguru/<?php echo $id_gr = $this->uri->segment(3); ?>">
                                 <!-- <div class="form-group">
                                     <label>Username</label>
                                     <input class="form-control" placeholder="Username" name="username" type="text" required>
@@ -32,6 +32,10 @@
                                 <div class="form-group">
                                     <label>Nama Guru</label>
                                     <input class="form-control" placeholder="Nama Guru" name="nama_guru" required value="<?php echo $detil->nama_guru; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Foto</label>
+                                    <input type="file" id="foto" name="foto" required>
                                 </div>
                                 <div class="form-group">
                                     <label>No. Telepon</label>
@@ -80,6 +84,9 @@
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                        <div class="col-lg-6">
+                          <img style="height:200px; width:150px;" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $detil->foto_guru; ?>">
                         </div>
                     </div>
                     <!-- /.row (nested) -->

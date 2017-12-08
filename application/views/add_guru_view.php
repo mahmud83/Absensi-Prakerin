@@ -56,7 +56,7 @@
                                             <input type="submit" name="insert" value="TAMBAH" class="btn btn-primary btn-flat">
                                         </div>
                                         <div>
-                                            <a href="<?php echo base_url(); ?>index.php/dashboard_admin" class="btn btn-danger btn-flat">KEMBALI</a>
+                                            <a href="<?php echo base_url(); ?>index.php/admin" class="btn btn-danger btn-flat">KEMBALI</a>
                                         </div>
                                     </div>
                                 </div>

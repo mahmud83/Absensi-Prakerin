@@ -7,6 +7,14 @@
     </div>
     <!-- Main content -->
     <section class="content">
+        <?php 
+            $notif = $this->session->flashdata('notif');
+            if (!empty($notif)) {
+                echo '<div class="alert alert-danger">';
+                echo $notif;
+                echo '</div>';
+            }
+        ?>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -45,7 +53,7 @@
                                     <td>'.$data->alamat_prakerin.'</td>
                                     <td style="width:9%;">
                                         <a href="'.base_url().'index.php/admin/editsiswa/'.$data->id_user_siswa.'" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
-                                        <a href="'.base_url().'index.php/obat/deletesiswa/'.$data->id_user_siswa.'" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
+                                        <a href="'.base_url().'index.php/admin/deletesiswa/'.$data->id_user_siswa.'" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
                             ';

@@ -95,6 +95,33 @@ class Admin_model extends CI_Model {
 		return $kd.sprintf('%03s', $next);
 	}
 
+	public function getDataGuru()
+	{
+		return $this->db->order_by('nama_guru', 'ASC')->get('tb_user_guru')->result();
+	}
+
+	public function get_guru_by_id($id_gr){
+		return $this->db->where('id_user_guru', $id_gr)
+						->get('tb_user_guru')
+						->row();
+	}
+
+	public function editguru($id_gr, $foto)
+	{
+		$data = array(
+					 'nama_guru' => $this->input->post('nama_guru'),
+					 'no_telp_guru' => $this->input->post('telp'),
+					 'kota' => $this->input->post('kota'),
+					 'foto_guru' => $foto['file_name'] 
+				);
+		$this->db->where('id_user_guru', $id_gr)->update('tb_user_guru', $data);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
 	public function getDataSiswa()
 	{
 		return $this->db->order_by('nama_siswa', 'ASC')->get('tb_user_siswa')->result();
@@ -106,16 +133,45 @@ class Admin_model extends CI_Model {
 						->row();
 	}
 
-	public function getDataGuru()
+	public function editsiswa($id_sw, $foto)
 	{
-		return $this->db->order_by('nama_guru', 'ASC')->get('tb_user_guru')->result();
+		$data = array(
+					 'nama_siswa' => $this->input->post('nama_siswa'),
+				 	 'kelas' => $this->input->post('kelas'),
+				  	 'no_telp_siswa' => $this->input->post('telp'),
+				  	 'kota' => $this->input->post('kota'),
+				  	 'jenis_kelamin' => $this->input->post('jk'),
+				  	 'alamat_prakerin' => $this->input->post('alamat'),
+				  	 'industri' => $this->input->post('industri'),
+				  	 'foto_siswa' => $foto['file_name'],
+				);
+		$this->db->where('id_user_siswa', $id_sw)->update('tb_user_siswa', $data);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
 	}
 
-	public function get_guru_by_id($id_gr){
-		return $this->db->where('id_user_guru', $id_gr)
-						->get('tb_user_guru')
-						->row();
-	}
+	/*public function hapusguru($id_gr)
+	{
+		$this->db->where('id_user_guru', $id_gr)->delete('tb_user_guru');
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}*/
+
+	/*public function hapussiswa($id_sw)
+	{
+		$this->db->where('id_user_siswa', $id_sw)->delete('tb_user_siswa');
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}*/
 
 }
 
