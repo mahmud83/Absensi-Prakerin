@@ -1,38 +1,26 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Edit Data Siswa</h1>
+            <h1 class="page-header">Profilku</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-    <?php 
-        $notif = $this->session->flashdata('notif');
-        if (!empty($notif)) {
-            echo '<div class="alert alert-danger">';
-            echo $notif;
-            echo '</div>';
-        }
-    ?>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-green">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updatesiswa/<?php echo $id_sw = $this->uri->segment(3); ?>">
+                            <!-- <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/updateprofil/<?php echo $id_sw = $this->uri->segment(3); ?>"> -->
                                 <div class="form-group">
-                                    <label>Nama Siswa</label>
-                                    <input class="form-control" placeholder="Nama siswa" name="nama_siswa" required value="<?php echo $detil->nama_siswa; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label>Foto Siswa</label>
-                                    <input type="file" id="foto" name="foto" required>
+                                    <label>Nama</label>
+                                    <input class="form-control" placeholder="Nama siswa" name="nama_siswa" disabled value="<?php echo $detil->nama_siswa; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label>
                                     
-                                    <select class="form-control" name="jk">
+                                    <select class="form-control" name="jk" disabled>
                                         <?php 
                                             if($detil->jenis_kelamin == "Laki-Laki")
                                             {
@@ -49,7 +37,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kelas</label>
-                                    <select class="form-control" name="kelas">
+                                    <select class="form-control" name="kelas" disabled>
                                          <?php 
                                             if($detil->kelas == "XII RPL 1")
                                             {
@@ -200,11 +188,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>No. Telepon</label>
-                                    <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required value="<?php echo $detil->no_telp_siswa; ?>">
+                                    <input class="form-control" placeholder="No. Telepon" name="telp" type="number" disabled value="<?php echo $detil->no_telp_siswa; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Kota</label>
-                                    <select class="form-control" name="kota">
+                                    <select class="form-control" name="kota" disabled>
                                         <?php 
                                             if($detil->kota == "Malang")
                                             {
@@ -236,32 +224,32 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Industri Prakerin</label>
-                                    <input class="form-control" placeholder="Industri Prakerin" name="industri" required value="<?php echo $detil->industri; ?>">
+                                    <input class="form-control" placeholder="Industri Prakerin" name="industri" disabled value="<?php echo $detil->industri; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat Selama Prakerin</label>
-                                    <textarea class="form-control" name="alamat" value=""><?php echo $detil->alamat_prakerin; ?></textarea>
+                                    <textarea class="form-control" name="alamat" disabled><?php echo $detil->alamat_prakerin; ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <input type="submit" name="insert" value="UPDATE" class="btn btn-primary btn-flat">
+                                            <a class="btn btn-primary btn-flat" href="<?php echo base_url(); ?>index.php/siswa/editsiswa/">EDIT PROFIL</a>
                                         </div>
                                         <div>
-                                            <a href="<?php echo base_url(); ?>index.php/admin/datasiswa" class="btn btn-danger btn-flat">KEMBALI</a>
+                                            <a href="<?php echo base_url(); ?>index.php/siswa" class="btn btn-danger btn-flat">KEMBALI</a>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <div class="form-group col-lg-6">
+                        <!-- <div class="form-group col-lg-6">
                             <label>Username</label>
                             <input class="form-control" placeholder="Username" name="username" type="text" required value="<?php echo $detill->username; ?>">
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Password</label>
                             <input class="form-control" placeholder="Password" name="password" required value="<?php echo $detill->password; ?>">
-                        </div>
+                        </div> -->
                         <div class="col-lg-6">
                           <img style="height:200px; width:150px;" src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $detil->foto_siswa; ?>">
                         </div>

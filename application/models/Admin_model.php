@@ -147,6 +147,12 @@ class Admin_model extends CI_Model {
 						->row();
 	}
 
+	public function get_siswal_by_id($id_sw){
+		return $this->db->where('id_user', $id_sw)
+						->get('tb_login')
+						->row();
+	}
+
 	public function editsiswa($id_sw, $foto)
 	{
 		$data = array(
@@ -178,15 +184,16 @@ class Admin_model extends CI_Model {
 		}
 	}
 	
-	/*public function hapussiswa($id_sw)
+	public function hapussiswa($id_sw)
 	{
 		$this->db->where('id_user_siswa', $id_sw)->delete('tb_user_siswa');
+		$this->db->where('id_user', $id_sw)->delete('tb_login');
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
 		} else {
 			return FALSE;
 		}
-	}*/
+	}
 }
 /* End of file Admin_model.php */
 /* Location: ./application/models/Admin_model.php */

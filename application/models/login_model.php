@@ -14,8 +14,9 @@ class Login_model extends CI_Model {
 
 		//cek db
 		if ($query->num_rows() > 0) {
-			$data = array('username' => $username, 
-						  'logged_in' => TRUE, 
+			$data = array('username' => $username,
+						  'logged_in' => TRUE,
+						  'id_user' => $query->row()->id_user,
 						  'role' => $query->row()->id_level
 						 );
 			$this->session->set_userdata( $data );

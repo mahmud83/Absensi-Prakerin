@@ -17,7 +17,7 @@ class Login extends CI_Controller {
 			} else if ($this->session->userdata('role') == '2') {
 				redirect('guru');
 			} else if ($this->session->userdata('role') == '3') {
-				redirect('dashboard_siswa');
+				redirect('siswa');
 			}
 		} else {
 			$this->load->view('login_view');
@@ -38,7 +38,7 @@ class Login extends CI_Controller {
 					} else if ($this->session->userdata('role') == '2') {
 						redirect('guru');
 					} else if ($this->session->userdata('role') == '3') {
-						redirect('dashboard_siswa');
+						redirect('siswa');
 					}
 				} else {
 					$data = $this->session->set_flashdata('notif', 'Login gagal');

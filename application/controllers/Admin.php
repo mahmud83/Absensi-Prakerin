@@ -216,6 +216,7 @@ class Admin extends CI_Controller {
 			//ambil data siswa
 			$id_sw = $this->uri->segment(3);
 			$data['detil'] = $this->admin_model->get_siswa_by_id($id_sw);
+			$data['detill'] = $this->admin_model->get_siswal_by_id($id_sw);
 
 			$this->load->view('template_admin_view', $data);
 		}
@@ -281,7 +282,7 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	/*public function deletesiswa()
+	public function deletesiswa()
 	{
 		$id_sw = $this->uri->segment(3);
 		if ($this->session->userdata('logged_in') == TRUE) {
@@ -295,7 +296,7 @@ class Admin extends CI_Controller {
 		} else {
 			redirect('admin/datasiswa');
 		}
-	}*/
+	}
 
 }
 
