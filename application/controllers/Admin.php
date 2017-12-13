@@ -265,7 +265,7 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	/*public function deleteguru()
+	public function deleteguru()
 	{
 		$id_gr = $this->uri->segment(3);
 		if ($this->session->userdata('logged_in') == TRUE) {
@@ -279,7 +279,7 @@ class Admin extends CI_Controller {
 		} else {
 			redirect('admin/dataguru');
 		}
-	}*/
+	}
 
 	/*public function deletesiswa()
 	{

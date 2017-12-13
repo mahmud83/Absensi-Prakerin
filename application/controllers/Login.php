@@ -15,7 +15,7 @@ class Login extends CI_Controller {
 			if ($this->session->userdata('role') == '1') {
 				redirect('admin');
 			} else if ($this->session->userdata('role') == '2') {
-				redirect('dashboard_guru');
+				redirect('guru');
 			} else if ($this->session->userdata('role') == '3') {
 				redirect('dashboard_siswa');
 			}
@@ -36,7 +36,7 @@ class Login extends CI_Controller {
 					if ($this->session->userdata('role') == '1') {
 						redirect('admin');
 					} else if ($this->session->userdata('role') == '2') {
-						redirect('dashboard_guru');
+						redirect('guru');
 					} else if ($this->session->userdata('role') == '3') {
 						redirect('dashboard_siswa');
 					}

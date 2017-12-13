@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard_guru extends CI_Controller {
+class Guru extends CI_Controller {
 
 	public function __construct()
 	{
@@ -30,7 +30,7 @@ class Dashboard_guru extends CI_Controller {
 		redirect('login');
 	}
 
-	public function addguru()
+	/*public function addguru()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='add_guru_view';
@@ -126,7 +126,7 @@ class Dashboard_guru extends CI_Controller {
 			$this->session->set_flashdata('notif', validation_errors());
 			redirect('dashboard_admin/addsiswa');
 		}
-	}
+	}*/
 
 	//show data guru
 	/*public function showguru()
