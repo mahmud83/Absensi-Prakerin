@@ -24,6 +24,8 @@ class Siswa extends CI_Controller {
 		} else {
 			$this->session->set_flashdata('notif', 'Anda Sudah Absen Hari Ini');
 		}
+
+		//tes
 	}
 
 	/*//show data siswa
