@@ -19,14 +19,6 @@ class Siswa extends CI_Controller {
 		} else {
 			redirect('login');
 		}
-
-		// if ($this->siswa_model->cekAbsen() == TRUE) {
-		// 	$this->session->set_flashdata('notif', 'Anda Belum Absen Hari Ini');
-		// } else {
-		// 	$this->session->set_flashdata('notif', 'Anda Sudah Absen Hari Ini');
-		// }
-
-		//tes
 	}
 
 	/*//show data siswa

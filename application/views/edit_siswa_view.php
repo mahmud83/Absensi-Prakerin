@@ -239,7 +239,7 @@
                                         <div class="col-sm-4">
                                             <input type="submit" name="insert" value="UPDATE" class="btn btn-primary btn-flat">
                                         </div>
-                                        <div>
+                                        <div class="col-sm-4">
                                             <a href="<?php echo base_url(); ?>index.php/admin/datasiswa" class="btn btn-danger btn-flat">KEMBALI</a>
                                         </div>
                                     </div>

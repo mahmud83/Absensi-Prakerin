@@ -80,17 +80,10 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li class="active">
           <a href="#">
             <i class="fa fa-plus"></i> <span>Absensi</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url(); ?>index.php/admin/addguru"><i class="fa fa-circle-o"></i> Absensi Hari Ini</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/admin/addsiswa"><i class="fa fa-circle-o"></i> Semua Absensi</a></li>
-          </ul>
         </li>
         <li class="treeview">
           <a href="#">

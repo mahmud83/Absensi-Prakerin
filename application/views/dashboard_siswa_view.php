@@ -29,10 +29,10 @@
 
       					<!-- Modal body -->
       					<div class="modal-body">
-        					<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/insertguru">
+        					<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/addjurnal">
                                 <div class="form-group">
                                     <label>Kegiatan Prakerin</label>
-                                    <textarea class="form-control"></textarea>
+                                    <textarea class="form-control" name="keterangan"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Foto Prakerin</label>
