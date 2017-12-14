@@ -9,9 +9,15 @@
     <?php 
         $notif = $this->session->flashdata('notif');
         if (!empty($notif)) {
-            echo '<div class="alert alert-danger">';
-            echo $notif;
-            echo '</div>';
+            if ($notif == 'Berhasil menambahkan data guru') {
+                echo '<div class="alert alert-success">';
+                echo $notif;
+                echo '</div>';
+            } else {
+                echo '<div class="alert alert-danger">';
+                echo $notif;
+                echo '</div>';
+            }
         }
     ?>
     <div class="row">

@@ -190,7 +190,7 @@ class Admin extends CI_Controller {
 					redirect('admin/dataguru');
 				} else {
 					$data['main_view'] = 'data_guru_view';
-					$this->session->set_flashdata('notif', 'Gagal menambahkan obat');
+					$this->session->set_flashdata('notif', 'Gagal menambahkan guru');
 					$id_gr = $this->uri->segment(3);
 					redirect('admin/dataguru');
 				}
@@ -259,10 +259,10 @@ class Admin extends CI_Controller {
 				redirect('admin/datasiswa');
 			}
 		} else {
-			$data['main_view'] = 'data_guru_view';
+			$data['main_view'] = 'data_siswa_view';
 			$this->session->set_flashdata('notif', validation_errors());
 			$id_sw = $this->uri->segment(3);
-			redirect('admin/dataguru');
+			redirect('admin/datasiswa');
 		}
 	}
 

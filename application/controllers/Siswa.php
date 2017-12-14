@@ -14,16 +14,17 @@ class Siswa extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='dashboard_siswa_view';
+			$data['isAbsen'] = $this->siswa_model->cekAbsen();
 			$this->load->view('template_siswa_view', $data);
 		} else {
 			redirect('login');
 		}
 
-		if ($this->siswa_model->cekAbsen() == TRUE) {
-			$this->session->set_flashdata('notif', 'Anda Belum Absen Hari Ini');
-		} else {
-			$this->session->set_flashdata('notif', 'Anda Sudah Absen Hari Ini');
-		}
+		// if ($this->siswa_model->cekAbsen() == TRUE) {
+		// 	$this->session->set_flashdata('notif', 'Anda Belum Absen Hari Ini');
+		// } else {
+		// 	$this->session->set_flashdata('notif', 'Anda Sudah Absen Hari Ini');
+		// }
 
 		//tes
 	}

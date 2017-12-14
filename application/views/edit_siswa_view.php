@@ -6,14 +6,6 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-    <?php 
-        $notif = $this->session->flashdata('notif');
-        if (!empty($notif)) {
-            echo '<div class="alert alert-danger">';
-            echo $notif;
-            echo '</div>';
-        }
-    ?>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-green">

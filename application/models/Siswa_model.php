@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Siswa_model extends CI_Model {
 
+	// cek jika belum absen
 	public function cekAbsen()
 	{
 		$today = date("Y-m-d");
