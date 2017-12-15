@@ -58,6 +58,12 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <li class="user">
+            <a href="#">
+              <!-- <img src="'.base_url().'uploads/foto_siswa/'.$foto->foto_siswa.'" class="user-image" alt="User Image"> -->
+              <span class="hidden-xs">Hi, <?php echo $this->session->userdata('jeneng'); ?></span>
+            </a>
+          </li>
           <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                   <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>

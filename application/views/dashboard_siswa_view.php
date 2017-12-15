@@ -29,7 +29,15 @@
 
       					<!-- Modal body -->
       					<div class="modal-body">
-        					<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/addjurnal">
+                            <?php 
+                                $notif = $this->session->flashdata('notif');
+                                if (!empty($notif)) {
+                                    echo '<div class="alert alert-danger">';
+                                    echo $notif;
+                                    echo '</div>';
+                                }
+                            ?>
+        					<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/insertjurnal">
                                 <div class="form-group">
                                     <label>Kegiatan Prakerin</label>
                                     <textarea class="form-control" name="keterangan"></textarea>
@@ -51,8 +59,54 @@
     				</div>
   				</div>
 			</div>
+        <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Data Absensi Prakerin SMK Telkom Malang 2017</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Kegiatan Prakerin</th>
+                    <th>Foto Prakerin</th>
+                    <th>Tanggal</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        $no=1;
+                        foreach($jurnal as $data) {
+                            echo '
+                                <tr>
+                                    <td>'.$no.'</td>
+                                    <td>'.$data->isi.'</td>
+                                    <td><img style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
+                                    <td>'.$data->tanggal.'</td>
+                                    <td>'.$data->status.'</td>
+                                    <td style="width:9%;">
+                                        <a href="" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a href="" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
+                                    </td>
+                                </tr>
+                            ';
+                            $no++;
+                        };
+                    ?>
+                </tbody>
+                    <!-- <td><img style="height:160px; width:120px;" src="'.base_url().'uploads/foto_siswa/'.$data->foto_siswa.'"></td> -->
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
 	</body>
 </html>
-
-<!-- Anda belum absen hari ini!
-<button class="btn btn-primary pull-right" style="padding-top: 1;">Absen Hari Ini</button> -->

@@ -7,7 +7,8 @@ class Admin_model extends CI_Model {
 				 		'username' => $this->input->post('username'), 
 				 		'password' => $this->input->post('password'),
 				  		'id_level' => '2',
-				  		'id_user' => $this->genIDg()
+				  		'id_user' => $this->genIDg(),
+				  		'nama' => $this->input->post('nama_guru')
 				  	  );
 		$detail = array (
 				 		'nama_guru' => $this->input->post('nama_guru'),
@@ -59,7 +60,8 @@ class Admin_model extends CI_Model {
 				 		'username' => $this->input->post('username'), 
 				 		'password' => $this->input->post('password'),
 				  		'id_level' => '3',
-				  		'id_user' => $this->genIDs()
+				  		'id_user' => $this->genIDs(),
+				  		'nama' => $this->input->post('nama_siswa')
 				  	  );
 		$detail = array (
 				 		'nama_siswa' => $this->input->post('nama_siswa'),

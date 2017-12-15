@@ -15,6 +15,8 @@ class Siswa extends CI_Controller {
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='dashboard_siswa_view';
 			$data['isAbsen'] = $this->siswa_model->cekAbsen();
+			$data['jurnal'] = $this->siswa_model->getDatajurnal();
+			$data['foto'] = $this->admin_model->getDataSiswa();
 			$this->load->view('template_siswa_view', $data);
 		} else {
 			redirect('login');
@@ -22,33 +24,37 @@ class Siswa extends CI_Controller {
 	}
 
 	/*//show data siswa
-	public function datasiswa()
+	public function insertjurnal()
 	{
-		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='profil_siswa_view';
-			$data['detil'] = $this->siswa_model->getDataSiswa();
-			$this->load->view('template_siswa_view', $data);
+		$this->form_validation->set_rules('keterangan', 'Kegiatan Prakerin', 'trim|required|min_length[15]');
+		if ($this->form_validation->run() == TRUE ) {
+			$config['upload_path'] = './uploads/foto_prakerin/';
+			$config['allowed_types'] = 'jpg|png';
+			$config['max_size'] = '2000';
+
+			$this->load->library('upload', $config);
+
+			if ($this->upload->do_upload('foto')) {
+				if($this->siswa_model->tambahjurnal($this->upload->data()) == TRUE) {
+					$data['main_view'] = 'dashboard_siswa_view';
+					$this->session->set_flashdata('notif', 'Berhasil menambahkan data guru');
+					redirect('siswa');
+				} else {
+					$data['main_view'] = 'dashboard_siswa_view';
+					$this->session->set_flashdata('notif', 'Gagal menambahkan data guru');
+					redirect('siswa');
+				}
+			} else {
+				$data['main_view'] = 'dashboard_siswa_view';
+				$this->session->set_flashdata('notif', $this->upload->display_errors());
+				redirect('siswa');
+			}
 		} else {
+			$data['main_view'] = 'dashboard_siswa_view';
+			$this->session->set_flashdata('notif', validation_errors());
 			redirect('siswa');
 		}
 	}
-
-	//edit data siswa view
-	public function editsiswa()
-	{
-		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view'] = 'edit_profil_siswa_view';
-			//ambil data siswa
-			$id_sw = $this->uri->segment(3);
-			$data['detil'] = $this->admin_model->get_siswa_by_id($id_sw);
-			$data['detill'] = $this->admin_model->get_siswal_by_id($id_sw);
-
-			$this->load->view('template_siswa_view', $data);
-		}
-		else{
-			redirect('admin/datasiswa');
-		}
-	}*/
 
 }
 
