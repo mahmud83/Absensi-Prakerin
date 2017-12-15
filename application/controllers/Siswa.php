@@ -16,14 +16,16 @@ class Siswa extends CI_Controller {
 			$data['main_view']='dashboard_siswa_view';
 			$data['isAbsen'] = $this->siswa_model->cekAbsen();
 			$data['jurnal'] = $this->siswa_model->getDatajurnal();
-			$data['foto'] = $this->admin_model->getDataSiswa();
-			$this->load->view('template_siswa_view', $data);
+			$data['kelas'] = $this->siswa_model->getKelas();
+			$data['foto'] = $this->siswa_model->getFoto();
+			$data['industri'] = $this->siswa_model->getIndustri();
+			$data['kota'] = $this->siswa_model->getKota();
+			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
 		}
 	}
 
-	/*//show data siswa
 	public function insertjurnal()
 	{
 		$this->form_validation->set_rules('keterangan', 'Kegiatan Prakerin', 'trim|required|min_length[15]');

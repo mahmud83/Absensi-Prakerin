@@ -13,7 +13,7 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='dashboard_admin_view';
-			$this->load->view('template_admin_view', $data);
+			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
 		}	

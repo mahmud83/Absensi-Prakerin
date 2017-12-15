@@ -43,7 +43,53 @@ class Siswa_model extends CI_Model {
 	public function getDataJurnal()
 	{
 		return $this->db->where('id_user', $this->session->userdata('id_user'))
-						->order_by('tanggal', 'DESC')->get('tb_post')->result();
+						->order_by('tanggal', 'DESC')
+						->get('tb_post')
+						->result();
+	}
+
+	public function getKelas()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						 ->select('kelas')
+						 ->get('tb_user_siswa');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->kelas;
+     	}
+     	return TRUE;
+	}
+
+	public function getFoto()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						 ->select('foto_siswa')
+						 ->get('tb_user_siswa');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->foto_siswa;
+     	}
+     	return TRUE;
+	}
+
+	public function getIndustri()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						 ->select('industri')
+						 ->get('tb_user_siswa');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->industri;
+     	}
+     	return TRUE;
+	}
+
+	public function getKota()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						 ->select('kota')
+						 ->get('tb_user_siswa');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->kota;
+     	}
+     	return TRUE;
 	}
 
 }

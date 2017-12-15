@@ -7,13 +7,16 @@ class Guru extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('admin_model');
+		$this->load->model('guru_model');
 	}
 
 	public function index()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='dashboard_guru_view';
-			$this->load->view('template_admin_view', $data);
+			$data['foto'] = $this->guru_model->getFoto();
+			$data['kota'] = $this->guru_model->getKota();
+			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
 		}	

@@ -41,11 +41,11 @@ class Login extends CI_Controller {
 						redirect('siswa');
 					}
 				} else {
-					$data = $this->session->set_flashdata('notif', 'Login gagal');
+					$data = $this->session->set_flashdata('notif', 'Username atau Password salah');
 					redirect('login');
 				}
 			} else {
-				$data = $this->session->set_flashdata('notif', validation_errors());
+				$data = $this->session->set_flashdata('notif', 'Lengkapi Username dan Password');
 					redirect('login');
 			}
 		}
