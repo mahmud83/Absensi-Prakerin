@@ -34,7 +34,7 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='add_guru_view';
-			$this->load->view('template_admin_view', $data);
+			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
 		}
@@ -44,7 +44,7 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='add_siswa_view';
-			$this->load->view('template_admin_view', $data);
+			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
 		}
@@ -83,7 +83,7 @@ class Admin extends CI_Controller {
 			}
 		} else {
 			$data['main_view'] = 'admin';
-			$this->session->set_flashdata('notif', validation_errors());
+			$this->session->set_flashdata('notif', 'Lengkapi semua field');
 			redirect('admin/addguru');
 		}
 	}
@@ -123,7 +123,7 @@ class Admin extends CI_Controller {
 			}
 		} else {
 			$data['main_view'] = 'dashboard_admin';
-			$this->session->set_flashdata('notif', validation_errors());
+			$this->session->set_flashdata('notif', 'Lengkapi semua field');
 			redirect('admin/addsiswa');
 		}
 	}
@@ -134,7 +134,7 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='data_siswa_view';
 			$data['siswa'] = $this->admin_model->getDataSiswa();
-			$this->load->view('template_admin_view', $data);
+			$this->load->view('template_view', $data);
 		} else {
 			redirect('admin');
 		}
@@ -146,7 +146,7 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='data_guru_view';
 			$data['guru'] = $this->admin_model->getDataGuru();
-			$this->load->view('template_admin_view', $data);
+			$this->load->view('template_view', $data);
 		} else {
 			redirect('admin');
 		}
@@ -161,7 +161,7 @@ class Admin extends CI_Controller {
 			$id_gr = $this->uri->segment(3);
 			$data['detil'] = $this->admin_model->get_guru_by_id($id_gr);
 
-			$this->load->view('template_admin_view', $data);
+			$this->load->view('template_view', $data);
 		}
 		else{
 			redirect('admin/dataguru');
@@ -202,7 +202,7 @@ class Admin extends CI_Controller {
 			}
 		} else {
 			$data['main_view'] = 'data_guru_view';
-			$this->session->set_flashdata('notif', validation_errors());
+			$this->session->set_flashdata('notif', 'Lengkapi semua field');
 			$id_gr = $this->uri->segment(3);
 			redirect('admin/dataguru');
 		}
@@ -218,7 +218,7 @@ class Admin extends CI_Controller {
 			$data['detil'] = $this->admin_model->get_siswa_by_id($id_sw);
 			$data['detill'] = $this->admin_model->get_siswal_by_id($id_sw);
 
-			$this->load->view('template_admin_view', $data);
+			$this->load->view('template_view', $data);
 		}
 		else{
 			redirect('admin/datasiswa');
@@ -260,7 +260,7 @@ class Admin extends CI_Controller {
 			}
 		} else {
 			$data['main_view'] = 'data_siswa_view';
-			$this->session->set_flashdata('notif', validation_errors());
+			$this->session->set_flashdata('notif', 'Lengkapi semua field');
 			$id_sw = $this->uri->segment(3);
 			redirect('admin/datasiswa');
 		}

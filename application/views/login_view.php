@@ -16,8 +16,9 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/AdminLTE.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/iCheck/square/blue.css">
-    <!-- icon notify -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/pe-icon-7-stroke.css">
+    <!-- animate bootstrap notify -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/animate.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/animate.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,8 +30,8 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   </head>
-  <body class="hold-transition login-page">
-    <div class="login-box">
+  <body class="hold-transition login-page" style="display: flex;">
+    <div class="login-box" style="">
       <div class="login-logo">
         <h3><b>Prakerin</b>&nbsp;SMK Telkom Malang</h3>
       </div>
@@ -83,11 +84,21 @@
       <?php if(!empty($notif)): ?>
         $.notify({
           icon: 'glyphicon glyphicon-warning-sign',
-          message: "<b>Warning!</b><br><?php echo $notif; ?>"
+          title: '<strong>&nbsp;Sign In Warning!</strong><br>',
+          message: "<?php echo $notif; ?>"
         },{
-          type: 'danger',
           timer: 2000,
-        });            
+          delay: 500,
+          type: 'danger',
+          placement: {
+            from: "top",
+            align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
       <?php endif; ?>
     </script>
   </body>

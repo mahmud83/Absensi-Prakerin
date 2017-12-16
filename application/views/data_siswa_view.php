@@ -7,24 +7,6 @@
     </div>
     <!-- Main content -->
     <section class="content">
-        <?php 
-            $notif = $this->session->flashdata('notif');
-            if (!empty($notif)) {
-                if ($notif == 'Berhasil mengubah data siswa') {
-                    echo '<div class="alert alert-success">';
-                    echo $notif;
-                    echo '</div>';
-                } elseif ($notif == 'Berhasil menghapus data siswa') {
-                    echo '<div class="alert alert-success">';
-                    echo $notif;
-                    echo '</div>';
-                }else {
-                    echo '<div class="alert alert-danger">';
-                    echo $notif;
-                    echo '</div>';
-                }
-            }
-        ?>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
