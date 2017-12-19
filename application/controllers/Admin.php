@@ -164,7 +164,7 @@ class Admin extends CI_Controller {
 			$this->load->view('template_view', $data);
 		}
 		else{
-			redirect('admin/dataguru');
+			redirect('login');
 		}
 	}
 

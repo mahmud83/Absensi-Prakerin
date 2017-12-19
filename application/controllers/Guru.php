@@ -16,6 +16,7 @@ class Guru extends CI_Controller {
 			$data['main_view']='dashboard_guru_view';
 			$data['foto'] = $this->guru_model->getFoto();
 			$data['kota'] = $this->guru_model->getKota();
+			$data['siswa'] = $this->guru_model->getKotaSiswa();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -33,116 +34,23 @@ class Guru extends CI_Controller {
 		redirect('login');
 	}
 
-	/*public function addguru()
+	public function datajurnal()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='add_guru_view';
-			$this->load->view('template_admin_view', $data);
-		} else {
-			redirect('login');
-		}
-	}
+			$data['main_view'] = 'data_absen_view';
+			$data['foto'] = $this->guru_model->getFoto();
+			$data['kota'] = $this->guru_model->getKota();
+			//ambil data absen
+			$id_sw = $this->uri->segment(3);
+			$data['jurnal'] = $this->guru_model->get_post_by_id();
+			$data['nama'] = $this->guru_model->getNamaSiswa();
 
-	public function addsiswa()
-	{
-		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='add_siswa_view';
-			$this->load->view('template_admin_view', $data);
-		} else {
-			redirect('login');
-		}
-	}
-
-	//tambah data guru
-	public function insertguru()
-	{
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]');
-		$this->form_validation->set_rules('nama_guru', 'Nama guru', 'trim|required');
-		$this->form_validation->set_rules('telp', 'No. Telp', 'trim|required|min_length[11]|max_length[12]');
-		$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
-
-		if ($this->form_validation->run() == TRUE ) {
-			$config['upload_path'] = './uploads/foto_guru/';
-			$config['allowed_types'] = 'jpg|png';
-			$config['max_size'] = '2000';
-
-			$this->load->library('upload', $config);
-
-			if ($this->upload->do_upload('foto')) {
-				if($this->admin_model->tambahguru($this->upload->data()) == TRUE) {
-					$data['main_view'] = 'add_guru_view';
-					$this->session->set_flashdata('notif', 'Berhasil menambahkan data guru');
-					redirect('dashboard_admin/addguru');
-				} else {
-					$data['main_view'] = 'add_guru_view';
-					$this->session->set_flashdata('notif', 'Gagal menambahkan data guru');
-					redirect('dashboard_admin/addguru');
-				}
-			} else {
-				$data['main_view'] = 'dashboard_admin';
-				$this->session->set_flashdata('notif', $this->upload->display_errors());
-				redirect('dashboard_admin/addguru');
-			}
-		} else {
-			$data['main_view'] = 'dashboard_admin';
-			$this->session->set_flashdata('notif', validation_errors());
-			redirect('dashboard_admin/addguru');
-		}
-	}
-
-	//tambah data siswa
-	public function insertsiswa()
-	{
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]');
-		$this->form_validation->set_rules('nama_siswa', 'Nama guru', 'trim|required');
-		$this->form_validation->set_rules('telp', 'No. Telp', 'trim|required|min_length[11]|max_length[12]|numeric');
-		$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
-		$this->form_validation->set_rules('industri', 'Industri', 'trim|required');
-		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
-
-		if ($this->form_validation->run() == TRUE ) {
-			$config['upload_path'] = './uploads/foto_siswa/';
-			$config['allowed_types'] = 'jpg|png';
-			$config['max_size'] = '2000';
-
-			$this->load->library('upload', $config);
-
-			if ($this->upload->do_upload('foto')) {
-				if($this->admin_model->tambahsiswa($this->upload->data()) == TRUE) {
-					$data['main_view'] = 'add_siswa_view';
-					$this->session->set_flashdata('notif', 'Berhasil menambahkan data siswa');
-					redirect('dashboard_admin/addsiswa');
-				} else {
-					$data['main_view'] = 'add_siswa_view';
-					$this->session->set_flashdata('notif', 'Gagal menambahkan data siswa');
-					redirect('dashboard_admin/addsiswa');
-				}
-			} else {
-				$data['main_view'] = 'dashboard_admin';
-				$this->session->set_flashdata('notif', $this->upload->display_errors());
-				redirect('dashboard_admin/addsiswa');
-			}
-		} else {
-			$data['main_view'] = 'dashboard_admin';
-			$this->session->set_flashdata('notif', validation_errors());
-			redirect('dashboard_admin/addsiswa');
-		}
-	}*/
-
-	//show data guru
-	/*public function showguru()
-	{
-		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='data_guru_view';
-			$data['obat'] = $this->obat_model->getDataObat();
-			$data['supplier'] = $this->obat_model->getDataSupp();
 			$this->load->view('template_view', $data);
-		} else {
-			redirect('admin');
 		}
-	}*/
+		else{
+			redirect('login');
+		}
+	}
 
 }
 
