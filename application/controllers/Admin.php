@@ -298,6 +298,36 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function addindustri()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'add_industri_view';
+			$data['nama_guru'] = $this->admin_model->getNamaGuru();
+			$this->load->view('template_view', $data);
+		} else {
+			redirect('login');
+		}
+	}
+
+	public function insertindustri()
+	{
+		if ($this->input->post('insert')) {
+			$this->form_validation->set_rules('alamat', 'Alamat Industri', 'trim|required');
+			if ($this->form_validation->run() == TRUE ) {
+				if ($this->admin_model->addindustri() == TRUE) {
+					$this->session->set_flashdata('notif', 'Berhasil menambah data industri');
+					redirect('admin/addindustri');
+				} else {
+					$this->session->set_flashdata('notif', 'Gagal menambah data industri');
+					redirect('admin/addindustri');
+				}
+			} else {
+				$this->session->set_flashdata('notif', 'Lengkapi field');
+				redirect('admin/addindustri');
+			}
+		}
+	}
+
 }
 
 /* End of file dashboard_admin.php */

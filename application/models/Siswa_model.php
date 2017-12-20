@@ -26,6 +26,7 @@ class Siswa_model extends CI_Model {
 				  		'id_user' => $this->session->userdata('id_user'),
 				  		'tanggal' => date("Y-m-d"),
 				  		'status' => 'Menunggu konfirmasi',
+				  		'industri' => $this->getIndustri(),
 				  		'id_post' => $this->genIDj()
 				  	  );
 		$this->db->insert('tb_post', $data);

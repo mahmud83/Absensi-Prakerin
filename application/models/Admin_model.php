@@ -26,6 +26,7 @@ class Admin_model extends CI_Model {
 			return FALSE;
 		}
 	}
+
 	public function getIDfromtbg()
 	{
 		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
@@ -34,6 +35,7 @@ class Admin_model extends CI_Model {
 		$kd = 'GR';
 		return $kd.sprintf('%02s', $next);
 	}
+
 	public function genIDg()
 	{
 		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
@@ -42,14 +44,7 @@ class Admin_model extends CI_Model {
 		$kd = 'GR';
 		return $kd.sprintf('%02s', $next);
 	}
-	/*public function genIDgg()
-	{
-		$query = $this->db->order_by('id_user_guru', 'DESC')->limit(1)->get('tb_user_guru')->row('id_user_guru');
-		$lastNo = substr($query, 2);
-		$next = $lastNo + 1;
-		$kd = 'GR';
-		return $kd.sprintf('%02s', $next);
-	}*/
+
 	public function tambahsiswa($foto)
 	{
 		$login = array (
@@ -95,14 +90,15 @@ class Admin_model extends CI_Model {
 		$kd = 'SW';
 		return $kd.sprintf('%03s', $next);
 	}
-	/*public function genIDss()
+	
+	public function getNamaGuru()
 	{
-		$query = $this->db->order_by('id_user_siswa', 'DESC')->limit(1)->get('tb_user_siswa')->row('id_user_siswa');
-		$lastNo = substr($query, 3);
-		$next = $lastNo + 1;
-		$kd = 'SW';
-		return $kd.sprintf('%03s', $next);
-	}*/
+		return $this->db->order_by('kota', 'ASC')
+						->select('nama_guru')
+						->get('tb_user_guru')
+						->result();
+	}
+
 	public function getDataGuru()
 	{
 		return $this->db->order_by('nama_guru', 'ASC')->get('tb_user_guru')->result();
@@ -178,6 +174,51 @@ class Admin_model extends CI_Model {
 	{
 		$this->db->where('id_user_siswa', $id_sw)->delete('tb_user_siswa');
 		$this->db->where('id_user', $id_sw)->delete('tb_login');
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	public function genIDInd()
+	{
+		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
+		$lastNo = substr($query, 2);
+		$next = $lastNo + 1;
+		$kd = 'IND';
+		return $kd.sprintf('%02s', $next);
+	}
+
+	public function getIDfromtbInd()
+	{
+		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
+		$lastNo = substr($query, 2);
+		$next = $lastNo + 1;
+		$kd = 'IND';
+		return $kd.sprintf('%02s', $next);
+	}
+
+	public function addindustri()
+	{
+		$login = array (
+				 		'username' => $this->input->post('username'), 
+				 		'password' => $this->input->post('password'),
+				  		'id_level' => '4',
+				  		'id_user' => $this->genIDInd(),
+				  		'nama' => $this->input->post('nama_ind')
+				  	  );
+		$detail = array (
+				 		'nama_industri' => $this->input->post('nama_ind'),
+				  		'no_telp_industri' => $this->input->post('telp'),
+				  		'alamat_industri' => $this->input->post('alamat'),
+				  		'kota' => $this->input->post('kota'),
+				  		'id_user_industri' => $this->getIDfromtbInd(),
+				  		'id_user' => $this->getIDfromtbInd(),
+				  		'nama_guru_pembimbing' =>  $this->input->post('nama_guru')
+				  	  );
+		$this->db->insert('tb_login', $login);
+		$this->db->insert('tb_industri', $detail);
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
 		} else {

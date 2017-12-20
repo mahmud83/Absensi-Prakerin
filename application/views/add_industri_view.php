@@ -1,7 +1,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Tambah Data Guru Pembimbing</h1>
+            <h1 class="page-header">Tambah Data Industri</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -12,7 +12,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/insertguru">
+                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/insertindustri">
                                 <div class="form-group">
                                     <label>Username</label>
                                     <input class="form-control" placeholder="Username" name="username" type="text" required>
@@ -22,19 +22,15 @@
                                     <input class="form-control" placeholder="Password" name="password" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Nama Guru</label>
-                                    <input class="form-control" placeholder="Nama Guru" name="nama_guru" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Foto</label>
-                                    <input type="file" id="foto" name="foto" required>
+                                    <label>Nama Industri</label>
+                                    <input class="form-control" placeholder="Nama Industri" name="nama_ind" required>
                                 </div>
                                 <div class="form-group">
                                     <label>No. Telepon</label>
                                     <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Pembimbing di Kota</label>
+                                    <label>Kota</label>
                                     <select class="form-control" name="kota">
                                         <option>Bali</option>
                                         <option>Balikpapan</option>
@@ -51,6 +47,20 @@
                                         <option>Solo & Madiun</option>
                                         <option>Surabaya</option>
                                         <option>Yogyakarta</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Alamat Industri</label>
+                                    <textarea class="form-control" name="alamat"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nama Guru Pembimbing</label>
+                                    <select class="form-control" name="nama_guru">
+                                        <?php 
+                                            foreach ($nama_guru as $data) {
+                                                echo '<option>'.$data->nama_guru.'</option>';
+                                            }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group">

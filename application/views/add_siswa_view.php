@@ -59,10 +59,21 @@
                                 <div class="form-group">
                                     <label>Kota</label>
                                     <select class="form-control" name="kota">
-                                        <option>Malang</option>
-                                        <option>Surabaya</option>
+                                        <option>Bali</option>
+                                        <option>Balikpapan</option>
                                         <option>Bandung</option>
+                                        <option>Gresik & Tuban</option>
                                         <option>Jakarta</option>
+                                        <option>Jember</option>
+                                        <option>Kediri</option>
+                                        <option>Malang</option>
+                                        <option>Mataram</option>
+                                        <option>Pasuruan</option>
+                                        <option>Semarang</option>
+                                        <option>Sidoarjo</option>
+                                        <option>Solo & Madiun</option>
+                                        <option>Surabaya</option>
+                                        <option>Yogyakarta</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

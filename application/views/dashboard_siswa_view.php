@@ -67,7 +67,6 @@
                     <th>Foto Prakerin</th>
                     <th>Tanggal</th>
                     <th>Status</th>
-                    <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -81,10 +80,6 @@
                                     <td><img style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
                                     <td>'.$data->tanggal.'</td>
                                     <td>'.$data->status.'</td>
-                                    <td style="width:9%;">
-                                        <a href="" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
-                                        <a href="" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
-                                    </td>
                                 </tr>
                             ';
                             $no++;
