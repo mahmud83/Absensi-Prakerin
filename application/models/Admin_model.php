@@ -7,7 +7,8 @@ class Admin_model extends CI_Model {
 				 		'username' => $this->input->post('username'), 
 				 		'password' => $this->input->post('password'),
 				  		'id_level' => '2',
-				  		'id_user' => $this->genIDg()
+				  		'id_user' => $this->genIDg(),
+				  		'nama' => $this->input->post('nama_guru')
 				  	  );
 		$detail = array (
 				 		'nama_guru' => $this->input->post('nama_guru'),
@@ -25,7 +26,6 @@ class Admin_model extends CI_Model {
 			return FALSE;
 		}
 	}
-
 	public function getIDfromtbg()
 	{
 		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
@@ -34,7 +34,6 @@ class Admin_model extends CI_Model {
 		$kd = 'GR';
 		return $kd.sprintf('%02s', $next);
 	}
-
 	public function genIDg()
 	{
 		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
@@ -43,7 +42,6 @@ class Admin_model extends CI_Model {
 		$kd = 'GR';
 		return $kd.sprintf('%02s', $next);
 	}
-
 	/*public function genIDgg()
 	{
 		$query = $this->db->order_by('id_user_guru', 'DESC')->limit(1)->get('tb_user_guru')->row('id_user_guru');
@@ -52,14 +50,14 @@ class Admin_model extends CI_Model {
 		$kd = 'GR';
 		return $kd.sprintf('%02s', $next);
 	}*/
-
 	public function tambahsiswa($foto)
 	{
 		$login = array (
 				 		'username' => $this->input->post('username'), 
 				 		'password' => $this->input->post('password'),
 				  		'id_level' => '3',
-				  		'id_user' => $this->genIDs()
+				  		'id_user' => $this->genIDs(),
+				  		'nama' => $this->input->post('nama_siswa')
 				  	  );
 		$detail = array (
 				 		'nama_siswa' => $this->input->post('nama_siswa'),
@@ -81,7 +79,6 @@ class Admin_model extends CI_Model {
 			return FALSE;
 		}
 	}
-
 	public function getIDfromtbs()
 	{
 		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
@@ -90,7 +87,6 @@ class Admin_model extends CI_Model {
 		$kd = 'SW';
 		return $kd.sprintf('%03s', $next);
 	}
-
 	public function genIDs()
 	{
 		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
@@ -99,7 +95,6 @@ class Admin_model extends CI_Model {
 		$kd = 'SW';
 		return $kd.sprintf('%03s', $next);
 	}
-
 	/*public function genIDss()
 	{
 		$query = $this->db->order_by('id_user_siswa', 'DESC')->limit(1)->get('tb_user_siswa')->row('id_user_siswa');
@@ -108,7 +103,6 @@ class Admin_model extends CI_Model {
 		$kd = 'SW';
 		return $kd.sprintf('%03s', $next);
 	}*/
-
 	public function getDataGuru()
 	{
 		return $this->db->order_by('nama_guru', 'ASC')->get('tb_user_guru')->result();
@@ -135,24 +129,20 @@ class Admin_model extends CI_Model {
 			return FALSE;
 		}
 	}
-
 	public function getDataSiswa()
 	{
 		return $this->db->order_by('nama_siswa', 'ASC')->get('tb_user_siswa')->result();
 	}
-
 	public function get_siswa_by_id($id_sw){
 		return $this->db->where('id_user_siswa', $id_sw)
 						->get('tb_user_siswa')
 						->row();
 	}
-
 	public function get_siswal_by_id($id_sw){
 		return $this->db->where('id_user', $id_sw)
 						->get('tb_login')
 						->row();
 	}
-
 	public function editsiswa($id_sw, $foto)
 	{
 		$data = array(

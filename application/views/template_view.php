@@ -106,7 +106,6 @@
                 <ul class="treeview-menu">
                   <li class="active"><a href="<?php echo base_url(); ?>index.php/admin/addguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
                   <li><a href="<?php echo base_url(); ?>index.php/admin/addsiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
-                  <li><a href="<?php echo base_url(); ?>index.php/admin/addindustri"><i class="fa fa-circle-o"></i> Data Industri</a></li>
                 </ul>
               </li>
               <li class="treeview">
@@ -119,7 +118,6 @@
                 <ul class="treeview-menu">
                   <li><a href="<?php echo base_url(); ?>index.php/admin/dataguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
                   <li><a href="<?php echo base_url(); ?>index.php/admin/datasiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
-                  <li><a href="<?php echo base_url(); ?>index.php/admin/dataindustri"><i class="fa fa-circle-o"></i> Data Industri</a></li>
                 </ul>
               </li>
             </ul>
@@ -542,8 +540,62 @@
             exit: 'animated bounceOut'
           },
         });
-        <?php }
-      }
+        <?php } elseif ($notif == 'Berhasil absen') { ?>
+          $.notify({
+            icon: 'fa fa-check',
+            title: '<strong>&nbsp;Success!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'success',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Gagal absen') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'danger',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'The Kegiatan Prakerin field must be at least 10 characters in length.') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 50,
+            type: 'warning',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } 
+      } 
     ?>
   </script>
   </body>

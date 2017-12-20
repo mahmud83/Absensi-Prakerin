@@ -50,16 +50,6 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	public function addindustri()
-	{
-		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='add_industri_view';
-			$this->load->view('template_view', $data);
-		} else {
-			redirect('login');
-		}
-	}
-
 	//tambah data guru
 	public function insertguru()
 	{
@@ -174,7 +164,7 @@ class Admin extends CI_Controller {
 			$this->load->view('template_view', $data);
 		}
 		else{
-			redirect('login');
+			redirect('admin/dataguru');
 		}
 	}
 
