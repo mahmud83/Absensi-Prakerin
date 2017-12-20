@@ -29,15 +29,7 @@
 
       					<!-- Modal body -->
       					<div class="modal-body">
-                            <?php 
-                                $notif = $this->session->flashdata('notif');
-                                if (!empty($notif)) {
-                                    echo '<div class="alert alert-danger">';
-                                    echo $notif;
-                                    echo '</div>';
-                                }
-                            ?>
-        					<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/insertjurnal">
+        					<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/addjurnal">
                                 <div class="form-group">
                                     <label>Kegiatan Prakerin</label>
                                     <textarea class="form-control" name="keterangan"></textarea>
@@ -59,6 +51,7 @@
     				</div>
   				</div>
 			</div>
+<<<<<<< HEAD
         <div class="row">
             <div class="col-xs-12">
               <div class="box">
@@ -103,5 +96,10 @@
             </div>
         <!-- /.col -->
         </div>
+=======
+>>>>>>> parent of dda0b04... add&show absen
 	</body>
 </html>
+
+<!-- Anda belum absen hari ini!
+<button class="btn btn-primary pull-right" style="padding-top: 1;">Absen Hari Ini</button> -->

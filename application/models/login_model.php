@@ -17,8 +17,7 @@ class Login_model extends CI_Model {
 			$data = array('username' => $username,
 						  'logged_in' => TRUE,
 						  'id_user' => $query->row()->id_user,
-						  'role' => $query->row()->id_level,
-						  'jeneng' => $query->row()->nama
+						  'role' => $query->row()->id_level
 						 );
 			$this->session->set_userdata( $data );
 			return TRUE;

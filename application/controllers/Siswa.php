@@ -15,17 +15,22 @@ class Siswa extends CI_Controller {
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='dashboard_siswa_view';
 			$data['isAbsen'] = $this->siswa_model->cekAbsen();
+<<<<<<< HEAD
 			$data['jurnal'] = $this->siswa_model->getDatajurnal();
 			$data['kelas'] = $this->siswa_model->getKelas();
 			$data['foto'] = $this->siswa_model->getFoto();
 			$data['industri'] = $this->siswa_model->getIndustri();
 			$data['kota'] = $this->siswa_model->getKota();
 			$this->load->view('template_view', $data);
+=======
+			$this->load->view('template_siswa_view', $data);
+>>>>>>> parent of dda0b04... add&show absen
 		} else {
 			redirect('login');
 		}
 	}
 
+<<<<<<< HEAD
 	public function insertjurnal()
 	{
 		$this->form_validation->set_rules('keterangan', 'Kegiatan Prakerin', 'trim|required|min_length[15]');
@@ -51,12 +56,36 @@ class Siswa extends CI_Controller {
 				$this->session->set_flashdata('notif', $this->upload->display_errors());
 				redirect('siswa');
 			}
+=======
+	/*//show data siswa
+	public function datasiswa()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view']='profil_siswa_view';
+			$data['detil'] = $this->siswa_model->getDataSiswa();
+			$this->load->view('template_siswa_view', $data);
+>>>>>>> parent of dda0b04... add&show absen
 		} else {
-			$data['main_view'] = 'dashboard_siswa_view';
-			$this->session->set_flashdata('notif', validation_errors());
 			redirect('siswa');
 		}
 	}
+
+	//edit data siswa view
+	public function editsiswa()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'edit_profil_siswa_view';
+			//ambil data siswa
+			$id_sw = $this->uri->segment(3);
+			$data['detil'] = $this->admin_model->get_siswa_by_id($id_sw);
+			$data['detill'] = $this->admin_model->get_siswal_by_id($id_sw);
+
+			$this->load->view('template_siswa_view', $data);
+		}
+		else{
+			redirect('admin/datasiswa');
+		}
+	}*/
 
 }
 
