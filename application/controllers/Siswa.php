@@ -39,11 +39,11 @@ class Siswa extends CI_Controller {
 			if ($this->upload->do_upload('foto')) {
 				if($this->siswa_model->tambahjurnal($this->upload->data()) == TRUE) {
 					$data['main_view'] = 'dashboard_siswa_view';
-					$this->session->set_flashdata('notif', 'Berhasil menambahkan data guru');
+					$this->session->set_flashdata('notif', 'Berhasil absen');
 					redirect('siswa');
 				} else {
 					$data['main_view'] = 'dashboard_siswa_view';
-					$this->session->set_flashdata('notif', 'Gagal menambahkan data guru');
+					$this->session->set_flashdata('notif', 'Gagal absen');
 					redirect('siswa');
 				}
 			} else {

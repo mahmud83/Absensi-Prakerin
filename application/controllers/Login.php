@@ -51,17 +51,6 @@ class Login extends CI_Controller {
 		}
 	}
 
-	//tambah data guru
-	public function addguru()
-	{
-		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='add_guru_view';
-			$this->load->view('template_admin_view', $data);
-		} else {
-			redirect('login');
-		}
-	}
-
 }
 
 /* End of file login.php */
