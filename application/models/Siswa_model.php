@@ -13,7 +13,6 @@ class Siswa_model extends CI_Model {
 		return $query->num_rows() == 0;
 	}
 
-<<<<<<< HEAD
 	public function genIDj()
 	{
 		$query = $this->db->order_by('id_post', 'DESC')->limit(1)->get('tb_post')->row('id_post');
@@ -93,8 +92,6 @@ class Siswa_model extends CI_Model {
      	return TRUE;
 	}
 
-=======
->>>>>>> parent of dda0b04... add&show absen
 }
 
 /* End of file Siswa_model.php */

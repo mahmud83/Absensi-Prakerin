@@ -29,7 +29,7 @@
 
       					<!-- Modal body -->
       					<div class="modal-body">
-        					<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/addjurnal">
+        					<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/insertjurnal">
                                 <div class="form-group">
                                     <label>Kegiatan Prakerin</label>
                                     <textarea class="form-control" name="keterangan"></textarea>
@@ -51,7 +51,6 @@
     				</div>
   				</div>
 			</div>
-<<<<<<< HEAD
         <div class="row">
             <div class="col-xs-12">
               <div class="box">
@@ -96,8 +95,6 @@
             </div>
         <!-- /.col -->
         </div>
-=======
->>>>>>> parent of dda0b04... add&show absen
 	</body>
 </html>
 
