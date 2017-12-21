@@ -26,7 +26,6 @@ class Admin_model extends CI_Model {
 			return FALSE;
 		}
 	}
-
 	public function getIDfromtbg()
 	{
 		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
@@ -35,7 +34,6 @@ class Admin_model extends CI_Model {
 		$kd = 'GR';
 		return $kd.sprintf('%02s', $next);
 	}
-
 	public function genIDg()
 	{
 		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
@@ -44,7 +42,14 @@ class Admin_model extends CI_Model {
 		$kd = 'GR';
 		return $kd.sprintf('%02s', $next);
 	}
-
+	/*public function genIDgg()
+	{
+		$query = $this->db->order_by('id_user_guru', 'DESC')->limit(1)->get('tb_user_guru')->row('id_user_guru');
+		$lastNo = substr($query, 2);
+		$next = $lastNo + 1;
+		$kd = 'GR';
+		return $kd.sprintf('%02s', $next);
+	}*/
 	public function tambahsiswa($foto)
 	{
 		$login = array (
@@ -90,15 +95,14 @@ class Admin_model extends CI_Model {
 		$kd = 'SW';
 		return $kd.sprintf('%03s', $next);
 	}
-	
-	public function getNamaGuru()
+	/*public function genIDss()
 	{
-		return $this->db->order_by('kota', 'ASC')
-						->select('nama_guru')
-						->get('tb_user_guru')
-						->result();
-	}
-
+		$query = $this->db->order_by('id_user_siswa', 'DESC')->limit(1)->get('tb_user_siswa')->row('id_user_siswa');
+		$lastNo = substr($query, 3);
+		$next = $lastNo + 1;
+		$kd = 'SW';
+		return $kd.sprintf('%03s', $next);
+	}*/
 	public function getDataGuru()
 	{
 		return $this->db->order_by('nama_guru', 'ASC')->get('tb_user_guru')->result();
@@ -180,6 +184,7 @@ class Admin_model extends CI_Model {
 			return FALSE;
 		}
 	}
+<<<<<<< HEAD
 
 	public function genIDInd()
 	{
@@ -230,6 +235,8 @@ class Admin_model extends CI_Model {
 	{
 		return $this->db->order_by('nama_industri', 'ASC')->get('tb_industri')->result();
 	}
+=======
+>>>>>>> parent of 434c49f... addIndustri
 }
 /* End of file Admin_model.php */
 /* Location: ./application/models/Admin_model.php */
