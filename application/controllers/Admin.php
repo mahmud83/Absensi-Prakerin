@@ -298,7 +298,6 @@ class Admin extends CI_Controller {
 		}
 	}
 
-<<<<<<< HEAD
 	public function addindustri()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
@@ -339,9 +338,6 @@ class Admin extends CI_Controller {
 			redirect('admin');
 		}
 	}
-
-=======
->>>>>>> parent of 434c49f... addIndustri
 }
 
 /* End of file dashboard_admin.php */
