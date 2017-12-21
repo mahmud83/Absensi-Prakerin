@@ -16,6 +16,7 @@ class Guru extends CI_Controller {
 			$data['main_view']='dashboard_guru_view';
 			$data['foto'] = $this->guru_model->getFoto();
 			$data['kota'] = $this->guru_model->getKota();
+			$data['siswa'] = $this->guru_model->getKotaSiswa();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -33,6 +34,27 @@ class Guru extends CI_Controller {
 		redirect('login');
 	}
 
+<<<<<<< HEAD
+=======
+	public function datajurnal()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'data_absen_view';
+			$data['foto'] = $this->guru_model->getFoto();
+			$data['kota'] = $this->guru_model->getKota();
+			//ambil data absen
+			$id_sw = $this->uri->segment(3);
+			$data['jurnal'] = $this->guru_model->get_post_by_id();
+			$data['nama'] = $this->guru_model->getNamaSiswa();
+
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('login');
+		}
+	}
+
+>>>>>>> parent of f7a930b... fix absen
 }
 
 /* End of file Guru.php */

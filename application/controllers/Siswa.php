@@ -1,12 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Siswa extends CI_Controller {
+
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('siswa_model');
 		$this->load->model('admin_model');
 	}
+
 	public function index()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
@@ -22,14 +25,17 @@ class Siswa extends CI_Controller {
 			redirect('login');
 		}
 	}
+
 	public function insertjurnal()
 	{
-		$this->form_validation->set_rules('keterangan', 'Kegiatan Prakerin', 'trim|required|min_length[10]');
+		$this->form_validation->set_rules('keterangan', 'Kegiatan Prakerin', 'trim|required|min_length[15]');
 		if ($this->form_validation->run() == TRUE ) {
 			$config['upload_path'] = './uploads/foto_prakerin/';
 			$config['allowed_types'] = 'jpg|png';
 			$config['max_size'] = '2000';
+
 			$this->load->library('upload', $config);
+
 			if ($this->upload->do_upload('foto')) {
 				if($this->siswa_model->tambahjurnal($this->upload->data()) == TRUE) {
 					$data['main_view'] = 'dashboard_siswa_view';
@@ -45,12 +51,43 @@ class Siswa extends CI_Controller {
 				$this->session->set_flashdata('notif', $this->upload->display_errors());
 				redirect('siswa');
 			}
+		}
+	}
+	/*//show data siswa
+	public function datasiswa()
+	{
+>>>>>>> parent of dda0b04... add&show absen
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view']='profil_siswa_view';
+			$data['detil'] = $this->siswa_model->getDataSiswa();
+			$this->load->view('template_siswa_view', $data);
+<<<<<<< HEAD
+>>>>>>> parent of dda0b04... add&show absen
+=======
+>>>>>>> parent of dda0b04... add&show absen
 		} else {
-			$data['main_view'] = 'dashboard_siswa_view';
-			$this->session->set_flashdata('notif', 'The Kegiatan Prakerin field must be at least 10 characters in length.');
 			redirect('siswa');
 		}
 	}
+
+	//edit data siswa view
+	public function editsiswa()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'edit_profil_siswa_view';
+			//ambil data siswa
+			$id_sw = $this->uri->segment(3);
+			$data['detil'] = $this->admin_model->get_siswa_by_id($id_sw);
+			$data['detill'] = $this->admin_model->get_siswal_by_id($id_sw);
+
+			$this->load->view('template_siswa_view', $data);
+		}
+		else{
+			redirect('admin/datasiswa');
+		}
+	}*/
+
 }
+
 /* End of file Siswa.php */
 /* Location: ./application/controllers/Siswa.php */

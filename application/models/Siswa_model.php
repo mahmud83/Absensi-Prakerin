@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Siswa_model extends CI_Model {
+
 	// cek jika belum absen
 	public function cekAbsen()
 	{
@@ -10,6 +12,7 @@ class Siswa_model extends CI_Model {
 						  ->get('tb_post');
 		return $query->num_rows() == 0;
 	}
+
 	public function genIDj()
 	{
 		$query = $this->db->order_by('id_post', 'DESC')->limit(1)->get('tb_post')->row('id_post');
@@ -18,6 +21,7 @@ class Siswa_model extends CI_Model {
 		$kd = 'KET';
 		return $kd.sprintf('%04s', $next);
 	}
+
 	public function tambahjurnal($foto)
 	{
 		$data = array (
@@ -35,6 +39,7 @@ class Siswa_model extends CI_Model {
 			return FALSE;
 		}
 	}
+
 	public function getDataJurnal()
 	{
 		return $this->db->where('id_user', $this->session->userdata('id_user'))
@@ -42,6 +47,7 @@ class Siswa_model extends CI_Model {
 						->get('tb_post')
 						->result();
 	}
+
 	public function getKelas()
 	{
 		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
@@ -52,6 +58,7 @@ class Siswa_model extends CI_Model {
      	}
      	return TRUE;
 	}
+
 	public function getFoto()
 	{
 		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
@@ -62,6 +69,7 @@ class Siswa_model extends CI_Model {
      	}
      	return TRUE;
 	}
+
 	public function getIndustri()
 	{
 		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
@@ -72,6 +80,7 @@ class Siswa_model extends CI_Model {
      	}
      	return TRUE;
 	}
+
 	public function getKota()
 	{
 		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
@@ -82,6 +91,8 @@ class Siswa_model extends CI_Model {
      	}
      	return TRUE;
 	}
+
 }
+
 /* End of file Siswa_model.php */
 /* Location: ./application/models/Siswa_model.php */
