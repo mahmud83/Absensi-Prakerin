@@ -225,6 +225,11 @@ class Admin_model extends CI_Model {
 			return FALSE;
 		}
 	}
+
+	public function getDataIndustri()
+	{
+		return $this->db->order_by('nama_industri', 'ASC')->get('tb_industri')->result();
+	}
 }
 /* End of file Admin_model.php */
 /* Location: ./application/models/Admin_model.php */

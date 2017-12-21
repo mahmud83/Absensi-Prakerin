@@ -164,7 +164,7 @@ class Admin extends CI_Controller {
 			$this->load->view('template_view', $data);
 		}
 		else{
-			redirect('admin/dataguru');
+			redirect('admin');
 		}
 	}
 
@@ -221,7 +221,7 @@ class Admin extends CI_Controller {
 			$this->load->view('template_view', $data);
 		}
 		else{
-			redirect('admin/datasiswa');
+			redirect('admin');
 		}
 	}
 
@@ -325,6 +325,17 @@ class Admin extends CI_Controller {
 				$this->session->set_flashdata('notif', 'Lengkapi field');
 				redirect('admin/addindustri');
 			}
+		}
+	}
+
+	public function dataindustri()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view']='data_industri_view';
+			$data['industri'] = $this->admin_model->getDataIndustri();
+			$this->load->view('template_view', $data);
+		} else {
+			redirect('admin');
 		}
 	}
 
