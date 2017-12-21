@@ -41,6 +41,8 @@ class Login extends CI_Controller {
 						redirect('guru');
 					} else if ($this->session->userdata('role') == '3') {
 						redirect('siswa');
+					} else if ($this->session->userdata('role') == '4') {
+						redirect('industri');
 					}
 				} else {
 					$data = $this->session->set_flashdata('notif', 'Username atau Password salah');

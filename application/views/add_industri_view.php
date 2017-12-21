@@ -23,11 +23,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Industri</label>
-<<<<<<< HEAD
                                     <input class="form-control" placeholder="Nama Industri" name="nama_ind" required>
-=======
-                                    <input class="form-control" placeholder="Nama siswa" name="nama_siswa" required>
->>>>>>> parent of f7a930b... fix absen
                                 </div>
                                 <div class="form-group">
                                     <label>No. Telepon</label>
@@ -59,7 +55,6 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Guru Pembimbing</label>
-<<<<<<< HEAD
                                     <select class="form-control" name="nama_guru">
                                         <?php 
                                             foreach ($nama_guru as $data) {
@@ -67,9 +62,6 @@
                                             }
                                         ?>
                                     </select>
-=======
-                                    <input class="form-control" placeholder="Nama Guru Pembimbing" name="nama_guru" required>
->>>>>>> parent of f7a930b... fix absen
                                 </div>
                                 <div class="form-group">
                                     <div class="row">

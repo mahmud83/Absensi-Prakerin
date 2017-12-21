@@ -25,11 +25,24 @@ class Guru_model extends CI_Model {
      	return TRUE;
 	}
 
+	public function getIndustri()
+	{
+		$query = $this->db->where('nama_guru_pembimbing', $this->session->userdata('jeneng'))
+						  ->select('nama_industri')
+						  ->get('tb_industri');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->nama_industri;
+     	}
+     	return TRUE;
+	}
+
 	public function getKotaSiswa()
 	{
 		$query = $this->getKota();
+		$queri = $this->getIndustri();
 
 		$kueri = $this->db->where('kota', $query)
+						  ->where('industri', $queri)
 						  ->get('tb_user_siswa')
 						  ->result();
 		return $kueri;

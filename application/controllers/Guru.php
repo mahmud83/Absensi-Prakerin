@@ -33,9 +33,6 @@ class Guru extends CI_Controller {
 		$this->session->set_userdata( $array );
 		redirect('login');
 	}
-
-<<<<<<< HEAD
-=======
 	public function datajurnal()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
@@ -53,8 +50,6 @@ class Guru extends CI_Controller {
 			redirect('login');
 		}
 	}
-
->>>>>>> parent of f7a930b... fix absen
 }
 
 /* End of file Guru.php */

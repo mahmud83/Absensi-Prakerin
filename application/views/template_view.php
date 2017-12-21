@@ -277,6 +277,84 @@
           <!-- /.sidebar -->
         </aside>
 
+      <!-- template industri -->
+      <?php elseif ($this->session->userdata('role') == 4): ?>
+        <header class="main-header">
+          <!-- Logo -->
+          <a href="index2.html" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>T</b>S</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Bismillah</b></span>
+          </a>
+          <!-- Header Navbar: style can be found in header.less -->
+          <nav class="navbar navbar-static-top">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+              <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <div class="navbar-custom-menu">
+              <ul class="nav navbar-nav">
+                <li class="dropdown user user-menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="<?php echo base_url();?>Industri.png" class="user-image" alt="User Image">
+                    <span class="hidden-xs">Hi, <?php echo $this->session->userdata('jeneng'); ?></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <!-- User image -->
+                    <li class="user-header">
+                      <img src="<?php echo base_url();?>industri.png" class="img-circle" alt="User Image">
+                      <p style="color: white; ">
+                        <?php echo $this->session->userdata('jeneng'); ?>
+                        <small><?php echo $kota; ?></small>
+                      </p>
+                    </li>
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+                      <div class="pull-left">
+                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                      </div>
+                      <div class="pull-right">
+                        <a href="<?php base_url(); ?>logout" class="btn btn-default btn-flat">Sign out</a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+      
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+          <!-- sidebar: style can be found in sidebar.less -->
+          <section class="sidebar">
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="active">
+              <a href="#">
+                <i class="fa fa-plus"></i> <span>Absensi</span>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-search"></i> <span>Lihat Profil</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo base_url(); ?>index.php/siswa/datasiswa"><i class="fa fa-circle-o"></i> Profilku</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/siswa/dataguru"><i class="fa fa-circle-o"></i> Profil Guru Pembimbing</a></li>
+              </ul>
+            </li>
+          </ul>
+          </section>
+          <!-- /.sidebar -->
+        </aside>
+
       <?php endif; ?>
 
       <!-- Content Wrapper. Contains page content -->
@@ -542,8 +620,116 @@
             exit: 'animated bounceOut'
           },
         });
+        <?php } elseif ($notif == 'Berhasil absen') { ?>
+          $.notify({
+            icon: 'fa fa-check',
+            title: '<strong>&nbsp;Success!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'success',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Gagal absen') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'danger',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'The Kegiatan Prakerin field must be at least 10 characters in length.') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 50,
+            type: 'warning',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Berhasil menambah data industri') { ?>
+          $.notify({
+            icon: 'fa fa-check',
+            title: '<strong>&nbsp;Success!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'success',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Gagal menambah data industri') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'danger',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Lengkapi Field') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'danger',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
         <?php }
-      }
+      } 
     ?>
   </script>
   </body>
