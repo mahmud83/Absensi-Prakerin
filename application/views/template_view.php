@@ -8,6 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -78,8 +79,8 @@
                     </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
-                      <div class="">
-                        <a href="<?php base_url(); ?>logout" class="btn btn-default btn-block">Sign out</a>
+                      <div>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -165,7 +166,7 @@
                         <a href="#" class="btn btn-default">Profile</a>
                       </div>
                       <div class="pull-right">
-                        <a href="<?php base_url(); ?>logout" class="btn btn-default">Sign out</a>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -238,7 +239,7 @@
                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
-                        <a href="<?php base_url(); ?>logout" class="btn btn-default btn-flat">Sign out</a>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -316,7 +317,7 @@
                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
-                        <a href="<?php base_url(); ?>logout" class="btn btn-default btn-flat">Sign out</a>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -357,16 +358,42 @@
 
       <?php endif; ?>
 
+      <!-- The Modal -->
+      <div class="modal fade" role="dialog" id="myModal">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4>
+                    <i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </h4>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <strong>Are you sure you want to log-off?</strong>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <a href="<?php base_url(); ?>logout" class="btn btn-danger btn-block">Sign out</a>
+                </div>
+            </div>
+          </div>
+      </div>
+
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
 
-    <!-- Main content -->
-    <section class="content">
+        <!-- Main content -->
+        <section class="content">
 
-      <?php $this->load->view($main_view) ?>
+          <?php $this->load->view($main_view) ?>
 
-    </section>
-    <!-- /.content -->
+        </section>
+        <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
 
@@ -711,6 +738,42 @@
           },
         });
         <?php } elseif ($notif == 'Lengkapi Field') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'danger',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Berhasil menghapus data industri') { ?>
+          $.notify({
+            icon: 'fa fa-check',
+            title: '<strong>&nbsp;Success!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'success',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Gagal menghapus data industri') { ?>
           $.notify({
             icon: 'glyphicon glyphicon-warning-sign',
             title: '<strong>&nbsp;Warning!</strong><br>',

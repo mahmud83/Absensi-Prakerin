@@ -1,6 +1,25 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin_model extends CI_Model {
+
+	public function getIDfromtbg()
+	{
+		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_user_guru')->row('id_user');
+		$lastNo = substr($query, 2);
+		$next = $lastNo + 1;
+		$kd = 'GR';
+		return $kd.sprintf('%02s', $next);
+	}
+
+	public function genIDg()
+	{
+		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_user_guru')->row('id_user');
+		$lastNo = substr($query, 2);
+		$next = $lastNo + 1;
+		$kd = 'GR';
+		return $kd.sprintf('%02s', $next);
+	}
+
 	public function tambahguru($foto)
 	{
 		$login = array (
@@ -26,33 +45,6 @@ class Admin_model extends CI_Model {
 			return FALSE;
 		}
 	}
-
-	public function getIDfromtbg()
-	{
-		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
-		$lastNo = substr($query, 2);
-		$next = $lastNo + 1;
-		$kd = 'GR';
-		return $kd.sprintf('%02s', $next);
-	}
-
-	public function genIDg()
-	{
-		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
-		$lastNo = substr($query, 2);
-		$next = $lastNo + 1;
-		$kd = 'GR';
-		return $kd.sprintf('%02s', $next);
-	}
-
-	/*public function genIDgg()
-	{
-		$query = $this->db->order_by('id_user_guru', 'DESC')->limit(1)->get('tb_user_guru')->row('id_user_guru');
-		$lastNo = substr($query, 2);
-		$next = $lastNo + 1;
-		$kd = 'GR';
-		return $kd.sprintf('%02s', $next);
-	}*/
 
 	public function tambahsiswa($foto)
 	{
@@ -86,7 +78,7 @@ class Admin_model extends CI_Model {
 
 	public function getIDfromtbs()
 	{
-		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
+		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_user_siswa')->row('id_user');
 		$lastNo = substr($query, 3);
 		$next = $lastNo + 1;
 		$kd = 'SW';
@@ -95,21 +87,12 @@ class Admin_model extends CI_Model {
 
 	public function genIDs()
 	{
-		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
+		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_user_siswa')->row('id_user');
 		$lastNo = substr($query, 3);
 		$next = $lastNo + 1;
 		$kd = 'SW';
 		return $kd.sprintf('%03s', $next);
 	}
-
-	/*public function genIDss()
-	{
-		$query = $this->db->order_by('id_user_siswa', 'DESC')->limit(1)->get('tb_user_siswa')->row('id_user_siswa');
-		$lastNo = substr($query, 3);
-		$next = $lastNo + 1;
-		$kd = 'SW';
-		return $kd.sprintf('%03s', $next);
-	}*/
 
 	public function getDataGuru()
 	{
@@ -199,19 +182,19 @@ class Admin_model extends CI_Model {
 
 	public function genIDInd()
 	{
-		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
+		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_industri')->row('id_user');
 		$lastNo = substr($query, 2);
 		$next = $lastNo + 1;
-		$kd = 'IND';
+		$kd = 'ID';
 		return $kd.sprintf('%02s', $next);
 	}
 
 	public function getIDfromtbInd()
 	{
-		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_login')->row('id_user');
+		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_industri')->row('id_user');
 		$lastNo = substr($query, 2);
 		$next = $lastNo + 1;
-		$kd = 'IND';
+		$kd = 'ID';
 		return $kd.sprintf('%02s', $next);
 	}
 
@@ -235,6 +218,17 @@ class Admin_model extends CI_Model {
 				  	  );
 		$this->db->insert('tb_login', $login);
 		$this->db->insert('tb_industri', $detail);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	public function hapusindustri($id_id)
+	{
+		$this->db->where('id_user_industri', $id_id)->delete('tb_industri');
+		$this->db->where('id_user', $id_id)->delete('tb_login');
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
 		} else {

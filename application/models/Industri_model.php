@@ -30,6 +30,7 @@ class Industri_model extends CI_Model {
 		$query = $this->getIndustri();
 
 		return $this->db->where('industri', $query)
+						->order_by('tanggal', 'DESC')
 						->get('tb_post')
 						->result();	
 	}

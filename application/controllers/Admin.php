@@ -339,6 +339,22 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function deleteindustri()
+	{
+		$id_id = $this->uri->segment(3);
+		if ($this->session->userdata('logged_in') == TRUE) {
+			if ($this->admin_model->hapusindustri($id_id) == TRUE) {
+				$this->session->set_flashdata('notif', 'Berhasil menghapus data industri');
+				redirect('admin/dataindustri');
+			} else {
+				$this->session->set_flashdata('notif', 'Gagal menghapus data industri');
+				redirect('admin/dataindustri');
+			}
+		} else {
+			redirect('admin/dataindustri');
+		}
+	}
+
 }
 
 /* End of file dashboard_admin.php */
