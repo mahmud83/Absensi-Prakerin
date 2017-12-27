@@ -7,7 +7,8 @@
     			<tr>
     				<td style="width: 100%">Anda belum absen hari ini!</td>
     				<td style="width: 25%">
-    					<button type="button" data-toggle="modal" data-target="#myModal"  class="btn btn-primary pull-right">Absen Hari Ini</button>
+    					<button type="button" data-toggle="modal" data-target="#absenModal"  class="btn btn-primary pull-right">Absen Hari Ini</button>
+
     				</td>
     			</tr>
     		</table>
@@ -16,7 +17,7 @@
     		<div class="alert alert-success">Terima kasih, Anda sudah absen hari ini</div>
     	<?php endif; ?>
     	<!-- The Modal -->
-			<div class="modal fade" id="myModal">
+			<div class="modal fade" id="absenModal">
   				<div class="modal-dialog">
     				<div class="modal-content">
 

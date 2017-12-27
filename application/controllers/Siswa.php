@@ -51,6 +51,11 @@ class Siswa extends CI_Controller {
 			redirect('siswa');
 		}
 	}
+
+	public function datasiswa()
+	{
+		$data['main_view'] = 'profil_siswa_view';
+	}
 }
 /* End of file Siswa.php */
 /* Location: ./application/controllers/Siswa.php */
