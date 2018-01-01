@@ -15,12 +15,12 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+              <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-industri">
                 <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Nama Industri</th>
-                    <th>Guru Pembimbing</th>
+                    <th style="width: 17%;">Nama Industri</th>
+                    <th style="width: 17%;">Guru Pembimbing</th>
                     <th>No. Telp</th>
                     <th>Alamat</th>
                     <th>Kota</th>

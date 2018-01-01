@@ -32,6 +32,10 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/animate.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/animate.min.css">
 
+  <!-- Data tables -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/dataTables/datatables.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"> 
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -445,6 +449,17 @@
   <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
   <!-- bootstrap notify -->
   <script src="<?php echo base_url() ?>dist/js/bootstrap-notify.js"></script>
+  <!-- Data tables -->
+  <script src="<?php echo base_url(); ?>dist/dataTables/datatables.min.js"></script>
+  <script>
+    $(function () {
+      $('#dataTables-guru').DataTable();
+      $('#dataTables-siswa').DataTable();
+      $('#dataTables-industri').DataTable();
+    })
+  </script>
+
+  <!-- bootstrap notify -->
   <script type="text/javascript">
     <?php
       $notif = $this->session->flashdata('notif'); 

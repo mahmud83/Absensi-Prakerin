@@ -15,7 +15,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+              <table style="width: 100%; table-layout: auto; " class="table table-bordered table-hover" id="dataTables-guru">
                 <thead>
                 <tr>
                     <th width="5%">No.</th>
