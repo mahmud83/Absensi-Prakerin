@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dashboard Siswa</title>
+  <title><?php echo $title; ?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -33,8 +33,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/animate.min.css">
 
   <!-- Data tables -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/dataTables/datatables.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"> 
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -84,7 +83,7 @@
                     <!-- Menu Footer-->
                     <li class="user-footer">
                       <div>
-                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModall">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -170,7 +169,7 @@
                         <a href="#" class="btn btn-default">Profile</a>
                       </div>
                       <div class="pull-right">
-                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModall">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -243,7 +242,7 @@
                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
-                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModall">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -321,7 +320,7 @@
                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
-                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModall">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -363,7 +362,7 @@
       <?php endif; ?>
 
       <!-- The Modal -->
-      <div class="modal fade" role="dialog" id="myModal">
+      <div class="modal fade" role="dialog" id="myModall">
           <div class="modal-dialog modal-sm">
             <div class="modal-content">
 
@@ -447,17 +446,42 @@
   <script src="<?php echo base_url(); ?>dist/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+
   <!-- bootstrap notify -->
   <script src="<?php echo base_url() ?>dist/js/bootstrap-notify.js"></script>
+  
   <!-- Data tables -->
-  <script src="<?php echo base_url(); ?>dist/dataTables/datatables.min.js"></script>
-  <!-- <script>
+  <script src="<?php echo base_url(); ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="<?php echo base_url(); ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script>
     $(function () {
-      $('#dataTables-guru').DataTable();
-      $('#dataTables-siswa').DataTable();
-      $('#dataTables-industri').DataTable();
+      $('#dataTables-guru').DataTable({
+        scrollX:        true,
+        scrollCollapse: true,
+        responsive: true
+      });
+      $('#dataTables-siswa').DataTable({
+        scrollX:        true,
+        scrollCollapse: true,
+        responsive: true
+      });
+      $('#dataTables-industri').DataTable({
+        scrollX:        true,
+        scrollCollapse: true,
+        responsive: true
+      });
+      $('#dataTables-industriAbsen').DataTable({
+        scrollX:        true,
+        scrollCollapse: true,
+        responsive: true
+      });
+      $('#dataTables-dasSiswa').DataTable({
+        scrollX:        true,
+        scrollCollapse: true,
+        responsive: true
+      });
     })
-  </script> -->
+  </script>
 
   <!-- bootstrap notify -->
   <script type="text/javascript">

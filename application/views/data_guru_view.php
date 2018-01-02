@@ -17,7 +17,7 @@
             <div class="box-body">
               <table style="width: 100%; table-layout: auto; " class="table table-bordered table-hover" id="dataTables-guru">
                 <thead>
-                <tr>
+                <tr style="width: 1px;white-space: nowrap;">
                     <th width="5%">No.</th>
                     <th>Nama Guru</th>
                     <th>No. Telp</th>

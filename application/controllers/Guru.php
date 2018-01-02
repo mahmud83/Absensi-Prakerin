@@ -14,6 +14,7 @@ class Guru extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='dashboard_guru_view';
+			$data['title'] = 'Dashboard Guru - Prakerin SMK Telkom Malang 2017';
 			$data['foto'] = $this->guru_model->getFoto();
 			$data['kota'] = $this->guru_model->getKota();
 			$data['siswa'] = $this->guru_model->getKotaSiswa();
@@ -37,6 +38,7 @@ class Guru extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view'] = 'data_absen_view';
+			$data['title'] = 'Jurnal Kegiatan Prakerin - Prakerin SMK Telkom Malang 2017';
 			$data['foto'] = $this->guru_model->getFoto();
 			$data['kota'] = $this->guru_model->getKota();
 			//ambil data absen
