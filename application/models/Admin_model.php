@@ -123,10 +123,7 @@ class Admin_model extends CI_Model {
 
 	public function getDataSiswa()
 	{
-		return $this->db->order_by('industri', 'ASC')
-						->order_by('nama_siswa', 'ASC')
-						->get('tb_user_siswa')
-						->result();
+		return $this->db->order_by('nama_siswa', 'ASC')->get('tb_user_siswa')->result();
 	}
 
 	public function get_siswa_by_id($id_sw){

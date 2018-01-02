@@ -84,7 +84,7 @@
                     <!-- Menu Footer-->
                     <li class="user-footer">
                       <div>
-                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModall">Sign out</button>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -170,7 +170,7 @@
                         <a href="#" class="btn btn-default">Profile</a>
                       </div>
                       <div class="pull-right">
-                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModall">Sign out</button>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -243,7 +243,7 @@
                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
-                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModall">Sign out</button>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -321,7 +321,7 @@
                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
-                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModall">Sign out</button>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
                       </div>
                     </li>
                   </ul>
@@ -363,7 +363,7 @@
       <?php endif; ?>
 
       <!-- The Modal -->
-      <div class="modal fade" role="dialog" id="myModall">
+      <div class="modal fade" role="dialog" id="myModal">
           <div class="modal-dialog modal-sm">
             <div class="modal-content">
 
