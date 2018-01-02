@@ -451,13 +451,13 @@
   <script src="<?php echo base_url() ?>dist/js/bootstrap-notify.js"></script>
   <!-- Data tables -->
   <script src="<?php echo base_url(); ?>dist/dataTables/datatables.min.js"></script>
-  <script>
+  <!-- <script>
     $(function () {
       $('#dataTables-guru').DataTable();
       $('#dataTables-siswa').DataTable();
       $('#dataTables-industri').DataTable();
     })
-  </script>
+  </script> -->
 
   <!-- bootstrap notify -->
   <script type="text/javascript">
