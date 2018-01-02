@@ -25,7 +25,7 @@ class Siswa extends CI_Controller {
 	}
 	public function insertjurnal()
 	{
-		$this->form_validation->set_rules('keterangan', 'Kegiatan Prakerin', 'trim|required|min_length[10]');
+		$this->form_validation->set_rules('keterangan', 'Kegiatan Prakerin', 'trim|required|min_length[7]');
 		if ($this->form_validation->run() == TRUE ) {
 			$config['upload_path'] = './uploads/foto_prakerin/';
 			$config['allowed_types'] = 'jpg|png';
