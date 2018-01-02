@@ -22,8 +22,7 @@ class Login extends CI_Controller {
 				redirect('industri');
 			}
 		} else {
-			$data['title'] = 'Login - Prakerin SMK Telkom Malang 2017';
-			$this->load->view('login_view', $data);
+			$this->load->view('login_view');
 		}
 	}
 

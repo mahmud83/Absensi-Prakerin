@@ -17,7 +17,6 @@ class Siswa extends CI_Controller {
 			$data['foto'] = $this->siswa_model->getFoto();
 			$data['industri'] = $this->siswa_model->getIndustri();
 			$data['kota'] = $this->siswa_model->getKota();
-			$data['title'] = 'Dashboard Siswa - Prakerin SMK Telkom Malang 2017';
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -55,7 +54,7 @@ class Siswa extends CI_Controller {
 
 	public function datasiswa()
 	{
-		$data['$title'] = 'Profil Siswa - Prakerin SMK Telkom Malang 2017';
+		$data['main_view'] = 'profil_siswa_view';
 	}
 }
 /* End of file Siswa.php */
