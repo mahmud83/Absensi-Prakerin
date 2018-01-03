@@ -13,7 +13,6 @@ class Industri extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='dashboard_industri_view';
-			$data['title'] = 'Data Industri - Prakerin SMK Telkom Malang 2017';
 			$data['kota'] = $this->industri_model->getKota();
 			$data['jurnal'] = $this->industri_model->getPost();
 			$this->load->view('template_view', $data);

@@ -60,7 +60,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <table width="100%" class="table table-bordered table-hover" id="dataTables-dasSiswa">
+                  <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                     <tr>
                         <th>No.</th>

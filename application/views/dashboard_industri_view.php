@@ -9,7 +9,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <table width="100%" class="table table-bordered table-hover" id="dataTables-industriAbsen">
+                  <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                     <tr>
                         <th>No.</th>
@@ -29,7 +29,7 @@
                                         <td>'.$no.'</td>
                                         <td>'.$data->nama_siswa.'</td>
                                         <td>'.$data->isi.'</td>
-                                        <td><img style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'" onMouseOver="this.style.width=200px" ></td>
+                                        <td><img style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
                                         <td>'.$data->tanggal.'</td>
                                         <td>';?>
                                             <?php 
