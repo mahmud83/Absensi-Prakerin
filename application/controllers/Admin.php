@@ -25,6 +25,17 @@ class Admin extends CI_Controller {
 		}	
 	}
 
+	public function logout()
+	{
+		$array = array(
+			'username' => '',
+			'logged_in'=> FALSE
+		);
+		
+		$this->session->set_userdata( $array );
+		redirect('login');		
+	}
+
 	public function addguru()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {

@@ -98,6 +98,3 @@
         </div>
 	</body>
 </html>
-
-<!-- Anda belum absen hari ini!
-<button class="btn btn-primary pull-right" style="padding-top: 1;">Absen Hari Ini</button> -->

@@ -11,7 +11,7 @@ class Logout extends CI_Controller {
 		);
 		
 		$this->session->set_userdata( $array );
-		redirect('/');		
+		redirect('login');		
 	}
 
 }

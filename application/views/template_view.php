@@ -24,7 +24,6 @@
   <!-- animate bootstrap notify -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/animate.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/animate.min.css">
-
   <!-- Data tables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"> 
 
@@ -37,6 +36,7 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -412,9 +412,6 @@
   </script>
   <!-- Bootstrap 3.3.7 -->
   <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- Morris.js charts -->
-  <script src="<?php echo base_url(); ?>bower_components/raphael/raphael.min.js"></script>
-  <script src="<?php echo base_url(); ?>bower_components/morris.js/morris.min.js"></script>
   <!-- Sparkline -->
   <script src="<?php echo base_url(); ?>bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
   <!-- jvectormap -->
@@ -440,10 +437,8 @@
   <!-- AdminLTE for demo purposes -->
   <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 
-  <!-- bootstrap notify -->
-  <script src="<?php echo base_url() ?>dist/js/bootstrap-notify.js"></script>
-
   <!-- Data tables -->
+  <script src="<?php echo base_url(); ?>dist/js/datatables.min.js"></script>
   <script>
     $(function () {
       $('#dataTables-guru').DataTable({
@@ -461,12 +456,17 @@
         scrollCollapse: true,
         responsive: true
       });
-      $('#dataTables-industriAbsen').DataTable({
+      $('#dataTables-dasGuru').DataTable({
         scrollX:        true,
         scrollCollapse: true,
         responsive: true
       });
-      $('#dataTables-dasSiswa').DataTable({
+      $('#dataTables-absSiswa').DataTable({
+        scrollX:        true,
+        scrollCollapse: true,
+        responsive: true
+      });
+      $('#dataTables-IndAbs').DataTable({
         scrollX:        true,
         scrollCollapse: true,
         responsive: true
@@ -475,6 +475,7 @@
   </script>
 
   <!-- bootstrap notify -->
+  <script src="<?php echo base_url() ?>dist/js/bootstrap-notify.js"></script>
   <script type="text/javascript">
     <?php
       $notif = $this->session->flashdata('notif'); 

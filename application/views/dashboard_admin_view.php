@@ -26,7 +26,7 @@
                   <div class="icon">
                     <i class="fa fa-user" style="margin: 3px;"></i>
                   </div>
-                  <a href="#" class="small-box-footer">
+                  <a href="<?php echo base_url(); ?>index.php/admin/dataguru" class="small-box-footer">
                     More info <i class="fa fa-arrow-circle-right"></i>
                   </a>
                 </div>
@@ -43,7 +43,7 @@
                   <div class="icon">
                     <i class="ion-ios-people" style="margin: 3px;"></i>
                   </div>
-                  <a href="#" class="small-box-footer">
+                  <a href="<?php echo base_url(); ?>index.php/admin/datasiswa" class="small-box-footer">
                     More info <i class="fa fa-arrow-circle-right"></i>
                   </a>
                 </div>
@@ -60,7 +60,7 @@
                   <div class="icon">
                     <i class="fa fa-building-o" style="margin: 3px;"></i>
                   </div>
-                  <a href="#" class="small-box-footer">
+                  <a href="<?php echo base_url(); ?>index.php/admin/dataindustri" class="small-box-footer">
                     More info <i class="fa fa-arrow-circle-right"></i>
                   </a>
                 </div>
