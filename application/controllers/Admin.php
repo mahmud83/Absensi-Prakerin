@@ -13,27 +13,23 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='dashboard_admin_view';
+			$data['main_view']='dashboard_admin_view';
+			$data['main_view'] = 'dashboard_admin_view';
+			$data['countG'] = $this->admin_model->countGuru();
+			$data['countS'] = $this->admin_model->countSiswa();
+			$data['countI'] = $this->admin_model->countIndustri();
+			$data['title'] = 'Dashboard Admin - Prakerin SMK Telkom Malang 2017';
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
 		}	
 	}
 
-	public function logout()
-	{
-		$array = array(
-			'username' => '',
-			'logged_in'=> FALSE
-		);
-		
-		$this->session->set_userdata( $array );
-		redirect('login');
-	}
-
 	public function addguru()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='add_guru_view';
+			$data['title'] = 'Tambah Data Guru - Prakerin SMK Telkom Malang 2017';
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -44,6 +40,7 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='add_siswa_view';
+			$data['title'] = 'Tambah Data Siswa - Prakerin SMK Telkom Malang 2017';
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -133,6 +130,7 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='data_siswa_view';
+			$data['title'] = 'Data Siswa - Prakerin SMK Telkom Malang 2017';
 			$data['siswa'] = $this->admin_model->getDataSiswa();
 			$this->load->view('template_view', $data);
 		} else {
@@ -145,6 +143,7 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='data_guru_view';
+			$data['title'] = 'Data Guru - Prakerin SMK Telkom Malang 2017';
 			$data['guru'] = $this->admin_model->getDataGuru();
 			$this->load->view('template_view', $data);
 		} else {
@@ -157,6 +156,7 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view'] = 'edit_guru_view';
+			$data['title'] = 'Ubah Data Guru - Prakerin SMK Telkom Malang 2017';
 			//ambil data guru
 			$id_gr = $this->uri->segment(3);
 			$data['detil'] = $this->admin_model->get_guru_by_id($id_gr);
@@ -213,6 +213,7 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view'] = 'edit_siswa_view';
+			$data['title'] = 'Ubah Data Siswa - Prakerin SMK Telkom Malang 2017';
 			//ambil data siswa
 			$id_sw = $this->uri->segment(3);
 			$data['detil'] = $this->admin_model->get_siswa_by_id($id_sw);
@@ -302,6 +303,7 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view'] = 'add_industri_view';
+			$data['title'] = 'Tambah Data Industri - Prakerin SMK Telkom Malang 2017';
 			$data['nama_guru'] = $this->admin_model->getNamaGuru();
 			$this->load->view('template_view', $data);
 		} else {
@@ -332,6 +334,7 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='data_industri_view';
+			$data['title'] = 'Data Industri - Prakerin SMK Telkom Malang 2017';
 			$data['industri'] = $this->admin_model->getDataIndustri();
 			$this->load->view('template_view', $data);
 		} else {

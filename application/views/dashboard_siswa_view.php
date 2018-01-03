@@ -33,10 +33,10 @@
         					<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/insertjurnal">
                                 <div class="form-group">
                                     <label>Kegiatan Prakerin</label>
-                                    <textarea class="form-control" name="keterangan"></textarea>
+                                    <textarea class="form-control" name="keterangan" autofocus></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label>Foto Prakerin</label>
+                                    <label>Foto Prakerin (<span class="small">Max. size 10 MB</span>)</label>
                                     <input type="file" id="foto" name="foto" required>
                                 </div>
                                 <div class="modal-footer">
@@ -78,7 +78,7 @@
                                     <tr>
                                         <td>'.$no.'</td>
                                         <td>'.$data->isi.'</td>
-                                        <td><img style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
+                                        <td id="anu"><img style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'" id="kegiatan"></td>
                                         <td>'.$data->tanggal.'</td>
                                         <td>'.$data->status.'</td>
                                     </tr>

@@ -10,7 +10,8 @@ class Siswa extends CI_Controller {
 	public function index()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='dashboard_siswa_view';
+			$data['main_view'] = 'dashboard_siswa_view';
+			$data['title'] = 'Dashboard Siswa - Prakerin SMK Telkom Malang 2017';
 			$data['isAbsen'] = $this->siswa_model->cekAbsen();
 			$data['jurnal'] = $this->siswa_model->getDatajurnal();
 			$data['kelas'] = $this->siswa_model->getKelas();
@@ -28,8 +29,11 @@ class Siswa extends CI_Controller {
 		if ($this->form_validation->run() == TRUE ) {
 			$config['upload_path'] = './uploads/foto_prakerin/';
 			$config['allowed_types'] = 'jpg|png';
-			$config['max_size'] = '2000';
+			$config['max_size'] = '10240';
+			// kalau error karena max. size, ubah di file php.ini (post_max_size) dan (upload_max_filesize)
+
 			$this->load->library('upload', $config);
+
 			if ($this->upload->do_upload('foto')) {
 				if($this->siswa_model->tambahjurnal($this->upload->data()) == TRUE) {
 					$data['main_view'] = 'dashboard_siswa_view';
@@ -42,7 +46,7 @@ class Siswa extends CI_Controller {
 				}
 			} else {
 				$data['main_view'] = 'dashboard_siswa_view';
-				$this->session->set_flashdata('notif', $this->upload->display_errors());
+				$this->session->set_flashdata('notif', 'Gagal absen');
 				redirect('siswa');
 			}
 		} else {
@@ -55,6 +59,7 @@ class Siswa extends CI_Controller {
 	public function datasiswa()
 	{
 		$data['main_view'] = 'profil_siswa_view';
+		$data['$title'] = 'Profil Siswa - Prakerin SMK Telkom Malang 2017';
 	}
 }
 /* End of file Siswa.php */

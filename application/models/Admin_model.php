@@ -123,7 +123,10 @@ class Admin_model extends CI_Model {
 
 	public function getDataSiswa()
 	{
-		return $this->db->order_by('nama_siswa', 'ASC')->get('tb_user_siswa')->result();
+		return $this->db->order_by('industri', 'ASC')
+						->order_by('nama_siswa', 'ASC')
+						->get('tb_user_siswa')
+						->result();
 	}
 
 	public function get_siswa_by_id($id_sw){
@@ -247,6 +250,21 @@ class Admin_model extends CI_Model {
 	public function getDataIndustri()
 	{
 		return $this->db->order_by('nama_industri', 'ASC')->get('tb_industri')->result();
+	}
+
+	public function countGuru()
+	{
+		return $this->db->count_all('tb_user_guru');
+	}
+
+	public function countSiswa()
+	{
+		return $this->db->count_all('tb_user_siswa');
+	}
+
+	public function countIndustri()
+	{
+		return $this->db->count_all('tb_industri');
 	}
 }
 /* End of file Admin_model.php */

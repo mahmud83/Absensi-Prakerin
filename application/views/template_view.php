@@ -3,11 +3,10 @@
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dashboard Siswa</title>
+  <title><?php echo $title; ?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
@@ -22,18 +21,11 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/morris.js/morris.css">
   <!-- jvectormap -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/jvectormap/jquery-jvectormap.css">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="<?php base_url(); ?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!-- animate bootstrap notify -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/animate.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/animate.min.css">
 
   <!-- Data tables -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/dataTables/datatables.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"> 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -447,17 +439,40 @@
   <script src="<?php echo base_url(); ?>dist/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+
   <!-- bootstrap notify -->
   <script src="<?php echo base_url() ?>dist/js/bootstrap-notify.js"></script>
+
   <!-- Data tables -->
-  <script src="<?php echo base_url(); ?>dist/dataTables/datatables.min.js"></script>
-  <!-- <script>
+  <script>
     $(function () {
-      $('#dataTables-guru').DataTable();
-      $('#dataTables-siswa').DataTable();
-      $('#dataTables-industri').DataTable();
+      $('#dataTables-guru').DataTable({
+        scrollX:        true,
+        scrollCollapse: true,
+        responsive: true
+      });
+      $('#dataTables-siswa').DataTable({
+        scrollX:        true,
+        scrollCollapse: true,
+        responsive: true
+      });
+      $('#dataTables-industri').DataTable({
+        scrollX:        true,
+        scrollCollapse: true,
+        responsive: true
+      });
+      $('#dataTables-industriAbsen').DataTable({
+        scrollX:        true,
+        scrollCollapse: true,
+        responsive: true
+      });
+      $('#dataTables-dasSiswa').DataTable({
+        scrollX:        true,
+        scrollCollapse: true,
+        responsive: true
+      });
     })
-  </script> -->
+  </script>
 
   <!-- bootstrap notify -->
   <script type="text/javascript">
@@ -810,5 +825,6 @@
       } 
     ?>
   </script>
+
   </body>
 </html>
