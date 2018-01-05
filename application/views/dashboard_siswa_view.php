@@ -60,10 +60,10 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                  <table style="width: auto; table-layout: auto; " class="table table-striped table-bordered table-hover" id="dataTables-absSiswa">
                     <thead>
                     <tr>
-                        <th>No.</th>
+                        <th width="5%">No.</th>
                         <th>Kegiatan Prakerin</th>
                         <th>Foto Prakerin</th>
                         <th>Tanggal</th>
@@ -78,7 +78,7 @@
                                     <tr>
                                         <td>'.$no.'</td>
                                         <td>'.$data->isi.'</td>
-                                        <td id="anu"><img style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'" id="kegiatan"></td>
+                                        <td><img id="anu" onclick="klik(this)" data-toggle="modal" data-target="#modalPop" style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'" id="kegiatan"></td>
                                         <td>'.$data->tanggal.'</td>
                                         <td>'.$data->status.'</td>
                                     </tr>
@@ -97,4 +97,16 @@
         <!-- /.col -->
         </div>
 	</body>
+    <div class="modal fade" id="modalPop">
+        <div class="modal-content">
+            <img  id="imgPop" class="modal-body img-responsive">
+            <span id="klos" class="close" data-dismiss="modal">&times;</span>
+        </div>
+        <script>
+            function klik(element) {
+                var hai = document.getElementById("imgPop");
+                hai.src = element.src;
+            }
+        </script>
+    </div>
 </html>

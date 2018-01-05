@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div class="row">
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
@@ -9,16 +11,16 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-IndAbs">
+                  <table style="width: auto; table-layout: auto; " class="table table-bordered table-hover" id="dataTables-IndAbs">
                     <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Nama Siswa</th>
-                        <th>Kegiatan Prakerin</th>
-                        <th>Foto Prakerin</th>
-                        <th>Tanggal</th>
-                        <th>Status</th>
-                    </tr>
+                        <tr>
+                            <th width="5%">No.</th>
+                            <th>Nama Siswa</th>
+                            <th>Kegiatan Prakerin</th>
+                            <th>Foto Prakerin</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <?php 
@@ -29,7 +31,7 @@
                                         <td>'.$no.'</td>
                                         <td>'.$data->nama_siswa.'</td>
                                         <td>'.$data->isi.'</td>
-                                        <td><img style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
+                                        <td><img id="anu" onclick="klik(this)" data-toggle="modal" data-target="#modalPop" style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
                                         <td>'.$data->tanggal.'</td>
                                         <td>';?>
                                             <?php 
@@ -48,17 +50,28 @@
                             };
                         ?>
                     </tbody>
-                        <!-- <td><img style="height:160px; width:120px;" src="'.base_url().'uploads/foto_siswa/'.$data->foto_siswa.'"></td> -->
                   </table>
                 </div>
                 <!-- /.box-body -->
               </div>
               <!-- /.box -->
             </div>
-        <!-- /.col -->
-        </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </section>
+        <!-- /.content -->
     </body>
+    <div class="modal fade" id="modalPop">
+        <div class="modal-content">
+            <img  id="imgPop" class="modal-body img-responsive">
+            <span id="klos" class="close" data-dismiss="modal">&times;</span>
+        </div>
+        <script>
+            function klik(element) {
+                var hai = document.getElementById("imgPop");
+                hai.src = element.src;
+            }
+        </script>
+    </div>
 </html>
-
-<!-- Anda belum absen hari ini!
-<button class="btn btn-primary pull-right" style="padding-top: 1;">Absen Hari Ini</button> -->

@@ -1,0 +1,42 @@
+#anu:hover {
+	opacity: 0.7;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+#imgPop {
+    position: fixed; /* Stay in place */
+    display: block;
+    margin: auto;
+    overflow: auto; /* Enable scroll if needed */
+    max-height: 600px; 
+    max-width: 1100px;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*animation-name: zoom;
+    animation-duration: 0.6s;*/
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+#klos {
+	position: absolute;
+	top: 40px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#klos:hover,
+#klos:focus {
+	color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}

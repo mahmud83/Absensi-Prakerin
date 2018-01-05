@@ -8,6 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -25,7 +26,9 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/animate.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/animate.min.css">
   <!-- Data tables -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"> 
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- image popup -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dist/css/popup.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,7 +46,7 @@
 
       <!-- template admin -->
       <?php if ($this->session->userdata('role') == 1): ?>
-        <header class="main-header">
+        <header class="main-header" id="cok">
           <!-- Logo -->
           <a href="index2.html" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -467,9 +470,9 @@
         responsive: true
       });
       $('#dataTables-IndAbs').DataTable({
-        scrollX:        true,
+        scrollX: true,
         scrollCollapse: true,
-        responsive: true
+        responsive: true,
       });
     })
   </script>

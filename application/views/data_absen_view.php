@@ -15,10 +15,10 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-absSiswa">
+                  <table style="width: auto; table-layout: auto; " class="table table-striped table-bordered table-hover" id="dataTables-absSiswa">
                     <thead>
                     <tr>
-                        <th>No.</th>
+                        <th width="5%">No.</th>
                         <th>Kegiatan Prakerin</th>
                         <th>Foto Prakerin</th>
                         <th>Tanggal</th>
