@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- image popup -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dist/css/popup.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dist/css/animate.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

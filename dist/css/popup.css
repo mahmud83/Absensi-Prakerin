@@ -19,9 +19,23 @@
     animation-duration: 0.6s;*/
 }
 
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
+@media screen and (max-width: 700px) {
+    #imgPop {
+        position: fixed; /* Stay in place */
+	    display: block;
+	    margin: auto;
+	    overflow: auto; /* Enable scroll if needed */
+	    max-width: 95%;
+	    height: auto;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+    }
+}
+
+#imgPop { 
+    animation-name: zoomIn;
+    animation-duration: 0.8s;
 }
 
 #klos {
