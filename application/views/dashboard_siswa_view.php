@@ -32,11 +32,19 @@
       					<div class="modal-body">
         					<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/insertjurnal">
                                 <div class="form-group">
-                                    <label>Kegiatan Prakerin</label>
+                                    <label>Absen :</label>
+                                    <select class="form-control-static" name="ket_abs" style="width: 70%; border-color: #D2D6DE; padding-left: 5px;">
+                                        <option>Masuk</option>
+                                        <option>Sakit</option>
+                                        <option>Izin</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label name="isi">Ketarangan</label>
                                     <textarea class="form-control" name="keterangan" autofocus></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label>Foto Prakerin (<span class="small">Max. size 10 MB</span>)</label>
+                                    <label name="up">Foto (<span class="small">Max. size 10 MB</span>)</label>
                                     <input type="file" id="foto" name="foto" required>
                                 </div>
                                 <div class="modal-footer">
@@ -60,7 +68,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <table style="width: auto; table-layout: auto; " class="table table-striped table-bordered table-hover" id="dataTables-absSiswa">
+                  <table style="width: auto; table-layout: auto; " class="table table-bordered table-hover" id="dataTables-absSiswa">
                     <thead>
                     <tr>
                         <th width="5%">No.</th>
@@ -77,7 +85,7 @@
                                 echo '
                                     <tr>
                                         <td>'.$no.'</td>
-                                        <td>'.$data->isi.'</td>
+                                        <td>'.$data->ket_abs.' ('.$data->isi.')</td>
                                         <td><img id="anu" onclick="klik(this)" data-toggle="modal" data-target="#modalPop" style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'" id="kegiatan"></td>
                                         <td>'.$data->tanggal.'</td>
                                         <td>'.$data->status.'</td>

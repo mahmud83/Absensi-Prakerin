@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Pembimbing di Kota</label>
-                                    <select class="form-control" name="kota">
+                                    <select class="form-control select2" name="kota">
                                         <option>Bali</option>
                                         <option>Balikpapan</option>
                                         <option>Bandung</option>

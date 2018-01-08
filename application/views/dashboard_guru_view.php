@@ -42,8 +42,8 @@
                                     <td>'.$data->industri.'</td>
                                     <td>'.$data->alamat_prakerin.'</td>
                                     <td style="width:9%;">
-                                        <a href="'.base_url().'index.php/guru/profilsiswa/'.$data->id_user_siswa.'" class="btn btn-info btn-sm" title="Lihat Profil Siswa"><i class="fa fa-user"></i></a>
-                                        <a href="'.base_url().'index.php/guru/datajurnal/'.$data->id_user_siswa.'" class="btn btn-danger btn-sm" title="Lihat Jurnal Siswa"><i class="fa fa-file-text-o"></i></a>
+                                        <a href="'.base_url().'index.php/guru/profilsiswa/'.$data->id_user.'" class="btn btn-info btn-sm" title="Lihat Profil Siswa"><i class="fa fa-user"></i></a>
+                                        <a href="'.base_url().'index.php/guru/datajurnal/'.$data->id_user.'" class="btn btn-danger btn-sm" title="Lihat Jurnal Siswa"><i class="fa fa-file-text-o"></i></a>
                                     </td>
                                 </tr>
                             ';

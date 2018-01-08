@@ -32,7 +32,8 @@ class Siswa_model extends CI_Model {
 				  		'status' => 'Menunggu konfirmasi',
 				  		'id_post' => $this->genIDj(),
 				  		'nama_siswa' => $this->session->userdata('jeneng'),
-				  		'industri' =>  $this->getIndustri()
+				  		'industri' =>  $this->getIndustri(),
+				  		'ket_abs' => $this->input->post('ket_abs')
 				  	  );
 		$this->db->insert('tb_post', $data);
 		if ($this->db->affected_rows() > 0) {

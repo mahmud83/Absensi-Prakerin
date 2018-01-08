@@ -30,6 +30,8 @@
   <!-- image popup -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dist/css/popup.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dist/css/animate.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -440,6 +442,11 @@
   <script src="<?php echo base_url(); ?>dist/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+  <!-- Select2 -->
+  <script src="<?php echo base_url(); ?>bower_components/select2/dist/js/select2.full.min.js"></script>
+  <script>
+    $('.select2').select2();
+  </script>
 
   <!-- Data tables -->
   <script src="<?php echo base_url(); ?>dist/js/datatables.min.js"></script>

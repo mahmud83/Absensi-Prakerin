@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kota</label>
-                                    <select class="form-control" name="kota">
+                                    <select class="form-control select2" name="kota">
                                         <?php 
                                             if($detil->kota == "Malang")
                                             {

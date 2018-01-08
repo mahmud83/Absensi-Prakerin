@@ -32,7 +32,7 @@
                                 echo '
                                     <tr>
                                         <td>'.$no.'</td>
-                                        <td>'.$data->isi.'</td>
+                                        <td>'.$data->ket_abs.' ('.$data->isi.')</td>
                                         <td><img style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
                                         <td>'.$data->tanggal.'</td>
                                         <td>'.$data->status.'</td>

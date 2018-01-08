@@ -7,7 +7,8 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title">Data Absensi Prakerin SMK Telkom Malang 2017</h3>
+                  <h3 class="box-title">Data Absensi Prakerin SMK Telkom Malang 2017 - <?php echo $this->session->userdata('jeneng'); ?></h3>
+                  <h5>Guru Pembimbing: </h5>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -30,7 +31,7 @@
                                     <tr>
                                         <td>'.$no.'</td>
                                         <td>'.$data->nama_siswa.'</td>
-                                        <td>'.$data->isi.'</td>
+                                        <td>'.$data->ket_abs.' ('.$data->isi.')</td>
                                         <td><img id="anu" onclick="klik(this)" data-toggle="modal" data-target="#modalPop" style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
                                         <td>'.$data->tanggal.'</td>
                                         <td>';?>

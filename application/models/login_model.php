@@ -12,7 +12,7 @@ class Login_model extends CI_Model {
 						  ->where('password', $password)
 						  ->get('tb_login');
 
-		//cek db
+		//cek db, set session
 		if ($query->num_rows() > 0) {
 			$data = array('username' => $username,
 						  'logged_in' => TRUE,

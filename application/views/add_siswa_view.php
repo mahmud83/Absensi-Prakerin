@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kelas</label>
-                                    <select class="form-control" name="kelas">
+                                    <select class="form-control select2" name="kelas">
                                         <option>XII RPL 1</option>
                                         <option>XII RPL 2</option>
                                         <option>XII RPL 3</option>
@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kota</label>
-                                    <select class="form-control" name="kota">
+                                    <select class="form-control select2" name="kota">
                                         <option>Bali</option>
                                         <option>Balikpapan</option>
                                         <option>Bandung</option>
