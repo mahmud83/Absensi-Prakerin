@@ -13,14 +13,6 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updateguru/<?php echo $this->uri->segment(3); ?>">
-                                <!-- <div class="form-group">
-                                    <label>Username</label>
-                                    <input class="form-control" placeholder="Username" name="username" type="text" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="form-control" placeholder="Password" name="password" required>
-                                </div> -->
                                 <div class="form-group">
                                     <label>Nama Guru</label>
                                     <input class="form-control" placeholder="Nama Guru" name="nama_guru" required value="<?php echo $detil->nama_guru; ?>">
@@ -78,7 +70,7 @@
                             </form>
                         </div>
                         <div class="col-lg-6">
-                          <img style="height:200px; width:150px;" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $detil->foto_guru; ?>">
+                          <img id="foto_guru" class="img-thumbnail" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $detil->foto_guru; ?>">
                         </div>
                     </div>
                     <!-- /.row (nested) -->
@@ -91,3 +83,17 @@
     </div>
     <!-- /.row -->
 </div>
+<style type="text/css">
+  #foto_guru {
+    max-height: 300px; 
+    max-width: 514px; 
+    width: auto;
+  }
+
+  @media screen and (max-width: 700px) {
+    #foto_guru {
+      max-width: 85%;
+      height: auto;
+    }
+}
+</style>

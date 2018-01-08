@@ -44,8 +44,8 @@
                                     <td>'.$data->kota.'</td>
                                     <td>'.$data->alamat_prakerin.'</td>
                                     <td style="width:9%;">
-                                        <a href="'.base_url().'index.php/admin/editsiswa/'.$data->id_user_siswa.'" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
-                                        <a href="'.base_url().'index.php/admin/deletesiswa/'.$data->id_user_siswa.'" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
+                                        <a href="'.base_url().'index.php/admin/editsiswa/'.$data->id_user.'" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a href="'.base_url().'index.php/admin/deletesiswa/'.$data->id_user.'" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
                             ';

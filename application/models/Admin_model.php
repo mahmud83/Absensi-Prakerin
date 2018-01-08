@@ -2,15 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin_model extends CI_Model {
 
-	public function getIDfromtbg()
-	{
-		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_user_guru')->row('id_user');
-		$lastNo = substr($query, 2);
-		$next = $lastNo + 1;
-		$kd = 'GR';
-		return $kd.sprintf('%02s', $next);
-	}
-
 	public function genIDg()
 	{
 		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_user_guru')->row('id_user');
@@ -34,8 +25,7 @@ class Admin_model extends CI_Model {
 				  		'no_telp_guru' => $this->input->post('telp'),
 				  		'kota' => $this->input->post('kota'),
 				  		'foto_guru' => $foto['file_name'],
-				  		'id_user_guru' => $this->getIDfromtbg(),
-				  		'id_user' => $this->getIDfromtbg()
+				  		'id_user' => $this->genIDg()
 				  	  );
 		$this->db->insert('tb_login', $login);
 		$this->db->insert('tb_user_guru', $detail);
@@ -64,8 +54,7 @@ class Admin_model extends CI_Model {
 				  		'alamat_prakerin' => $this->input->post('alamat'),
 				  		'industri' => $this->input->post('industri'),
 				  		'foto_siswa' => $foto['file_name'],
-				  		'id_user_siswa' => $this->getIDfromtbs(),
-				  		'id_user' => $this->getIDfromtbs()
+				  		'id_user' => $this->genIDs()
 				  	  );
 		$this->db->insert('tb_login', $login);
 		$this->db->insert('tb_user_siswa', $detail);
@@ -74,15 +63,6 @@ class Admin_model extends CI_Model {
 		} else {
 			return FALSE;
 		}
-	}
-
-	public function getIDfromtbs()
-	{
-		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_user_siswa')->row('id_user');
-		$lastNo = substr($query, 3);
-		$next = $lastNo + 1;
-		$kd = 'SW';
-		return $kd.sprintf('%03s', $next);
 	}
 
 	public function genIDs()
@@ -100,7 +80,7 @@ class Admin_model extends CI_Model {
 	}
 	
 	public function get_guru_by_id($id_gr){
-		return $this->db->where('id_user_guru', $id_gr)
+		return $this->db->where('id_user', $id_gr)
 						->get('tb_user_guru')
 						->row();
 	}
@@ -113,7 +93,7 @@ class Admin_model extends CI_Model {
 					 'kota' => $this->input->post('kota'),
 					 'foto_guru' => $foto['file_name'] 
 				);
-		$this->db->where('id_user_guru', $id_gr)->update('tb_user_guru', $data);
+		$this->db->where('id_user', $id_gr)->update('tb_user_guru', $data);
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
 		} else {
@@ -130,7 +110,7 @@ class Admin_model extends CI_Model {
 	}
 
 	public function get_siswa_by_id($id_sw){
-		return $this->db->where('id_user_siswa', $id_sw)
+		return $this->db->where('id_user', $id_sw)
 						->get('tb_user_siswa')
 						->row();
 	}
@@ -153,7 +133,7 @@ class Admin_model extends CI_Model {
 				  	 'industri' => $this->input->post('industri'),
 				  	 'foto_siswa' => $foto['file_name'],
 				);
-		$this->db->where('id_user_siswa', $id_sw)->update('tb_user_siswa', $data);
+		$this->db->where('id_user', $id_sw)->update('tb_user_siswa', $data);
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
 		} else {
@@ -163,7 +143,7 @@ class Admin_model extends CI_Model {
 	
 	public function hapusguru($id_gr)
 	{
-		$this->db->where('id_user_guru', $id_gr)->delete('tb_user_guru');
+		$this->db->where('id_user', $id_gr)->delete('tb_user_guru');
 		$this->db->where('id_user', $id_gr)->delete('tb_login');
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
@@ -174,7 +154,7 @@ class Admin_model extends CI_Model {
 	
 	public function hapussiswa($id_sw)
 	{
-		$this->db->where('id_user_siswa', $id_sw)->delete('tb_user_siswa');
+		$this->db->where('id_user', $id_sw)->delete('tb_user_siswa');
 		$this->db->where('id_user', $id_sw)->delete('tb_login');
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
@@ -183,18 +163,9 @@ class Admin_model extends CI_Model {
 		}
 	}
 
-	public function genIDInd()
+	public function genIDi()
 	{
 		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_industri')->row('id_user');
-		$lastNo = substr($query, 2);
-		$next = $lastNo + 1;
-		$kd = 'ID';
-		return $kd.sprintf('%02s', $next);
-	}
-
-	public function getIDfromtbInd()
-	{
-		$query = $this->db->select('id_user')->order_by('id_user', 'DESC')->limit(1)->get('tb_industri')->row('id_user');
 		$lastNo = substr($query, 2);
 		$next = $lastNo + 1;
 		$kd = 'ID';
@@ -207,7 +178,7 @@ class Admin_model extends CI_Model {
 				 		'username' => $this->input->post('username'), 
 				 		'password' => $this->input->post('password'),
 				  		'id_level' => '4',
-				  		'id_user' => $this->genIDInd(),
+				  		'id_user' => $this->genIDi(),
 				  		'nama' => $this->input->post('nama_ind')
 				  	  );
 		$detail = array (
@@ -215,8 +186,7 @@ class Admin_model extends CI_Model {
 				  		'no_telp_industri' => $this->input->post('telp'),
 				  		'alamat_industri' => $this->input->post('alamat'),
 				  		'kota' => $this->input->post('kota'),
-				  		'id_user_industri' => $this->getIDfromtbInd(),
-				  		'id_user' => $this->getIDfromtbInd(),
+				  		'id_user' => $this->genIDi(),
 				  		'nama_guru_pembimbing' =>  $this->input->post('nama_guru')
 				  	  );
 		$this->db->insert('tb_login', $login);
@@ -228,15 +198,44 @@ class Admin_model extends CI_Model {
 		}
 	}
 
+	public function editindustri($id_id)
+	{
+		$data = array(
+					 'nama_industri' => $this->input->post('nama_industri'),
+				  	 'no_telp_industri' => $this->input->post('telp'),
+				  	 'kota' => $this->input->post('kota'),
+				  	 'alamat_industri' => $this->input->post('alamat'),
+				  	 'nama_guru_pembimbing' => $this->input->post('nama_guru_pembimbing')
+				);
+		$this->db->where('id_user', $id_id)->update('tb_industri', $data);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
 	public function hapusindustri($id_id)
 	{
-		$this->db->where('id_user_industri', $id_id)->delete('tb_industri');
+		$this->db->where('id_user', $id_id)->delete('tb_industri');
 		$this->db->where('id_user', $id_id)->delete('tb_login');
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
 		} else {
 			return FALSE;
 		}
+	}
+
+	public function get_industri_by_id($id_id){
+		return $this->db->where('id_user', $id_id)
+						->get('tb_industri')
+						->row();
+	}
+
+	public function get_industril_by_id($id_id){
+		return $this->db->where('id_user', $id_id)
+						->get('tb_login')
+						->row();
 	}
 
 	public function getNamaGuru()

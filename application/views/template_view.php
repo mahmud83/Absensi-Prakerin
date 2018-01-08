@@ -826,6 +826,42 @@
             exit: 'animated bounceOut'
           },
         });
+        <?php } elseif ($notif == 'Berhasil mengubah data industri') { ?>
+          $.notify({
+            icon: 'fa fa-check',
+            title: '<strong>&nbsp;Success!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'success',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Gagal mengubah data industri') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'danger',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
         <?php }
       } 
     ?>

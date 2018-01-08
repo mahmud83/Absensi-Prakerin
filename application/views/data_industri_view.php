@@ -40,8 +40,8 @@
                                     <td>'.$data->alamat_industri.'</td>
                                     <td>'.$data->kota.'</td>
                                     <td style="width:9%;">
-                                        <a href="'.base_url().'index.php/admin/editindustri/'.$data->id_user_industri.'" class="btn btn-info btn-sm" title="Lihat Data"><i class="glyphicon glyphicon-edit"></i></a>
-                                        <a href="'.base_url().'index.php/admin/deleteindustri/'.$data->id_user_industri.'" class="btn btn-danger btn-sm" title="Hapus Data"><i class="glyphicon glyphicon-trash"></i></a>
+                                        <a href="'.base_url().'index.php/admin/editindustri/'.$data->id_user.'" class="btn btn-info btn-sm" title="Lihat Data"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a href="'.base_url().'index.php/admin/deleteindustri/'.$data->id_user.'" class="btn btn-danger btn-sm" title="Hapus Data"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
                             ';

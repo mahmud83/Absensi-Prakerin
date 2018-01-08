@@ -36,8 +36,8 @@
                                     <td>'.$data->no_telp_guru.'</td>
                                     <td>'.$data->kota.'</td>
                                     <td style="width:9%;">
-                                        <a href="'.base_url().'index.php/admin/editguru/'.$data->id_user_guru.'" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
-                                        <a href="'.base_url().'index.php/admin/deleteguru/'.$data->id_user_guru.'" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
+                                        <a href="'.base_url().'index.php/admin/editguru/'.$data->id_user.'" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a href="'.base_url().'index.php/admin/deleteguru/'.$data->id_user.'" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
                             ';

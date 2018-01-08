@@ -237,7 +237,7 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	//update data guru
+	//update data siswa
 	public function updatesiswa($id_sw)
 	{
 		$this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'trim|required');
@@ -365,6 +365,53 @@ class Admin extends CI_Controller {
 				redirect('admin/dataindustri');
 			}
 		} else {
+			redirect('admin/dataindustri');
+		}
+	}
+
+	public function editindustri()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'edit_industri_view';
+			$data['title'] = 'Ubah Data Industri - Prakerin SMK Telkom Malang 2017';
+			//ambil data industri
+			$id_id = $this->uri->segment(3);
+			$data['detil'] = $this->admin_model->get_industri_by_id($id_id);
+			$data['detill'] = $this->admin_model->get_industril_by_id($id_id);
+
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('admin/dataindustri');
+		}
+	}
+
+	//update data siswa
+	public function updateindustri($id_id)
+	{
+		$this->form_validation->set_rules('nama_industri', 'Nama Industri', 'trim|required');
+		$this->form_validation->set_rules('telp', 'No. Telp', 'trim|required|numeric');
+		$this->form_validation->set_rules('nama_guru_pembimbing', 'Industri', 'trim|required');
+		$this->form_validation->set_rules('alamat', 'Alamat Industri', 'trim|required');
+
+		if ($this->form_validation->run() == TRUE ) {
+
+			if($this->admin_model->editindustri($id_id) == TRUE) {
+				$data['main_view'] = 'data_industri_view';
+				$this->session->set_flashdata('notif', 'Berhasil mengubah data industri');
+				$id_id = $this->uri->segment(3);
+					redirect('admin/dataindustri');
+			} else {
+				$data['main_view'] = 'data_industri_view';
+				$this->session->set_flashdata('notif', 'Gagal mengubah data industri');
+				$id_id = $this->uri->segment(3);
+				redirect('admin/dataindustri');
+			}
+		} 
+		else {
+			$data['main_view'] = 'data_industri_view';
+			$this->session->set_flashdata('notif', 'Lengkapi semua field');
+			$id_id = $this->uri->segment(3);
 			redirect('admin/dataindustri');
 		}
 	}
