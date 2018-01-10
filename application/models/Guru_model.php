@@ -163,13 +163,37 @@ class Guru_model extends CI_Model {
 						->count_all_results();
 
 	}
-	/*public function join()
-	{	
-		$guru = $this->session->userdata('jeneng');
-		$SQL = "SELECT * FROM tb_user_siswa, tb_industri WHERE tb_user_siswa.industri = tb_industri.nama_industri AND tb_industri.nama_guru_pembimbing = $guru;";
-		$this->db->query($SQL)->result();
+	
+	public function countSiswaConfirm()
+	{
+		// $sql = SELECT COUNT(`tb_post`.`nama_siswa`) FROM `tb_post` LEFT JOIN `tb_user_siswa` ON `tb_post`.`id_user` = `tb_user_siswa`.`id_user`WHERE `tb_post`.`tanggal` = '2018-01-10' AND `tb_user_siswa`.`nama_guru_pembimbing` = 'Dra. Peni Wardayani' AND `tb_post`.`status` = 'Sudah dikonfirmasi' 
 
-	}*/
+		$namaguru = $this->session->userdata('jeneng');
+		$tanggal = date('Y-m-d');
+
+		return $this->db->select('tb_post.nama_siswa')
+						->where('nama_guru_pembimbing', $namaguru)
+						->where('tanggal', $tanggal)
+						->where('tb_post.status', 'Sudah dikonfirmasi')
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+
+	}
+
+	public function countSiswaBelumConfirm()
+	{
+		$namaguru = $this->session->userdata('jeneng');
+		$tanggal = date('Y-m-d');
+
+		return $this->db->select('tb_post.nama_siswa')
+						->where('nama_guru_pembimbing', $namaguru)
+						->where('tanggal', $tanggal)
+						->where('tb_post.status', 'Menunggu konfirmasi')
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
 
 }
 
