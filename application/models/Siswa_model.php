@@ -95,6 +95,110 @@ class Siswa_model extends CI_Model {
      	return TRUE;
 	}
 
+	public function getNama()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						  ->select('nama_siswa')
+						  ->get('tb_user_siswa');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->nama_siswa;
+     	}
+     	return TRUE;
+	}
+
+	public function getNo()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						  ->select('no_telp_siswa')
+						  ->get('tb_user_siswa');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->no_telp_siswa;
+     	}
+     	return TRUE;
+	}
+
+	public function getAlamat()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						  ->select('alamat_prakerin')
+						  ->get('tb_user_siswa');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->alamat_prakerin;
+     	}
+     	return TRUE;
+	}
+
+	public function getJK()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						  ->select('jenis_kelamin')
+						  ->get('tb_user_siswa');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->jenis_kelamin;
+     	}
+     	return TRUE;
+	}
+
+	public function getUser()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						  ->select('username')
+						  ->get('tb_login');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->username;
+     	}
+     	return TRUE;
+	}
+
+	public function getPass()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						  ->select('password')
+						  ->get('tb_login');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->password;
+     	}
+     	return TRUE;
+	}
+
+	public function editprofil()
+	{
+		$id_sw = $this->session->userdata('id_user');
+		$data = array(
+					 'nama_siswa' => $this->input->post('nama_siswa'),
+				 	 'kelas' => $this->input->post('kelas'),
+				  	 'no_telp_siswa' => $this->input->post('no_telp'),
+				  	 'kota' => $this->input->post('kota'),
+				  	 'jenis_kelamin' => $this->input->post('jk'),
+				  	 'alamat_prakerin' => $this->input->post('alamat'),
+				  	 'industri' => $this->input->post('industri'),
+				);
+		$login = array(
+					  'username' => $this->input->post('username'),
+					  'password' => $this->input->post('password'),
+				);
+		$this->db->where('id_user', $id_sw)->update('tb_user_siswa', $data);
+		$this->db->where('id_user', $id_sw)->update('tb_login', $login);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	/*public function editfoto($id_sw, $foto)
+	{
+		$data = array(
+				  	 'foto_siswa' => $foto['file_name'],
+				);
+		$this->db->where('id_user', $id_sw)->update('tb_user_siswa', $data);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}*/
+
 }
 
 /* End of file Siswa_model.php */

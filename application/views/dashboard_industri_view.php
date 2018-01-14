@@ -27,13 +27,15 @@
                         <?php 
                             $no=1;
                             foreach($jurnal as $data) {
+                                $oldDate = $data->tanggal;
+                                $newDate = date("d M Y", strtotime($oldDate));
                                 echo '
                                     <tr>
                                         <td>'.$no.'</td>
                                         <td>'.$data->nama_siswa.'</td>
                                         <td>'.$data->ket_abs.' ('.$data->isi.')</td>
                                         <td><img id="anu" onclick="klik(this)" data-toggle="modal" data-target="#modalPop" style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
-                                        <td>'.$data->tanggal.'</td>
+                                        <td>'.$newDate.'</td>
                                         <td>';?>
                                             <?php 
                                                 if ($data->status == 'Menunggu konfirmasi') {

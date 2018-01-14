@@ -29,12 +29,14 @@
                         <?php 
                             $no=1;
                             foreach($jurnal as $data) {
+                                $oldDate = $data->tanggal;
+                                $newDate = date("d M Y", strtotime($oldDate));
                                 echo '
                                     <tr>
                                         <td>'.$no.'</td>
                                         <td>'.$data->ket_abs.' ('.$data->isi.')</td>
-                                        <td><img style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
-                                        <td>'.$data->tanggal.'</td>
+                                        <td><img id="anu" onclick="klik(this)" data-toggle="modal" data-target="#modalPop" style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
+                                        <td>'.$newDate.'</td>
                                         <td>'.$data->status.'</td>
                                     </tr>
                                 ';
@@ -54,4 +56,16 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
+</div>
+<div class="modal fade" id="modalPop">
+    <div class="modal-content">
+        <img  id="imgPop" class="modal-body img-responsive">
+        <span id="klos" class="close" data-dismiss="modal">&times;</span>
+    </div>
+    <script>
+        function klik(element) {
+            var hai = document.getElementById("imgPop");
+            hai.src = element.src;
+        }
+    </script>
 </div>

@@ -5,7 +5,7 @@
     	<div class="alert alert-danger">
     		<table>
     			<tr>
-    				<td style="width: 100%">Anda belum absen hari ini!</td>
+    				<td style="width: 100%; color: white;">Anda belum absen hari ini!</td>
     				<td style="width: 25%">
     					<button type="button" data-toggle="modal" data-target="#absenModal"  class="btn btn-primary pull-right">Absen Hari Ini</button>
 
@@ -33,7 +33,7 @@
         					<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/insertjurnal">
                                 <div class="form-group">
                                     <label>Absen :</label>
-                                    <select class="form-control-static" name="ket_abs" style="width: 70%; border-color: #D2D6DE; padding-left: 5px;">
+                                    <select class="form-control-static" name="ket_abs" style="width: 91.7%; border-color: #D2D6DE; padding-left: 5px;">
                                         <option>Masuk</option>
                                         <option>Sakit</option>
                                         <option>Izin</option>
@@ -82,12 +82,14 @@
                         <?php 
                             $no=1;
                             foreach($jurnal as $data) {
+                                $oldDate = $data->tanggal;
+                                $newDate = date("d M Y", strtotime($oldDate));
                                 echo '
                                     <tr>
                                         <td>'.$no.'</td>
                                         <td>'.$data->ket_abs.' ('.$data->isi.')</td>
                                         <td><img id="anu" onclick="klik(this)" data-toggle="modal" data-target="#modalPop" style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'" id="kegiatan"></td>
-                                        <td>'.$data->tanggal.'</td>
+                                        <td>'.$newDate.'</td>
                                         <td>'.$data->status.'</td>
                                     </tr>
                                 ';

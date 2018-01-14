@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Foto Siswa</label>
-                                    <input type="file" id="foto" name="foto" required>
+                                    <input type="file" id="foto" name="foto" required accept="image/*">
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label>

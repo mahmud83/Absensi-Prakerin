@@ -7,6 +7,7 @@ class Admin extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('admin_model');
+		$this->load->model('guru_model');
 	}
 
 	public function index()
@@ -110,7 +111,7 @@ class Admin extends CI_Controller {
 		if ($this->form_validation->run() == TRUE ) {
 			$config['upload_path'] = './uploads/foto_siswa/';
 			$config['allowed_types'] = 'jpg|png';
-			$config['max_size'] = '2000';
+			$config['max_size'] = '10240';
 
 			$this->load->library('upload', $config);
 
@@ -189,7 +190,7 @@ class Admin extends CI_Controller {
 		if ($this->form_validation->run() == TRUE ) {
 			$config['upload_path'] = './uploads/foto_guru/';
 			$config['allowed_types'] = 'jpg|png';
-			$config['max_sizes'] = '2000';
+			$config['max_sizes'] = '10240';
 
 			$this->load->library('upload', $config);
 
@@ -248,7 +249,7 @@ class Admin extends CI_Controller {
 		if ($this->form_validation->run() == TRUE ) {
 			$config['upload_path'] = './uploads/foto_siswa/';
 			$config['allowed_types'] = 'jpg|png';
-			$config['max_sizes'] = '2000';
+			$config['max_sizes'] = '10240';
 
 			$this->load->library('upload', $config);
 
@@ -416,6 +417,24 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function datajurnal()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'data_absen_view';
+			$data['title'] = 'Jurnal Kegiatan Prakerin - Prakerin SMK Telkom Malang 2017';
+			$data['foto'] = $this->guru_model->getFoto();
+			$data['kota'] = $this->guru_model->getKota();
+			//ambil data absen
+			$id_sw = $this->uri->segment(3);
+			$data['jurnal'] = $this->guru_model->get_post_by_id();
+			$data['nama'] = $this->guru_model->getNamaSiswa();
+
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('login');
+		}
+	}
 }
 
 /* End of file dashboard_admin.php */

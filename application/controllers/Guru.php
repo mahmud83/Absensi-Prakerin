@@ -34,6 +34,7 @@ class Guru extends CI_Controller {
 		$this->session->set_userdata( $array );
 		redirect('login');
 	}
+	
 	public function datajurnal()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {

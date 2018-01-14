@@ -55,7 +55,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg">SMK <b>Telkom</b></span>
+            <span class="logo-lg"><small><b>Telkom Schools</b> Malang</small></span>
           </a>
           <!-- Header Navbar: style can be found in header.less -->
           <nav class="navbar navbar-static-top">
@@ -138,7 +138,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Bismillah</b></span>
+            <span class="logo-lg"><small><b>Telkom Schools</b> Malang</small></span>
           </a>
           <!-- Header Navbar: style can be found in header.less -->
           <nav class="navbar navbar-static-top">
@@ -210,7 +210,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Bismillah</b></span>
+            <span class="logo-lg"><small><b>Telkom Schools</b> Malang</small></span>
           </a>
           <!-- Header Navbar: style can be found in header.less -->
           <nav class="navbar navbar-static-top">
@@ -238,7 +238,7 @@
                     <!-- Menu Footer-->
                     <li class="user-footer">
                       <div class="pull-left">
-                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        <a href="<?php echo base_url(); ?>index.php/siswa/profilku" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
                         <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
@@ -271,7 +271,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo base_url(); ?>index.php/siswa/datasiswa"><i class="fa fa-circle-o"></i> Profilku</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/siswa/profilku"><i class="fa fa-circle-o"></i> Profilku</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/siswa/dataguru"><i class="fa fa-circle-o"></i> Profil Guru Pembimbing</a></li>
               </ul>
             </li>
@@ -288,7 +288,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Bismillah</b></span>
+            <span class="logo-lg"><small><b>Telkom Schools</b> Malang</small></span>
           </a>
           <!-- Header Navbar: style can be found in header.less -->
           <nav class="navbar navbar-static-top">
@@ -852,6 +852,42 @@
           },
         });
         <?php } elseif ($notif == 'Gagal mengubah data industri') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'danger',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Berhasil mengubah profil') { ?>
+          $.notify({
+            icon: 'fa fa-check',
+            title: '<strong>&nbsp;Success!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'success',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Gagal mengubah profil') { ?>
           $.notify({
             icon: 'glyphicon glyphicon-warning-sign',
             title: '<strong>&nbsp;Warning!</strong><br>',

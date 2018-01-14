@@ -18,6 +18,9 @@ class Siswa extends CI_Controller {
 			$data['foto'] = $this->siswa_model->getFoto();
 			$data['industri'] = $this->siswa_model->getIndustri();
 			$data['kota'] = $this->siswa_model->getKota();
+			/*if ($this->siswa_model->cekAlpha() == TRUE) {
+				$this->siswa_model->tambahAlpha();
+			}*/
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -56,11 +59,63 @@ class Siswa extends CI_Controller {
 		}
 	}
 
-	public function datasiswa()
+	public function profilku()
 	{
-		$data['main_view'] = 'profil_siswa_view';
-		$data['$title'] = 'Profil Siswa - Prakerin SMK Telkom Malang 2017';
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'profil_siswa_view';
+			$data['title'] = 'Profilku - Prakerin SMK Telkom Malang 2017';
+			$data['kelas'] = $this->siswa_model->getKelas();
+			$data['foto'] = $this->siswa_model->getFoto();
+			$data['industri'] = $this->siswa_model->getIndustri();
+			$data['kota'] = $this->siswa_model->getKota();
+			$data['nama'] = $this->siswa_model->getNama();
+			$data['no'] = $this->siswa_model->getNo();
+			$data['alamat'] = $this->siswa_model->getAlamat();
+			$data['jk'] = $this->siswa_model->getJK();
+			$data['user'] = $this->siswa_model->getUser();
+			$data['pass'] = $this->siswa_model->getPass();
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('siswa');
+		}
 	}
+
+	public function updateprofil()
+	{
+		$this->siswa_model->editprofil();
+		$data['main_view'] = 'profil_siswa_view';
+		$this->session->set_flashdata('notif', 'Berhasil mengubah profil');
+		redirect('siswa/profilku');
+	}
+
+	/*public function updatefoto(){
+		$config['upload_path'] = './uploads/foto_siswa/';
+		$config['allowed_types'] = 'jpg|png';
+		$config['max_sizes'] = '10240';
+
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+
+		if ($this->upload->do_upload('foto')) {
+			if($this->siswa_model->editfoto($id_sw, $this->upload->data()) == TRUE) {
+				$data['main_view'] = 'profil_siswa_view';
+				$this->session->set_flashdata('notif', 'Berhasil mengubah foto');
+				$id_sw = $this->session->userdata('id_user');
+				redirect('siswa/profilku');
+			} else {
+				$data['main_view'] = 'profil_siswa_view';
+				$this->session->set_flashdata('notif', 'Gagal mengubah foto');
+				$id_sw = $this->session->userdata('id_user');
+				redirect('siswa/profilku');
+			}
+		} else {
+			$data['main_view'] = 'profil_siswa_view';
+			$this->session->set_flashdata('notif', 'Gagal mengubah foto');
+			$id_sw = $this->session->userdata('id_user');
+			redirect('siswa/profilku');
+		}
+	}*/
 }
 /* End of file Siswa.php */
 /* Location: ./application/controllers/Siswa.php */
