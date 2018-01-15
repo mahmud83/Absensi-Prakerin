@@ -11,11 +11,11 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Siswa Prakerin SMK Telkom Malang 2017 Kota <?php echo $kota; ?></h3>
+              <h3 class="box-title">Data Siswa Prakerin SMK Telkom Malang 2017</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table style="width: auto; table-layout: auto; " class="table table-striped table-bordered table-hover" id="dataTables-dasGuru">
+              <table style="width: auto; table-layout: auto; " class="table table-bordered table-hover" id="dataTables-guru">
                 <thead>
                 <tr>
                     <th width="5%">No.</th>
@@ -24,6 +24,7 @@
                     <th>Jenis Kelamin</th>
                     <th>No. Telp</th>
                     <th>Industri Prakerin</th>
+                    <th>Kota</th>
                     <th>Alamat Selama Prakerin</th>
                     <th>Aksi</th>
                 </tr>
@@ -40,10 +41,11 @@
                                     <td>'.$data->jenis_kelamin.'</td>
                                     <td>'.$data->no_telp_siswa.'</td>
                                     <td>'.$data->industri.'</td>
+                                    <td>'.$data->kota.'</td>
                                     <td>'.$data->alamat_prakerin.'</td>
                                     <td style="width:9%;">
-                                        <a href="'.base_url().'index.php/guru/profilsiswa/'.$data->id_user.'" class="btn btn-info btn-sm" title="Lihat Profil Siswa"><i class="fa fa-user"></i></a>
-                                        <a href="'.base_url().'index.php/guru/datajurnal/'.$data->id_user.'" class="btn btn-warning btn-sm" title="Lihat Jurnal Siswa"><i class="fa fa-file-text-o"></i></a>
+                                        <a href="'.base_url().'index.php/industri/detailsiswa/'.$data->id_user.'" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-eye-open"></i></a>
+                                        <a href="'.base_url().'index.php/industri/datajurnal/'.$data->id_user.'" class="btn btn-warning btn-sm" title="Lihat Jurnal Siswa"><i class="fa fa-file-text-o"></i></a>
                                     </td>
                                 </tr>
                             ';

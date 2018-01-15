@@ -1,7 +1,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Profilku</h1>
+            <h1 class="page-header">Profil Siswa</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -12,27 +12,34 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/updateprofil/<?php echo $id_sw = $this->uri->segment(3); ?>">
+                            <form role="form" method="post" enctype="multipart/form-data" action="#">
                                 <div class="form-group">
                                     <label>Nama Siswa</label>
-                                    <input class="form-control" name="nama_siswa" required value="<?php echo $nama; ?>">
+                                    <input disabled class="form-control" placeholder="Nama siswa" name="nama_siswa" required value="<?php echo $detil->nama_siswa; ?>">
                                 </div>
-                                <div class="form-group row">
-                                  <div class="form-group col-md-6">
-                                    <label>Username</label>
-                                    <input class="form-control" name="username" required value="<?php echo $user; ?>">
-                                  </div>
-                                  <div class="form-group col-md-6">
-                                    <label>Password</label>
-                                    <input class="form-control" name="password" required value="<?php echo $pass; ?>">
-                                  </div>
+                                <div class="form-group">
+                                    <label>Jenis Kelamin</label>
+                                    
+                                    <select class="form-control" name="jk" disabled>
+                                        <?php 
+                                            if($detil->jenis_kelamin == "Laki-Laki")
+                                            {
+                                                echo "<option selected>Laki-Laki</option>
+                                                      <option>Perempuan</option>";
+                                            } else if($detil->jenis_kelamin == "Perempuan")
+                                            {
+                                                echo "<option >Laki-Laki</option>
+                                                      <option selected>Perempuan</option>";
+                                            }
+                                        ?>
+                                    </select>
+                                    
                                 </div>
-                                <div class="form-group row">
-                                  <div class="form-group col-md-6">
+                                <div class="form-group">
                                     <label>Kelas</label>
-                                    <select class="form-control" name="kelas">
+                                    <select class="form-control select2" name="kelas" disabled>
                                          <?php 
-                                            if($kelas == "XII RPL 1")
+                                            if($detil->kelas == "XII RPL 1")
                                             {
                                                 echo "<option selected>XII RPL 1</option>
                                                       <option>XII RPL 2</option>
@@ -45,7 +52,7 @@
                                                       <option>XII TKJ 3</option>
                                                       <option>XII TKJ 4</option>
                                                       <option>XII TKJ 5</option>";
-                                            } else if($kelas == "XII RPL 2")
+                                            } else if($detil->kelas == "XII RPL 2")
                                             {
                                                 echo "<option>XII RPL 1</option>
                                                       <option selected>XII RPL 2</option>
@@ -58,7 +65,7 @@
                                                       <option>XII TKJ 3</option>
                                                       <option>XII TKJ 4</option>
                                                       <option>XII TKJ 5</option>";
-                                            } else if($kelas == "XII RPL 3")
+                                            } else if($detil->kelas == "XII RPL 3")
                                             {
                                                 echo "<option>XII RPL 1</option>
                                                       <option>XII RPL 2</option>
@@ -71,7 +78,7 @@
                                                       <option>XII TKJ 3</option>
                                                       <option>XII TKJ 4</option>
                                                       <option>XII TKJ 5</option>";
-                                            } else if($kelas == "XII RPL 4")
+                                            } else if($detil->kelas == "XII RPL 4")
                                             {
                                                 echo "<option>XII RPL 1</option>
                                                       <option>XII RPL 2</option>
@@ -84,7 +91,7 @@
                                                       <option>XII TKJ 3</option>
                                                       <option>XII TKJ 4</option>
                                                       <option>XII TKJ 5</option>";
-                                            } else if($kelas == "XII RPL 5")
+                                            } else if($detil->kelas == "XII RPL 5")
                                             {
                                                 echo "<option>XII RPL 1</option>
                                                       <option>XII RPL 2</option>
@@ -97,7 +104,7 @@
                                                       <option>XII TKJ 3</option>
                                                       <option>XII TKJ 4</option>
                                                       <option>XII TKJ 5</option>";
-                                            } else if($kelas == "XII RPL 6")
+                                            } else if($detil->kelas == "XII RPL 6")
                                             {
                                                 echo "<option>XII RPL 1</option>
                                                       <option>XII RPL 2</option>
@@ -110,7 +117,7 @@
                                                       <option>XII TKJ 3</option>
                                                       <option>XII TKJ 4</option>
                                                       <option>XII TKJ 5</option>";
-                                            } else if($kelas == "XII TKJ 1")
+                                            } else if($detil->kelas == "XII TKJ 1")
                                             {
                                                 echo "<option>XII RPL 1</option>
                                                       <option>XII RPL 2</option>
@@ -123,7 +130,7 @@
                                                       <option>XII TKJ 3</option>
                                                       <option>XII TKJ 4</option>
                                                       <option>XII TKJ 5</option>";
-                                            } else if($kelas == "XII TKJ 2")
+                                            } else if($detil->kelas == "XII TKJ 2")
                                             {
                                                 echo "<option>XII RPL 1</option>
                                                       <option>XII RPL 2</option>
@@ -136,7 +143,7 @@
                                                       <option>XII TKJ 3</option>
                                                       <option>XII TKJ 4</option>
                                                       <option>XII TKJ 5</option>";
-                                            } else if($kelas == "XII TKJ 3")
+                                            } else if($detil->kelas == "XII TKJ 3")
                                             {
                                                 echo "<option>XII RPL 1</option>
                                                       <option>XII RPL 2</option>
@@ -149,7 +156,7 @@
                                                       <option slected>XII TKJ 3</option>
                                                       <option>XII TKJ 4</option>
                                                       <option>XII TKJ 5</option>";
-                                            } else if($kelas == "XII TKJ 4")
+                                            } else if($detil->kelas == "XII TKJ 4")
                                             {
                                                 echo "<option>XII RPL 1</option>
                                                       <option>XII RPL 2</option>
@@ -162,7 +169,7 @@
                                                       <option>XII TKJ 3</option>
                                                       <option selected>XII TKJ 4</option>
                                                       <option>XII TKJ 5</option>";
-                                            } else if($kelas == "XII TKJ 5")
+                                            } else if($detil->kelas == "XII TKJ 5")
                                             {
                                                 echo "<option>XII RPL 1</option>
                                                       <option>XII RPL 2</option>
@@ -178,36 +185,16 @@
                                             }
                                         ?>
                                     </select>
-                                  </div>
-                                  <div class="form-group col-md-6">
-                                    <label>Jenis Kelamin</label>
-                                    
-                                    <select class="form-control" name="jk">
-                                        <?php 
-                                            if($jk == "Laki-Laki")
-                                            {
-                                                echo "<option selected>Laki-Laki</option>
-                                                      <option>Perempuan</option>";
-                                            } else if($jk == "Perempuan")
-                                            {
-                                                echo "<option >Laki-Laki</option>
-                                                      <option selected>Perempuan</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                    
-                                  </div>
                                 </div>
-                                <div class="form-group row">
-                                  <div class="form-group col-md-6">
-                                    <label>Industri Prakerin</label>
-                                    <input class="form-control" name="industri" required value="<?php echo $industri; ?>">
-                                  </div>
-                                  <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label>No. Telepon</label>
+                                    <input disabled class="form-control" placeholder="No. Telepon" name="telp" type="number" required value="<?php echo $detil->no_telp_siswa; ?>">
+                                </div>
+                                <div class="form-group">
                                     <label>Kota</label>
-                                    <select class="form-control" name="kota">
+                                    <select class="form-control" name="kota" disabled>
                                         <?php 
-                                            if($kota == "Bali")
+                                            if($detil->kota == "Bali")
                                             {
                                                 echo "<option selected>Bali</option>
                                                       <option>Balikpapan</option>
@@ -224,7 +211,7 @@
                                                       <option>Solo & Madiun</option>
                                                       <option>Surabaya</option>
                                                       <option>Yogyakarta</option>";
-                                            } else if($kota == "Balikpapan")
+                                            } else if($detil->kota == "Balikpapan")
                                             {
                                                 echo "<option>Bali</option>
                                                       <option selected>Balikpapan</option>
@@ -241,7 +228,7 @@
                                                       <option>Solo & Madiun</option>
                                                       <option>Surabaya</option>
                                                       <option>Yogyakarta</option>";
-                                            } else if($kota == "Bandung")
+                                            } else if($detil->kota == "Bandung")
                                             {
                                                 echo "<option>Bali</option>
                                                       <option>Balikpapan</option>
@@ -258,7 +245,7 @@
                                                       <option>Solo & Madiun</option>
                                                       <option>Surabaya</option>
                                                       <option>Yogyakarta</option>";
-                                            } else if($kota == "Gresik & Tuban")
+                                            } else if($detil->kota == "Gresik & Tuban")
                                             {
                                                 echo "<option>Bali</option>
                                                       <option>Balikpapan</option>
@@ -275,7 +262,7 @@
                                                       <option>Solo & Madiun</option>
                                                       <option>Surabaya</option>
                                                       <option>Yogyakarta</option>";
-                                            } else if ($kota == "Jakarta") {
+                                            } else if ($detil->kota == "Jakarta") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -291,7 +278,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($kota == "Jember") {
+                                            } else if ($detil->kota == "Jember") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -307,7 +294,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($kota == "Kediri") {
+                                            } else if ($detil->kota == "Kediri") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -323,7 +310,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($kota == "Malang") {
+                                            } else if ($detil->kota == "Malang") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -339,7 +326,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($kota == "Mataram") {
+                                            } else if ($detil->kota == "Mataram") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -355,7 +342,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($kota == "Pasuruan") {
+                                            } else if ($detil->kota == "Pasuruan") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -371,7 +358,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($kota == "Semarang") {
+                                            } else if ($detil->kota == "Semarang") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -387,7 +374,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($kota == "Sidoarjo") {
+                                            } else if ($detil->kota == "Sidoarjo") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -403,7 +390,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($kota == "Solo & Madiun") {
+                                            } else if ($detil->kota == "Solo & Madiun") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -419,7 +406,7 @@
                                                     <option selected>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($kota == "Surabaya") {
+                                            } else if ($detil->kota == "Surabaya") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -435,7 +422,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option selected>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($kota == "Yogyakarta") {
+                                            } else if ($detil->kota == "Yogyakarta") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -454,42 +441,30 @@
                                             }
                                         ?>
                                     </select>
-                                  </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>No. Telp</label>
-                                    <input class="form-control" type="number" name="no_telp" required value="<?php echo $no; ?>">
+                                    <label>Industri Prakerin</label>
+                                    <input disabled class="form-control" placeholder="Industri Prakerin" name="industri" required value="<?php echo $detil->industri; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat Selama Prakerin</label>
-                                    <textarea class="form-control" name="alamat" value="" required=""><?php echo $alamat; ?></textarea>
+                                    <textarea disabled class="form-control" name="alamat" value=""><?php echo $detil->alamat_prakerin; ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <input type="submit" name="insert" value="UPDATE" class="btn btn-primary btn-flat">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <a href="<?php echo base_url(); ?>index.php/siswa" class="btn btn-danger btn-flat">KEMBALI</a>
+                                            <?php if ($this->session->userdata('role') == 2): ?>
+                                              <a href="<?php echo base_url(); ?>index.php/guru" class="btn btn-danger btn-flat">KEMBALI</a>
+                                            <?php elseif ($this->session->userdata('role') == 4): ?>
+                                              <a href="<?php echo base_url(); ?>index.php/industri/datasiswa" class="btn btn-danger btn-flat">KEMBALI</a>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <div class="col-lg-3">
-                          <div class="container">
-                            <img id="foto_siswa" src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $foto; ?>" alt="Avatar" class="anu img-thumbnail">
-                            <div class="middle">
-                              <form id="formfoto" action="<?php echo base_url(); ?>index.php/siswa/updatefoto/<?php echo $id_sw = $this->session->userdata('id_user'); ?>" method="post" enctype="multipart/form-data">
-                                <div class="custom" id="input">
-                                  <label id="labelnya" style="background-color: rgba(0,0,0,.3); color: white; padding: 5px;">
-                                    EDIT PHOTO
-                                    <input type="file" id="foto" name="foto" accept="image/*" class="change-avatar changephoto" onchange="this.form.submit()">
-                                  </label>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
+                        <div class="col-lg-6">
+                          <img class="img-thumbnail" id="foto_siswa" src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $detil->foto_siswa; ?>">
                         </div>
                     </div>
                     <!-- /.row (nested) -->
@@ -513,61 +488,6 @@
     #foto_siswa {
       max-width: 85%;
       height: auto;
-      display: block;
-      margin: auto;
     }
-  }
-
-  .changephoto{
-      z-index: 999;
-      line-height: 0;
-      font-size: 0;
-      position: absolute;
-      opacity: 0;
-      filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
-      margin: 0;
-      padding:0;
-      left:0;
-  }
-
-  .custom-input-file:hover .uploadPhoto { display: block; }
-
-  .container {
-    position: relative;
-    max-height: 300px; 
-    max-width: 514px; 
-    width: auto;
-  }
-
-  .anu {
-    opacity: 1;
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
-  }
-
-  .middle {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%)
-  }
-
-  .container:hover .anu {
-    opacity: 0.3;
-  }
-
-  .container:hover .middle {
-    opacity: 1;
-  }
-
-  #labelnya {
-    cursor: pointer;
-  }
-
+}
 </style>

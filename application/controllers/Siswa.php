@@ -26,6 +26,18 @@ class Siswa extends CI_Controller {
 			redirect('login');
 		}
 	}
+
+	public function logout()
+	{
+		$array = array(
+			'username' => '',
+			'logged_in'=> FALSE
+		);
+		
+		$this->session->set_userdata( $array );
+		redirect('login');		
+	}
+
 	public function insertjurnal()
 	{
 		$this->form_validation->set_rules('keterangan', 'Kegiatan Prakerin', 'trim|required|min_length[7]');
@@ -89,24 +101,41 @@ class Siswa extends CI_Controller {
 		redirect('siswa/profilku');
 	}
 
-	/*public function updatefoto(){
+	public function profilguru()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'profil_guru_view';
+			$data['title'] = 'Profil Guru - Prakerin SMK Telkom Malang 2017';
+			$data['kelas'] = $this->siswa_model->getKelas();
+			$data['foto'] = $this->siswa_model->getFoto();
+			$data['industri'] = $this->siswa_model->getIndustri();
+			$data['kota'] = $this->siswa_model->getKota();
+			$data['nama'] = $this->siswa_model->getGuru();
+			$data['no'] = $this->siswa_model->noGuru();
+			$data['foto_guru'] = $this->siswa_model->fotoGuru();
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('siswa');
+		}
+	}
+
+	public function updatefoto(){
 		$config['upload_path'] = './uploads/foto_siswa/';
 		$config['allowed_types'] = 'jpg|png';
 		$config['max_sizes'] = '10240';
 
 		$this->load->library('upload', $config);
-		$this->upload->initialize($config);
 
+		$id_sw = $this->session->userdata('id_user');
 		if ($this->upload->do_upload('foto')) {
-			if($this->siswa_model->editfoto($id_sw, $this->upload->data()) == TRUE) {
+			if($this->siswa_model->editfoto($this->upload->data()) == TRUE) {
 				$data['main_view'] = 'profil_siswa_view';
 				$this->session->set_flashdata('notif', 'Berhasil mengubah foto');
-				$id_sw = $this->session->userdata('id_user');
 				redirect('siswa/profilku');
 			} else {
 				$data['main_view'] = 'profil_siswa_view';
 				$this->session->set_flashdata('notif', 'Gagal mengubah foto');
-				$id_sw = $this->session->userdata('id_user');
 				redirect('siswa/profilku');
 			}
 		} else {
@@ -115,7 +144,7 @@ class Siswa extends CI_Controller {
 			$id_sw = $this->session->userdata('id_user');
 			redirect('siswa/profilku');
 		}
-	}*/
+	}
 }
 /* End of file Siswa.php */
 /* Location: ./application/controllers/Siswa.php */

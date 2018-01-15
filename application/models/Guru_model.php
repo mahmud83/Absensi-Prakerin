@@ -69,6 +69,14 @@ class Guru_model extends CI_Model {
      	return TRUE;
 	}
 
+	/*public function join()
+	{	
+		$guru = $this->session->userdata('jeneng');
+		$SQL = "SELECT * FROM tb_user_siswa, tb_industri WHERE tb_user_siswa.industri = tb_industri.nama_industri AND tb_industri.nama_guru_pembimbing = $guru;";
+		$this->db->query($SQL)->result();
+
+	}*/
+
 }
 
 /* End of file Guru_model.php */

@@ -51,7 +51,7 @@
       <?php if ($this->session->userdata('role') == 1): ?>
         <header class="main-header" id="cok">
           <!-- Logo -->
-          <a href="index2.html" class="logo">
+          <a href="<?php echo base_url(); ?>index.php/admin" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -134,7 +134,7 @@
       <?php elseif ($this->session->userdata('role') == 2): ?>
         <header class="main-header">
           <!-- Logo -->
-          <a href="index2.html" class="logo">
+          <a href="<?php echo base_url(); ?>index.php/guru" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -185,17 +185,13 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
               <li class="header">MAIN NAVIGATION</li>
-              <li class="treeview active">
+              <li class="active">
                 <a href="#">
                   <i class="fa fa-search"></i> <span>Lihat Data</span>
                   <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-angle-right pull-right"></i>
                   </span>
                 </a>
-                <ul class="treeview-menu">
-                  <li><a href="<?php echo base_url(); ?>index.php/siswa/datasiswa"><i class="fa fa-circle-o"></i> Profil Siswa</a></li>
-                  <li><a href="<?php echo base_url(); ?>index.php/siswa/dataguru"><i class="fa fa-circle-o"></i> Absen Siswa</a></li>
-                </ul>
               </li>
             </ul>
           </section>
@@ -206,7 +202,7 @@
       <?php elseif ($this->session->userdata('role') == 3): ?>
         <header class="main-header">
           <!-- Logo -->
-          <a href="index2.html" class="logo">
+          <a href="<?php echo base_url(); ?>index.php/siswa" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -272,7 +268,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo base_url(); ?>index.php/siswa/profilku"><i class="fa fa-circle-o"></i> Profilku</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/siswa/dataguru"><i class="fa fa-circle-o"></i> Profil Guru Pembimbing</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/siswa/profilguru"><i class="fa fa-circle-o"></i> Profil Guru Pembimbing</a></li>
               </ul>
             </li>
           </ul>
@@ -284,7 +280,7 @@
       <?php elseif ($this->session->userdata('role') == 4): ?>
         <header class="main-header">
           <!-- Logo -->
-          <a href="index2.html" class="logo">
+          <a href="<?php echo base_url(); ?>index.php/industri" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -315,10 +311,7 @@
                     </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
-                      <div class="pull-left">
-                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                      </div>
-                      <div class="pull-right">
+                      <div>
                         <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
                       </div>
                     </li>
@@ -338,7 +331,7 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="active">
               <a href="#">
-                <i class="fa fa-plus"></i> <span>Absensi</span>
+                <i class="fa fa-file-text-o"></i> <span>Absensi</span>
               </a>
             </li>
             <li class="treeview">
@@ -349,8 +342,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo base_url(); ?>index.php/siswa/datasiswa"><i class="fa fa-circle-o"></i> Profilku</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/siswa/dataguru"><i class="fa fa-circle-o"></i> Profil Guru Pembimbing</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/industri/datasiswa"><i class="fa fa-circle-o"></i> Siswa</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/industri/dataguru"><i class="fa fa-circle-o"></i> Profil Guru Pembimbing</a></li>
               </ul>
             </li>
           </ul>
@@ -888,6 +881,42 @@
           },
         });
         <?php } elseif ($notif == 'Gagal mengubah profil') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'danger',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Berhasil mengubah foto') { ?>
+          $.notify({
+            icon: 'fa fa-check',
+            title: '<strong>&nbsp;Success!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'success',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Gagal mengubah foto') { ?>
           $.notify({
             icon: 'glyphicon glyphicon-warning-sign',
             title: '<strong>&nbsp;Warning!</strong><br>',

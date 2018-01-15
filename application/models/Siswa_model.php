@@ -186,10 +186,48 @@ class Siswa_model extends CI_Model {
 		}
 	}
 
-	/*public function editfoto($id_sw, $foto)
+	public function getGuru()
 	{
+		$ind = $this->siswa_model->getIndustri();
+
+     	$kueri = $this->db->where('nama_industri', $ind)
+     					  ->select('nama_guru_pembimbing')
+     					  ->get('tb_industri');
+     	if ($kueri->num_rows() > 0) {
+         	return $kueri->row()->nama_guru_pembimbing;
+     	}
+     	return TRUE;
+	}
+
+	public function noGuru()
+	{
+		$nama = $this->siswa_model->getGuru();
+		$query = $this->db->where('nama_guru', $nama)
+						  ->select('no_telp_guru')
+						  ->get('tb_user_guru');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->no_telp_guru;
+     	}
+     	return TRUE;
+	}
+
+	public function fotoGuru()
+	{
+		$nama = $this->siswa_model->getGuru();
+		$query = $this->db->where('nama_guru', $nama)
+						  ->select('foto_guru')
+						  ->get('tb_user_guru');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->foto_guru;
+     	}
+     	return TRUE;
+	}
+
+	public function editfoto($foto)
+	{
+		$id_sw = $this->session->userdata('id_user');
 		$data = array(
-				  	 'foto_siswa' => $foto['file_name'],
+				  	 'foto_siswa' => $foto['file_name']
 				);
 		$this->db->where('id_user', $id_sw)->update('tb_user_siswa', $data);
 		if ($this->db->affected_rows() > 0) {
@@ -197,7 +235,7 @@ class Siswa_model extends CI_Model {
 		} else {
 			return FALSE;
 		}
-	}*/
+	}
 
 }
 

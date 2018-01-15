@@ -8,6 +8,7 @@ class Guru extends CI_Controller {
 		parent::__construct();
 		$this->load->model('admin_model');
 		$this->load->model('guru_model');
+		$this->load->model('industri_model');
 	}
 
 	public function index()
@@ -51,6 +52,24 @@ class Guru extends CI_Controller {
 		}
 		else{
 			redirect('login');
+		}
+	}
+
+	public function profilsiswa()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'detail_siswa_view';
+			$data['title'] = 'Data Siswa - Prakerin SMK Telkom Malang 2017';
+			$data['kota'] = $this->guru_model->getKota();
+			$data['foto'] = $this->guru_model->getFoto();
+			//ambil data guru
+			$id_sw = $this->uri->segment(3);
+			$data['detil'] = $this->industri_model->get_siswa_by_id($id_sw);
+
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('industri');
 		}
 	}
 }

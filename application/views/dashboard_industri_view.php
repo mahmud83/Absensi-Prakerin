@@ -8,7 +8,7 @@
               <div class="box">
                 <div class="box-header">
                   <h3 class="box-title">Data Absensi Prakerin SMK Telkom Malang 2017 - <?php echo $this->session->userdata('jeneng'); ?></h3>
-                  <h5>Guru Pembimbing: </h5>
+                  <h5>Guru Pembimbing: <b><?php echo $nama; ?></b></h5>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
