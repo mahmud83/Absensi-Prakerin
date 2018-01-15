@@ -14,8 +14,6 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='dashboard_admin_view';
-			$data['main_view']='dashboard_admin_view';
-			$data['main_view'] = 'dashboard_admin_view';
 			$data['countG'] = $this->admin_model->countGuru();
 			$data['countS'] = $this->admin_model->countSiswa();
 			$data['countI'] = $this->admin_model->countIndustri();
@@ -52,6 +50,8 @@ class Admin extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='add_siswa_view';
+			$data['industri'] = $this->admin_model->getIndustri();
+			$data['guru'] = $this->admin_model->getGuru();
 			$data['title'] = 'Tambah Data Siswa - Prakerin SMK Telkom Malang 2017';
 			$this->load->view('template_view', $data);
 		} else {

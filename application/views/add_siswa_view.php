@@ -13,13 +13,15 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/insertsiswa">
-                                <div class="form-group">
+                                <div class="row">
+                                  <div class="form-group col-md-6">
                                     <label>Username</label>
-                                    <input class="form-control" placeholder="Username" name="username" type="text" required>
-                                </div>
-                                <div class="form-group">
+                                    <input class="form-control" placeholder="Username" name="username" required>
+                                  </div>
+                                  <div class="form-group col-md-6">
                                     <label>Password</label>
-                                    <input class="form-control" placeholder="Password" name="password" required>
+                                    <input class="form-control" placeholder="Password" name="password" required >
+                                  </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Siswa</label>
@@ -29,14 +31,15 @@
                                     <label>Foto Siswa</label>
                                     <input type="file" id="foto" name="foto" required accept="image/*">
                                 </div>
-                                <div class="form-group">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
                                     <label>Jenis Kelamin</label>
                                     <select class="form-control" name="jk">
                                         <option>Laki-Laki</option>
                                         <option>Perempuan</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label>Kelas</label>
                                     <select class="form-control select2" name="kelas">
                                         <option>XII RPL 1</option>
@@ -52,33 +55,52 @@
                                         <option>XII TKJ 5</option>
                                     </select>
                                 </div>
+                                </div>
                                 <div class="form-group">
                                     <label>No. Telepon</label>
                                     <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Kota</label>
-                                    <select class="form-control select2" name="kota">
-                                        <option>Bali</option>
-                                        <option>Balikpapan</option>
-                                        <option>Bandung</option>
-                                        <option>Gresik & Tuban</option>
-                                        <option>Jakarta</option>
-                                        <option>Jember</option>
-                                        <option>Kediri</option>
-                                        <option>Malang</option>
-                                        <option>Mataram</option>
-                                        <option>Pasuruan</option>
-                                        <option>Semarang</option>
-                                        <option>Sidoarjo</option>
-                                        <option>Solo & Madiun</option>
-                                        <option>Surabaya</option>
-                                        <option>Yogyakarta</option>
-                                    </select>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label>Kota</label>
+                                        <select class="form-control select2" name="kota" id="kota">
+                                            <option>Bali</option>
+                                            <option>Balikpapan</option>
+                                            <option>Bandung</option>
+                                            <option>Gresik & Tuban</option>
+                                            <option>Jakarta</option>
+                                            <option>Jember</option>
+                                            <option>Kediri</option>
+                                            <option>Malang</option>
+                                            <option>Mataram</option>
+                                            <option>Pasuruan</option>
+                                            <option>Semarang</option>
+                                            <option>Sidoarjo</option>
+                                            <option>Solo & Madiun</option>
+                                            <option>Surabaya</option>
+                                            <option>Yogyakarta</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Industri Prakerin</label>
+                                        <select class="form-control select2" name="industri" required>
+                                            <?php 
+                                                foreach ($industri as $ind) {
+                                                    echo '<option>'.$ind->nama_industri.'</option>';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Industri Prakerin</label>
-                                    <input class="form-control" placeholder="Industri Prakerin" name="industri" required>
+                                    <label>Guru Pembimbing</label>
+                                    <select class="form-control select2" name="gurupem" required>
+                                            <?php 
+                                                foreach ($guru as $pem) {
+                                                    echo '<option>'.$pem->nama_guru.'</option>';
+                                                }
+                                            ?>
+                                        </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat Selama Prakerin</label>
