@@ -140,6 +140,34 @@ class Admin_model extends CI_Model {
 			return FALSE;
 		}
 	}
+
+	public function editfotosiswa($foto)
+	{
+		$id_sw = $this->uri->segment(3);
+		$data = array(
+				  	 'foto_siswa' => $foto['file_name']
+				);
+		$this->db->where('id_user', $id_sw)->update('tb_user_siswa', $data);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	public function editfotoguru($foto)
+	{
+		$id_gr = $this->uri->segment(3);
+		$data = array(
+				  	 'foto_guru' => $foto['file_name']
+				);
+		$this->db->where('id_user', $id_gr)->update('tb_user_guru', $data);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
 	
 	public function hapusguru($id_gr)
 	{

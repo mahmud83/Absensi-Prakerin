@@ -279,6 +279,60 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function updatefotosiswa($id_sw)
+	{
+		$config['upload_path'] = './uploads/foto_siswa/';
+		$config['allowed_types'] = 'jpg|png';
+		$config['max_sizes'] = '10240';
+
+		$this->load->library('upload', $config);
+
+		$id_sw = $this->uri->segment(3);
+		if ($this->upload->do_upload('foto')) {
+			if($this->admin_model->editfotosiswa($this->upload->data()) == TRUE) {
+				$data['main_view'] = 'data_siswa_view';
+				$this->session->set_flashdata('notif', 'Berhasil mengubah foto');
+				redirect('admin/datasiswa');
+			} else {
+				$data['main_view'] = 'edit_siswa_view';
+				$this->session->set_flashdata('notif', 'Gagal mengubah foto');
+				redirect('admin/datasiswa');
+			}
+		} else {
+			$data['main_view'] = 'edit_siswa_view';
+			$this->session->set_flashdata('notif', 'Gagal mengubah foto');
+			$id_sw = $this->uri->segment(3);
+			redirect('admin/datasiswa');
+		}
+	}
+
+	public function updatefotoguru($id_gr)
+	{
+		$config['upload_path'] = './uploads/foto_guru/';
+		$config['allowed_types'] = 'jpg|png';
+		$config['max_sizes'] = '10240';
+
+		$this->load->library('upload', $config);
+
+		$id_sw = $this->uri->segment(3);
+		if ($this->upload->do_upload('foto')) {
+			if($this->admin_model->editfotoguru($this->upload->data()) == TRUE) {
+				$data['main_view'] = 'data_guru_view';
+				$this->session->set_flashdata('notif', 'Berhasil mengubah foto');
+				redirect('admin/dataguru');
+			} else {
+				$data['main_view'] = 'edit_guru_view';
+				$this->session->set_flashdata('notif', 'Gagal mengubah foto');
+				redirect('admin/dataguru');
+			}
+		} else {
+			$data['main_view'] = 'edit_guru_view';
+			$this->session->set_flashdata('notif', 'Gagal mengubah foto');
+			$id_sw = $this->uri->segment(3);
+			redirect('admin/dataguru');
+		}
+	}
+
 	public function deleteguru()
 	{
 		$id_gr = $this->uri->segment(3);

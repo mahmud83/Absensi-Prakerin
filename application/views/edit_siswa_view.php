@@ -467,7 +467,21 @@
                             </form>
                         </div>
                         <div class="col-lg-6">
-                          <img class="img-thumbnail" id="foto_siswa" src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $detil->foto_siswa; ?>">
+                          <div class="col-lg-3">
+                            <div class="container">
+                              <img id="foto_siswa" src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $detil->foto_siswa; ?>" alt="Avatar" class="anu img-thumbnail">
+                              <div class="middle">
+                                <form id="formfoto" action="<?php echo base_url(); ?>index.php/admin/updatefotosiswa/<?php echo $id_sw = $this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
+                                  <div class="custom" id="input">
+                                    <label id="labelnya" style="background-color: rgba(0,0,0,.3); color: white; padding: 5px;">
+                                      EDIT PHOTO
+                                      <input type="file" id="foto" name="foto" accept="image/*" class="change-avatar changephoto" onchange="this.form.submit()">
+                                    </label>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                     </div>
                     <!-- /.row (nested) -->
@@ -491,6 +505,63 @@
     #foto_siswa {
       max-width: 85%;
       height: auto;
+      display: block;
+      margin: auto;
     }
-}
+  }
+
+  .changephoto{
+      z-index: 999;
+      line-height: 0;
+      font-size: 0;
+      position: absolute;
+      opacity: 0;
+      filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
+      margin: 0;
+      padding:0;
+      left:0;
+  }
+
+  .custom-input-file:hover .uploadPhoto { display: block; }
+
+  .container {
+    position: relative;
+    max-height: 300px; 
+    max-width: 514px; 
+    width: auto;
+  }
+
+  .anu {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    margin: auto;
+    display: block;
+  }
+
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+  .container:hover .anu {
+    opacity: 0.3;
+  }
+
+  .container:hover .middle {
+    opacity: 1;
+  }
+
+  #labelnya {
+    cursor: pointer;
+  }
+
 </style>
