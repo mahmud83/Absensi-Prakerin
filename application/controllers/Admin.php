@@ -172,6 +172,7 @@ class Admin extends CI_Controller {
 			//ambil data guru
 			$id_gr = $this->uri->segment(3);
 			$data['detil'] = $this->admin_model->get_guru_by_id($id_gr);
+			$data['detill'] = $this->admin_model->get_guruu_by_id($id_gr);
 
 			$this->load->view('template_view', $data);
 		}
@@ -183,41 +184,11 @@ class Admin extends CI_Controller {
 	//update data guru
 	public function updateguru($id_gr)
 	{
-		$this->form_validation->set_rules('nama_guru', 'Nama Guru', 'trim|required');
-		$this->form_validation->set_rules('telp', 'No. Telp', 'trim|required');
-		$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
-
-		if ($this->form_validation->run() == TRUE ) {
-			$config['upload_path'] = './uploads/foto_guru/';
-			$config['allowed_types'] = 'jpg|png';
-			$config['max_sizes'] = '10240';
-
-			$this->load->library('upload', $config);
-
-			if ($this->upload->do_upload('foto')) {
-				if($this->admin_model->editguru($id_gr, $this->upload->data()) == TRUE) {
-					$data['main_view'] = 'data_guru_view';
-					$this->session->set_flashdata('notif', 'Berhasil mengubah data guru');
-					$id_gr = $this->uri->segment(3);
-					redirect('admin/dataguru');
-				} else {
-					$data['main_view'] = 'data_guru_view';
-					$this->session->set_flashdata('notif', 'Gagal menambahkan guru');
-					$id_gr = $this->uri->segment(3);
-					redirect('admin/dataguru');
-				}
-			} else {
-				$data['main_view'] = 'data_guru_view';
-				$this->session->set_flashdata('notif', $this->upload->display_errors());
-				$id_gr = $this->uri->segment(3);
-				redirect('admin/dataguru');
-			}
-		} else {
-			$data['main_view'] = 'data_guru_view';
-			$this->session->set_flashdata('notif', 'Lengkapi semua field');
-			$id_gr = $this->uri->segment(3);
-			redirect('admin/dataguru');
-		}
+		$this->admin_model->editguru($id_gr);
+		$data['main_view'] = 'data_guru_view';
+		$this->session->set_flashdata('notif', 'Berhasil mengubah data guru');
+		$id_gr = $this->uri->segment(3);
+		redirect('admin/dataguru');
 	}
 
 	//edit data siswa view
@@ -241,39 +212,14 @@ class Admin extends CI_Controller {
 	//update data siswa
 	public function updatesiswa($id_sw)
 	{
-		$this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'trim|required');
-		$this->form_validation->set_rules('telp', 'No. Telp', 'trim|required|numeric');
-		$this->form_validation->set_rules('industri', 'Industri', 'trim|required');
-		$this->form_validation->set_rules('alamat', 'Alamat Prakerin', 'trim|required');
-
-		if ($this->form_validation->run() == TRUE ) {
-			$config['upload_path'] = './uploads/foto_siswa/';
-			$config['allowed_types'] = 'jpg|png';
-			$config['max_sizes'] = '10240';
-
-			$this->load->library('upload', $config);
-
-			if ($this->upload->do_upload('foto')) {
-				if($this->admin_model->editsiswa($id_sw, $this->upload->data()) == TRUE) {
-					$data['main_view'] = 'data_siswa_view';
-					$this->session->set_flashdata('notif', 'Berhasil mengubah data siswa');
-					$id_sw = $this->uri->segment(3);
-					redirect('admin/datasiswa');
-				} else {
-					$data['main_view'] = 'data_siswa_view';
-					$this->session->set_flashdata('notif', 'Gagal mengubah data siswa');
-					$id_sw = $this->uri->segment(3);
-					redirect('admin/datasiswa');
-				}
-			} else {
-				$data['main_view'] = 'data_siswa_view';
-				$this->session->set_flashdata('notif', $this->upload->display_errors());
-				$id_sw = $this->uri->segment(3);
-				redirect('admin/datasiswa');
-			}
+		if($this->admin_model->editsiswa($id_sw) == TRUE) {
+			$data['main_view'] = 'data_siswa_view';
+			$this->session->set_flashdata('notif', 'Berhasil mengubah data siswa');
+			$id_sw = $this->uri->segment(3);
+			redirect('admin/datasiswa');
 		} else {
 			$data['main_view'] = 'data_siswa_view';
-			$this->session->set_flashdata('notif', 'Lengkapi semua field');
+			$this->session->set_flashdata('notif', 'Gagal mengubah data siswa');
 			$id_sw = $this->uri->segment(3);
 			redirect('admin/datasiswa');
 		}

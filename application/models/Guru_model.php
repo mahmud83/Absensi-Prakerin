@@ -69,6 +69,75 @@ class Guru_model extends CI_Model {
      	return TRUE;
 	}
 
+	public function getNo()
+	{
+		$guru = $this->session->userdata('jeneng');
+		$query =  $this->db->where('nama_guru', $guru)
+						   ->select('no_telp_guru')
+						   ->get('tb_user_guru');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->no_telp_guru;
+     	}
+     	return TRUE;
+	}
+
+	public function editfoto($foto)
+	{
+		$id_gr = $this->session->userdata('id_user');
+		$data = array(
+				  	 'foto_guru' => $foto['file_name']
+				);
+		$this->db->where('id_user', $id_gr)->update('tb_user_guru', $data);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	public function editprofil()
+	{
+		$id_gr = $this->session->userdata('id_user');
+		$data = array(
+					 'nama_guru' => $this->input->post('nama_guru'),
+				  	 'no_telp_guru' => $this->input->post('no_telp'),
+				  	 'kota' => $this->input->post('kota'),
+				);
+		$login = array(
+					  'username' => $this->input->post('username'),
+					  'password' => $this->input->post('password'),
+				);
+		$this->db->where('id_user', $id_gr)->update('tb_user_guru', $data);
+		$this->db->where('id_user', $id_gr)->update('tb_login', $login);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	public function getUser()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						  ->select('username')
+						  ->get('tb_login');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->username;
+     	}
+     	return TRUE;
+	}
+
+	public function getPass()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						  ->select('password')
+						  ->get('tb_login');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->password;
+     	}
+     	return TRUE;
+	}
+
 	/*public function join()
 	{	
 		$guru = $this->session->userdata('jeneng');

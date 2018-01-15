@@ -13,17 +13,29 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updateguru/<?php echo $this->uri->segment(3); ?>">
-                                <div class="form-group">
+                                <div class="row">
+                                  <div class="form-group col-md-6">
                                     <label>Nama Guru</label>
                                     <input class="form-control" placeholder="Nama Guru" name="nama_guru" required value="<?php echo $detil->nama_guru; ?>">
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <label>Username</label>
+                                    <input class="form-control" name="username" required value="<?php echo $detill->username; ?>">
+                                  </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="row">
+                                  <div class="form-group col-md-6">
                                     <label>No. Telepon</label>
                                     <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required value="<?php echo $detil->no_telp_guru; ?>">
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <label>Password</label>
+                                    <input class="form-control" name="password" required value="<?php echo $detill->password; ?>">
+                                  </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Kota</label>
-                                    <select class="form-control select2" name="kota">
+                                    <select class="form-control select2" name="kota" style="width: 100%;">
                                         <?php 
                                             if($detil->kota == "Bali")
                                             {
@@ -275,11 +287,11 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-4 pull-left">
                                             <input type="submit" name="insert" value="UPDATE" class="btn btn-primary btn-flat">
                                         </div>
-                                        <div class="col-sm-4">
-                                            <a href="<?php echo base_url(); ?>index.php/admin/dataguru" class="btn btn-danger btn-flat">KEMBALI</a>
+                                        <div class="col-sm-4 pull-right">
+                                            <a href="<?php echo base_url(); ?>index.php/admin/dataguru" style="float: right;" class="btn btn-danger btn-flat">KEMBALI</a>
                                         </div>
                                     </div>
                                 </div>

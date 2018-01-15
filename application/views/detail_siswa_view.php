@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kelas</label>
-                                    <select class="form-control select2" name="kelas" disabled>
+                                    <select class="form-control select2" style="width: 100%;" name="kelas" disabled>
                                          <?php 
                                             if($detil->kelas == "XII RPL 1")
                                             {

@@ -165,7 +165,7 @@
                     <!-- Menu Footer-->
                     <li class="user-footer">
                       <div class="pull-left">
-                        <a href="#" class="btn btn-default">Profile</a>
+                        <a href="<?php echo base_url(); ?>index.php/guru/profil" class="btn btn-default">Profile</a>
                       </div>
                       <div class="pull-right">
                         <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>

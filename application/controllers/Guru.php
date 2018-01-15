@@ -69,8 +69,55 @@ class Guru extends CI_Controller {
 			$this->load->view('template_view', $data);
 		}
 		else{
-			redirect('industri');
+			redirect('guru');
 		}
+	}
+
+	public function profil()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'profil_guru_edit_view';
+			$data['title'] = 'Profil - Prakerin SMK Telkom Malang 2017';
+			$data['foto'] = $this->guru_model->getFoto();
+			$data['no'] = $this->guru_model->getNo();
+			$data['kota'] = $this->guru_model->getKota();
+			$data['user'] = $this->guru_model->getUser();
+			$data['pass'] = $this->guru_model->getPass();
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('guru');
+		}
+	}
+
+	public function updatefoto(){
+		$config['upload_path'] = './uploads/foto_guru/';
+		$config['allowed_types'] = 'jpg|png';
+		$config['max_sizes'] = '10240';
+
+		$this->load->library('upload', $config);
+
+		$id_gr = $this->session->userdata('id_user');
+		if ($this->upload->do_upload('foto')) {
+			if($this->guru_model->editfoto($this->upload->data()) == TRUE) {
+				$this->session->set_flashdata('notif', 'Berhasil mengubah foto');
+				redirect('guru/profil');
+			} else {
+				$this->session->set_flashdata('notif', 'Gagal mengubah foto');
+				redirect('guru/profil');
+			}
+		} else {
+			$this->session->set_flashdata('notif', 'Gagal mengubah foto');
+			$id_gr = $this->session->userdata('id_user');
+			redirect('guru/profil');
+		}
+	}
+
+	public function updateprofil()
+	{
+		$this->guru_model->editprofil();
+		$this->session->set_flashdata('notif', 'Berhasil mengubah profil');
+		redirect('guru/profil');
 	}
 }
 

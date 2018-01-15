@@ -84,16 +84,26 @@ class Admin_model extends CI_Model {
 						->get('tb_user_guru')
 						->row();
 	}
+
+	public function get_guruu_by_id($id_gr){
+		return $this->db->where('id_user', $id_gr)
+						->get('tb_login')
+						->row();
+	}
 	
-	public function editguru($id_gr, $foto)
+	public function editguru($id_gr)
 	{
 		$data = array(
 					 'nama_guru' => $this->input->post('nama_guru'),
 					 'no_telp_guru' => $this->input->post('telp'),
 					 'kota' => $this->input->post('kota'),
-					 'foto_guru' => $foto['file_name'] 
+				);
+		$login = array(
+					 'username' => $this->input->post('username'),
+					 'password' => $this->input->post('password'),
 				);
 		$this->db->where('id_user', $id_gr)->update('tb_user_guru', $data);
+		$this->db->where('id_user', $id_gr)->update('tb_login', $login);
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
 		} else {
@@ -121,7 +131,7 @@ class Admin_model extends CI_Model {
 						->row();
 	}
 
-	public function editsiswa($id_sw, $foto)
+	public function editsiswa($id_sw)
 	{
 		$data = array(
 					 'nama_siswa' => $this->input->post('nama_siswa'),
@@ -130,10 +140,14 @@ class Admin_model extends CI_Model {
 				  	 'kota' => $this->input->post('kota'),
 				  	 'jenis_kelamin' => $this->input->post('jk'),
 				  	 'alamat_prakerin' => $this->input->post('alamat'),
-				  	 'industri' => $this->input->post('industri'),
-				  	 'foto_siswa' => $foto['file_name'],
+				  	 'industri' => $this->input->post('industri')
+				);
+		$login = array(
+					 'username' => $this->input->post('username'),
+					 'password' => $this->input->post('password'),
 				);
 		$this->db->where('id_user', $id_sw)->update('tb_user_siswa', $data);
+		$this->db->where('id_user', $id_sw)->update('tb_login', $login);
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
 		} else {
