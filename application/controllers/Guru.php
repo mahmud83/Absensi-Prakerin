@@ -23,6 +23,9 @@ class Guru extends CI_Controller {
 			$data['countSudahAbsen'] = $this->guru_model->countSiswaSudahAbsen();
 			$data['countTerconfirm'] = $this->guru_model->countSiswaConfirm();
 			$data['countBelumTerconfirm'] = $this->guru_model->countSiswaBelumConfirm();
+			$data['countSiswaMasukH'] = $this->guru_model->siswaMasukHariIni();
+			$data['countSiswaIzinH'] = $this->guru_model->siswaIzinHariIni();
+			$data['countSiswaSakitH'] = $this->guru_model->siswaSakitHariIni();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');

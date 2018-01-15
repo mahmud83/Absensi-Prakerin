@@ -24,7 +24,7 @@
                     <?php $belumAbsen = $countJumlahS - $countSudahAbsen; ?>
                     <p><b>Jumlah siswa yang sudah melakukan absen hari ini : </b><?php echo $countSudahAbsen; ?></p>
                     <p><b>Jumlah siswa yang belum melakukan absen hari ini : </b><?php echo $belumAbsen; ?></p>
-                    <div id="chart" class="col-lg-6">
+                    <div id="chart" class="col-lg-4">
                         <script type="text/javascript">
 
                          // Build the chart
@@ -55,19 +55,20 @@
                                 name: 'Persentase',
                                 colorByPoint: true,
                                 data: [{
-                                    name: 'Belum absen',
-                                    y: <?php echo $belumAbsen; ?>
-                                }, {
                                     name: 'Sudah Absen',
                                     y: <?php echo $countSudahAbsen; ?>,
                                     sliced: true,
                                     selected: true
-                                }]
+                                },
+                                {
+                                    name: 'Belum absen',
+                                    y: <?php echo $belumAbsen; ?>
+                                } ]
                             }]
                         });
                         </script>
                     </div>
-                    <div id="chart2" class="col-lg-6">
+                    <div id="chart2" class="col-lg-4">
                     <script type="text/javascript">
                         // Build the chart
                         Highcharts.chart('chart2', {
@@ -104,6 +105,51 @@
                                     y: <?php echo $countBelumTerconfirm; ?>,
                                     sliced: true,
                                     selected: true
+                                }]
+                            }]
+                        });
+                    </script>
+                </div>
+                <div id="chartkethariini" class="col-lg-4">
+                    <script type="text/javascript">
+                        // Build the chart
+                        Highcharts.chart('chartkethariini', {
+                            chart: {
+                                plotBackgroundColor: null,
+                                plotBorderWidth: null,
+                                plotShadow: false,
+                                type: 'pie'
+                            },
+                            title: {
+                                text: 'Keterangan Kehadiran Siswa (<?php echo date("d M Y") ?>)'
+                            },
+                            tooltip: {
+                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                            },
+                            plotOptions: {
+                                pie: {
+                                    allowPointSelect: true,
+                                    cursor: 'pointer',
+                                    dataLabels: {
+                                        enabled: false
+                                    },
+                                    showInLegend: true
+                                }
+                            },
+                            series: [{
+                                name: 'Persentase',
+                                colorByPoint: true,
+                                data: [{
+                                    name: 'Masuk (<?php echo $countSiswaMasukH; ?> anak)',
+                                    y: <?php echo $countSiswaMasukH; ?>,
+                                    sliced: true,
+                                    selected: true
+                                }, {
+                                    name: 'Izin (<?php echo $countSiswaIzinH; ?> anak)',
+                                    y: <?php echo $countSiswaIzinH; ?>
+                                }, {
+                                    name: 'Sakit (<?php echo $countSiswaSakitH; ?> anak)',
+                                    y: <?php echo $countSiswaSakitH; ?>
                                 }]
                             }]
                         });
