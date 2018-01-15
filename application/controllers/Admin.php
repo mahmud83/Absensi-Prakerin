@@ -37,7 +37,7 @@ class Admin extends CI_Controller {
 
 	public function addguru()
 	{
-		if ($this->session->userdata('logged_in') == TRUE) {
+		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 1) {
 			$data['main_view']='add_guru_view';
 			$data['title'] = 'Tambah Data Guru - Prakerin SMK Telkom Malang 2017';
 			$this->load->view('template_view', $data);
