@@ -63,7 +63,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label>Kota</label>
-                                        <select class="form-control select2" name="kota" id="kota">
+                                        <select class="form-control select2" name="kota" id="kota" onchange="nganu(this)">
                                             <option>Bali</option>
                                             <option>Balikpapan</option>
                                             <option>Bandung</option>
@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Industri Prakerin</label>
-                                        <select class="form-control select2" name="industri" required>
+                                        <select class="form-control select2" name="industri" id="industri" required  onchange="ngono(this)">
                                             <?php 
                                                 foreach ($industri as $ind) {
                                                     echo '<option>'.$ind->nama_industri.'</option>';
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Guru Pembimbing</label>
-                                    <select class="form-control select2" name="gurupem" required>
+                                    <select class="form-control select2" name="gurupem" id="gurupem" required>
                                             <?php 
                                                 foreach ($guru as $pem) {
                                                     echo '<option>'.$pem->nama_guru.'</option>';
@@ -129,3 +129,13 @@
     </div>
     <!-- /.row -->
 </div>
+<!-- <script>
+    function nganu(element) {
+        var ini = document.getElementById("industri");
+        ini.disabled = false;
+    }
+    function ngono(element) {
+        var itu = document.getElementById("gurupem");
+        itu.disabled = false;
+    }
+</script> -->
