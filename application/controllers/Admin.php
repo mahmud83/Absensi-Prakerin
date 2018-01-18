@@ -212,17 +212,11 @@ class Admin extends CI_Controller {
 	//update data siswa
 	public function updatesiswa($id_sw)
 	{
-		if($this->admin_model->editsiswa($id_sw) == TRUE) {
-			$data['main_view'] = 'data_siswa_view';
-			$this->session->set_flashdata('notif', 'Berhasil mengubah data siswa');
-			$id_sw = $this->uri->segment(3);
-			redirect('admin/datasiswa');
-		} else {
-			$data['main_view'] = 'data_siswa_view';
-			$this->session->set_flashdata('notif', 'Gagal mengubah data siswa');
-			$id_sw = $this->uri->segment(3);
-			redirect('admin/datasiswa');
-		}
+		$this->admin_model->editsiswa($id_sw);
+		$data['main_view'] = 'data_siswa_view';
+		$this->session->set_flashdata('notif', 'Berhasil mengubah data siswa');
+		$id_sw = $this->uri->segment(3);
+		redirect('admin/datasiswa');
 	}
 
 	public function updatefotosiswa($id_sw)

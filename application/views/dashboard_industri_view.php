@@ -7,7 +7,7 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title">Data Absensi Prakerin SMK Telkom Malang 2017 - <?php echo $this->session->userdata('jeneng'); ?></h3>
+                  <h3 class="box-title">Data Absensi Prakerin SMK Telkom Malang 2018 - <?php echo $this->session->userdata('jeneng'); ?></h3>
                   <h5>Guru Pembimbing: <b><?php echo $nama; ?></b></h5>
                 </div>
                 <!-- /.box-header -->
@@ -17,6 +17,7 @@
                         <tr>
                             <th width="5%">No.</th>
                             <th>Nama Siswa</th>
+                            <th>Keterangan</th>
                             <th>Kegiatan Prakerin</th>
                             <th>Foto Prakerin</th>
                             <th>Tanggal</th>
@@ -33,10 +34,11 @@
                                     <tr>
                                         <td>'.$no.'</td>
                                         <td>'.$data->nama_siswa.'</td>
-                                        <td>'.$data->ket_abs.' ('.$data->isi.')</td>
+                                        <td>'.$data->ket_abs.'</td>
+                                        <td>'.$data->isi.'</td>
                                         <td><img id="anu" onclick="klik(this)" data-toggle="modal" data-target="#modalPop" style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
                                         <td>'.$newDate.'</td>
-                                        <td>';?>
+                                        <td style="width:14%;">';?>
                                             <?php 
                                                 if ($data->status == 'Menunggu konfirmasi') {
                                                     echo '<p>'.$data->status.'<br></p>';

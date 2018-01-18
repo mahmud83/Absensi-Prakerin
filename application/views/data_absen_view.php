@@ -19,6 +19,7 @@
                     <thead>
                     <tr>
                         <th width="5%">No.</th>
+                        <th>Keterangan</th>
                         <th>Kegiatan Prakerin</th>
                         <th>Foto Prakerin</th>
                         <th>Tanggal</th>
@@ -34,7 +35,8 @@
                                 echo '
                                     <tr>
                                         <td>'.$no.'</td>
-                                        <td>'.$data->ket_abs.' ('.$data->isi.')</td>
+                                        <td>'.$data->ket_abs.'</td>
+                                        <td>'.$data->isi.'</td>
                                         <td><img id="anu" onclick="klik(this)" data-toggle="modal" data-target="#modalPop" style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'"></td>
                                         <td>'.$newDate.'</td>
                                         <td>'.$data->status.'</td>

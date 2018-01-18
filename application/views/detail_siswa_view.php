@@ -13,454 +13,61 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <form role="form" method="post" enctype="multipart/form-data" action="#">
-                                <div class="form-group">
-                                    <label>Nama Siswa</label>
-                                    <input disabled class="form-control" placeholder="Nama siswa" name="nama_siswa" required value="<?php echo $detil->nama_siswa; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label>Jenis Kelamin</label>
-                                    
-                                    <select class="form-control" name="jk" disabled>
-                                        <?php 
-                                            if($detil->jenis_kelamin == "Laki-Laki")
-                                            {
-                                                echo "<option selected>Laki-Laki</option>
-                                                      <option>Perempuan</option>";
-                                            } else if($detil->jenis_kelamin == "Perempuan")
-                                            {
-                                                echo "<option >Laki-Laki</option>
-                                                      <option selected>Perempuan</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                    
-                                </div>
-                                <div class="form-group">
-                                    <label>Kelas</label>
-                                    <select class="form-control select2" style="width: 100%;" name="kelas" disabled>
-                                         <?php 
-                                            if($detil->kelas == "XII RPL 1")
-                                            {
-                                                echo "<option selected>XII RPL 1</option>
-                                                      <option>XII RPL 2</option>
-                                                      <option>XII RPL 3</option>
-                                                      <option>XII RPL 4</option>
-                                                      <option>XII RPL 5</option>
-                                                      <option>XII RPL 6</option>
-                                                      <option>XII TKJ 1</option>
-                                                      <option>XII TKJ 2</option>
-                                                      <option>XII TKJ 3</option>
-                                                      <option>XII TKJ 4</option>
-                                                      <option>XII TKJ 5</option>";
-                                            } else if($detil->kelas == "XII RPL 2")
-                                            {
-                                                echo "<option>XII RPL 1</option>
-                                                      <option selected>XII RPL 2</option>
-                                                      <option>XII RPL 3</option>
-                                                      <option>XII RPL 4</option>
-                                                      <option>XII RPL 5</option>
-                                                      <option>XII RPL 6</option>
-                                                      <option>XII TKJ 1</option>
-                                                      <option>XII TKJ 2</option>
-                                                      <option>XII TKJ 3</option>
-                                                      <option>XII TKJ 4</option>
-                                                      <option>XII TKJ 5</option>";
-                                            } else if($detil->kelas == "XII RPL 3")
-                                            {
-                                                echo "<option>XII RPL 1</option>
-                                                      <option>XII RPL 2</option>
-                                                      <option selected>XII RPL 3</option>
-                                                      <option>XII RPL 4</option>
-                                                      <option>XII RPL 5</option>
-                                                      <option>XII RPL 6</option>
-                                                      <option>XII TKJ 1</option>
-                                                      <option>XII TKJ 2</option>
-                                                      <option>XII TKJ 3</option>
-                                                      <option>XII TKJ 4</option>
-                                                      <option>XII TKJ 5</option>";
-                                            } else if($detil->kelas == "XII RPL 4")
-                                            {
-                                                echo "<option>XII RPL 1</option>
-                                                      <option>XII RPL 2</option>
-                                                      <option>XII RPL 3</option>
-                                                      <option selected>XII RPL 4</option>
-                                                      <option>XII RPL 5</option>
-                                                      <option>XII RPL 6</option>
-                                                      <option>XII TKJ 1</option>
-                                                      <option>XII TKJ 2</option>
-                                                      <option>XII TKJ 3</option>
-                                                      <option>XII TKJ 4</option>
-                                                      <option>XII TKJ 5</option>";
-                                            } else if($detil->kelas == "XII RPL 5")
-                                            {
-                                                echo "<option>XII RPL 1</option>
-                                                      <option>XII RPL 2</option>
-                                                      <option>XII RPL 3</option>
-                                                      <option>XII RPL 4</option>
-                                                      <option selected>XII RPL 5</option>
-                                                      <option>XII RPL 6</option>
-                                                      <option>XII TKJ 1</option>
-                                                      <option>XII TKJ 2</option>
-                                                      <option>XII TKJ 3</option>
-                                                      <option>XII TKJ 4</option>
-                                                      <option>XII TKJ 5</option>";
-                                            } else if($detil->kelas == "XII RPL 6")
-                                            {
-                                                echo "<option>XII RPL 1</option>
-                                                      <option>XII RPL 2</option>
-                                                      <option>XII RPL 3</option>
-                                                      <option>XII RPL 4</option>
-                                                      <option>XII RPL 5</option>
-                                                      <option selected>XII RPL 6</option>
-                                                      <option>XII TKJ 1</option>
-                                                      <option>XII TKJ 2</option>
-                                                      <option>XII TKJ 3</option>
-                                                      <option>XII TKJ 4</option>
-                                                      <option>XII TKJ 5</option>";
-                                            } else if($detil->kelas == "XII TKJ 1")
-                                            {
-                                                echo "<option>XII RPL 1</option>
-                                                      <option>XII RPL 2</option>
-                                                      <option>XII RPL 3</option>
-                                                      <option>XII RPL 4</option>
-                                                      <option>XII RPL 5</option>
-                                                      <option>XII RPL 6</option>
-                                                      <option selected>XII TKJ 1</option>
-                                                      <option>XII TKJ 2</option>
-                                                      <option>XII TKJ 3</option>
-                                                      <option>XII TKJ 4</option>
-                                                      <option>XII TKJ 5</option>";
-                                            } else if($detil->kelas == "XII TKJ 2")
-                                            {
-                                                echo "<option>XII RPL 1</option>
-                                                      <option>XII RPL 2</option>
-                                                      <option>XII RPL 3</option>
-                                                      <option>XII RPL 4</option>
-                                                      <option>XII RPL 5</option>
-                                                      <option>XII RPL 6</option>
-                                                      <option>XII TKJ 1</option>
-                                                      <option selected>XII TKJ 2</option>
-                                                      <option>XII TKJ 3</option>
-                                                      <option>XII TKJ 4</option>
-                                                      <option>XII TKJ 5</option>";
-                                            } else if($detil->kelas == "XII TKJ 3")
-                                            {
-                                                echo "<option>XII RPL 1</option>
-                                                      <option>XII RPL 2</option>
-                                                      <option>XII RPL 3</option>
-                                                      <option>XII RPL 4</option>
-                                                      <option>XII RPL 5</option>
-                                                      <option>XII RPL 6</option>
-                                                      <option>XII TKJ 1</option>
-                                                      <option>XII TKJ 2</option>
-                                                      <option slected>XII TKJ 3</option>
-                                                      <option>XII TKJ 4</option>
-                                                      <option>XII TKJ 5</option>";
-                                            } else if($detil->kelas == "XII TKJ 4")
-                                            {
-                                                echo "<option>XII RPL 1</option>
-                                                      <option>XII RPL 2</option>
-                                                      <option>XII RPL 3</option>
-                                                      <option>XII RPL 4</option>
-                                                      <option>XII RPL 5</option>
-                                                      <option>XII RPL 6</option>
-                                                      <option>XII TKJ 1</option>
-                                                      <option>XII TKJ 2</option>
-                                                      <option>XII TKJ 3</option>
-                                                      <option selected>XII TKJ 4</option>
-                                                      <option>XII TKJ 5</option>";
-                                            } else if($detil->kelas == "XII TKJ 5")
-                                            {
-                                                echo "<option>XII RPL 1</option>
-                                                      <option>XII RPL 2</option>
-                                                      <option>XII RPL 3</option>
-                                                      <option>XII RPL 4</option>
-                                                      <option>XII RPL 5</option>
-                                                      <option>XII RPL 6</option>
-                                                      <option>XII TKJ 1</option>
-                                                      <option>XII TKJ 2</option>
-                                                      <option>XII TKJ 3</option>
-                                                      <option>XII TKJ 4</option>
-                                                      <option selected>XII TKJ 5</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>No. Telepon</label>
-                                    <input disabled class="form-control" placeholder="No. Telepon" name="telp" type="number" required value="<?php echo $detil->no_telp_siswa; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label>Kota</label>
-                                    <select class="form-control" name="kota" disabled>
-                                        <?php 
-                                            if($detil->kota == "Bali")
-                                            {
-                                                echo "<option selected>Bali</option>
-                                                      <option>Balikpapan</option>
-                                                      <option>Bandung</option>
-                                                      <option>Gresik & Tuban</option>
-                                                      <option>Jakarta</option>
-                                                      <option>Jember</option>
-                                                      <option>Kediri</option>
-                                                      <option>Malang</option>
-                                                      <option>Mataram</option>
-                                                      <option>Pasuruan</option>
-                                                      <option>Semarang</option>
-                                                      <option>Sidoarjo</option>
-                                                      <option>Solo & Madiun</option>
-                                                      <option>Surabaya</option>
-                                                      <option>Yogyakarta</option>";
-                                            } else if($detil->kota == "Balikpapan")
-                                            {
-                                                echo "<option>Bali</option>
-                                                      <option selected>Balikpapan</option>
-                                                      <option>Bandung</option>
-                                                      <option>Gresik & Tuban</option>
-                                                      <option>Jakarta</option>
-                                                      <option>Jember</option>
-                                                      <option>Kediri</option>
-                                                      <option>Malang</option>
-                                                      <option>Mataram</option>
-                                                      <option>Pasuruan</option>
-                                                      <option>Semarang</option>
-                                                      <option>Sidoarjo</option>
-                                                      <option>Solo & Madiun</option>
-                                                      <option>Surabaya</option>
-                                                      <option>Yogyakarta</option>";
-                                            } else if($detil->kota == "Bandung")
-                                            {
-                                                echo "<option>Bali</option>
-                                                      <option>Balikpapan</option>
-                                                      <option selected>Bandung</option>
-                                                      <option>Gresik & Tuban</option>
-                                                      <option>Jakarta</option>
-                                                      <option>Jember</option>
-                                                      <option>Kediri</option>
-                                                      <option>Malang</option>
-                                                      <option>Mataram</option>
-                                                      <option>Pasuruan</option>
-                                                      <option>Semarang</option>
-                                                      <option>Sidoarjo</option>
-                                                      <option>Solo & Madiun</option>
-                                                      <option>Surabaya</option>
-                                                      <option>Yogyakarta</option>";
-                                            } else if($detil->kota == "Gresik & Tuban")
-                                            {
-                                                echo "<option>Bali</option>
-                                                      <option>Balikpapan</option>
-                                                      <option>Bandung</option>
-                                                      <option selected>Gresik & Tuban</option>
-                                                      <option>Jakarta</option>
-                                                      <option>Jember</option>
-                                                      <option>Kediri</option>
-                                                      <option>Malang</option>
-                                                      <option>Mataram</option>
-                                                      <option>Pasuruan</option>
-                                                      <option>Semarang</option>
-                                                      <option>Sidoarjo</option>
-                                                      <option>Solo & Madiun</option>
-                                                      <option>Surabaya</option>
-                                                      <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Jakarta") {
-                                              echo "<option>Bali</option>
-                                                    <option>Balikpapan</option>
-                                                    <option>Bandung</option>
-                                                    <option>Gresik & Tuban</option>
-                                                    <option selected>Jakarta</option>
-                                                    <option>Jember</option>
-                                                    <option>Kediri</option>
-                                                    <option>Malang</option>
-                                                    <option>Mataram</option>
-                                                    <option>Pasuruan</option>
-                                                    <option>Semarang</option>
-                                                    <option>Sidoarjo</option>
-                                                    <option>Solo & Madiun</option>
-                                                    <option>Surabaya</option>
-                                                    <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Jember") {
-                                              echo "<option>Bali</option>
-                                                    <option>Balikpapan</option>
-                                                    <option>Bandung</option>
-                                                    <option>Gresik & Tuban</option>
-                                                    <option>Jakarta</option>
-                                                    <option selected>Jember</option>
-                                                    <option>Kediri</option>
-                                                    <option>Malang</option>
-                                                    <option>Mataram</option>
-                                                    <option>Pasuruan</option>
-                                                    <option>Semarang</option>
-                                                    <option>Sidoarjo</option>
-                                                    <option>Solo & Madiun</option>
-                                                    <option>Surabaya</option>
-                                                    <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Kediri") {
-                                              echo "<option>Bali</option>
-                                                    <option>Balikpapan</option>
-                                                    <option>Bandung</option>
-                                                    <option>Gresik & Tuban</option>
-                                                    <option>Jakarta</option>
-                                                    <option>Jember</option>
-                                                    <option selected>Kediri</option>
-                                                    <option>Malang</option>
-                                                    <option>Mataram</option>
-                                                    <option>Pasuruan</option>
-                                                    <option>Semarang</option>
-                                                    <option>Sidoarjo</option>
-                                                    <option>Solo & Madiun</option>
-                                                    <option>Surabaya</option>
-                                                    <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Malang") {
-                                              echo "<option>Bali</option>
-                                                    <option>Balikpapan</option>
-                                                    <option>Bandung</option>
-                                                    <option>Gresik & Tuban</option>
-                                                    <option>Jakarta</option>
-                                                    <option>Jember</option>
-                                                    <option>Kediri</option>
-                                                    <option selected>Malang</option>
-                                                    <option>Mataram</option>
-                                                    <option>Pasuruan</option>
-                                                    <option>Semarang</option>
-                                                    <option>Sidoarjo</option>
-                                                    <option>Solo & Madiun</option>
-                                                    <option>Surabaya</option>
-                                                    <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Mataram") {
-                                              echo "<option>Bali</option>
-                                                    <option>Balikpapan</option>
-                                                    <option>Bandung</option>
-                                                    <option>Gresik & Tuban</option>
-                                                    <option>Jakarta</option>
-                                                    <option>Jember</option>
-                                                    <option>Kediri</option>
-                                                    <option>Malang</option>
-                                                    <option selected>Mataram</option>
-                                                    <option>Pasuruan</option>
-                                                    <option>Semarang</option>
-                                                    <option>Sidoarjo</option>
-                                                    <option>Solo & Madiun</option>
-                                                    <option>Surabaya</option>
-                                                    <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Pasuruan") {
-                                              echo "<option>Bali</option>
-                                                    <option>Balikpapan</option>
-                                                    <option>Bandung</option>
-                                                    <option>Gresik & Tuban</option>
-                                                    <option>Jakarta</option>
-                                                    <option>Jember</option>
-                                                    <option>Kediri</option>
-                                                    <option>Malang</option>
-                                                    <option>Mataram</option>
-                                                    <option selected>Pasuruan</option>
-                                                    <option>Semarang</option>
-                                                    <option>Sidoarjo</option>
-                                                    <option>Solo & Madiun</option>
-                                                    <option>Surabaya</option>
-                                                    <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Semarang") {
-                                              echo "<option>Bali</option>
-                                                    <option>Balikpapan</option>
-                                                    <option>Bandung</option>
-                                                    <option>Gresik & Tuban</option>
-                                                    <option>Jakarta</option>
-                                                    <option>Jember</option>
-                                                    <option>Kediri</option>
-                                                    <option>Malang</option>
-                                                    <option>Mataram</option>
-                                                    <option>Pasuruan</option>
-                                                    <option selected>Semarang</option>
-                                                    <option>Sidoarjo</option>
-                                                    <option>Solo & Madiun</option>
-                                                    <option>Surabaya</option>
-                                                    <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Sidoarjo") {
-                                              echo "<option>Bali</option>
-                                                    <option>Balikpapan</option>
-                                                    <option>Bandung</option>
-                                                    <option>Gresik & Tuban</option>
-                                                    <option>Jakarta</option>
-                                                    <option>Jember</option>
-                                                    <option>Kediri</option>
-                                                    <option>Malang</option>
-                                                    <option>Mataram</option>
-                                                    <option>Pasuruan</option>
-                                                    <option>Semarang</option>
-                                                    <option selected>Sidoarjo</option>
-                                                    <option>Solo & Madiun</option>
-                                                    <option>Surabaya</option>
-                                                    <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Solo & Madiun") {
-                                              echo "<option>Bali</option>
-                                                    <option>Balikpapan</option>
-                                                    <option>Bandung</option>
-                                                    <option>Gresik & Tuban</option>
-                                                    <option>Jakarta</option>
-                                                    <option>Jember</option>
-                                                    <option>Kediri</option>
-                                                    <option>Malang</option>
-                                                    <option>Mataram</option>
-                                                    <option>Pasuruan</option>
-                                                    <option>Semarang</option>
-                                                    <option>Sidoarjo</option>
-                                                    <option selected>Solo & Madiun</option>
-                                                    <option>Surabaya</option>
-                                                    <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Surabaya") {
-                                              echo "<option>Bali</option>
-                                                    <option>Balikpapan</option>
-                                                    <option>Bandung</option>
-                                                    <option>Gresik & Tuban</option>
-                                                    <option>Jakarta</option>
-                                                    <option>Jember</option>
-                                                    <option>Kediri</option>
-                                                    <option>Malang</option>
-                                                    <option>Mataram</option>
-                                                    <option>Pasuruan</option>
-                                                    <option>Semarang</option>
-                                                    <option>Sidoarjo</option>
-                                                    <option>Solo & Madiun</option>
-                                                    <option selected>Surabaya</option>
-                                                    <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Yogyakarta") {
-                                              echo "<option>Bali</option>
-                                                    <option>Balikpapan</option>
-                                                    <option>Bandung</option>
-                                                    <option>Gresik & Tuban</option>
-                                                    <option>Jakarta</option>
-                                                    <option>Jember</option>
-                                                    <option>Kediri</option>
-                                                    <option>Malang</option>
-                                                    <option>Mataram</option>
-                                                    <option>Pasuruan</option>
-                                                    <option>Semarang</option>
-                                                    <option>Sidoarjo</option>
-                                                    <option>Solo & Madiun</option>
-                                                    <option>Surabaya</option>
-                                                    <option selected>Yogyakarta</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Industri Prakerin</label>
-                                    <input disabled class="form-control" placeholder="Industri Prakerin" name="industri" required value="<?php echo $detil->industri; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label>Alamat Selama Prakerin</label>
-                                    <textarea disabled class="form-control" name="alamat" value=""><?php echo $detil->alamat_prakerin; ?></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm-4">
+                              <div>
+                                <table class="table">
+                                  <tbody>
+                                    <tr>
+                                      <th>Nama Siswa</th>
+                                      <td>:</td>
+                                      <td><?php echo $detil->nama_siswa; ?></td>
+                                    </tr>
+                                    <tr>
+                                      <th>Jenis Kelamin</th>
+                                      <td>:</td>
+                                      <td><?php echo $detil->jenis_kelamin; ?></td>
+                                    </tr>
+                                    <tr>
+                                      <th>Kelas</th>
+                                      <td>:</td>
+                                      <td><?php echo $detil->kelas; ?></td>
+                                    </tr>
+                                    <tr>
+                                      <th>No. Telp.</th>
+                                      <td>:</td>
+                                      <td><?php echo $detil->no_telp_siswa; ?></td>
+                                    </tr>
+                                    <tr>
+                                      <th>Jenis Kelamin</th>
+                                      <td>:</td>
+                                      <td><?php echo $detil->jenis_kelamin; ?></td>
+                                    </tr>
+                                      <th>Industri Prakerin</th>
+                                      <td>:</td>
+                                      <td><?php echo $detil->industri; ?></td>
+                                    </tr>
+                                    <tr>
+                                      <th>Kota</th>
+                                      <td>:</td>
+                                      <td><?php echo $detil->kota; ?></td>
+                                    </tr>
+                                    <tr>
+                                    <tr>
+                                      <th>Alamat di Prakerin</th>
+                                      <td>:</td>
+                                      <td><textarea readonly style="border: none; width: 100%; resize: none; outline: none;"><?php echo $detil->alamat_prakerin; ?></textarea></td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="3" style="text-align: center; width: 100%;">
                                             <?php if ($this->session->userdata('role') == 2): ?>
                                               <a href="<?php echo base_url(); ?>index.php/guru" class="btn btn-danger btn-flat">KEMBALI</a>
                                             <?php elseif ($this->session->userdata('role') == 4): ?>
                                               <a href="<?php echo base_url(); ?>index.php/industri/datasiswa" class="btn btn-danger btn-flat">KEMBALI</a>
                                             <?php endif; ?>
-                                        </div>
-                                    </div>
-                                </div>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
                             </form>
                         </div>
                         <div class="col-lg-6">

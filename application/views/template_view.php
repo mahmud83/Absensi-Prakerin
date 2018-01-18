@@ -186,7 +186,7 @@
             <ul class="sidebar-menu" data-widget="tree">
               <li class="header">MAIN NAVIGATION</li>
               <li class="active">
-                <a href="#">
+                <a href="<?php echo base_url(); ?>index.php/guru">
                   <i class="fa fa-search"></i> <span>Lihat Data</span>
                   <span class="pull-right-container">
                     <i class="fa fa-angle-right pull-right"></i>
@@ -255,7 +255,7 @@
           <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active">
-              <a href="#">
+              <a href="<?php echo base_url(); ?>index.php/siswa">
                 <i class="fa fa-plus"></i> <span>Absensi</span>
               </a>
             </li>
@@ -330,7 +330,7 @@
           <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active">
-              <a href="#">
+              <a href="<?php echo base_url(); ?>index.php/siswa"">
                 <i class="fa fa-file-text-o"></i> <span>Absensi</span>
               </a>
             </li>
@@ -394,9 +394,11 @@
 
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.4.0
+          Powered by <a href="https://adminlte.io"><strong>Admin LTE</strong></a>
+          
         </div>
-        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017-2018 <a href="http://smktelkom-mlg.sch.id/" target="_blank">SMK Telkom Malang</a>.</strong> All rights reserved. <b>Version</b> 1.0.0
+        
       </footer>
     </div>
     <!-- ./wrapper -->
@@ -725,7 +727,7 @@
             title: '<strong>&nbsp;Warning!</strong><br>',
             message: "<?php echo $notif; ?>"
           },{
-            timer: 2000,
+            timer: 100000,
             delay: 50,
             type: 'warning',
             placement: {

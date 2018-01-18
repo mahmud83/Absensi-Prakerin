@@ -2,7 +2,7 @@
 <html>
 	<body>
     	<?php if($isAbsen == true): ?>
-    	<div class="alert alert-danger">
+    	<div class="callout callout-danger">
     		<table>
     			<tr>
     				<td style="width: 100%; color: white;">Anda belum absen hari ini!</td>
@@ -14,7 +14,7 @@
     		</table>
     	</div>
     	<?php else: ?>
-    		<div class="alert alert-success">Terima kasih, Anda sudah absen hari ini</div>
+    		<div class="callout callout-success">Terima kasih, Anda sudah absen hari ini</div>
     	<?php endif; ?>
     	<!-- The Modal -->
 			<div class="modal fade" id="absenModal">
@@ -40,7 +40,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label name="isi">Ketarangan</label>
+                                    <label name="isi">Keterangan</label>
                                     <textarea class="form-control" name="keterangan" autofocus></textarea>
                                 </div>
                                 <div class="form-group">
@@ -64,7 +64,7 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title">Data Absensi Prakerin SMK Telkom Malang 2017</h3>
+                  <h3 class="box-title">Data Absensi Prakerin SMK Telkom Malang 2018</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -72,6 +72,7 @@
                     <thead>
                     <tr>
                         <th width="5%">No.</th>
+                        <th>Keterangan</th>
                         <th>Kegiatan Prakerin</th>
                         <th>Foto Prakerin</th>
                         <th>Tanggal</th>
@@ -87,7 +88,8 @@
                                 echo '
                                     <tr>
                                         <td>'.$no.'</td>
-                                        <td>'.$data->ket_abs.' ('.$data->isi.')</td>
+                                        <td>'.$data->ket_abs.'</td>
+                                        <td>'.$data->isi.'</td>
                                         <td><img id="anu" onclick="klik(this)" data-toggle="modal" data-target="#modalPop" style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'" id="kegiatan"></td>
                                         <td>'.$newDate.'</td>
                                         <td>'.$data->status.'</td>

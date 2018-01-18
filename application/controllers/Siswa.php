@@ -73,7 +73,7 @@ class Siswa extends CI_Controller {
 
 	public function profilku()
 	{
-		if ($this->session->userdata('logged_in') == TRUE) {
+		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 3) {
 			$data['main_view'] = 'profil_siswa_view';
 			$data['title'] = 'Profilku - Prakerin SMK Telkom Malang 2017';
 			$data['kelas'] = $this->siswa_model->getKelas();

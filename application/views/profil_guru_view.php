@@ -13,14 +13,27 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <form role="form" method="post" enctype="multipart/form-data" action="#">
-                                <div class="form-group">
-                                  <label>Nama Guru</label>
-                                  <input disabled class="form-control" placeholder="Nama Guru" name="nama_guru" required value="<?php echo $nama; ?>">
-                                </div>
-                                <div class="form-group">
-                                  <label>No. Telp. Guru</label>
-                                  <input disabled class="form-control" placeholder="Nama Guru" name="nama_guru" required value="<?php echo $no; ?>">
-                                </div>
+                                <div>
+                                <table class="table">
+                                  <tbody>
+                                    <tr>
+                                      <th>Nama Guru</th>
+                                      <td>:</td>
+                                      <td><?php echo $nama; ?></td>
+                                    </tr>
+                                    <tr>
+                                      <th>No. Telp.</th>
+                                      <td>:</td>
+                                      <td><?php echo $no; ?></td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="3" style="text-align: center; width: 100%;">
+                                        <a href="<?php echo base_url(); ?>index.php/industri" class="btn btn-danger btn-flat">KEMBALI</a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
                             </form>
                         </div>
                         <div class="col-lg-6">
