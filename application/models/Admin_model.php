@@ -74,6 +74,18 @@ class Admin_model extends CI_Model {
 		return $kd.sprintf('%03s', $next);
 	}
 
+	public function getIndustri()
+	{
+		$query = $this->db->get('tb_industri')->result();
+		return $query;
+	}
+
+	public function getGuru()
+	{
+		$query = $this->db->get('tb_user_guru')->result();
+		return $query;
+	}
+
 	public function getDataGuru()
 	{
 		return $this->db->order_by('nama_guru', 'ASC')->get('tb_user_guru')->result();

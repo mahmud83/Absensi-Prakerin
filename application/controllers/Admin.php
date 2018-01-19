@@ -13,7 +13,7 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		if ($this->session->userdata('logged_in') == TRUE) {
+		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 1) {
 			$data['main_view']='dashboard_admin_view';
 			$data['main_view']='dashboard_admin_view';
 			$data['main_view'] = 'dashboard_admin_view';
@@ -54,6 +54,8 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='add_siswa_view';
 			$data['title'] = 'Tambah Data Siswa - Prakerin SMK Telkom Malang 2017';
+			$data['industri'] = $this->admin_model->getIndustri();
+			$data['guru'] = $this->admin_model->getGuru();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
