@@ -25,7 +25,7 @@ class Guru_model extends CI_Model {
      	return TRUE;
 	}
 
-	public function getIndustri()
+	/*public function getIndustri()
 	{
 		$query = $this->db->where('nama_guru_pembimbing', $this->session->userdata('jeneng'))
 						  ->select('nama_industri')
@@ -34,15 +34,12 @@ class Guru_model extends CI_Model {
          	return $query->row()->nama_industri;
      	}
      	return TRUE;
-	}
+	}*/
 
 	public function getKotaSiswa()
 	{
-		$query = $this->getKota();
-		$queri = $this->getIndustri();
-
-		$kueri = $this->db->where('kota', $query)
-						  ->where('industri', $queri)
+		$kueri = $this->db->where('nama_guru_pembimbing', $this->session->userdata('jeneng'))
+						  ->order_by('nama_siswa', 'ASC')
 						  ->get('tb_user_siswa')
 						  ->result();
 		return $kueri;

@@ -219,13 +219,25 @@
               <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $foto; ?>" class="user-image" alt="User Image">
+                    <?php if ($foto == "-" && $jk == "Perempuan"): ?>
+                      <img src="<?php echo base_url();?>female.png" alt="User Image" class="user-image">
+                    <?php elseif ($foto == "-" && $jk == "Laki-Laki"): ?>
+                      <img src="<?php echo base_url();?>male.png" alt="User Image" class="user-image">
+                    <?php else: ?>
+                      <img src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $foto; ?>" alt="User Image" class="user-image">
+                    <?php endif; ?>
                     <span class="hidden-xs">Hi, <?php echo $this->session->userdata('jeneng'); ?></span>
                   </a>
                   <ul class="dropdown-menu">
                     <!-- User image -->
                     <li class="user-header">
-                      <img src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $foto; ?>" class="img-circle" alt="User Image">
+                      <?php if ($foto == "-" && $jk == "Perempuan"): ?>
+                        <img src="<?php echo base_url();?>female.png" alt="User Image" class="img-circle">
+                      <?php elseif ($foto == "-" && $jk == "Laki-Laki"): ?>
+                        <img src="<?php echo base_url();?>male.png" alt="User Image" class="img-circle">
+                      <?php else: ?>
+                        <img src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $foto; ?>" alt="User Image" class="img-circle">
+                      <?php endif; ?>
                       <p style="color: white; ">
                         <?php echo $this->session->userdata('jeneng'); ?> - <?php echo $kelas; ?><br>
                         <small><?php echo $industri; ?>, <?php echo $kota; ?></small>

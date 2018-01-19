@@ -479,7 +479,13 @@
                         <div class="col-lg-6">
                           <div class="col-lg-3">
                             <div class="container">
-                              <img id="foto_siswa" src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $detil->foto_siswa; ?>" alt="Avatar" class="anu img-thumbnail">
+                              <?php if ($detil->foto_siswa == "-" && $detil->jenis_kelamin == "Perempuan"): ?>
+                                <img id="foto_siswa" src="<?php echo base_url();?>female.png" alt="Avatar" class="anu img-thumbnail">
+                              <?php elseif ($detil->foto_siswa == "-" && $detil->jenis_kelamin == "Laki-Laki"): ?>
+                                <img id="foto_siswa" src="<?php echo base_url();?>male.png" alt="Avatar" class="anu img-thumbnail">
+                              <?php else: ?>
+                                <img id="foto_siswa" src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $detil->foto_siswa; ?>" alt="Avatar" class="anu img-thumbnail">
+                              <?php endif; ?>
                               <div class="middle">
                                 <form id="formfoto" action="<?php echo base_url(); ?>index.php/admin/updatefotosiswa/<?php echo $id_sw = $this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
                                   <div class="custom" id="input">

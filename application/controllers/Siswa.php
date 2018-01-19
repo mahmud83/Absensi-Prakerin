@@ -18,6 +18,7 @@ class Siswa extends CI_Controller {
 			$data['foto'] = $this->siswa_model->getFoto();
 			$data['industri'] = $this->siswa_model->getIndustri();
 			$data['kota'] = $this->siswa_model->getKota();
+			$data['jk'] = $this->siswa_model->getJK();
 			/*if ($this->siswa_model->cekAlpha() == TRUE) {
 				$this->siswa_model->tambahAlpha();
 			}*/
