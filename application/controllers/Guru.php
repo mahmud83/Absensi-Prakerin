@@ -13,7 +13,7 @@ class Guru extends CI_Controller {
 
 	public function index()
 	{
-		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 2) {
+		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='dashboard_guru_view';
 			$data['title'] = 'Dashboard Guru - Prakerin SMK Telkom Malang 2017';
 			$data['foto'] = $this->guru_model->getFoto();

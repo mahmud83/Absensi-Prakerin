@@ -9,7 +9,7 @@ class Siswa extends CI_Controller {
 	}
 	public function index()
 	{
-		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 3) {
+		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view'] = 'dashboard_siswa_view';
 			$data['title'] = 'Dashboard Siswa - Prakerin SMK Telkom Malang 2017';
 			$data['isAbsen'] = $this->siswa_model->cekAbsen();

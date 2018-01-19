@@ -12,7 +12,7 @@ class Industri extends CI_Controller {
 
 	public function index()
 	{
-		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 4) {
+		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='dashboard_industri_view';
 			$data['title'] = 'Jurnal Siswa - Prakerin SMK Telkom Malang 2017';
 			$data['kota'] = $this->industri_model->getKota();
