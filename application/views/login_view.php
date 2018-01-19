@@ -33,7 +33,7 @@
   <body class="hold-transition login-page" style="display: flex;">
     <div class="login-box" style="">
       <div class="login-logo">
-        <h3><b>Buku Kegiatan Prakerin</b><br>&nbsp;SMK Telkom Malang</h3>
+        <h3><b>Jurnal Kegiatan Prakerin</b><br>&nbsp;SMK Telkom Malang</h3>
       </div>
       <!-- /.login-logo -->
       <div class="login-box-body">

@@ -55,11 +55,11 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-4 pull-left">
                                             <input type="submit" name="insert" value="TAMBAH" class="btn btn-primary btn-flat">
                                         </div>
-                                        <div class="col-sm-4">
-                                            <a href="<?php echo base_url(); ?>index.php/admin" class="btn btn-danger btn-flat">KEMBALI</a>
+                                        <div class="col-sm-4 pull-right">
+                                            <a href="<?php echo base_url(); ?>index.php/admin" class="btn btn-danger btn-flat" style="float: right;">KEMBALI</a>
                                         </div>
                                     </div>
                                 </div>

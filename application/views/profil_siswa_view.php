@@ -482,7 +482,8 @@
                             <div class="middle">
                               <form id="formfoto" action="<?php echo base_url(); ?>index.php/siswa/updatefoto/<?php echo $id_sw = $this->session->userdata('id_user'); ?>" method="post" enctype="multipart/form-data">
                                 <div class="custom" id="input">
-                                  <label id="labelnya" style="background-color: rgba(0,0,0,.3); color: white; padding: 5px;">
+                                  <label id="labelnya" style="background-color: rgba(0,0,0,.3); color: white; padding: 5px; border-radius: 50%; line-height: 670%; width: 100%;">
+                                    <i class="fa fa-camera"></i>
                                     EDIT PHOTO
                                     <input type="file" id="foto" name="foto" accept="image/*" class="change-avatar changephoto" onchange="this.form.submit()">
                                   </label>
@@ -546,6 +547,8 @@
     height: auto;
     transition: .5s ease;
     backface-visibility: hidden;
+    margin: auto;
+    display: block;
   }
 
   .middle {
@@ -555,7 +558,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%)
+    -ms-transform: translate(-50%, -50%);
   }
 
   .container:hover .anu {

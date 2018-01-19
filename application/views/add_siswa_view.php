@@ -1,7 +1,11 @@
 <div id="page-wrapper">
     <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Tambah Data Siswa</h1>
+        <div class="col-lg-6">
+            <h1 class="page-header"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah Data Siswa</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+        <div class="col-lg-6">
+            <h1 class="page-header"><i class="fa fa-download"></i>&nbsp;&nbsp;Import Data Siswa</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -108,15 +112,30 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-4 pull-left">
                                             <input type="submit" name="insert" value="TAMBAH" class="btn btn-primary btn-flat">
                                         </div>
-                                        <div class="col-sm-4">
-                                            <a href="<?php echo base_url(); ?>index.php/admin" class="btn btn-danger btn-flat">KEMBALI</a>
+                                        <div class="col-sm-4 pull-right">
+                                            <a href="<?php echo base_url(); ?>index.php/admin" class="btn btn-danger btn-flat" style="float: right;">KEMBALI</a>
                                         </div>
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="box box-default">
+                                <div class="box-header with-border">
+                                  <h3 class="box-title">Import Data Siswa</h3>
+                                </div>
+                                <div class="box-body alert-info">
+                                    <a href="<?php echo base_url(); ?>format_siswa.xlsx"><h4 style="color: white; font-weight: 800; padding-bottom: 3px;">Download Format Import</h4></a>
+                                    <?php echo form_open_multipart('admin/importsiswa');?>
+                                        <input type="file" name="import" size="20" id='import' required class="pull-left" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+                                        <input type="submit" value="Import Data Siswa" class="pull-right" style="color: black;"/>
+                                    </form>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
                         </div>
                     </div>
                     <!-- /.row (nested) -->

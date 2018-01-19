@@ -406,6 +406,7 @@
   <!-- jQuery 3 -->
   <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
   <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.js"></script>
+  <script src="<?php echo base_url(); ?>import/jquery.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
   <script src="<?php echo base_url(); ?>bower_components/jquery-ui/jquery-ui.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -937,8 +938,44 @@
             exit: 'animated bounceOut'
           },
         });
+        <?php } elseif ($notif == 'Gagal import data siswa') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'danger',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Berhasil import data siswa') { ?>
+          $.notify({
+            icon: 'fa fa-check',
+            title: '<strong>&nbsp;Success!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'success',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
         <?php }
-      } 
+      }
     ?>
   </script>
 

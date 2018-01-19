@@ -8,6 +8,7 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		$this->load->model('admin_model');
 		$this->load->model('guru_model');
+		$this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
 	}
 
 	public function index()
@@ -428,6 +429,70 @@ class Admin extends CI_Controller {
 		else{
 			redirect('login');
 		}
+	}
+
+	public function importsiswa()
+	{
+		$fileName = $this->input->post('import', TRUE);
+
+  		$config['upload_path'] = './uploads/import_siswa/'; 
+  		$config['file_name'] = $fileName;
+  		$config['allowed_types'] = 'xlsx';
+  		$config['encrypt_name']= TRUE;
+  		$config['max_size'] = 10240;
+
+  		$this->load->library('upload', $config);
+  		$this->upload->initialize($config); 
+  
+  		if (!$this->upload->do_upload('import')) {
+   			$this->session->set_flashdata('notif','Gagal import data siswa'); 
+   			redirect('admin/addsiswa'); 
+ 		} else {
+   			$media = $this->upload->data();
+   			$inputFileName = './uploads/import_siswa/'.$media['file_name'];
+   
+   			try {
+    			$inputFileType = IOFactory::identify($inputFileName);
+    			$objReader = IOFactory::createReader($inputFileType);
+    			$objPHPExcel = $objReader->load($inputFileName);
+  			} catch(Exception $e) {
+    			die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+  			}
+
+  			$sheet = $objPHPExcel->getSheet(0);
+  			$highestRow = $sheet->getHighestRow();
+  			$highestColumn = $sheet->getHighestColumn();
+
+  			for ($row = 2; $row <= $highestRow; $row++){  
+   				$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+     			NULL,
+     			TRUE,
+     			FALSE);
+   				$login = array(
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
+		     		"id_level"=> $rowData[0][1],
+		     		"nama"=> $rowData[0][4],
+		     		"username"=> $rowData[0][2],
+		     		"password"=> $rowData[0][3]);
+	     		$data = array(
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
+		     		"nama_siswa"=> $rowData[0][4],
+		     		"foto_siswa"=> $rowData[0][5],
+		     		"kelas"=> $rowData[0][6],
+		     		"industri"=> $rowData[0][7],
+		     		"kota"=> $rowData[0][8],
+		     		"nama_guru_pembimbing"=> $rowData[0][9],
+		     		"jenis_kelamin"=> $rowData[0][10],
+		     		"no_telp_siswa"=> $rowData[0][11],
+		     		"alamat_prakerin"=> $rowData[0][12],);
+	   			$this->db->insert("tb_login",$login);
+	   			$this->db->insert("tb_user_siswa",$data);
+ 			} 
+   			unlink($inputFileName); // hapus file temp
+   			// $count = $highestRow;
+   			$this->session->set_flashdata('notif','Berhasil import data siswa'); 
+   			redirect('admin/addsiswa');
+ 		}
 	}
 }
 
