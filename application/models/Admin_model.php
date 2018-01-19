@@ -11,18 +11,6 @@ class Admin_model extends CI_Model {
 		return $kd.sprintf('%02s', $next);
 	}
 
-	public function getIndustri()
-	{
-		$query = $this->db->get('tb_industri')->result();
-		return $query;
-	}
-
-	public function getGuru()
-	{
-		$query = $this->db->get('tb_user_guru')->result();
-		return $query;
-	}
-
 	public function tambahguru($foto)
 	{
 		$login = array (
@@ -66,8 +54,7 @@ class Admin_model extends CI_Model {
 				  		'alamat_prakerin' => $this->input->post('alamat'),
 				  		'industri' => $this->input->post('industri'),
 				  		'foto_siswa' => $foto['file_name'],
-				  		'id_user' => $this->genIDs(),
-				  		'nama_guru_pembimbing' => $this->input->post('gurupem')
+				  		'id_user' => $this->genIDs()
 				  	  );
 		$this->db->insert('tb_login', $login);
 		$this->db->insert('tb_user_siswa', $detail);
@@ -114,7 +101,6 @@ class Admin_model extends CI_Model {
 		$login = array(
 					 'username' => $this->input->post('username'),
 					 'password' => $this->input->post('password'),
-					 'nama' => $this->input->post('nama_guru'),
 				);
 		$this->db->where('id_user', $id_gr)->update('tb_user_guru', $data);
 		$this->db->where('id_user', $id_gr)->update('tb_login', $login);
@@ -159,7 +145,6 @@ class Admin_model extends CI_Model {
 		$login = array(
 					 'username' => $this->input->post('username'),
 					 'password' => $this->input->post('password'),
-					 'nama' => $this->input->post('nama_siswa'),
 				);
 		$this->db->where('id_user', $id_sw)->update('tb_user_siswa', $data);
 		$this->db->where('id_user', $id_sw)->update('tb_login', $login);
@@ -264,11 +249,7 @@ class Admin_model extends CI_Model {
 				  	 'alamat_industri' => $this->input->post('alamat'),
 				  	 'nama_guru_pembimbing' => $this->input->post('nama_guru_pembimbing')
 				);
-		$login = array(
-					'nama' => $this->input->post('nama_guru'),
-				);
 		$this->db->where('id_user', $id_id)->update('tb_industri', $data);
-		$this->db->where('id_user', $id_id)->update('tb_login', $login);
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
 		} else {

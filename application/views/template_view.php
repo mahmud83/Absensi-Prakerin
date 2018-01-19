@@ -405,8 +405,11 @@
 
   <!-- jQuery 3 -->
   <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.min.js"></script>
+<<<<<<< HEAD
   <script src="<?php echo base_url(); ?>bower_components/jquery/dist/jquery.js"></script>
   <script src="<?php echo base_url(); ?>import/jquery.min.js"></script>
+=======
+>>>>>>> parent of a4f1801... add guru in tb_siswa
   <!-- jQuery UI 1.11.4 -->
   <script src="<?php echo base_url(); ?>bower_components/jquery-ui/jquery-ui.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
