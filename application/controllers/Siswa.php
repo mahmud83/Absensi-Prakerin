@@ -114,6 +114,7 @@ class Siswa extends CI_Controller {
 			$data['nama'] = $this->siswa_model->getGuru();
 			$data['no'] = $this->siswa_model->noGuru();
 			$data['foto_guru'] = $this->siswa_model->fotoGuru();
+			$data['jk'] = $this->siswa_model->getJK();
 			$this->load->view('template_view', $data);
 		}
 		else{

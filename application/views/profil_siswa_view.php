@@ -525,6 +525,15 @@
     }
   }
 
+  @media screen and (max-width: 700px) {
+    #labelnya {
+      top: 10%;
+      left: 50%;
+      transform: translate(-10%, -10%);
+      -ms-transform: translate(-10%, -10%);
+    }
+  }
+
   .changephoto{
       z-index: 999;
       line-height: 0;
@@ -577,6 +586,8 @@
 
   #labelnya {
     cursor: pointer;
+    vertical-align: middle;
+    margin-left: 12.5%;
   }
 
 </style>

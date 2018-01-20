@@ -297,20 +297,18 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-lg-6">
-                          <div class="col-lg-3">
-                            <div class="container">
-                              <img id="foto_guru" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $detil->foto_guru; ?>" alt="Avatar" class="anu img-thumbnail">
-                              <div class="middle">
-                                <form id="formfoto" action="<?php echo base_url(); ?>index.php/admin/updatefotoguru/<?php echo $id_gr = $this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
-                                  <div class="custom" id="input">
-                                    <label id="labelnya" style="background-color: rgba(0,0,0,.3); color: white; padding: 5px;">
-                                      EDIT PHOTO
-                                      <input type="file" id="foto" name="foto" accept="image/*" class="change-avatar changephoto" onchange="this.form.submit()">
-                                    </label>
-                                  </div>
-                                </form>
-                              </div>
+                        <div class="col-lg-3">
+                          <div class="container">
+                            <img id="foto_guru" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $detil->foto_guru; ?>" alt="Avatar" class="anu img-thumbnail">
+                            <div class="middle">
+                              <form id="formfoto" action="<?php echo base_url(); ?>index.php/admin/updatefotoguru/<?php echo $id_gr = $this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
+                                <div class="custom" id="input">
+                                  <label id="labelnya" style="background-color: rgba(0,0,0,.3); color: white; padding: 5px; border-radius: 50%; line-height: 670%; width: 100%;"><i class="fa fa-camera"></i>
+                                    EDIT PHOTO
+                                    <input type="file" id="foto" name="foto" accept="image/*" class="change-avatar changephoto" onchange="this.form.submit()">
+                                  </label>
+                                </div>
+                              </form>
                             </div>
                           </div>
                         </div>
