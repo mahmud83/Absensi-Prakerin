@@ -32,6 +32,9 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>dist/css/animate.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/select2/dist/css/select2.min.css">
+  <!-- Highchart -->
+  <script src="<?php echo base_url(); ?>plugins/highcharts/highcharts.js"></script>
+  <script src="<?php echo base_url(); ?>plugins/highcharts/code/modules/exporting.js"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

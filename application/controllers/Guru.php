@@ -19,6 +19,8 @@ class Guru extends CI_Controller {
 			$data['foto'] = $this->guru_model->getFoto();
 			$data['kota'] = $this->guru_model->getKota();
 			$data['siswa'] = $this->guru_model->getKotaSiswa();
+			$data['countJumlahS'] = $this->guru_model->countJumlahSiswa();
+			$data['countSudahAbsen'] = $this->guru_model->countSiswaSudahAbsen();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');

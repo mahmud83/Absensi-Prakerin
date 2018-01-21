@@ -135,6 +135,34 @@ class Guru_model extends CI_Model {
      	return TRUE;
 	}
 
+	public function countJumlahSiswa()
+	{	
+		// $sql = "SELECT COUNT(`nama_siswa`) FROM `tb_user_siswa` WHERE `nama_guru_pembimbing` = '".$this->session->userdata('jeneng')."' ";
+		// $query = $this->db->query($sql);  
+		
+		$namaguru = $this->session->userdata('jeneng');	
+		return $this->db->where('nama_guru_pembimbing', $namaguru)
+						->from('tb_user_siswa')
+						->count_all_results();
+		// return $this->db->where('id_user', $this->session->userdata('id_user'))
+		// 			->count_all('tb_user_siswa');		
+	}
+
+	public function countSiswaSudahAbsen()
+	{
+		// $sql = "SELECT COUNT(`tb_post`.`nama_siswa`) FROM `tb_post` LEFT JOIN `tb_user_siswa` ON `tb_post`.`id_user` = `tb_user_siswa`.`id_user` WHERE `tanggal` = '2018-01-10' AND `tb_user_siswa`.`nama_guru_pembimbing` = 'Dra. Peni Wardayani'"
+
+		$namaguru = $this->session->userdata('jeneng');
+		$tanggal = date('Y-m-d');
+
+		return $this->db->select('tb_post.nama_siswa')
+						->where('nama_guru_pembimbing', $namaguru)
+						->where('tanggal', $tanggal)
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+
+	}
 	/*public function join()
 	{	
 		$guru = $this->session->userdata('jeneng');
