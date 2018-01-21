@@ -10,7 +10,7 @@ class Siswa extends CI_Controller {
 	public function index()
 	{
 		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 3) {
-			$data['main_view'] = 'dashboard_siswa_view';
+			$data['main_view'] = 'siswa/dashboard_siswa_view';
 			$data['title'] = 'Dashboard Siswa - Prakerin SMK Telkom Malang 2017';
 			$data['isAbsen'] = $this->siswa_model->cekAbsen();
 			$data['jurnal'] = $this->siswa_model->getDatajurnal();
@@ -75,7 +75,7 @@ class Siswa extends CI_Controller {
 	public function profilku()
 	{
 		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 3) {
-			$data['main_view'] = 'profil_siswa_view';
+			$data['main_view'] = 'siswa/profil_siswa_view';
 			$data['title'] = 'Profilku - Prakerin SMK Telkom Malang 2017';
 			$data['kelas'] = $this->siswa_model->getKelas();
 			$data['foto'] = $this->siswa_model->getFoto();
@@ -97,7 +97,7 @@ class Siswa extends CI_Controller {
 	public function updateprofil()
 	{
 		$this->siswa_model->editprofil();
-		$data['main_view'] = 'profil_siswa_view';
+		$data['main_view'] = 'siswa/profil_siswa_view';
 		$this->session->set_flashdata('notif', 'Berhasil mengubah profil');
 		redirect('siswa/profilku');
 	}
@@ -105,7 +105,7 @@ class Siswa extends CI_Controller {
 	public function profilguru()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view'] = 'profil_guru_view';
+			$data['main_view'] = 'siswa/profil_guru_view';
 			$data['title'] = 'Profil Guru - Prakerin SMK Telkom Malang 2017';
 			$data['kelas'] = $this->siswa_model->getKelas();
 			$data['foto'] = $this->siswa_model->getFoto();
@@ -152,7 +152,7 @@ class Siswa extends CI_Controller {
 	{
 		$id = $this->input->post('id');
 		$data['jurnal'] = $this->siswa_model->getJurnal($id);
-		$this->load->view('update_jurnal_view', $data);
+		$this->load->view('siswa/update_jurnal_view', $data);
 	}
 
 	public function updatejurnalnya()

@@ -1,11 +1,11 @@
 <div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Profil Guru</h1>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
+    <section class="content-header">
+      <h1 style="padding-bottom: 7px;">
+        <span>Profil Guru Pembimbing</span>
+      </h1>
+    </section>
+    <section class="content">
+      <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-green">
@@ -49,6 +49,7 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+    </section>
 </div>
 <style type="text/css">
   #foto_guru {

@@ -13,7 +13,7 @@ class Industri extends CI_Controller {
 	public function index()
 	{
 		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 4) {
-			$data['main_view']='dashboard_industri_view';
+			$data['main_view']='industri/dashboard_industri_view';
 			$data['title'] = 'Jurnal Siswa - Prakerin SMK Telkom Malang 2017';
 			$data['kota'] = $this->industri_model->getKota();
 			$data['jurnal'] = $this->industri_model->getPost();
@@ -38,7 +38,7 @@ class Industri extends CI_Controller {
 	public function updatestatus()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='dashboard_industri_view';
+			$data['main_view']='industri/dashboard_industri_view';
 			$this->industri_model->updatestatus();
 			$this->load->view('template_view', $data);
 			redirect('industri');
@@ -50,7 +50,7 @@ class Industri extends CI_Controller {
 	public function datasiswa()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='data_siswa_industri_view';
+			$data['main_view']='industri/data_siswa_industri_view';
 			$data['title'] = 'Data Siswa - Prakerin SMK Telkom Malang 2017';
 			$data['kota'] = $this->industri_model->getKota();
 			$data['siswa'] = $this->industri_model->getDataSiswa();
@@ -63,7 +63,7 @@ class Industri extends CI_Controller {
 	public function detailsiswa()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view'] = 'detail_siswa_view';
+			$data['main_view'] = 'industri/detail_siswa_view';
 			$data['title'] = 'Profil Siswa - Prakerin SMK Telkom Malang 2017';
 			$data['kota'] = $this->industri_model->getKota();
 			//ambil data guru
@@ -80,7 +80,7 @@ class Industri extends CI_Controller {
 	public function datajurnal()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view'] = 'data_absen_view';
+			$data['main_view'] = 'industri/data_absen_view';
 			$data['title'] = 'Jurnal Kegiatan Prakerin - Prakerin SMK Telkom Malang 2017';
 			$data['kota'] = $this->industri_model->getKota();
 			$data['foto'] = $this->guru_model->getFoto();

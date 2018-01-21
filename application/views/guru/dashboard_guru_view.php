@@ -1,17 +1,16 @@
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Data Siswa</h1>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
+<div id="content-wrapper">
+    <section class="content-header">
+      <h1 style="padding-bottom: 7px;">
+        <span>Data Siswa</span>
+      </h1>
+    </section>
     <!-- Report content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3>Rekap Data Siswa</h3>
+                    <h3 class="box-title" style="font-size: 25px;">Rekap Data Siswa</h3>
                     <h5><b><i><?php echo date('l'); ?>, <?php echo date('Y-m-d'); ?></i></b></h5>
                 </div>
                 <div class="box-body">
@@ -77,7 +76,7 @@ Highcharts.chart('chart', {
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table style="width: auto; table-layout: auto; " class="table table-striped table-bordered table-hover" id="dataTables-dasGuru">
+              <table style="width: auto; table-layout: auto; " class="table table-bordered table-hover" id="dataTables-dasGuru">
                 <thead>
                 <tr>
                     <th width="5%">No.</th>

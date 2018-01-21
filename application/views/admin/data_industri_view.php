@@ -1,10 +1,10 @@
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Data Industri</h1>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
+<div id="content-wrapper">
+    <section class="content-header">
+      <h1 style="padding-bottom: 7px;">
+        <span>Data Industri</span>
+      </h1>
+      <button class="btn btn-danger btn-flat" onclick="history.back(-1)"><i class="fa fa-angle-double-left" style="padding-right: 5px;"></i>Kembali</button>
+    </section>
     <!-- Main content -->
     <section class="content">
       <div class="row">

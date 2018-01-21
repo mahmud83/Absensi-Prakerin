@@ -1,41 +1,30 @@
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Edit Data Guru</h1>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
+<div id="content-wrapper">
+    <section class="content-header">
+      <h1 style="padding-bottom: 7px;">
+        <span>Edit Data Industri</span>
+      </h1>
+      <button class="btn btn-danger btn-flat" onclick="history.back(-1)"><i class="fa fa-angle-double-left" style="padding-right: 5px;"></i>Kembali</button>
+    </section>
+    <section class="content">
+      <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-green">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updateguru/<?php echo $this->uri->segment(3); ?>">
-                                <div class="row">
-                                  <div class="form-group col-md-6">
-                                    <label>Nama Guru</label>
-                                    <input class="form-control" placeholder="Nama Guru" name="nama_guru" required value="<?php echo $detil->nama_guru; ?>">
-                                  </div>
-                                  <div class="form-group col-md-6">
-                                    <label>Username</label>
-                                    <input class="form-control" name="username" required value="<?php echo $detill->username; ?>">
-                                  </div>
+                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updateindustri/<?php echo $id_id = $this->uri->segment(3); ?>">
+                                <div class="form-group">
+                                    <label>Nama Industri</label>
+                                    <input class="form-control" placeholder="Nama siswa" name="nama_industri" required value="<?php echo $detil->nama_industri; ?>">
                                 </div>
-                                <div class="row">
-                                  <div class="form-group col-md-6">
+                                <div class="form-group">
                                     <label>No. Telepon</label>
-                                    <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required value="<?php echo $detil->no_telp_guru; ?>">
-                                  </div>
-                                  <div class="form-group col-md-6">
-                                    <label>Password</label>
-                                    <input class="form-control" name="password" required value="<?php echo $detill->password; ?>">
-                                  </div>
+                                    <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required value="<?php echo $detil->no_telp_industri; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Kota</label>
-                                    <select class="form-control select2" name="kota" style="width: 100%;">
+                                    <select class="form-control select2" name="kota">
                                         <?php 
                                             if($detil->kota == "Bali")
                                             {
@@ -286,31 +275,21 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label>Alamat Industri</label>
+                                    <textarea class="form-control" name="alamat" value=""><?php echo $detil->alamat_industri; ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nama Guru Pembimbing</label>
+                                    <input class="form-control" name="nama_guru_pembimbing" value="<?php echo $detil->nama_guru_pembimbing; ?>">
+                                </div>
+                                <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-4 pull-left">
                                             <input type="submit" name="insert" value="UPDATE" class="btn btn-primary btn-flat">
                                         </div>
-                                        <div class="col-sm-4 pull-right">
-                                            <a href="<?php echo base_url(); ?>index.php/admin/dataguru" style="float: right;" class="btn btn-danger btn-flat">KEMBALI</a>
-                                        </div>
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                        <div class="col-lg-3">
-                          <div class="container">
-                            <img id="foto_guru" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $detil->foto_guru; ?>" alt="Avatar" class="anu img-thumbnail">
-                            <div class="middle">
-                              <form id="formfoto" action="<?php echo base_url(); ?>index.php/admin/updatefotoguru/<?php echo $id_gr = $this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
-                                <div class="custom" id="input">
-                                  <label id="labelnya" style="background-color: rgba(0,0,0,.3); color: white; padding: 5px; border-radius: 50%; line-height: 670%; width: 100%;"><i class="fa fa-camera"></i>
-                                    EDIT PHOTO
-                                    <input type="file" id="foto" name="foto" accept="image/*" class="change-avatar changephoto" onchange="this.form.submit()">
-                                  </label>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
                         </div>
                     </div>
                     <!-- /.row (nested) -->
@@ -322,75 +301,6 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+    </section>
 </div>
-<style type="text/css">
-  #foto_guru {
-    max-height: 250px; 
-    max-width: 464px; 
-    width: auto;
-  }
-
-  @media screen and (max-width: 700px) {
-    #foto_guru {
-      max-width: 85%;
-      height: auto;
-      display: block;
-      margin: auto;
-    }
-  }
-
-  .changephoto{
-      z-index: 999;
-      line-height: 0;
-      font-size: 0;
-      position: absolute;
-      opacity: 0;
-      filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
-      margin: 0;
-      padding:0;
-      left:0;
-  }
-
-  .custom-input-file:hover .uploadPhoto { display: block; }
-
-  .container {
-    position: relative;
-    max-height: 300px; 
-    max-width: 514px; 
-    width: auto;
-  }
-
-  .anu {
-    opacity: 1;
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
-    margin: auto;
-    display: block;
-  }
-
-  .middle {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-  }
-
-  .container:hover .anu {
-    opacity: 0.3;
-  }
-
-  .container:hover .middle {
-    opacity: 1;
-  }
-
-  #labelnya {
-    cursor: pointer;
-  }
-
 </style>

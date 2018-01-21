@@ -14,13 +14,11 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 1) {
-			$data['main_view']='dashboard_admin_view';
-			$data['main_view']='dashboard_admin_view';
-			$data['main_view'] = 'dashboard_admin_view';
+			$data['main_view']='admin/dashboard_admin_view';
 			$data['countG'] = $this->admin_model->countGuru();
 			$data['countS'] = $this->admin_model->countSiswa();
 			$data['countI'] = $this->admin_model->countIndustri();
-			$data['title'] = 'Dashboard Admin - Prakerin SMK Telkom Malang 2017';
+			$data['title'] = 'Dashboard Admin - Prakerin SMK Telkom Malang 2018';
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -41,8 +39,8 @@ class Admin extends CI_Controller {
 	public function addguru()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='add_guru_view';
-			$data['title'] = 'Tambah Data Guru - Prakerin SMK Telkom Malang 2017';
+			$data['main_view']='admin/add_guru_view';
+			$data['title'] = 'Tambah Data Guru - Prakerin SMK Telkom Malang 2018';
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -52,8 +50,8 @@ class Admin extends CI_Controller {
 	public function addsiswa()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='add_siswa_view';
-			$data['title'] = 'Tambah Data Siswa - Prakerin SMK Telkom Malang 2017';
+			$data['main_view']='admin/add_siswa_view';
+			$data['title'] = 'Tambah Data Siswa - Prakerin SMK Telkom Malang 2018';
 			$data['industri'] = $this->admin_model->getIndustri();
 			$data['guru'] = $this->admin_model->getGuru();
 			$this->load->view('template_view', $data);
@@ -80,21 +78,21 @@ class Admin extends CI_Controller {
 
 			if ($this->upload->do_upload('foto')) {
 				if($this->admin_model->tambahguru($this->upload->data()) == TRUE) {
-					$data['main_view'] = 'add_guru_view';
+					$data['main_view'] = 'admin/add_guru_view';
 					$this->session->set_flashdata('notif', 'Berhasil menambahkan data guru');
 					redirect('admin/addguru');
 				} else {
-					$data['main_view'] = 'add_guru_view';
+					$data['main_view'] = 'admin/add_guru_view';
 					$this->session->set_flashdata('notif', 'Gagal menambahkan data guru');
 					redirect('admin/addguru');
 				}
 			} else {
-				$data['main_view'] = 'admin';
+				$data['main_view'] = 'admin/add_guru_view';
 				$this->session->set_flashdata('notif', $this->upload->display_errors());
 				redirect('admin/addguru');
 			}
 		} else {
-			$data['main_view'] = 'admin';
+			$data['main_view'] = 'admin/add_guru_view';
 			$this->session->set_flashdata('notif', 'Lengkapi semua field');
 			redirect('admin/addguru');
 		}
@@ -144,8 +142,8 @@ class Admin extends CI_Controller {
 	public function datasiswa()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='data_siswa_view';
-			$data['title'] = 'Data Siswa - Prakerin SMK Telkom Malang 2017';
+			$data['main_view']='admin/data_siswa_view';
+			$data['title'] = 'Data Siswa - Prakerin SMK Telkom Malang 2018';
 			$data['siswa'] = $this->admin_model->getDataSiswa();
 			$this->load->view('template_view', $data);
 		} else {
@@ -157,8 +155,8 @@ class Admin extends CI_Controller {
 	public function dataguru()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='data_guru_view';
-			$data['title'] = 'Data Guru - Prakerin SMK Telkom Malang 2017';
+			$data['main_view']='admin/data_guru_view';
+			$data['title'] = 'Data Guru - Prakerin SMK Telkom Malang 2018';
 			$data['guru'] = $this->admin_model->getDataGuru();
 			$this->load->view('template_view', $data);
 		} else {
@@ -170,8 +168,8 @@ class Admin extends CI_Controller {
 	public function editguru()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view'] = 'edit_guru_view';
-			$data['title'] = 'Ubah Data Guru - Prakerin SMK Telkom Malang 2017';
+			$data['main_view'] = 'admin/edit_guru_view';
+			$data['title'] = 'Ubah Data Guru - Prakerin SMK Telkom Malang 2018';
 			//ambil data guru
 			$id_gr = $this->uri->segment(3);
 			$data['detil'] = $this->admin_model->get_guru_by_id($id_gr);
@@ -188,7 +186,7 @@ class Admin extends CI_Controller {
 	public function updateguru($id_gr)
 	{
 		$this->admin_model->editguru($id_gr);
-		$data['main_view'] = 'data_guru_view';
+		$data['main_view'] = 'admin/data_guru_view';
 		$this->session->set_flashdata('notif', 'Berhasil mengubah data guru');
 		$id_gr = $this->uri->segment(3);
 		redirect('admin/dataguru');
@@ -198,8 +196,8 @@ class Admin extends CI_Controller {
 	public function editsiswa()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view'] = 'edit_siswa_view';
-			$data['title'] = 'Ubah Data Siswa - Prakerin SMK Telkom Malang 2017';
+			$data['main_view'] = 'admin/edit_siswa_view';
+			$data['title'] = 'Ubah Data Siswa - Prakerin SMK Telkom Malang 2018';
 			//ambil data siswa
 			$id_sw = $this->uri->segment(3);
 			$data['detil'] = $this->admin_model->get_siswa_by_id($id_sw);
@@ -216,7 +214,7 @@ class Admin extends CI_Controller {
 	public function updatesiswa($id_sw)
 	{
 		$this->admin_model->editsiswa($id_sw);
-		$data['main_view'] = 'data_siswa_view';
+		$data['main_view'] = 'admin/data_siswa_view';
 		$this->session->set_flashdata('notif', 'Berhasil mengubah data siswa');
 		$id_sw = $this->uri->segment(3);
 		redirect('admin/datasiswa');
@@ -233,16 +231,16 @@ class Admin extends CI_Controller {
 		$id_sw = $this->uri->segment(3);
 		if ($this->upload->do_upload('foto')) {
 			if($this->admin_model->editfotosiswa($this->upload->data()) == TRUE) {
-				$data['main_view'] = 'data_siswa_view';
+				$data['main_view'] = 'admin/data_siswa_view';
 				$this->session->set_flashdata('notif', 'Berhasil mengubah foto');
 				redirect('admin/datasiswa');
 			} else {
-				$data['main_view'] = 'edit_siswa_view';
+				$data['main_view'] = 'admin/edit_siswa_view';
 				$this->session->set_flashdata('notif', 'Gagal mengubah foto');
 				redirect('admin/datasiswa');
 			}
 		} else {
-			$data['main_view'] = 'edit_siswa_view';
+			$data['main_view'] = 'admin/edit_siswa_view';
 			$this->session->set_flashdata('notif', 'Gagal mengubah foto');
 			$id_sw = $this->uri->segment(3);
 			redirect('admin/datasiswa');
@@ -260,16 +258,16 @@ class Admin extends CI_Controller {
 		$id_sw = $this->uri->segment(3);
 		if ($this->upload->do_upload('foto')) {
 			if($this->admin_model->editfotoguru($this->upload->data()) == TRUE) {
-				$data['main_view'] = 'data_guru_view';
+				$data['main_view'] = 'admin/data_guru_view';
 				$this->session->set_flashdata('notif', 'Berhasil mengubah foto');
 				redirect('admin/dataguru');
 			} else {
-				$data['main_view'] = 'edit_guru_view';
+				$data['main_view'] = 'admin/edit_guru_view';
 				$this->session->set_flashdata('notif', 'Gagal mengubah foto');
 				redirect('admin/dataguru');
 			}
 		} else {
-			$data['main_view'] = 'edit_guru_view';
+			$data['main_view'] = 'admin/edit_guru_view';
 			$this->session->set_flashdata('notif', 'Gagal mengubah foto');
 			$id_sw = $this->uri->segment(3);
 			redirect('admin/dataguru');
@@ -311,8 +309,8 @@ class Admin extends CI_Controller {
 	public function addindustri()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view'] = 'add_industri_view';
-			$data['title'] = 'Tambah Data Industri - Prakerin SMK Telkom Malang 2017';
+			$data['main_view'] = 'admin/add_industri_view';
+			$data['title'] = 'Tambah Data Industri - Prakerin SMK Telkom Malang 2018';
 			$data['nama_guru'] = $this->admin_model->getNamaGuru();
 			$this->load->view('template_view', $data);
 		} else {
@@ -342,8 +340,8 @@ class Admin extends CI_Controller {
 	public function dataindustri()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view']='data_industri_view';
-			$data['title'] = 'Data Industri - Prakerin SMK Telkom Malang 2017';
+			$data['main_view']='admin/data_industri_view';
+			$data['title'] = 'Data Industri - Prakerin SMK Telkom Malang 2018';
 			$data['industri'] = $this->admin_model->getDataIndustri();
 			$this->load->view('template_view', $data);
 		} else {
@@ -370,8 +368,8 @@ class Admin extends CI_Controller {
 	public function editindustri()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view'] = 'edit_industri_view';
-			$data['title'] = 'Ubah Data Industri - Prakerin SMK Telkom Malang 2017';
+			$data['main_view'] = 'admin/edit_industri_view';
+			$data['title'] = 'Ubah Data Industri - Prakerin SMK Telkom Malang 2018';
 			//ambil data industri
 			$id_id = $this->uri->segment(3);
 			$data['detil'] = $this->admin_model->get_industri_by_id($id_id);
@@ -395,19 +393,19 @@ class Admin extends CI_Controller {
 		if ($this->form_validation->run() == TRUE ) {
 
 			if($this->admin_model->editindustri($id_id) == TRUE) {
-				$data['main_view'] = 'data_industri_view';
+				$data['main_view'] = 'admin/data_industri_view';
 				$this->session->set_flashdata('notif', 'Berhasil mengubah data industri');
 				$id_id = $this->uri->segment(3);
 					redirect('admin/dataindustri');
 			} else {
-				$data['main_view'] = 'data_industri_view';
+				$data['main_view'] = 'admin/data_industri_view';
 				$this->session->set_flashdata('notif', 'Gagal mengubah data industri');
 				$id_id = $this->uri->segment(3);
 				redirect('admin/dataindustri');
 			}
 		} 
 		else {
-			$data['main_view'] = 'data_industri_view';
+			$data['main_view'] = 'admin/data_industri_view';
 			$this->session->set_flashdata('notif', 'Lengkapi semua field');
 			$id_id = $this->uri->segment(3);
 			redirect('admin/dataindustri');
@@ -417,8 +415,8 @@ class Admin extends CI_Controller {
 	public function datajurnal()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view'] = 'data_absen_view';
-			$data['title'] = 'Jurnal Kegiatan Prakerin - Prakerin SMK Telkom Malang 2017';
+			$data['main_view'] = 'admin/data_absen_view';
+			$data['title'] = 'Jurnal Kegiatan Prakerin - Prakerin SMK Telkom Malang 2018';
 			$data['foto'] = $this->guru_model->getFoto();
 			$data['kota'] = $this->guru_model->getKota();
 			//ambil data absen

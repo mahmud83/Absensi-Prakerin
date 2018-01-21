@@ -1,196 +1,194 @@
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Edit Data Siswa</h1>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
+<div id="content-wrapper">
+    <section class="content-header">
+      <h1>
+        <span>Profilku</span>
+      </h1>
+    </section>
+    <section class="content">
+      <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-green">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updatesiswa/<?php echo $id_sw = $this->uri->segment(3); ?>">
+                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/updateprofil/<?php echo $id_sw = $this->uri->segment(3); ?>">
                                 <div class="form-group">
                                     <label>Nama Siswa</label>
-                                    <input class="form-control" placeholder="Nama siswa" name="nama_siswa" required value="<?php echo $detil->nama_siswa; ?>">
+                                    <input class="form-control" name="nama_siswa" required value="<?php echo $nama; ?>">
                                 </div>
-                                <div class="row">
+                                <div class="form-group row">
                                   <div class="form-group col-md-6">
                                     <label>Username</label>
-                                    <input class="form-control" placeholder="Username" name="username" required value="<?php echo $detill->username; ?>">
+                                    <input class="form-control" name="username" required value="<?php echo $user; ?>">
                                   </div>
                                   <div class="form-group col-md-6">
                                     <label>Password</label>
-                                    <input class="form-control" placeholder="Password" name="password" required value="<?php echo $detill->password; ?>">
+                                    <input class="form-control" name="password" required value="<?php echo $pass; ?>">
                                   </div>
                                 </div>
-                                <div class="row">
+                                <div class="form-group row">
                                   <div class="form-group col-md-6">
-                                    <div class="form-group">
-                                      <label>Kelas</label>
-                                      <select class="form-control select2" name="kelas"  style="width: 100%;">
-                                           <?php 
-                                              if($detil->kelas == "XII RPL 1")
-                                              {
-                                                  echo "<option selected>XII RPL 1</option>
-                                                        <option>XII RPL 2</option>
-                                                        <option>XII RPL 3</option>
-                                                        <option>XII RPL 4</option>
-                                                        <option>XII RPL 5</option>
-                                                        <option>XII RPL 6</option>
-                                                        <option>XII TKJ 1</option>
-                                                        <option>XII TKJ 2</option>
-                                                        <option>XII TKJ 3</option>
-                                                        <option>XII TKJ 4</option>
-                                                        <option>XII TKJ 5</option>";
-                                              } else if($detil->kelas == "XII RPL 2")
-                                              {
-                                                  echo "<option>XII RPL 1</option>
-                                                        <option selected>XII RPL 2</option>
-                                                        <option>XII RPL 3</option>
-                                                        <option>XII RPL 4</option>
-                                                        <option>XII RPL 5</option>
-                                                        <option>XII RPL 6</option>
-                                                        <option>XII TKJ 1</option>
-                                                        <option>XII TKJ 2</option>
-                                                        <option>XII TKJ 3</option>
-                                                        <option>XII TKJ 4</option>
-                                                        <option>XII TKJ 5</option>";
-                                              } else if($detil->kelas == "XII RPL 3")
-                                              {
-                                                  echo "<option>XII RPL 1</option>
-                                                        <option>XII RPL 2</option>
-                                                        <option selected>XII RPL 3</option>
-                                                        <option>XII RPL 4</option>
-                                                        <option>XII RPL 5</option>
-                                                        <option>XII RPL 6</option>
-                                                        <option>XII TKJ 1</option>
-                                                        <option>XII TKJ 2</option>
-                                                        <option>XII TKJ 3</option>
-                                                        <option>XII TKJ 4</option>
-                                                        <option>XII TKJ 5</option>";
-                                              } else if($detil->kelas == "XII RPL 4")
-                                              {
-                                                  echo "<option>XII RPL 1</option>
-                                                        <option>XII RPL 2</option>
-                                                        <option>XII RPL 3</option>
-                                                        <option selected>XII RPL 4</option>
-                                                        <option>XII RPL 5</option>
-                                                        <option>XII RPL 6</option>
-                                                        <option>XII TKJ 1</option>
-                                                        <option>XII TKJ 2</option>
-                                                        <option>XII TKJ 3</option>
-                                                        <option>XII TKJ 4</option>
-                                                        <option>XII TKJ 5</option>";
-                                              } else if($detil->kelas == "XII RPL 5")
-                                              {
-                                                  echo "<option>XII RPL 1</option>
-                                                        <option>XII RPL 2</option>
-                                                        <option>XII RPL 3</option>
-                                                        <option>XII RPL 4</option>
-                                                        <option selected>XII RPL 5</option>
-                                                        <option>XII RPL 6</option>
-                                                        <option>XII TKJ 1</option>
-                                                        <option>XII TKJ 2</option>
-                                                        <option>XII TKJ 3</option>
-                                                        <option>XII TKJ 4</option>
-                                                        <option>XII TKJ 5</option>";
-                                              } else if($detil->kelas == "XII RPL 6")
-                                              {
-                                                  echo "<option>XII RPL 1</option>
-                                                        <option>XII RPL 2</option>
-                                                        <option>XII RPL 3</option>
-                                                        <option>XII RPL 4</option>
-                                                        <option>XII RPL 5</option>
-                                                        <option selected>XII RPL 6</option>
-                                                        <option>XII TKJ 1</option>
-                                                        <option>XII TKJ 2</option>
-                                                        <option>XII TKJ 3</option>
-                                                        <option>XII TKJ 4</option>
-                                                        <option>XII TKJ 5</option>";
-                                              } else if($detil->kelas == "XII TKJ 1")
-                                              {
-                                                  echo "<option>XII RPL 1</option>
-                                                        <option>XII RPL 2</option>
-                                                        <option>XII RPL 3</option>
-                                                        <option>XII RPL 4</option>
-                                                        <option>XII RPL 5</option>
-                                                        <option>XII RPL 6</option>
-                                                        <option selected>XII TKJ 1</option>
-                                                        <option>XII TKJ 2</option>
-                                                        <option>XII TKJ 3</option>
-                                                        <option>XII TKJ 4</option>
-                                                        <option>XII TKJ 5</option>";
-                                              } else if($detil->kelas == "XII TKJ 2")
-                                              {
-                                                  echo "<option>XII RPL 1</option>
-                                                        <option>XII RPL 2</option>
-                                                        <option>XII RPL 3</option>
-                                                        <option>XII RPL 4</option>
-                                                        <option>XII RPL 5</option>
-                                                        <option>XII RPL 6</option>
-                                                        <option>XII TKJ 1</option>
-                                                        <option selected>XII TKJ 2</option>
-                                                        <option>XII TKJ 3</option>
-                                                        <option>XII TKJ 4</option>
-                                                        <option>XII TKJ 5</option>";
-                                              } else if($detil->kelas == "XII TKJ 3")
-                                              {
-                                                  echo "<option>XII RPL 1</option>
-                                                        <option>XII RPL 2</option>
-                                                        <option>XII RPL 3</option>
-                                                        <option>XII RPL 4</option>
-                                                        <option>XII RPL 5</option>
-                                                        <option>XII RPL 6</option>
-                                                        <option>XII TKJ 1</option>
-                                                        <option>XII TKJ 2</option>
-                                                        <option slected>XII TKJ 3</option>
-                                                        <option>XII TKJ 4</option>
-                                                        <option>XII TKJ 5</option>";
-                                              } else if($detil->kelas == "XII TKJ 4")
-                                              {
-                                                  echo "<option>XII RPL 1</option>
-                                                        <option>XII RPL 2</option>
-                                                        <option>XII RPL 3</option>
-                                                        <option>XII RPL 4</option>
-                                                        <option>XII RPL 5</option>
-                                                        <option>XII RPL 6</option>
-                                                        <option>XII TKJ 1</option>
-                                                        <option>XII TKJ 2</option>
-                                                        <option>XII TKJ 3</option>
-                                                        <option selected>XII TKJ 4</option>
-                                                        <option>XII TKJ 5</option>";
-                                              } else if($detil->kelas == "XII TKJ 5")
-                                              {
-                                                  echo "<option>XII RPL 1</option>
-                                                        <option>XII RPL 2</option>
-                                                        <option>XII RPL 3</option>
-                                                        <option>XII RPL 4</option>
-                                                        <option>XII RPL 5</option>
-                                                        <option>XII RPL 6</option>
-                                                        <option>XII TKJ 1</option>
-                                                        <option>XII TKJ 2</option>
-                                                        <option>XII TKJ 3</option>
-                                                        <option>XII TKJ 4</option>
-                                                        <option selected>XII TKJ 5</option>";
-                                              }
-                                          ?>
-                                      </select>
-                                    </div>
+                                    <label>Kelas</label>
+                                    <select class="form-control" name="kelas">
+                                         <?php 
+                                            if($kelas == "XII RPL 1")
+                                            {
+                                                echo "<option selected>XII RPL 1</option>
+                                                      <option>XII RPL 2</option>
+                                                      <option>XII RPL 3</option>
+                                                      <option>XII RPL 4</option>
+                                                      <option>XII RPL 5</option>
+                                                      <option>XII RPL 6</option>
+                                                      <option>XII TKJ 1</option>
+                                                      <option>XII TKJ 2</option>
+                                                      <option>XII TKJ 3</option>
+                                                      <option>XII TKJ 4</option>
+                                                      <option>XII TKJ 5</option>";
+                                            } else if($kelas == "XII RPL 2")
+                                            {
+                                                echo "<option>XII RPL 1</option>
+                                                      <option selected>XII RPL 2</option>
+                                                      <option>XII RPL 3</option>
+                                                      <option>XII RPL 4</option>
+                                                      <option>XII RPL 5</option>
+                                                      <option>XII RPL 6</option>
+                                                      <option>XII TKJ 1</option>
+                                                      <option>XII TKJ 2</option>
+                                                      <option>XII TKJ 3</option>
+                                                      <option>XII TKJ 4</option>
+                                                      <option>XII TKJ 5</option>";
+                                            } else if($kelas == "XII RPL 3")
+                                            {
+                                                echo "<option>XII RPL 1</option>
+                                                      <option>XII RPL 2</option>
+                                                      <option selected>XII RPL 3</option>
+                                                      <option>XII RPL 4</option>
+                                                      <option>XII RPL 5</option>
+                                                      <option>XII RPL 6</option>
+                                                      <option>XII TKJ 1</option>
+                                                      <option>XII TKJ 2</option>
+                                                      <option>XII TKJ 3</option>
+                                                      <option>XII TKJ 4</option>
+                                                      <option>XII TKJ 5</option>";
+                                            } else if($kelas == "XII RPL 4")
+                                            {
+                                                echo "<option>XII RPL 1</option>
+                                                      <option>XII RPL 2</option>
+                                                      <option>XII RPL 3</option>
+                                                      <option selected>XII RPL 4</option>
+                                                      <option>XII RPL 5</option>
+                                                      <option>XII RPL 6</option>
+                                                      <option>XII TKJ 1</option>
+                                                      <option>XII TKJ 2</option>
+                                                      <option>XII TKJ 3</option>
+                                                      <option>XII TKJ 4</option>
+                                                      <option>XII TKJ 5</option>";
+                                            } else if($kelas == "XII RPL 5")
+                                            {
+                                                echo "<option>XII RPL 1</option>
+                                                      <option>XII RPL 2</option>
+                                                      <option>XII RPL 3</option>
+                                                      <option>XII RPL 4</option>
+                                                      <option selected>XII RPL 5</option>
+                                                      <option>XII RPL 6</option>
+                                                      <option>XII TKJ 1</option>
+                                                      <option>XII TKJ 2</option>
+                                                      <option>XII TKJ 3</option>
+                                                      <option>XII TKJ 4</option>
+                                                      <option>XII TKJ 5</option>";
+                                            } else if($kelas == "XII RPL 6")
+                                            {
+                                                echo "<option>XII RPL 1</option>
+                                                      <option>XII RPL 2</option>
+                                                      <option>XII RPL 3</option>
+                                                      <option>XII RPL 4</option>
+                                                      <option>XII RPL 5</option>
+                                                      <option selected>XII RPL 6</option>
+                                                      <option>XII TKJ 1</option>
+                                                      <option>XII TKJ 2</option>
+                                                      <option>XII TKJ 3</option>
+                                                      <option>XII TKJ 4</option>
+                                                      <option>XII TKJ 5</option>";
+                                            } else if($kelas == "XII TKJ 1")
+                                            {
+                                                echo "<option>XII RPL 1</option>
+                                                      <option>XII RPL 2</option>
+                                                      <option>XII RPL 3</option>
+                                                      <option>XII RPL 4</option>
+                                                      <option>XII RPL 5</option>
+                                                      <option>XII RPL 6</option>
+                                                      <option selected>XII TKJ 1</option>
+                                                      <option>XII TKJ 2</option>
+                                                      <option>XII TKJ 3</option>
+                                                      <option>XII TKJ 4</option>
+                                                      <option>XII TKJ 5</option>";
+                                            } else if($kelas == "XII TKJ 2")
+                                            {
+                                                echo "<option>XII RPL 1</option>
+                                                      <option>XII RPL 2</option>
+                                                      <option>XII RPL 3</option>
+                                                      <option>XII RPL 4</option>
+                                                      <option>XII RPL 5</option>
+                                                      <option>XII RPL 6</option>
+                                                      <option>XII TKJ 1</option>
+                                                      <option selected>XII TKJ 2</option>
+                                                      <option>XII TKJ 3</option>
+                                                      <option>XII TKJ 4</option>
+                                                      <option>XII TKJ 5</option>";
+                                            } else if($kelas == "XII TKJ 3")
+                                            {
+                                                echo "<option>XII RPL 1</option>
+                                                      <option>XII RPL 2</option>
+                                                      <option>XII RPL 3</option>
+                                                      <option>XII RPL 4</option>
+                                                      <option>XII RPL 5</option>
+                                                      <option>XII RPL 6</option>
+                                                      <option>XII TKJ 1</option>
+                                                      <option>XII TKJ 2</option>
+                                                      <option slected>XII TKJ 3</option>
+                                                      <option>XII TKJ 4</option>
+                                                      <option>XII TKJ 5</option>";
+                                            } else if($kelas == "XII TKJ 4")
+                                            {
+                                                echo "<option>XII RPL 1</option>
+                                                      <option>XII RPL 2</option>
+                                                      <option>XII RPL 3</option>
+                                                      <option>XII RPL 4</option>
+                                                      <option>XII RPL 5</option>
+                                                      <option>XII RPL 6</option>
+                                                      <option>XII TKJ 1</option>
+                                                      <option>XII TKJ 2</option>
+                                                      <option>XII TKJ 3</option>
+                                                      <option selected>XII TKJ 4</option>
+                                                      <option>XII TKJ 5</option>";
+                                            } else if($kelas == "XII TKJ 5")
+                                            {
+                                                echo "<option>XII RPL 1</option>
+                                                      <option>XII RPL 2</option>
+                                                      <option>XII RPL 3</option>
+                                                      <option>XII RPL 4</option>
+                                                      <option>XII RPL 5</option>
+                                                      <option>XII RPL 6</option>
+                                                      <option>XII TKJ 1</option>
+                                                      <option>XII TKJ 2</option>
+                                                      <option>XII TKJ 3</option>
+                                                      <option>XII TKJ 4</option>
+                                                      <option selected>XII TKJ 5</option>";
+                                            }
+                                        ?>
+                                    </select>
                                   </div>
                                   <div class="form-group col-md-6">
                                     <label>Jenis Kelamin</label>
                                     
                                     <select class="form-control" name="jk">
                                         <?php 
-                                            if($detil->jenis_kelamin == "Laki-Laki")
+                                            if($jk == "Laki-Laki")
                                             {
                                                 echo "<option selected>Laki-Laki</option>
                                                       <option>Perempuan</option>";
-                                            } else if($detil->jenis_kelamin == "Perempuan")
+                                            } else if($jk == "Perempuan")
                                             {
                                                 echo "<option >Laki-Laki</option>
                                                       <option selected>Perempuan</option>";
@@ -200,17 +198,16 @@
                                     
                                   </div>
                                 </div>
-                                <div class="row">
+                                <div class="form-group row">
                                   <div class="form-group col-md-6">
                                     <label>Industri Prakerin</label>
-                                    <input class="form-control" placeholder="Industri Prakerin" name="industri" required value="<?php echo $detil->industri; ?>">
+                                    <input class="form-control" name="industri" required value="<?php echo $industri; ?>">
                                   </div>
                                   <div class="form-group col-md-6">
-                                    <div class="form-group">
-                                      <label>Kota</label>
-                                    <select class="form-control select2" name="kota"  style="width: 100%;">
+                                    <label>Kota</label>
+                                    <select class="form-control" name="kota">
                                         <?php 
-                                            if($detil->kota == "Bali")
+                                            if($kota == "Bali")
                                             {
                                                 echo "<option selected>Bali</option>
                                                       <option>Balikpapan</option>
@@ -227,7 +224,7 @@
                                                       <option>Solo & Madiun</option>
                                                       <option>Surabaya</option>
                                                       <option>Yogyakarta</option>";
-                                            } else if($detil->kota == "Balikpapan")
+                                            } else if($kota == "Balikpapan")
                                             {
                                                 echo "<option>Bali</option>
                                                       <option selected>Balikpapan</option>
@@ -244,7 +241,7 @@
                                                       <option>Solo & Madiun</option>
                                                       <option>Surabaya</option>
                                                       <option>Yogyakarta</option>";
-                                            } else if($detil->kota == "Bandung")
+                                            } else if($kota == "Bandung")
                                             {
                                                 echo "<option>Bali</option>
                                                       <option>Balikpapan</option>
@@ -261,7 +258,7 @@
                                                       <option>Solo & Madiun</option>
                                                       <option>Surabaya</option>
                                                       <option>Yogyakarta</option>";
-                                            } else if($detil->kota == "Gresik & Tuban")
+                                            } else if($kota == "Gresik & Tuban")
                                             {
                                                 echo "<option>Bali</option>
                                                       <option>Balikpapan</option>
@@ -278,7 +275,7 @@
                                                       <option>Solo & Madiun</option>
                                                       <option>Surabaya</option>
                                                       <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Jakarta") {
+                                            } else if ($kota == "Jakarta") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -294,7 +291,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Jember") {
+                                            } else if ($kota == "Jember") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -310,7 +307,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Kediri") {
+                                            } else if ($kota == "Kediri") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -326,7 +323,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Malang") {
+                                            } else if ($kota == "Malang") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -342,7 +339,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Mataram") {
+                                            } else if ($kota == "Mataram") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -358,7 +355,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Pasuruan") {
+                                            } else if ($kota == "Pasuruan") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -374,7 +371,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Semarang") {
+                                            } else if ($kota == "Semarang") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -390,7 +387,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Sidoarjo") {
+                                            } else if ($kota == "Sidoarjo") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -406,7 +403,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Solo & Madiun") {
+                                            } else if ($kota == "Solo & Madiun") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -422,7 +419,7 @@
                                                     <option selected>Solo & Madiun</option>
                                                     <option>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Surabaya") {
+                                            } else if ($kota == "Surabaya") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -438,7 +435,7 @@
                                                     <option>Solo & Madiun</option>
                                                     <option selected>Surabaya</option>
                                                     <option>Yogyakarta</option>";
-                                            } else if ($detil->kota == "Yogyakarta") {
+                                            } else if ($kota == "Yogyakarta") {
                                               echo "<option>Bali</option>
                                                     <option>Balikpapan</option>
                                                     <option>Bandung</option>
@@ -457,16 +454,15 @@
                                             }
                                         ?>
                                     </select>
-                                    </div>
-                                </div>
+                                  </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>No. Telepon</label>
-                                    <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required value="<?php echo $detil->no_telp_siswa; ?>">
+                                    <label>No. Telp</label>
+                                    <input class="form-control" type="number" name="no_telp" required value="<?php echo $no; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat Selama Prakerin</label>
-                                    <textarea class="form-control" name="alamat" value=""><?php echo $detil->alamat_prakerin; ?></textarea>
+                                    <textarea class="form-control" name="alamat" value="" required=""><?php echo $alamat; ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
@@ -474,7 +470,7 @@
                                             <input type="submit" name="insert" value="UPDATE" class="btn btn-primary btn-flat">
                                         </div>
                                         <div class="col-sm-4 pull-right">
-                                            <a href="<?php echo base_url(); ?>index.php/admin/datasiswa" style="float: right;" class="btn btn-danger btn-flat">KEMBALI</a>
+                                            <a href="<?php echo base_url(); ?>index.php/siswa" style="float: right;" class="btn btn-danger btn-flat">KEMBALI</a>
                                         </div>
                                     </div>
                                 </div>
@@ -482,15 +478,15 @@
                         </div>
                         <div class="col-lg-3">
                           <div class="container">
-                            <?php if ($detil->foto_siswa == "-" && $detil->jenis_kelamin == "Perempuan"): ?>
+                            <?php if ($foto == "-" && $jk == "Perempuan"): ?>
                               <img id="foto_siswa" src="<?php echo base_url();?>female.png" alt="Avatar" class="anu img-thumbnail">
-                            <?php elseif ($detil->foto_siswa == "-" && $detil->jenis_kelamin == "Laki-Laki"): ?>
+                            <?php elseif ($foto == "-" && $jk == "Laki-Laki"): ?>
                               <img id="foto_siswa" src="<?php echo base_url();?>male.png" alt="Avatar" class="anu img-thumbnail">
                             <?php else: ?>
-                              <img id="foto_siswa" src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $detil->foto_siswa; ?>" alt="Avatar" class="anu img-thumbnail">
+                              <img id="foto_siswa" src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $foto; ?>" alt="Avatar" class="anu img-thumbnail">
                             <?php endif; ?>
                             <div class="middle">
-                              <form id="formfoto" action="<?php echo base_url(); ?>index.php/admin/updatefotosiswa/<?php echo $id_sw = $this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
+                              <form id="formfoto" action="<?php echo base_url(); ?>index.php/siswa/updatefoto/<?php echo $id_sw = $this->session->userdata('id_user'); ?>" method="post" enctype="multipart/form-data">
                                 <div class="custom" id="input">
                                   <label id="labelnya" style="background-color: rgba(0,0,0,.3); color: white; padding: 5px; border-radius: 50%; line-height: 670%; width: 100%;">
                                     <i class="fa fa-camera"></i>
@@ -512,6 +508,7 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+    </section>
 </div>
 <style type="text/css">
   #foto_siswa {

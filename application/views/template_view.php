@@ -398,11 +398,11 @@
       <div class="content-wrapper">
 
         <!-- Main content -->
-        <section class="content">
+        <!-- <section class="content"> -->
 
           <?php $this->load->view($main_view) ?>
 
-        </section>
+        <!-- </section> -->
         <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->

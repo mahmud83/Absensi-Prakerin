@@ -1,17 +1,17 @@
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Data Guru Pembimbing</h1>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
+<div id="content-wrapper">
+    <section class="content-header">
+      <h1 style="padding-bottom: 7px;">
+        <span>Data Guru Pembimbing</span>
+      </h1>
+      <button class="btn btn-danger btn-flat" onclick="history.back(-1)"><i class="fa fa-angle-double-left" style="padding-right: 5px;"></i>Kembali</button>
+    </section>
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Guru Pembimbing Prakerin SMK Telkom Malang 2018</h3>
+              <h3 class="box-title">Data Guru Pembimbing Prakerin SMK Telkom Malang <?php echo date("Y"); ?></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -58,3 +58,44 @@
     </section>
     <!-- /.content -->
 </div>
+<style type="text/css">
+    .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
