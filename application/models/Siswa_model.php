@@ -237,6 +237,45 @@ class Siswa_model extends CI_Model {
 		}
 	}
 
+	public function getJurnal($id)
+	{
+		return $this->db->where('id_post', $id)
+						->where('id_user', $this->session->userdata('id_user'))
+						->get('tb_post')
+						->row();
+	}
+
+	public function updatejurnal($foto)
+	{
+		$post = $this->input->post('idpost');
+		$data = array(
+				'ket_abs'	=> $this->input->post('ket_abs'),
+				'isi'		=> $this->input->post('keterangan'),
+				'foto_kegiatan' => $foto['file_name']
+			);
+		$this->db->where('id_post', $post)->update('tb_post', $data);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	public function updatejurnaly()
+	{
+		$post = $this->input->post('idpost');
+		$data = array(
+				'ket_abs'	=> $this->input->post('ket_abs'),
+				'isi'		=> $this->input->post('keterangan'),
+			);
+		$this->db->where('id_post', $post)->update('tb_post', $data);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
 }
 
 /* End of file Siswa_model.php */

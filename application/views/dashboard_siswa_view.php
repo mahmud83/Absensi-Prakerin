@@ -45,7 +45,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label name="up">Foto (<span class="small">Max. size 10 MB</span>)</label>
-                                    <input type="file" id="foto" name="foto" required>
+                                    <img id="foto_prakerin" src="" class="anu img-thumbnail" style="display: none;">
+                                    <input type="file" id="foto" name="foto" required onchange="readURL(this)" accept="image/*">
                                 </div>
                                 <div class="modal-footer">
                                     	<div class="row">
@@ -92,7 +93,13 @@
                                         <td>'.$data->isi.'</td>
                                         <td><img id="anu" onclick="klik(this)" data-toggle="modal" data-target="#modalPop" style="height:125px; width:250px;" src="'.base_url().'uploads/foto_prakerin/'.$data->foto_kegiatan.'" id="kegiatan"></td>
                                         <td>'.$newDate.'</td>
-                                        <td>'.$data->status.'</td>
+                                        <td style="width:13.5%;">
+                                            '.$data->status.'';?><br>
+                                            <?php if($data->status == 'Menunggu konfirmasi'): ?>
+                                                <a id="<?php echo $data->id_post; ?>" class="btn btn-primary hayo" style="width: 100%; margin-top: 10px;">Edit Jurnal</a>
+                                            <?php endif;
+                                            '
+                                        </td>
                                     </tr>
                                 ';
                                 $no++;
@@ -121,4 +128,47 @@
             }
         </script>
     </div>
+    <!-- The Modal -->
+    <div class="modal fade" id="editJurnalModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <!-- <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div> -->
+
+                <!-- Modal body -->
+                <div class="modal-body" id="contents">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </html>
+<script src="<?php echo base_url() ?>/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".hayo").click(function(){
+            var post_id = $(this).attr("id");
+            $.ajax({
+                url: "<?php echo base_url() ?>index.php/siswa/updatejurnal",
+                type: "POST",
+                data: "id="+post_id,
+                cache: false,
+                success: function(data){
+                    $('#contents').html(data);
+                    $("#editJurnalModal").modal("show");
+                }
+            })
+        });
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#foto_prakerin').attr('src', e.target.result).css('display', 'block');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

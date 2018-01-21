@@ -147,6 +147,51 @@ class Siswa extends CI_Controller {
 			redirect('siswa/profilku');
 		}
 	}
+
+	public function updatejurnal()
+	{
+		$id = $this->input->post('id');
+		$data['jurnal'] = $this->siswa_model->getJurnal($id);
+		$this->load->view('update_jurnal_view', $data);
+	}
+
+	public function updatejurnalnya()
+	{
+		if ($_FILES['foto']['size'] == 0) {
+			if($this->siswa_model->updatejurnaly()) {
+				$data['main_view'] = 'dashboard_siswa_view';
+				$this->session->set_flashdata('notif', 'Berhasil mengubah jurnal');
+				redirect('siswa');
+			} else {
+				$data['main_view'] = 'dashboard_siswa_view';
+				$this->session->set_flashdata('notif', 'Gagal mengubah jurnal');
+				redirect('siswa');
+			}
+		} else {
+			$config['upload_path'] = './uploads/foto_prakerin/';
+			$config['allowed_types'] = 'jpg|png';
+			$config['max_sizes'] = '10240';
+
+			$this->load->library('upload', $config);
+
+			if ($this->upload->do_upload('foto')) {
+				if($this->siswa_model->updatejurnal($this->upload->data())) {
+					$data['main_view'] = 'dashboard_siswa_view';
+					$this->session->set_flashdata('notif', 'Berhasil mengubah jurnal');
+					redirect('siswa');
+				} else {
+					$data['main_view'] = 'dashboard_siswa_view';
+					$this->session->set_flashdata('notif', 'Gagal mengubah jurnal');
+					redirect('siswa');
+				}
+			} else {
+				$data['main_view'] = 'dashboard_siswa_view';
+				$this->session->set_flashdata('notif', 'Gagal mengubah jurnal');
+				$id_sw = $this->session->userdata('id_user');
+				redirect('siswa');
+			}
+		}
+	}
 }
 /* End of file Siswa.php */
 /* Location: ./application/controllers/Siswa.php */
