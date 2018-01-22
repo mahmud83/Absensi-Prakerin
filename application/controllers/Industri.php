@@ -99,7 +99,7 @@ class Industri extends CI_Controller {
 	public function dataguru()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view'] = 'profil_guru_view';
+			$data['main_view'] = 'siswa/profil_guru_view';
 			$data['title'] = 'Profil Guru - Prakerin SMK Telkom Malang 2017';
 			$data['kota'] = $this->industri_model->getKota();
 			$data['nama'] = $this->industri_model->getGuru();
