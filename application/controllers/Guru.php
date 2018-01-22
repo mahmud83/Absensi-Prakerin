@@ -43,7 +43,7 @@ class Guru extends CI_Controller {
 	public function datajurnal()
 	{
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$data['main_view'] = 'guru/ata_absen_view';
+			$data['main_view'] = 'guru/data_absen_view';
 			$data['title'] = 'Jurnal Kegiatan Prakerin - Prakerin SMK Telkom Malang 2017';
 			$data['foto'] = $this->guru_model->getFoto();
 			$data['kota'] = $this->guru_model->getKota();
