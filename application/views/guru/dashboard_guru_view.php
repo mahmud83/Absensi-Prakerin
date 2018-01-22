@@ -11,7 +11,14 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title" style="font-size: 25px;">Rekap Data Siswa</h3>
-                    <h5><b><i><?php echo date('l'); ?>, <?php echo date('Y-m-d'); ?></i></b></h5>
+                    <h5>
+                        <b><i><?php echo date('l'); ?>, 
+                            <?php
+                                $newDate = date("d M Y", strtotime(date("d M Y")));
+                                echo $newDate; 
+                            ?> 
+                        </i></b>
+                    </h5>
                 </div>
                 <div class="box-body">
                     <?php $belumAbsen = $countJumlahS - $countSudahAbsen; ?>
@@ -19,46 +26,45 @@
                     <p><b>Jumlah siswa yang belum melakukan absen hari ini : </b><?php echo $belumAbsen; ?></p>
                     <div id="chart" style="width: 100%; height: auto;">
                         <script type="text/javascript">
-
-// Build the chart
-Highcharts.chart('chart', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: 'Siswa sudah melakukan absen'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: false
-            },
-            showInLegend: true
-        }
-    },
-    series: [{
-        name: 'Persentase',
-        colorByPoint: true,
-        data: [{
-            name: 'Belum absen',
-            y: <?php echo $belumAbsen; ?>
-        }, {
-            name: 'Sudah Absen',
-            y: <?php echo $countSudahAbsen; ?>,
-            sliced: true,
-            selected: true
-        }]
-    }]
-});
-        </script>
+                            // Build the chart
+                            Highcharts.chart('chart', {
+                                chart: {
+                                    plotBackgroundColor: null,
+                                    plotBorderWidth: null,
+                                    plotShadow: false,
+                                    type: 'pie'
+                                },
+                                title: {
+                                    text: 'Siswa sudah melakukan absen'
+                                },
+                                tooltip: {
+                                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                },
+                                plotOptions: {
+                                    pie: {
+                                        allowPointSelect: true,
+                                        cursor: 'pointer',
+                                        dataLabels: {
+                                            enabled: false
+                                        },
+                                        showInLegend: true
+                                    }
+                                },
+                                series: [{
+                                    name: 'Persentase',
+                                    colorByPoint: true,
+                                    data: [{
+                                        name: 'Belum absen',
+                                        y: <?php echo $belumAbsen; ?>
+                                    }, {
+                                        name: 'Sudah Absen',
+                                        y: <?php echo $countSudahAbsen; ?>,
+                                        sliced: true,
+                                        selected: true
+                                    }]
+                                }]
+                            });
+                        </script>
                     </div>
                 </div>
             </div>

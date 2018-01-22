@@ -45,10 +45,10 @@
                   <div class="icon">
                     <i class="ion-ios-people" style="margin: 3px;"></i>
                   </div>
-                  <a href="<?php echo base_url(); ?>index.php/admin/addguru" class="small-box-footer col-lg-6" style="background-color: #009551;">
+                  <a href="<?php echo base_url(); ?>index.php/admin/addsiswa" class="small-box-footer col-lg-6" style="background-color: #009551;">
                     Add new data <i class="fa fa-plus-circle"></i>
                   </a>
-                  <a href="<?php echo base_url(); ?>index.php/admin/dataguru" class="small-box-footer col-lg-6" style="background-color: #009551;">
+                  <a href="<?php echo base_url(); ?>index.php/admin/datasiswa" class="small-box-footer col-lg-6" style="background-color: #009551;">
                     More info <i class="fa fa-arrow-circle-right"></i>
                   </a>
                 </div>
