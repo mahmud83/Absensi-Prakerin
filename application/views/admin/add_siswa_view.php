@@ -11,7 +11,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/insertsiswa">
+                                <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/insertsiswa">
                                     <div class="row">
                                       <div class="form-group col-md-6">
                                         <label>Username</label>

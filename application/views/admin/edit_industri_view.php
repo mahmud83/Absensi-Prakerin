@@ -13,7 +13,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updateindustri/<?php echo $id_id = $this->uri->segment(3); ?>">
+                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/updateindustri/<?php echo $id_id = $this->uri->segment(3); ?>">
                                 <div class="form-group">
                                     <label>Nama Industri</label>
                                     <input class="form-control" placeholder="Nama siswa" name="nama_industri" required value="<?php echo $detil->nama_industri; ?>">

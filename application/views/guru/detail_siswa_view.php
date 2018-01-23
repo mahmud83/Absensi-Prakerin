@@ -59,9 +59,9 @@
                                     <tr>
                                       <td colspan="3" style="text-align: center; width: 100%;">
                                             <?php if ($this->session->userdata('role') == 2): ?>
-                                              <a href="<?php echo base_url(); ?>index.php/guru" class="btn btn-danger btn-flat">KEMBALI</a>
+                                              <a href="<?php echo base_url(); ?>guru" class="btn btn-danger btn-flat">KEMBALI</a>
                                             <?php elseif ($this->session->userdata('role') == 4): ?>
-                                              <a href="<?php echo base_url(); ?>index.php/industri/datasiswa" class="btn btn-danger btn-flat">KEMBALI</a>
+                                              <a href="<?php echo base_url(); ?>industri/datasiswa" class="btn btn-danger btn-flat">KEMBALI</a>
                                             <?php endif; ?>
                                       </td>
                                     </tr>

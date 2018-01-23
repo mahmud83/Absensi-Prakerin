@@ -43,8 +43,8 @@
                                     <td>'.$data->kota.'</td>
                                     <td>'.$data->alamat_prakerin.'</td>
                                     <td style="width:9%;">
-                                        <a href="'.base_url().'index.php/industri/detailsiswa/'.$data->id_user.'" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-eye-open"></i></a>
-                                        <a href="'.base_url().'index.php/industri/datajurnal/'.$data->id_user.'" class="btn btn-warning btn-sm" title="Lihat Jurnal Siswa"><i class="fa fa-file-text-o"></i></a>
+                                        <a href="'.base_url().'industri/detailsiswa/'.$data->id_user.'" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-eye-open"></i></a>
+                                        <a href="'.base_url().'industri/datajurnal/'.$data->id_user.'" class="btn btn-warning btn-sm" title="Lihat Jurnal Siswa"><i class="fa fa-file-text-o"></i></a>
                                     </td>
                                 </tr>
                             ';

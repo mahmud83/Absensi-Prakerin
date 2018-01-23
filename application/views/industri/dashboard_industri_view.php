@@ -42,7 +42,7 @@
                                             <?php 
                                                 if ($data->status == 'Menunggu konfirmasi') {
                                                     echo '<p>'.$data->status.'<br></p>';
-                                                    echo '<a href="'.base_url().'index.php/industri/updatestatus/'.$data->id_post.'" class="btn btn-primary btn-block">KONFIRMASI</a>';
+                                                    echo '<a href="'.base_url().'industri/updatestatus/'.$data->id_post.'" class="btn btn-primary btn-block">KONFIRMASI</a>';
                                                 } else {
                                                     echo '<p>'.$data->status.'</p>';
                                                 }

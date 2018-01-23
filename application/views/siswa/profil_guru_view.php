@@ -28,7 +28,7 @@
                                     </tr>
                                     <tr>
                                       <td colspan="3" style="text-align: center; width: 100%;">
-                                        <a href="<?php echo base_url(); ?>index.php/industri" class="btn btn-danger btn-flat">KEMBALI</a>
+                                        <a href="<?php echo base_url(); ?>industri" class="btn btn-danger btn-flat">KEMBALI</a>
                                       </td>
                                     </tr>
                                   </tbody>

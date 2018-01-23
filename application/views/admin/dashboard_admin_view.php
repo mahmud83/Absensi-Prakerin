@@ -25,10 +25,10 @@
                   <div class="icon">
                     <i class="fa fa-user" style="margin: 3px;"></i>
                   </div>
-                  <a href="<?php echo base_url(); ?>index.php/admin/addguru" class="small-box-footer col-lg-6" style="background-color: #00ACD7;">
+                  <a href="<?php echo base_url(); ?>admin/addguru" class="small-box-footer col-lg-6" style="background-color: #00ACD7;">
                     Add new data <i class="fa fa-plus-circle"></i>
                   </a>
-                  <a href="<?php echo base_url(); ?>index.php/admin/dataguru" class="small-box-footer col-lg-6" style="background-color: #00ACD7;">
+                  <a href="<?php echo base_url(); ?>admin/dataguru" class="small-box-footer col-lg-6" style="background-color: #00ACD7;">
                     More info <i class="fa fa-arrow-circle-right"></i>
                   </a>
                 </div>
@@ -45,10 +45,10 @@
                   <div class="icon">
                     <i class="ion-ios-people" style="margin: 3px;"></i>
                   </div>
-                  <a href="<?php echo base_url(); ?>index.php/admin/addsiswa" class="small-box-footer col-lg-6" style="background-color: #009551;">
+                  <a href="<?php echo base_url(); ?>admin/addsiswa" class="small-box-footer col-lg-6" style="background-color: #009551;">
                     Add new data <i class="fa fa-plus-circle"></i>
                   </a>
-                  <a href="<?php echo base_url(); ?>index.php/admin/datasiswa" class="small-box-footer col-lg-6" style="background-color: #009551;">
+                  <a href="<?php echo base_url(); ?>admin/datasiswa" class="small-box-footer col-lg-6" style="background-color: #009551;">
                     More info <i class="fa fa-arrow-circle-right"></i>
                   </a>
                 </div>
@@ -65,10 +65,10 @@
                   <div class="icon">
                     <i class="fa fa-building-o" style="margin: 3px;"></i>
                   </div>
-                  <a href="<?php echo base_url(); ?>index.php/admin/addindustri" class="small-box-footer col-lg-6" style="background-color: #DA8C10;">
+                  <a href="<?php echo base_url(); ?>admin/addindustri" class="small-box-footer col-lg-6" style="background-color: #DA8C10;">
                     Add new data <i class="fa fa-plus-circle"></i>
                   </a>
-                  <a href="<?php echo base_url(); ?>index.php/admin/dataindustri" class="small-box-footer col-lg-6" style="background-color: #DA8C10;">
+                  <a href="<?php echo base_url(); ?>admin/dataindustri" class="small-box-footer col-lg-6" style="background-color: #DA8C10;">
                     More info <i class="fa fa-arrow-circle-right"></i>
                   </a>
                 </div>

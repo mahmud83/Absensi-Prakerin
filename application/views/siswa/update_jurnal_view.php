@@ -1,4 +1,4 @@
-<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/updatejurnalnya">
+<form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>siswa/updatejurnalnya">
     <div>
         <?php 
             $oldDate = $jurnal->tanggal;
@@ -45,7 +45,7 @@
         <div class="row">
             <input type="submit" name="insert" value="UPDATE" class="btn btn-primary btn-flat pull-left">
             <div>
-                <a href="<?php echo base_url(); ?>index.php/admin" class="btn btn-danger btn-flat" data-dismiss="modal">KEMBALI</a>
+                <a href="<?php echo base_url(); ?>siswa" class="btn btn-danger btn-flat" data-dismiss="modal">KEMBALI</a>
             </div>
         </div>
     </div>

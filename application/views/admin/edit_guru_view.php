@@ -13,7 +13,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updateguru/<?php echo $this->uri->segment(3); ?>">
+                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/updateguru/<?php echo $this->uri->segment(3); ?>">
                                 <div class="row">
                                   <div class="form-group col-md-6">
                                     <label>Nama Guru</label>
@@ -299,7 +299,7 @@
                           <div class="container">
                             <img id="foto_guru" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $detil->foto_guru; ?>" alt="Avatar" class="anu img-thumbnail">
                             <div class="middle">
-                              <form id="formfoto" action="<?php echo base_url(); ?>index.php/admin/updatefotoguru/<?php echo $id_gr = $this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
+                              <form id="formfoto" action="<?php echo base_url(); ?>admin/updatefotoguru/<?php echo $id_gr = $this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
                                 <div class="custom" id="input">
                                   <label id="labelnya" style="background-color: rgba(0,0,0,.3); color: white; padding: 5px; border-radius: 50%; line-height: 670%; width: 100%;"><i class="fa fa-camera"></i>
                                     EDIT PHOTO

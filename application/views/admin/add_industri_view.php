@@ -11,7 +11,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/insertindustri">
+                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/insertindustri">
                                 <div class="form-group">
                                     <label>Username</label>
                                     <input class="form-control" placeholder="Username" name="username" type="text" required>
@@ -68,7 +68,7 @@
                                             <input type="submit" name="insert" value="TAMBAH" class="btn btn-primary btn-flat pull-left">
                                         </div>
                                         <div class="col-sm-4 pull-right">
-                                            <a href="<?php echo base_url(); ?>index.php/admin" class="btn btn-danger btn-flat" style="float: right;">KEMBALI</a>
+                                            <a href="<?php echo base_url(); ?>admin" class="btn btn-danger btn-flat" style="float: right;">KEMBALI</a>
                                         </div>
                                     </div>
                                 </div>

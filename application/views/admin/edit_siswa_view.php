@@ -13,7 +13,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/admin/updatesiswa/<?php echo $id_sw = $this->uri->segment(3); ?>">
+                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/updatesiswa/<?php echo $id_sw = $this->uri->segment(3); ?>">
                                 <div class="form-group">
                                     <label>Nama Siswa</label>
                                     <input class="form-control" placeholder="Nama siswa" name="nama_siswa" required value="<?php echo $detil->nama_siswa; ?>">
@@ -488,7 +488,7 @@
                               <img id="foto_siswa" src="<?php echo base_url();?>uploads/foto_siswa/<?php echo $detil->foto_siswa; ?>" alt="Avatar" class="anu img-thumbnail">
                             <?php endif; ?>
                             <div class="middle">
-                              <form id="formfoto" action="<?php echo base_url(); ?>index.php/admin/updatefotosiswa/<?php echo $id_sw = $this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
+                              <form id="formfoto" action="<?php echo base_url(); ?>admin/updatefotosiswa/<?php echo $id_sw = $this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
                                 <div class="custom" id="input">
                                   <label id="labelnya" style="background-color: rgba(0,0,0,.3); color: white; padding: 5px; border-radius: 50%; line-height: 670%; width: 100%;">
                                     <i class="fa fa-camera"></i>

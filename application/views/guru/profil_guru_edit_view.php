@@ -12,7 +12,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/guru/updateprofil/<?php echo $id_gr = $this->session->userdata('id_user'); ?>">
+                            <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>guru/updateprofil/<?php echo $id_gr = $this->session->userdata('id_user'); ?>">
                                 <div class="form-group row">
                                   <div class="form-group col-md-6">
                                     <label>Nama</label>
@@ -291,7 +291,7 @@
                                             <input type="submit" name="insert" value="UPDATE" class="btn btn-primary btn-flat">
                                         </div>
                                         <div class="col-sm-4 pull-right">
-                                            <a href="<?php echo base_url(); ?>index.php/guru" style="float: right;" class="btn btn-danger btn-flat">KEMBALI</a>
+                                            <a href="<?php echo base_url(); ?>guru" style="float: right;" class="btn btn-danger btn-flat">KEMBALI</a>
                                         </div>
                                     </div>
                                 </div>
@@ -301,7 +301,7 @@
                           <div class="container">
                             <img id="foto_guru" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $foto; ?>" alt="Avatar" class="anu img-thumbnail">
                             <div class="middle">
-                              <form id="formfoto" action="<?php echo base_url(); ?>index.php/guru/updatefoto/<?php echo $id_gr = $this->session->userdata('id_user'); ?>" method="post" enctype="multipart/form-data">
+                              <form id="formfoto" action="<?php echo base_url(); ?>guru/updatefoto/<?php echo $id_gr = $this->session->userdata('id_user'); ?>" method="post" enctype="multipart/form-data">
                                 <div class="custom" id="input">
                                   <label id="labelnya" style="background-color: rgba(0,0,0,.3); color: white; padding: 5px; border-radius: 50%; line-height: 670%; width: 100%;"><i class="fa fa-camera"></i>
                                     EDIT PHOTO

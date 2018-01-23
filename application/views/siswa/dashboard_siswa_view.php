@@ -29,7 +29,7 @@
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/siswa/insertjurnal">
+                    <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>siswa/insertjurnal">
                         <div class="form-group">
                             <label>Absen :</label>
                             <select class="form-control-static" name="ket_abs" style="width: 91.7%; border-color: #D2D6DE; padding-left: 5px;">
@@ -51,7 +51,7 @@
                             <div class="row">
                                 <input type="submit" name="insert" value="TAMBAH" class="btn btn-primary btn-flat pull-left">
                                 <div>
-                                    <a href="<?php echo base_url(); ?>index.php/admin" class="btn btn-danger btn-flat" data-dismiss="modal">KEMBALI</a>
+                                    <a href="<?php echo base_url(); ?>admin" class="btn btn-danger btn-flat" data-dismiss="modal">KEMBALI</a>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
         $(".hayo").click(function(){
             var post_id = $(this).attr("id");
             $.ajax({
-                url: "<?php echo base_url() ?>index.php/siswa/updatejurnal",
+                url: "<?php echo base_url() ?>siswa/updatejurnal",
                 type: "POST",
                 data: "id="+post_id,
                 cache: false,
