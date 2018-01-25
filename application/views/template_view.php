@@ -196,6 +196,10 @@
                   </span>
                 </a>
               </li>
+              <li>
+                <a href="<?php echo base_url(); ?>index.php/guru/rekapdata">
+                  <i class="fa fa-list-alt"></i> <span>Rekap Data Absen</span>
+              </li>
             </ul>
           </section>
           <!-- /.sidebar -->

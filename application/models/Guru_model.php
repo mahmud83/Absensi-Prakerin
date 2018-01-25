@@ -195,6 +195,95 @@ class Guru_model extends CI_Model {
 						->count_all_results();
 	}
 
+	public function siswaMasukPerBulan()
+	{
+		// $sql = SELECT COUNT(`tb_post`.`nama_siswa`) FROM `tb_post` LEFT JOIN `tb_user_siswa` ON `tb_post`.`id_user` = `tb_user_siswa`.`id_user` WHERE MONTH(`tb_post`.`tanggal`) = 01 AND YEAR(`tb_post`.`tanggal`) = 2018 AND `tb_post`.`ket_abs` = 'Masuk' AND `tb_user_siswa`.`nama_guru_pembimbing` = 'Dra. Peni Wardayani' ;
+
+		$namaguru = $this->session->userdata('jeneng');
+		$bulan = date('m');
+		$tahun = date('Y');
+
+		return $this->db->select('tb_post.id_user')
+						->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs', "Masuk")
+						->where('nama_guru_pembimbing', $namaguru)
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaSakitPerBulan()
+	{
+		$namaguru = $this->session->userdata('jeneng');
+		$bulan = date('m');
+		$tahun = date('Y');
+
+		return $this->db->select('tb_post.id_user')
+						->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs', "Sakit")
+						->where('nama_guru_pembimbing', $namaguru)
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaIzinPerBulan()
+	{
+		$namaguru = $this->session->userdata('jeneng');
+		$bulan = date('m');
+		$tahun = date('Y');
+
+		return $this->db->select('tb_post.id_user')
+						->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs', "Izin")
+						->where('nama_guru_pembimbing', $namaguru)
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaMasukHariIni() {
+		$namaguru = $this->session->userdata('jeneng');
+		$time = date('Y-m-d');
+
+		return $this->db->select('tb_post.id_user')
+						->where('tanggal', $time)
+						->where('ket_abs', "Masuk")
+						->where('nama_guru_pembimbing', $namaguru)
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaSakitHariIni() {
+		$namaguru = $this->session->userdata('jeneng');
+		$time = date('Y-m-d');
+
+		return $this->db->select('tb_post.id_user')
+						->where('tanggal', $time)
+						->where('ket_abs', "Sakit")
+						->where('nama_guru_pembimbing', $namaguru)
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaIzinHariIni() {
+		$namaguru = $this->session->userdata('jeneng');
+		$time = date('Y-m-d');
+
+		return $this->db->select('tb_post.id_user')
+						->where('tanggal', $time)
+						->where('ket_abs', "Izin")
+						->where('nama_guru_pembimbing', $namaguru)
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
 }
 
 /* End of file Guru_model.php */

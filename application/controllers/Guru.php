@@ -123,6 +123,33 @@ class Guru extends CI_Controller {
 		$this->session->set_flashdata('notif', 'Berhasil mengubah profil');
 		redirect('guru/profil');
 	}
+
+	public function rekapdata()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'guru/rekap_absen_view';
+			$data['title'] = 'Rekap Absen Siswa - Prakerin SMK Telkom Malang 2017';
+			$data['foto'] = $this->guru_model->getFoto();
+			$data['kota'] = $this->guru_model->getKota();
+			$data['siswa'] = $this->guru_model->getKotaSiswa();
+			$data['countJumlahS'] = $this->guru_model->countJumlahSiswa();
+			$data['countSudahAbsen'] = $this->guru_model->countSiswaSudahAbsen();
+			$data['countTerconfirm'] = $this->guru_model->countSiswaConfirm();
+			$data['countBelumTerconfirm'] = $this->guru_model->countSiswaBelumConfirm();
+			$data['countSiswaMasukPerbulan'] = $this->guru_model->siswaMasukPerBulan();
+			$data['countSiswaIzinPerbulan'] = $this->guru_model->siswaIzinPerBulan();
+			$data['countSiswaSakitPerbulan'] = $this->guru_model->siswaSakitPerBulan();
+			$data['countSiswaMasukH'] = $this->guru_model->siswaMasukHariIni();
+			$data['countSiswaIzinH'] = $this->guru_model->siswaIzinHariIni();
+			$data['countSiswaSakitH'] = $this->guru_model->siswaSakitHariIni();
+			$id_sw = $this->uri->segment(3);
+
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('guru');
+		}
+	}
 }
 
 /* End of file Guru.php */
