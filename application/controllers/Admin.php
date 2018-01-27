@@ -54,6 +54,7 @@ class Admin extends CI_Controller {
 			$data['title'] = 'Tambah Data Siswa - Prakerin SMK Telkom Malang 2018';
 			$data['industri'] = $this->admin_model->getIndustri();
 			$data['guru'] = $this->admin_model->getGuru();
+			$data['last'] = $this->admin_model->getlastIDsiswa();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');

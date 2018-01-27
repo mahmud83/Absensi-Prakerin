@@ -319,6 +319,12 @@ class Admin_model extends CI_Model {
 	{
 		return $this->db->count_all('tb_industri');
 	}
+
+	public function getlastIDsiswa()
+	{
+		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_user_siswa')->row('id_user');
+		return $query;
+	}
 }
 /* End of file Admin_model.php */
 /* Location: ./application/models/Admin_model.php */

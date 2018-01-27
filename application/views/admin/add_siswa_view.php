@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Kelas</label>
-                                        <select class="form-control select2" name="kelas">
+                                        <select class="form-control select2" style="width: 100%" name="kelas">
                                             <option>XII RPL 1</option>
                                             <option>XII RPL 2</option>
                                             <option>XII RPL 3</option>
@@ -62,7 +62,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label>Kota</label>
-                                            <select class="form-control select2" name="kota" id="kota" onchange="nganu(this)">
+                                            <select class="form-control select2" style="width: 100%" name="kota" id="kota" onchange="nganu(this)">
                                                 <option>Bali</option>
                                                 <option>Balikpapan</option>
                                                 <option>Bandung</option>
@@ -82,7 +82,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Industri Prakerin</label>
-                                            <select class="form-control select2" name="industri" id="industri" required  onchange="ngono(this)">
+                                            <select class="form-control select2" style="width: 100%" name="industri" id="industri" required  onchange="ngono(this)">
                                                 <?php 
                                                     foreach ($industri as $ind) {
                                                         echo '<option>'.$ind->nama_industri.'</option>';
@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Guru Pembimbing</label>
-                                        <select class="form-control select2" name="gurupem" id="gurupem" required>
+                                        <select class="form-control select2" style="width: 100%" name="gurupem" id="gurupem" required>
                                                 <?php 
                                                     foreach ($guru as $pem) {
                                                         echo '<option>'.$pem->nama_guru.'</option>';
@@ -125,6 +125,9 @@
                                             <input type="file" name="import" size="20" id='import' required class="pull-left" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
                                             <input type="submit" value="Import Data Siswa" class="pull-right" style="color: black;"/>
                                         </form>
+                                    </div>
+                                    <div class="box-header with-border">
+                                        <h5 class="box-title">ID Siswa terakhir: <b><?php echo $last;?></b></h5>
                                     </div>
                                     <!-- /.box-body -->
                                 </div>

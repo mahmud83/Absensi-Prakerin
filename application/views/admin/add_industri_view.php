@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kota</label>
-                                    <select class="form-control select2" name="kota">
+                                    <select class="form-control select2" style="width: 100%" name="kota">
                                         <option>Bali</option>
                                         <option>Balikpapan</option>
                                         <option>Bandung</option>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Guru Pembimbing</label>
-                                    <select class="form-control select2" name="nama_guru">
+                                    <select class="form-control select2" style="width: 100%" name="nama_guru">
                                         <?php 
                                             foreach ($nama_guru as $data) {
                                                 echo '<option>'.$data->nama_guru.'</option>';
