@@ -128,6 +128,10 @@
                   <li><a href="<?php echo base_url(); ?>index.php/admin/dataindustri"><i class="fa fa-circle-o"></i> Data Industri</a></li>
                 </ul>
               </li>
+              <li>
+                <a href="<?php echo base_url(); ?>index.php/admin/rekapdata">
+                  <i class="fa fa-list-alt"></i> <span>Rekap Data Absen Siswa</span>
+              </li>
             </ul>
           </section>
           <!-- /.sidebar -->
@@ -466,6 +470,8 @@
 
   <!-- Data tables -->
   <script src="<?php echo base_url(); ?>dist/js/datatables.min.js"></script>
+  <script src="<?php echo base_url(); ?>dist/js/buttons.print.min.js"></script>
+  <script src="<?php echo base_url(); ?>dist/js/dataTables.buttons.min.js"></script>
   <script>
     $(function () {
       $('#dataTables-guru').DataTable({
@@ -497,6 +503,18 @@
         scrollX: true,
         scrollCollapse: true,
         responsive: true,
+      });
+      $('#dataTables-rekap').DataTable({
+        scrollX: true,
+        scrollCollapse: true,
+        responsive: true,
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+                messageTop: 'Bulan <?php echo date("M Y") ?>'
+            }
+        ]
       });
     })
   </script>

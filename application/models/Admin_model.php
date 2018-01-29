@@ -330,11 +330,10 @@ class Admin_model extends CI_Model {
 	{
 		$bulan = date('m');
 		$tahun = date('Y');
-		$absen = 'Sakit' | 'Izin';
 
 		return $this->db->where('MONTH(tanggal)', $bulan)
 						->where('YEAR(tanggal)', $tahun)
-						->where('ket_abs', $absen)
+						->where('ket_abs !=', 'Masuk')
 						->get('tb_post')
 						->result();
 	}

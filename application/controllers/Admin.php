@@ -495,6 +495,19 @@ class Admin extends CI_Controller {
    			redirect('admin/addsiswa');
  		}
 	}
+
+	public function rekapdata()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'admin/rekap_siswa_view';
+			$data['title'] = 'Rekap Data Absen Siswa - Prakerin SMK Telkom Malang 2018';
+			$data['absen'] = $this->admin_model->tidakmasuk();
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('login');
+		}
+	}
 }
 
 /* End of file dashboard_admin.php */
