@@ -325,6 +325,19 @@ class Admin_model extends CI_Model {
 		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_user_siswa')->row('id_user');
 		return $query;
 	}
+
+	public function tidakMasuk()
+	{
+		$bulan = date('m');
+		$tahun = date('Y');
+		$absen = 'Sakit' | 'Izin';
+
+		return $this->db->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs', $absen)
+						->get('tb_post')
+						->result();
+	}
 }
 /* End of file Admin_model.php */
 /* Location: ./application/models/Admin_model.php */
