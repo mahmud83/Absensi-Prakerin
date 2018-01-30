@@ -54,7 +54,7 @@
       <?php if ($this->session->userdata('role') == 1): ?>
         <header class="main-header" id="cok">
           <!-- Logo -->
-          <a href="<?php echo base_url(); ?>index.php/admin" class="logo">
+          <a href="<?php echo base_url(); ?>admin" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -110,9 +110,9 @@
                   </span>
                 </a>
                 <ul class="treeview-menu">
-                  <li class="active"><a href="<?php echo base_url(); ?>index.php/admin/addguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
-                  <li><a href="<?php echo base_url(); ?>index.php/admin/addsiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
-                  <li><a href="<?php echo base_url(); ?>index.php/admin/addindustri"><i class="fa fa-circle-o"></i> Data Industri</a></li>
+                  <li class="active"><a href="<?php echo base_url(); ?>admin/addguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
+                  <li><a href="<?php echo base_url(); ?>admin/addsiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
+                  <li><a href="<?php echo base_url(); ?>admin/addindustri"><i class="fa fa-circle-o"></i> Data Industri</a></li>
                 </ul>
               </li>
               <li class="treeview">
@@ -123,13 +123,13 @@
                   </span>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="<?php echo base_url(); ?>index.php/admin/dataguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
-                  <li><a href="<?php echo base_url(); ?>index.php/admin/datasiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
-                  <li><a href="<?php echo base_url(); ?>index.php/admin/dataindustri"><i class="fa fa-circle-o"></i> Data Industri</a></li>
+                  <li><a href="<?php echo base_url(); ?>admin/dataguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
+                  <li><a href="<?php echo base_url(); ?>admin/datasiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
+                  <li><a href="<?php echo base_url(); ?>admin/dataindustri"><i class="fa fa-circle-o"></i> Data Industri</a></li>
                 </ul>
               </li>
               <li>
-                <a href="<?php echo base_url(); ?>index.php/admin/rekapdata">
+                <a href="<?php echo base_url(); ?>admin/rekapdata">
                   <i class="fa fa-list-alt"></i> <span>Rekap Data Absen Siswa</span>
               </li>
             </ul>
@@ -141,7 +141,7 @@
       <?php elseif ($this->session->userdata('role') == 2): ?>
         <header class="main-header">
           <!-- Logo -->
-          <a href="<?php echo base_url(); ?>index.php/guru" class="logo">
+          <a href="<?php echo base_url(); ?>guru" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -172,7 +172,7 @@
                     <!-- Menu Footer-->
                     <li class="user-footer">
                       <div class="pull-left">
-                        <a href="<?php echo base_url(); ?>index.php/guru/profil" class="btn btn-default">Profile</a>
+                        <a href="<?php echo base_url(); ?>guru/profil" class="btn btn-default">Profile</a>
                       </div>
                       <div class="pull-right">
                         <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
@@ -193,7 +193,7 @@
             <ul class="sidebar-menu" data-widget="tree">
               <li class="header">MAIN NAVIGATION</li>
               <li class="active">
-                <a href="<?php echo base_url(); ?>index.php/guru">
+                <a href="<?php echo base_url(); ?>guru">
                   <i class="fa fa-search"></i> <span>Lihat Data</span>
                   <span class="pull-right-container">
                     <i class="fa fa-angle-right pull-right"></i>
@@ -201,7 +201,7 @@
                 </a>
               </li>
               <li>
-                <a href="<?php echo base_url(); ?>index.php/guru/rekapdata">
+                <a href="<?php echo base_url(); ?>guru/rekapdata">
                   <i class="fa fa-list-alt"></i> <span>Rekap Data Absen</span>
               </li>
             </ul>
@@ -213,7 +213,7 @@
       <?php elseif ($this->session->userdata('role') == 3): ?>
         <header class="main-header">
           <!-- Logo -->
-          <a href="<?php echo base_url(); ?>index.php/siswa" class="logo">
+          <a href="<?php echo base_url(); ?>siswa" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -257,7 +257,7 @@
                     <!-- Menu Footer-->
                     <li class="user-footer">
                       <div class="pull-left">
-                        <a href="<?php echo base_url(); ?>index.php/siswa/profilku" class="btn btn-default btn-flat">Profile</a>
+                        <a href="<?php echo base_url(); ?>siswa/profilku" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
                         <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
@@ -278,7 +278,7 @@
           <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active">
-              <a href="<?php echo base_url(); ?>index.php/siswa">
+              <a href="<?php echo base_url(); ?>siswa">
                 <i class="fa fa-plus"></i> <span>Absensi</span>
               </a>
             </li>
@@ -290,8 +290,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo base_url(); ?>index.php/siswa/profilku"><i class="fa fa-circle-o"></i> Profilku</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/siswa/profilguru"><i class="fa fa-circle-o"></i> Profil Guru Pembimbing</a></li>
+                <li><a href="<?php echo base_url(); ?>siswa/profilku"><i class="fa fa-circle-o"></i> Profilku</a></li>
+                <li><a href="<?php echo base_url(); ?>siswa/profilguru"><i class="fa fa-circle-o"></i> Profil Guru Pembimbing</a></li>
               </ul>
             </li>
           </ul>
@@ -303,7 +303,7 @@
       <?php elseif ($this->session->userdata('role') == 4): ?>
         <header class="main-header">
           <!-- Logo -->
-          <a href="<?php echo base_url(); ?>index.php/industri" class="logo">
+          <a href="<?php echo base_url(); ?>industri" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>T</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -353,7 +353,7 @@
           <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active">
-              <a href="<?php echo base_url(); ?>index.php/siswa"">
+              <a href="<?php echo base_url(); ?>siswa"">
                 <i class="fa fa-file-text-o"></i> <span>Absensi</span>
               </a>
             </li>
@@ -365,8 +365,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo base_url(); ?>index.php/industri/datasiswa"><i class="fa fa-circle-o"></i> Siswa</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/industri/dataguru"><i class="fa fa-circle-o"></i> Profil Guru Pembimbing</a></li>
+                <li><a href="<?php echo base_url(); ?>industri/datasiswa"><i class="fa fa-circle-o"></i> Siswa</a></li>
+                <li><a href="<?php echo base_url(); ?>industri/dataguru"><i class="fa fa-circle-o"></i> Profil Guru Pembimbing</a></li>
               </ul>
             </li>
           </ul>
@@ -396,7 +396,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                  <a href="<?php base_url(); ?>logout" class="btn btn-danger btn-block">Sign out</a>
+                  <a href="<?php echo base_url(); ?>logout" class="btn btn-danger btn-block">Sign out</a>
                 </div>
             </div>
           </div>

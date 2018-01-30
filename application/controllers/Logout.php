@@ -5,13 +5,10 @@ class Logout extends CI_Controller {
 
 	public function index()
 	{
-		$array = array(
-			'username' => '',
-			'logged_in'=> FALSE
-		);
-		
-		$this->session->set_userdata( $array );
-		redirect('login');		
+		if($this->session->userdata('logged_in') == TRUE){
+			$this->session->sess_destroy();
+			redirect('/');
+		}
 	}
 
 }
