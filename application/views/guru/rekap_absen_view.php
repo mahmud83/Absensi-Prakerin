@@ -68,167 +68,139 @@
                         </script>
                     </div>
                     <div id="chart2" class="col-lg-4">
-                    <script type="text/javascript">
-                        // Build the chart
-                        Highcharts.chart('chart2', {
-                            chart: {
-                                plotBackgroundColor: null,
-                                plotBorderWidth: null,
-                                plotShadow: false,
-                                type: 'pie'
-                            },
-                            title: {
-                                text: 'Siswa sudah melakukan absen (<?php echo date("d M Y") ?>)'
-                            },
-                            tooltip: {
-                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                            },
-                            plotOptions: {
-                                pie: {
-                                    allowPointSelect: true,
-                                    cursor: 'pointer',
-                                    dataLabels: {
-                                        enabled: false
-                                    },
-                                    showInLegend: true
-                                }
-                            },
-                            series: [{
-                                name: 'Persentase',
-                                colorByPoint: true,
-                                data: [{
-                                    name: 'Sudah dikonfirmasi (<?php echo $countTerconfirm; ?> anak)',
-                                    y: <?php echo $countTerconfirm; ?>
-                                }, {
-                                    name: 'Belum dikonfirmasi(<?php echo $countBelumTerconfirm; ?> anak)',
-                                    y: <?php echo $countBelumTerconfirm; ?>,
-                                    sliced: true,
-                                    selected: true
+                        <script type="text/javascript">
+                            // Build the chart
+                            Highcharts.chart('chart2', {
+                                chart: {
+                                    plotBackgroundColor: null,
+                                    plotBorderWidth: null,
+                                    plotShadow: false,
+                                    type: 'pie'
+                                },
+                                title: {
+                                    text: 'Siswa sudah melakukan absen (<?php echo date("d M Y") ?>)'
+                                },
+                                tooltip: {
+                                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                },
+                                plotOptions: {
+                                    pie: {
+                                        allowPointSelect: true,
+                                        cursor: 'pointer',
+                                        dataLabels: {
+                                            enabled: false
+                                        },
+                                        showInLegend: true
+                                    }
+                                },
+                                series: [{
+                                    name: 'Persentase',
+                                    colorByPoint: true,
+                                    data: [{
+                                        name: 'Sudah dikonfirmasi (<?php echo $countTerconfirm; ?> anak)',
+                                        y: <?php echo $countTerconfirm; ?>
+                                    }, {
+                                        name: 'Belum dikonfirmasi(<?php echo $countBelumTerconfirm; ?> anak)',
+                                        y: <?php echo $countBelumTerconfirm; ?>,
+                                        sliced: true,
+                                        selected: true
+                                    }]
                                 }]
-                            }]
-                        });
-                    </script>
-                </div>
-                <div id="chartperbulan" class="col-lg-4">
-                    <script type="text/javascript">
-                        // Build the chart
-                        Highcharts.chart('chartperbulan', {
-                            chart: {
-                                plotBackgroundColor: null,
-                                plotBorderWidth: null,
-                                plotShadow: false,
-                                type: 'pie'
-                            },
-                            title: {
-                                text: 'Keterangan Kehadiran Siswa (<?php echo date("M Y") ?>)'
-                            },
-                            tooltip: {
-                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                            },
-                            plotOptions: {
-                                pie: {
-                                    allowPointSelect: true,
-                                    cursor: 'pointer',
-                                    dataLabels: {
-                                        enabled: false
-                                    },
-                                    showInLegend: true
-                                }
-                            },
-                            series: [{
-                                name: 'Persentase',
-                                colorByPoint: true,
-                                data: [{
-                                    name: 'Masuk (<?php echo $countSiswaMasukPerbulan; ?>)',
-                                    y: <?php echo $countSiswaMasukPerbulan; ?>,
-                                    sliced: true,
-                                    selected: true
-                                }, {
-                                    name: 'Izin (<?php echo $countSiswaIzinPerbulan; ?>)',
-                                    y: <?php echo $countSiswaIzinPerbulan; ?>
-                                }, {
-                                    name: 'Sakit (<?php echo $countSiswaSakitPerbulan; ?>)',
-                                    y: <?php echo $countSiswaSakitPerbulan; ?>
+                            });
+                        </script>
+                    </div>
+                    <div id="chartperbulan" class="col-lg-4">
+                        <script type="text/javascript">
+                            // Build the chart
+                            Highcharts.chart('chartperbulan', {
+                                chart: {
+                                    plotBackgroundColor: null,
+                                    plotBorderWidth: null,
+                                    plotShadow: false,
+                                    type: 'pie'
+                                },
+                                title: {
+                                    text: 'Keterangan Kehadiran Siswa (<?php echo date("M Y") ?>)'
+                                },
+                                tooltip: {
+                                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                },
+                                plotOptions: {
+                                    pie: {
+                                        allowPointSelect: true,
+                                        cursor: 'pointer',
+                                        dataLabels: {
+                                            enabled: false
+                                        },
+                                        showInLegend: true
+                                    }
+                                },
+                                series: [{
+                                    name: 'Persentase',
+                                    colorByPoint: true,
+                                    data: [{
+                                        name: 'Masuk (<?php echo $countSiswaMasukPerbulan; ?>)',
+                                        y: <?php echo $countSiswaMasukPerbulan; ?>,
+                                        sliced: true,
+                                        selected: true
+                                    }, {
+                                        name: 'Izin (<?php echo $countSiswaIzinPerbulan; ?>)',
+                                        y: <?php echo $countSiswaIzinPerbulan; ?>
+                                    }, {
+                                        name: 'Sakit (<?php echo $countSiswaSakitPerbulan; ?>)',
+                                        y: <?php echo $countSiswaSakitPerbulan; ?>
+                                    }]
                                 }]
-                            }]
-                        });
-                    </script>
-                </div>
-                <div id="chartkethariini" class="col-lg-4">
-                    <script type="text/javascript">
-                        // Build the chart
-                        Highcharts.chart('chartkethariini', {
-                            chart: {
-                                plotBackgroundColor: null,
-                                plotBorderWidth: null,
-                                plotShadow: false,
-                                type: 'pie'
-                            },
-                            title: {
-                                text: 'Keterangan Kehadiran Siswa (<?php echo date("d M Y") ?>)'
-                            },
-                            tooltip: {
-                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                            },
-                            plotOptions: {
-                                pie: {
-                                    allowPointSelect: true,
-                                    cursor: 'pointer',
-                                    dataLabels: {
-                                        enabled: false
-                                    },
-                                    showInLegend: true
-                                }
-                            },
-                            series: [{
-                                name: 'Persentase',
-                                colorByPoint: true,
-                                data: [{
-                                    name: 'Masuk (<?php echo $countSiswaMasukH; ?> anak)',
-                                    y: <?php echo $countSiswaMasukH; ?>,
-                                    sliced: true,
-                                    selected: true
-                                }, {
-                                    name: 'Izin (<?php echo $countSiswaIzinH; ?> anak)',
-                                    y: <?php echo $countSiswaIzinH; ?>
-                                }, {
-                                    name: 'Sakit (<?php echo $countSiswaSakitH; ?> anak)',
-                                    y: <?php echo $countSiswaSakitH; ?>
+                            });
+                        </script>
+                    </div>
+                    <div id="chartkethariini" class="col-lg-4">
+                        <script type="text/javascript">
+                            // Build the chart
+                            Highcharts.chart('chartkethariini', {
+                                chart: {
+                                    plotBackgroundColor: null,
+                                    plotBorderWidth: null,
+                                    plotShadow: false,
+                                    type: 'pie'
+                                },
+                                title: {
+                                    text: 'Keterangan Kehadiran Siswa (<?php echo date("d M Y") ?>)'
+                                },
+                                tooltip: {
+                                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                },
+                                plotOptions: {
+                                    pie: {
+                                        allowPointSelect: true,
+                                        cursor: 'pointer',
+                                        dataLabels: {
+                                            enabled: false
+                                        },
+                                        showInLegend: true
+                                    }
+                                },
+                                series: [{
+                                    name: 'Persentase',
+                                    colorByPoint: true,
+                                    data: [{
+                                        name: 'Masuk (<?php echo $countSiswaMasukH; ?> anak)',
+                                        y: <?php echo $countSiswaMasukH; ?>,
+                                        sliced: true,
+                                        selected: true
+                                    }, {
+                                        name: 'Izin (<?php echo $countSiswaIzinH; ?> anak)',
+                                        y: <?php echo $countSiswaIzinH; ?>
+                                    }, {
+                                        name: 'Sakit (<?php echo $countSiswaSakitH; ?> anak)',
+                                        y: <?php echo $countSiswaSakitH; ?>
+                                    }]
                                 }]
-                            }]
-                        });
-                    </script>
-                </div>
+                            });
+                        </script>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </section>
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <div class="container">
-                  <div class="row">
-                        
-                        
-                        
-                  </div>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
 </div>

@@ -41,6 +41,7 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='admin/add_guru_view';
 			$data['title'] = 'Tambah Data Guru - Prakerin SMK Telkom Malang 2018';
+			$data['last'] = $this->admin_model->getlastIDguru();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -313,6 +314,7 @@ class Admin extends CI_Controller {
 			$data['main_view'] = 'admin/add_industri_view';
 			$data['title'] = 'Tambah Data Industri - Prakerin SMK Telkom Malang 2018';
 			$data['nama_guru'] = $this->admin_model->getNamaGuru();
+			$data['last'] = $this->admin_model->getlastIDindustri();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -493,6 +495,125 @@ class Admin extends CI_Controller {
    			// $count = $highestRow;
    			$this->session->set_flashdata('notif','Berhasil import data siswa'); 
    			redirect('admin/addsiswa');
+ 		}
+	}
+
+	public function importguru()
+	{
+		$fileName = $this->input->post('import', TRUE);
+
+  		$config['upload_path'] = './uploads/import_guru/'; 
+  		$config['file_name'] = $fileName;
+  		$config['allowed_types'] = 'xlsx';
+  		$config['encrypt_name']= TRUE;
+  		$config['max_size'] = 10240;
+
+  		$this->load->library('upload', $config);
+  		$this->upload->initialize($config); 
+  
+  		if (!$this->upload->do_upload('import')) {
+   			$this->session->set_flashdata('notif','Gagal import data guru'); 
+   			redirect('admin/addguru'); 
+ 		} else {
+   			$media = $this->upload->data();
+   			$inputFileName = './uploads/import_guru/'.$media['file_name'];
+   
+   			try {
+    			$inputFileType = IOFactory::identify($inputFileName);
+    			$objReader = IOFactory::createReader($inputFileType);
+    			$objPHPExcel = $objReader->load($inputFileName);
+  			} catch(Exception $e) {
+    			die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+  			}
+
+  			$sheet = $objPHPExcel->getSheet(0);
+  			$highestRow = $sheet->getHighestRow();
+  			$highestColumn = $sheet->getHighestColumn();
+
+  			for ($row = 2; $row <= $highestRow; $row++){  
+   				$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+     			NULL,
+     			TRUE,
+     			FALSE);
+   				$login = array(
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
+		     		"id_level"=> $rowData[0][1],
+		     		"nama"=> $rowData[0][4],
+		     		"username"=> $rowData[0][2],
+		     		"password"=> $rowData[0][3]);
+	     		$data = array(
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
+		     		"nama_guru"=> $rowData[0][4],
+		     		"foto_guru"=> $rowData[0][5],
+		     		"no_telp_guru"=> $rowData[0][6],
+		     		"kota"=> $rowData[0][7],);
+	   			$this->db->insert("tb_login",$login);
+	   			$this->db->insert("tb_user_guru",$data);
+ 			} 
+   			unlink($inputFileName); // hapus file temp
+   			// $count = $highestRow;
+   			$this->session->set_flashdata('notif','Berhasil import data guru'); 
+   			redirect('admin/addguru');
+ 		}
+	}
+
+	public function importindustri()
+	{
+		$fileName = $this->input->post('import', TRUE);
+
+  		$config['upload_path'] = './uploads/import_industri/'; 
+  		$config['file_name'] = $fileName;
+  		$config['allowed_types'] = 'xlsx';
+  		$config['encrypt_name']= TRUE;
+  		$config['max_size'] = 10240;
+
+  		$this->load->library('upload', $config);
+  		$this->upload->initialize($config); 
+  
+  		if (!$this->upload->do_upload('import')) {
+   			$this->session->set_flashdata('notif','Gagal import data industri'); 
+   			redirect('admin/addindustri'); 
+ 		} else {
+   			$media = $this->upload->data();
+   			$inputFileName = './uploads/import_industri/'.$media['file_name'];
+   
+   			try {
+    			$inputFileType = IOFactory::identify($inputFileName);
+    			$objReader = IOFactory::createReader($inputFileType);
+    			$objPHPExcel = $objReader->load($inputFileName);
+  			} catch(Exception $e) {
+    			die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+  			}
+
+  			$sheet = $objPHPExcel->getSheet(0);
+  			$highestRow = $sheet->getHighestRow();
+  			$highestColumn = $sheet->getHighestColumn();
+
+  			for ($row = 2; $row <= $highestRow; $row++){  
+   				$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+     			NULL,
+     			TRUE,
+     			FALSE);
+   				$login = array(
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
+		     		"id_level"=> $rowData[0][1],
+		     		"nama"=> $rowData[0][4],
+		     		"username"=> $rowData[0][2],
+		     		"password"=> $rowData[0][3]);
+	     		$data = array(
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
+		     		"nama_industri"=> $rowData[0][4],
+		     		"kota"=> $rowData[0][5],
+		     		"alamat_industri"=> $rowData[0][6],
+		     		"no_telp_industri"=> $rowData[0][7],
+		     		"nama_guru_pembimbing"=> $rowData[0][8],);
+	   			$this->db->insert("tb_login",$login);
+	   			$this->db->insert("tb_industri",$data);
+ 			} 
+   			unlink($inputFileName); // hapus file temp
+   			// $count = $highestRow;
+   			$this->session->set_flashdata('notif','Berhasil import data industri'); 
+   			redirect('admin/addindustri');
  		}
 	}
 

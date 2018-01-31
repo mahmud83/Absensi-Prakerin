@@ -326,6 +326,18 @@ class Admin_model extends CI_Model {
 		return $query;
 	}
 
+	public function getlastIDguru()
+	{
+		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_user_guru')->row('id_user');
+		return $query;
+	}
+
+	public function getlastIDindustri()
+	{
+		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_industri')->row('id_user');
+		return $query;
+	}
+
 	public function tidakMasuk()
 	{
 		$bulan = date('m');
