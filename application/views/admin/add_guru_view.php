@@ -14,25 +14,36 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/insertguru">
-                                    <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
                                         <label>Username</label>
                                         <input class="form-control" placeholder="Username" name="username" type="text" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-md-6">
                                         <label>Password</label>
                                         <input class="form-control" placeholder="Password" name="password" required>
+                                    </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Nama Guru</label>
                                         <input class="form-control" placeholder="Nama Guru" name="nama_guru" required>
                                     </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label>Jenis Kelamin</label>
+                                            <select class="form-control" name="jk">
+                                                <option>Laki-Laki</option>
+                                                <option>Perempuan</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label>No. Telepon</label>
+                                            <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label>Foto</label>
                                         <input type="file" id="foto" name="foto" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>No. Telepon</label>
-                                        <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Pembimbing di Kota</label>

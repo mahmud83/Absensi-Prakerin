@@ -24,6 +24,7 @@ class Admin_model extends CI_Model {
 				 		'nama_guru' => $this->input->post('nama_guru'),
 				  		'no_telp_guru' => $this->input->post('telp'),
 				  		'kota' => $this->input->post('kota'),
+				  		'jenis_kelamin' => $this->input->post('jk'),
 				  		'foto_guru' => $foto['file_name'],
 				  		'id_user' => $this->genIDg()
 				  	  );
@@ -74,6 +75,35 @@ class Admin_model extends CI_Model {
 		return $kd.sprintf('%03s', $next);
 	}
 
+	public function tambahadmin($foto)
+	{
+		$login = array (
+				 		'username' => $this->input->post('username'), 
+				 		'password' => $this->input->post('password'),
+				  		'id_level' => '3',
+				  		'id_user' => $this->genIDs(),
+				  		'nama' => $this->input->post('nama_siswa')
+				  	  );
+		$detail = array (
+				 		'nama_siswa' => $this->input->post('nama_siswa'),
+				 		'kelas' => $this->input->post('kelas'),
+				  		'no_telp_siswa' => $this->input->post('telp'),
+				  		'kota' => $this->input->post('kota'),
+				  		'jenis_kelamin' => $this->input->post('jk'),
+				  		'alamat_prakerin' => $this->input->post('alamat'),
+				  		'industri' => $this->input->post('industri'),
+				  		'foto_siswa' => $foto['file_name'],
+				  		'id_user' => $this->genIDs()
+				  	  );
+		// $this->db->insert('tb_login', $login);
+		// $this->db->insert('tb_user_siswa', $detail);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
 	public function getIndustri()
 	{
 		$query = $this->db->get('tb_industri')->result();
@@ -109,6 +139,7 @@ class Admin_model extends CI_Model {
 					 'nama_guru' => $this->input->post('nama_guru'),
 					 'no_telp_guru' => $this->input->post('telp'),
 					 'kota' => $this->input->post('kota'),
+				  	 'jenis_kelamin' => $this->input->post('jk'),
 				);
 		$login = array(
 					 'username' => $this->input->post('username'),

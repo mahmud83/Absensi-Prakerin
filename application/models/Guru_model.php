@@ -99,6 +99,7 @@ class Guru_model extends CI_Model {
 					 'nama_guru' => $this->input->post('nama_guru'),
 				  	 'no_telp_guru' => $this->input->post('no_telp'),
 				  	 'kota' => $this->input->post('kota'),
+				  	 'jenis_kelamin' => $this->input->post('jk'),
 				);
 		$login = array(
 					  'username' => $this->input->post('username'),
@@ -131,6 +132,17 @@ class Guru_model extends CI_Model {
 						  ->get('tb_login');
 		if ($query->num_rows() > 0) {
          	return $query->row()->password;
+     	}
+     	return TRUE;
+	}
+
+	public function getJK()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						  ->select('jenis_kelamin')
+						  ->get('tb_user_guru');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->jenis_kelamin;
      	}
      	return TRUE;
 	}

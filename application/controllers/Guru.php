@@ -90,6 +90,7 @@ class Guru extends CI_Controller {
 			$data['kota'] = $this->guru_model->getKota();
 			$data['user'] = $this->guru_model->getUser();
 			$data['pass'] = $this->guru_model->getPass();
+			$data['jk'] = $this->guru_model->getJK();
 			$this->load->view('template_view', $data);
 		}
 		else{

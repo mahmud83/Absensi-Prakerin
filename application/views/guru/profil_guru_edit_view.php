@@ -6,7 +6,7 @@
     </section>
     <section class="content">
       <!-- /.row -->
-    <div class="row">
+      <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-green">
                 <div class="panel-body">
@@ -286,6 +286,22 @@
                                   </select>
                                 </div>
                                 <div class="form-group">
+                                    <label>Jenis Kelamin</label>
+                                    <select class="form-control" name="jk">
+                                        <?php 
+                                            if($jk == "Laki-Laki")
+                                            {
+                                                echo "<option selected>Laki-Laki</option>
+                                                      <option>Perempuan</option>";
+                                            } else if($jk == "Perempuan")
+                                            {
+                                                echo "<option >Laki-Laki</option>
+                                                      <option selected>Perempuan</option>";
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-4 pull-left">
                                             <input type="submit" name="insert" value="UPDATE" class="btn btn-primary btn-flat">
@@ -299,7 +315,13 @@
                         </div>
                         <div class="col-lg-3">
                           <div class="container">
-                            <img id="foto_guru" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $foto; ?>" alt="Avatar" class="anu img-thumbnail">
+                            <?php if ($foto == "-" && $jk == "Perempuan"): ?>
+                              <img id="foto_guru" src="<?php echo base_url();?>avatar_female.png" alt="Avatar" class="anu img-thumbnail">
+                            <?php elseif ($foto == "-" && $jk == "Laki-Laki"): ?>
+                              <img id="foto_guru" src="<?php echo base_url();?>avatar_male.png" alt="Avatar" class="anu img-thumbnail">
+                            <?php else: ?>
+                              <img id="foto_guru" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $foto; ?>" alt="Avatar" class="anu img-thumbnail">
+                            <?php endif; ?>
                             <div class="middle">
                               <form id="formfoto" action="<?php echo base_url(); ?>guru/updatefoto/<?php echo $id_gr = $this->session->userdata('id_user'); ?>" method="post" enctype="multipart/form-data">
                                 <div class="custom" id="input">
@@ -321,8 +343,7 @@
             <!-- /.panel -->
         </div>
         <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
+      <!-- /.row -->
     </section>
 </div>
 <style type="text/css">

@@ -35,6 +35,22 @@
                                   </div>
                                 </div>
                                 <div class="form-group">
+                                    <label>Jenis Kelamin</label>
+                                    <select class="form-control" name="jk">
+                                        <?php 
+                                            if($detil->jenis_kelamin == "Laki-Laki")
+                                            {
+                                                echo "<option selected>Laki-Laki</option>
+                                                      <option>Perempuan</option>";
+                                            } else if($detil->jenis_kelamin == "Perempuan")
+                                            {
+                                                echo "<option >Laki-Laki</option>
+                                                      <option selected>Perempuan</option>";
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label>Kota</label>
                                     <select class="form-control select2" name="kota" style="width: 100%;">
                                         <?php 
@@ -297,7 +313,13 @@
                         </div>
                         <div class="col-lg-3">
                           <div class="container">
-                            <img id="foto_guru" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $detil->foto_guru; ?>" alt="Avatar" class="anu img-thumbnail">
+                            <?php if ($detil->foto_guru == "-" && $detil->jenis_kelamin == "Perempuan"): ?>
+                              <img id="foto_guru" src="<?php echo base_url();?>avatar_female.png" alt="Avatar" class="anu img-thumbnail">
+                            <?php elseif ($detil->foto_guru == "-" && $detil->jenis_kelamin == "Laki-Laki"): ?>
+                              <img id="foto_guru" src="<?php echo base_url();?>avatar_male.png" alt="Avatar" class="anu img-thumbnail">
+                            <?php else: ?>
+                              <img id="foto_guru" src="<?php echo base_url();?>uploads/foto_guru/<?php echo $detil->foto_guru; ?>" alt="Avatar" class="anu img-thumbnail">
+                            <?php endif; ?>
                             <div class="middle">
                               <form id="formfoto" action="<?php echo base_url(); ?>admin/updatefotoguru/<?php echo $id_gr = $this->uri->segment(3); ?>" method="post" enctype="multipart/form-data">
                                 <div class="custom" id="input">

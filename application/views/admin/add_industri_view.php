@@ -12,23 +12,26 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/insertindustri">
-                                <div class="form-group">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
                                     <label>Username</label>
                                     <input class="form-control" placeholder="Username" name="username" type="text" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label>Password</label>
                                     <input class="form-control" placeholder="Password" name="password" required>
+                                </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Industri</label>
                                     <input class="form-control" placeholder="Nama Industri" name="nama_ind" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
                                     <label>No. Telepon</label>
                                     <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label>Kota</label>
                                     <select class="form-control select2" style="width: 100%" name="kota">
                                         <option>Bali</option>
@@ -47,6 +50,7 @@
                                         <option>Surabaya</option>
                                         <option>Yogyakarta</option>
                                     </select>
+                                </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat Industri</label>

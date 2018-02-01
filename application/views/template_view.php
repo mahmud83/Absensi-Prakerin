@@ -113,6 +113,7 @@
                   <li class="active"><a href="<?php echo base_url(); ?>admin/addguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
                   <li><a href="<?php echo base_url(); ?>admin/addsiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
                   <li><a href="<?php echo base_url(); ?>admin/addindustri"><i class="fa fa-circle-o"></i> Data Industri</a></li>
+                  <li><a href="<?php echo base_url(); ?>admin/addadmin"><i class="fa fa-circle-o"></i> Data Admin</a></li>
                 </ul>
               </li>
               <li class="treeview">
@@ -158,13 +159,25 @@
               <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="<?php echo base_url();?>uploads/foto_guru/<?php echo $foto; ?>" class="user-image" alt="User Image">
+                    <?php if ($foto == "-" && $jk == "Perempuan"): ?>
+                      <img src="<?php echo base_url();?>avatar_female.png" alt="User Image" class="user-image">
+                    <?php elseif ($foto == "-" && $jk == "Laki-Laki"): ?>
+                      <img src="<?php echo base_url();?>avatar_male.png" alt="User Image" class="user-image">
+                    <?php else: ?>
+                      <img src="<?php echo base_url();?>uploads/foto_guru/<?php echo $foto; ?>" alt="User Image" class="user-image">
+                    <?php endif; ?>
                     <span class="hidden-xs">Hi, <?php echo $this->session->userdata('jeneng'); ?></span>
                   </a>
                   <ul class="dropdown-menu">
                   <!-- User image -->
                     <li class="user-header">
-                      <img src="<?php echo base_url();?>uploads/foto_guru/<?php echo $foto; ?>" class="img-circle" alt="User Image">
+                      <?php if ($foto == "-" && $jk == "Perempuan"): ?>
+                        <img src="<?php echo base_url();?>avatar_female.png" alt="User Image" class="img-circle">
+                      <?php elseif ($foto == "-" && $jk == "Laki-Laki"): ?>
+                        <img src="<?php echo base_url();?>avatar_male.png" alt="User Image" class="img-circle">
+                      <?php else: ?>
+                        <img src="<?php echo base_url();?>uploads/foto_guru/<?php echo $foto; ?>" alt="User Image" class="img-circle">
+                      <?php endif; ?>
                       <p style="color: white; ">
                         <?php echo $this->session->userdata('jeneng'); ?> - <?php echo $kota; ?>
                       </p>

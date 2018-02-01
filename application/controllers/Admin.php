@@ -629,6 +629,53 @@ class Admin extends CI_Controller {
 			redirect('login');
 		}
 	}
+
+	public function addadmin()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view']='admin/add_admin_view';
+			$data['title'] = 'Tambah Data Admin - Prakerin SMK Telkom Malang 2018';
+			// $data['last'] = $this->admin_model->getlastIDguru();
+			$this->load->view('template_view', $data);
+		} else {
+			redirect('login');
+		}
+	}
+
+	public function insertadmin()
+	{
+		// $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');
+		// $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]');
+		// $this->form_validation->set_rules('nama_siswa', 'Nama guru', 'trim|required');
+		// $this->form_validation->set_rules('telp', 'No. Telp', 'trim|required|min_length[11]|max_length[12]|numeric');
+		// $this->form_validation->set_rules('kota', 'Kota', 'trim|required');
+		// $this->form_validation->set_rules('industri', 'Industri', 'trim|required');
+		// $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+
+		if ($this->form_validation->run() == TRUE ) {
+			$config['upload_path'] = './uploads/foto_admin/';
+			$config['allowed_types'] = 'jpg|png';
+			$config['max_size'] = '10240';
+
+			$this->load->library('upload', $config);
+
+			if ($this->upload->do_upload('foto')) {
+				if($this->admin_model->tambahadmin($this->upload->data()) == TRUE) {
+					$this->session->set_flashdata('notif', 'Berhasil menambahkan data admin');
+					redirect('admin/addadmin');
+				} else {
+					$this->session->set_flashdata('notif', 'Gagal menambahkan data admin');
+					redirect('admin/addadmin');
+				}
+			} else {
+				$this->session->set_flashdata('notif', $this->upload->display_errors());
+				redirect('admin/addadmin');
+			}
+		} else {
+			$this->session->set_flashdata('notif', 'Lengkapi semua field');
+			redirect('admin/addadmin');
+		}
+	}
 }
 
 /* End of file dashboard_admin.php */
