@@ -75,28 +75,32 @@ class Admin_model extends CI_Model {
 		return $kd.sprintf('%03s', $next);
 	}
 
+	public function genIDa()
+	{
+		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_user_admin')->row('id_user');
+		$lastNo = substr($query, 2);
+		$next = $lastNo + 1;
+		$kd = 'AD';
+		return $kd.sprintf('%02s', $next);
+	}
+
 	public function tambahadmin($foto)
 	{
 		$login = array (
 				 		'username' => $this->input->post('username'), 
 				 		'password' => $this->input->post('password'),
-				  		'id_level' => '3',
-				  		'id_user' => $this->genIDs(),
-				  		'nama' => $this->input->post('nama_siswa')
+				  		'id_level' => '1',
+				  		'id_user' => $this->genIDa(),
+				  		'nama' => $this->input->post('nama_admin')
 				  	  );
 		$detail = array (
-				 		'nama_siswa' => $this->input->post('nama_siswa'),
-				 		'kelas' => $this->input->post('kelas'),
-				  		'no_telp_siswa' => $this->input->post('telp'),
-				  		'kota' => $this->input->post('kota'),
-				  		'jenis_kelamin' => $this->input->post('jk'),
-				  		'alamat_prakerin' => $this->input->post('alamat'),
-				  		'industri' => $this->input->post('industri'),
-				  		'foto_siswa' => $foto['file_name'],
-				  		'id_user' => $this->genIDs()
+				 		'nama' => $this->input->post('nama_admin'),
+				  		'no_telp_admin' => $this->input->post('telp'),
+				  		'foto_admin' => $foto['file_name'],
+				  		'id_user' => $this->genIDa()
 				  	  );
-		// $this->db->insert('tb_login', $login);
-		// $this->db->insert('tb_user_siswa', $detail);
+		$this->db->insert('tb_login', $login);
+		$this->db->insert('tb_user_admin', $detail);
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
 		} else {
@@ -379,6 +383,109 @@ class Admin_model extends CI_Model {
 						->where('ket_abs !=', 'Masuk')
 						->get('tb_post')
 						->result();
+	}
+
+	public function getFoto()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						 ->select('foto_admin')
+						 ->get('tb_user_admin');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->foto_admin;
+     	}
+     	return TRUE;
+	}
+
+	public function getUser()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						 ->select('username')
+						 ->get('tb_login');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->username;
+     	}
+     	return TRUE;
+	}
+
+	public function getPass()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						 ->select('password')
+						 ->get('tb_login');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->password;
+     	}
+     	return TRUE;
+	}
+
+	public function getNama()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						 ->select('nama')
+						 ->get('tb_login');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->nama;
+     	}
+     	return TRUE;
+	}
+
+	public function getNo()
+	{
+		$query = $this->db->where('id_user', $this->session->userdata('id_user'))
+						 ->select('no_telp_admin')
+						 ->get('tb_user_admin');
+		if ($query->num_rows() > 0) {
+         	return $query->row()->no_telp_admin;
+     	}
+     	return TRUE;
+	}
+
+	public function getDataAdmin()
+	{
+		return $this->db->order_by('nama', 'ASC')
+						->get('tb_user_admin')
+						->result();
+	}
+
+	public function get_admin_by_id($id_ad){
+		return $this->db->where('id_user', $id_ad)
+						->get('tb_user_admin')
+						->row();
+	}
+
+	public function editprofil($id_ad)
+	{
+		$data = array(
+					 'nama' => $this->input->post('nama_admin'),
+					 'no_telp_admin' => $this->input->post('no_telp'),
+				);
+		$login = array(
+					 'username' => $this->input->post('username'),
+					 'password' => $this->input->post('password'),
+					 'nama' => $this->input->post('nama_admin'),
+				);
+		$this->db->where('id_user', $id_ad)->update('tb_user_admin', $data);
+		$this->db->where('id_user', $id_ad)->update('tb_login', $login);
+		$this->session->set_userdata('jeneng', $this->input->post('nama_admin'));
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	public function editfotoadmin($foto)
+	{
+		$id_ad = $this->session->userdata('id_user');;
+		$data = array(
+				  	 'foto_admin' => $foto['file_name']
+				);
+		$this->db->where('id_user', $id_ad)->update('tb_user_admin', $data);
+		if ($this->db->affected_rows() > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
 	}
 }
 /* End of file Admin_model.php */

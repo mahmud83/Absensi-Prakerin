@@ -18,6 +18,7 @@ class Admin extends CI_Controller {
 			$data['countG'] = $this->admin_model->countGuru();
 			$data['countS'] = $this->admin_model->countSiswa();
 			$data['countI'] = $this->admin_model->countIndustri();
+			$data['foto'] = $this->admin_model->getFoto();
 			$data['title'] = 'Dashboard Admin - Prakerin SMK Telkom Malang 2018';
 			$this->load->view('template_view', $data);
 		} else {
@@ -74,7 +75,7 @@ class Admin extends CI_Controller {
 		if ($this->form_validation->run() == TRUE ) {
 			$config['upload_path'] = './uploads/foto_guru/';
 			$config['allowed_types'] = 'jpg|png';
-			$config['max_size'] = '2000';
+			$config['max_size'] = '1024';
 
 			$this->load->library('upload', $config);
 
@@ -147,6 +148,7 @@ class Admin extends CI_Controller {
 			$data['main_view']='admin/data_siswa_view';
 			$data['title'] = 'Data Siswa - Prakerin SMK Telkom Malang 2018';
 			$data['siswa'] = $this->admin_model->getDataSiswa();
+			$data['foto'] = $this->admin_model->getFoto();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('admin');
@@ -160,6 +162,7 @@ class Admin extends CI_Controller {
 			$data['main_view']='admin/data_guru_view';
 			$data['title'] = 'Data Guru - Prakerin SMK Telkom Malang 2018';
 			$data['guru'] = $this->admin_model->getDataGuru();
+			$data['foto'] = $this->admin_model->getFoto();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('admin');
@@ -174,6 +177,7 @@ class Admin extends CI_Controller {
 			$data['title'] = 'Ubah Data Guru - Prakerin SMK Telkom Malang 2018';
 			//ambil data guru
 			$id_gr = $this->uri->segment(3);
+			$data['foto'] = $this->admin_model->getFoto();
 			$data['detil'] = $this->admin_model->get_guru_by_id($id_gr);
 			$data['detill'] = $this->admin_model->get_guruu_by_id($id_gr);
 
@@ -202,6 +206,7 @@ class Admin extends CI_Controller {
 			$data['title'] = 'Ubah Data Siswa - Prakerin SMK Telkom Malang 2018';
 			//ambil data siswa
 			$id_sw = $this->uri->segment(3);
+			$data['foto'] = $this->admin_model->getFoto();
 			$data['detil'] = $this->admin_model->get_siswa_by_id($id_sw);
 			$data['detill'] = $this->admin_model->get_siswal_by_id($id_sw);
 
@@ -346,6 +351,7 @@ class Admin extends CI_Controller {
 			$data['main_view']='admin/data_industri_view';
 			$data['title'] = 'Data Industri - Prakerin SMK Telkom Malang 2018';
 			$data['industri'] = $this->admin_model->getDataIndustri();
+			$data['foto'] = $this->admin_model->getFoto();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('admin');
@@ -375,6 +381,7 @@ class Admin extends CI_Controller {
 			$data['title'] = 'Ubah Data Industri - Prakerin SMK Telkom Malang 2018';
 			//ambil data industri
 			$id_id = $this->uri->segment(3);
+			$data['foto'] = $this->admin_model->getFoto();
 			$data['detil'] = $this->admin_model->get_industri_by_id($id_id);
 			$data['detill'] = $this->admin_model->get_industril_by_id($id_id);
 
@@ -635,7 +642,7 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='admin/add_admin_view';
 			$data['title'] = 'Tambah Data Admin - Prakerin SMK Telkom Malang 2018';
-			// $data['last'] = $this->admin_model->getlastIDguru();
+			$data['foto'] = $this->admin_model->getFoto();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -644,36 +651,106 @@ class Admin extends CI_Controller {
 
 	public function insertadmin()
 	{
-		// $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');
-		// $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]');
-		// $this->form_validation->set_rules('nama_siswa', 'Nama guru', 'trim|required');
-		// $this->form_validation->set_rules('telp', 'No. Telp', 'trim|required|min_length[11]|max_length[12]|numeric');
-		// $this->form_validation->set_rules('kota', 'Kota', 'trim|required');
-		// $this->form_validation->set_rules('industri', 'Industri', 'trim|required');
-		// $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
-
-		if ($this->form_validation->run() == TRUE ) {
+		if ($this->input->post('insert')) {
 			$config['upload_path'] = './uploads/foto_admin/';
 			$config['allowed_types'] = 'jpg|png';
-			$config['max_size'] = '10240';
+			$config['max_size'] = '1024';
 
 			$this->load->library('upload', $config);
 
 			if ($this->upload->do_upload('foto')) {
 				if($this->admin_model->tambahadmin($this->upload->data()) == TRUE) {
-					$this->session->set_flashdata('notif', 'Berhasil menambahkan data admin');
+					$data['main_view'] = 'admin/add_admin_view';
+					$this->session->set_flashdata('notif', 'Berhasil menambah data admin');
 					redirect('admin/addadmin');
 				} else {
-					$this->session->set_flashdata('notif', 'Gagal menambahkan data admin');
+					$data['main_view'] = 'admin/add_admin_view';
+					$this->session->set_flashdata('notif', 'Gagal menambah data admin');
 					redirect('admin/addadmin');
 				}
 			} else {
+				$data['main_view'] = 'admin/add_admin_view';
 				$this->session->set_flashdata('notif', $this->upload->display_errors());
 				redirect('admin/addadmin');
 			}
+		}
+	}
+
+	public function profil()
+	{
+		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 1) {
+			$data['main_view'] = 'admin/edit_admin_view';
+			$data['title'] = 'Profil Admin - Prakerin SMK Telkom Malang 2017';
+			$data['foto'] = $this->admin_model->getFoto();
+			$data['nama'] = $this->admin_model->getNama();
+			$data['user'] = $this->admin_model->getUser();
+			$data['pass'] = $this->admin_model->getPass();
+			$data['no'] = $this->admin_model->getNo();
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('admin');
+		}
+	}
+
+	public function dataadmin()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view']='admin/data_admin_view';
+			$data['title'] = 'Data Admin - Prakerin SMK Telkom Malang 2018';
+			$data['foto'] = $this->admin_model->getFoto();
+			$data['admin'] = $this->admin_model->getDataAdmin();
+			$this->load->view('template_view', $data);
 		} else {
-			$this->session->set_flashdata('notif', 'Lengkapi semua field');
-			redirect('admin/addadmin');
+			redirect('admin');
+		}
+	}
+
+	public function lihatadmin()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'admin/profil_admin_view';
+			$data['title'] = 'Profil Admin - Prakerin SMK Telkom Malang 2018';
+			//ambil data siswa
+			$id_ad = $this->uri->segment(3);
+			$data['foto'] = $this->admin_model->getFoto();
+			$data['detil'] = $this->admin_model->get_admin_by_id($id_ad);
+
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('admin/dataadmin');
+		}
+	}
+
+	public function updateprofil($id_ad)
+	{
+		$this->admin_model->editprofil($id_ad);
+		$this->session->set_flashdata('notif', 'Berhasil mengubah profil');
+		$id_sw = $this->uri->segment(3);
+		redirect('admin/profil');
+	}
+
+	public function updatefotoadmin($id_ad)
+	{
+		$config['upload_path'] = './uploads/foto_admin/';
+		$config['allowed_types'] = 'jpg|png';
+		$config['max_sizes'] = '10240';
+
+		$this->load->library('upload', $config);
+
+		$id_ad = $this->session->userdata('id_user');
+		if ($this->upload->do_upload('foto')) {
+			if($this->admin_model->editfotoadmin($this->upload->data()) == TRUE) {
+				$this->session->set_flashdata('notif', 'Berhasil mengubah foto');
+				redirect('admin/profil');
+			} else {
+				$this->session->set_flashdata('notif', 'Gagal mengubah foto');
+				redirect('admin/profil');
+			}
+		} else {
+			$this->session->set_flashdata('notif', 'Gagal mengubah foto');
+			redirect('admin/profil');
 		}
 	}
 }

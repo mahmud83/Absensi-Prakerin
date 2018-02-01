@@ -30,11 +30,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Foto</label>
-                                        <input type="file" id="foto" name="foto" required>
+                                        <input type="file" id="foto" name="foto">
                                     </div>
                                     <div class="form-group">
                                         <label>No. Telepon</label>
-                                        <input class="form-control" placeholder="No. Telepon" name="telp" type="number" required>
+                                        <input class="form-control" placeholder="No. Telepon" name="telp" type="number">
                                     </div>
                                     <div class="form-group">
                                         <div class="row">

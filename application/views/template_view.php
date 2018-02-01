@@ -71,13 +71,21 @@
               <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="<?php echo base_url();?>admin.png" class="user-image" alt="User Image">
+                    <?php if ($foto == "-"): ?>
+                      <img src="<?php echo base_url();?>admin.png" alt="User Image" class="user-image">
+                    <?php else: ?>
+                      <img src="<?php echo base_url();?>uploads/foto_admin/<?php echo $foto; ?>" alt="User Image" class="user-image">
+                    <?php endif; ?>
                     <span class="hidden-xs">Hi, <?php echo $this->session->userdata('jeneng'); ?></span>
                   </a>
                   <ul class="dropdown-menu">
                   <!-- User image -->
                     <li class="user-header">
-                      <img src="<?php echo base_url();?>/admin.png" class="img-circle" alt="User Image">
+                      <?php if ($foto == "-"): ?>
+                        <img src="<?php echo base_url();?>admin.png" alt="User Image" class="img-circle">
+                      <?php else: ?>
+                        <img src="<?php echo base_url();?>uploads/foto_admin/<?php echo $foto; ?>" alt="User Image" class="img-circle">
+                      <?php endif; ?>
                       <p style="color: white; ">
                         <?php echo $this->session->userdata('jeneng');?>
                       </p>
@@ -85,7 +93,12 @@
                     <!-- Menu Footer-->
                     <li class="user-footer">
                       <div>
+                        <div class="pull-left">
+                        <a href="<?php echo base_url(); ?>admin/profil" class="btn btn-default">Profile</a>
+                      </div>
+                      <div class="pull-right">
                         <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Sign out</button>
+                      </div>
                       </div>
                     </li>
                   </ul>
@@ -124,6 +137,7 @@
                   </span>
                 </a>
                 <ul class="treeview-menu">
+                  <li><a href="<?php echo base_url(); ?>admin/dataadmin"><i class="fa fa-circle-o"></i> Data Admin</a></li>
                   <li><a href="<?php echo base_url(); ?>admin/dataguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
                   <li><a href="<?php echo base_url(); ?>admin/datasiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
                   <li><a href="<?php echo base_url(); ?>admin/dataindustri"><i class="fa fa-circle-o"></i> Data Industri</a></li>
@@ -1115,6 +1129,60 @@
           },
         });
         <?php } elseif ($notif == 'Berhasil import data industri') { ?>
+          $.notify({
+            icon: 'fa fa-check',
+            title: '<strong>&nbsp;Success!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'success',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Berhasil menambah data admin') { ?>
+          $.notify({
+            icon: 'fa fa-check',
+            title: '<strong>&nbsp;Success!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'success',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Gagal menambah data admin') { ?>
+          $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            title: '<strong>&nbsp;Warning!</strong><br>',
+            message: "<?php echo $notif; ?>"
+          },{
+            timer: 2000,
+            delay: 500,
+            type: 'danger',
+            placement: {
+              from: "top",
+              align: "center"
+          },
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+        });
+        <?php } elseif ($notif == 'Berhasil mengubah profil') { ?>
           $.notify({
             icon: 'fa fa-check',
             title: '<strong>&nbsp;Success!</strong><br>',

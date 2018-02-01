@@ -107,6 +107,7 @@ class Guru_model extends CI_Model {
 				);
 		$this->db->where('id_user', $id_gr)->update('tb_user_guru', $data);
 		$this->db->where('id_user', $id_gr)->update('tb_login', $login);
+		$this->session->set_userdata('jeneng', $this->input->post('nama_guru'));
 		if ($this->db->affected_rows() > 0) {
 			return TRUE;
 		} else {
