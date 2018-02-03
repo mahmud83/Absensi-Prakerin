@@ -630,6 +630,7 @@ class Admin extends CI_Controller {
 			$data['main_view'] = 'admin/rekap_siswa_view';
 			$data['title'] = 'Rekap Data Absen Siswa - Prakerin SMK Telkom Malang 2018';
 			$data['absen'] = $this->admin_model->tidakmasuk();
+			$data['foto'] = $this->admin_model->getFoto();
 			$this->load->view('template_view', $data);
 		}
 		else{
