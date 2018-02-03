@@ -786,24 +786,6 @@
             exit: 'animated bounceOut'
           },
         });
-        <?php } elseif ($notif == 'The Kegiatan Prakerin field must be at least 10 characters in length.') { ?>
-          $.notify({
-            icon: 'glyphicon glyphicon-warning-sign',
-            title: '<strong>&nbsp;Warning!</strong><br>',
-            message: "<?php echo $notif; ?>"
-          },{
-            timer: 100000,
-            delay: 50,
-            type: 'warning',
-            placement: {
-              from: "top",
-              align: "center"
-          },
-          animate: {
-            enter: 'animated bounceIn',
-            exit: 'animated bounceOut'
-          },
-        });
         <?php } elseif ($notif == 'Berhasil menambah data industri') { ?>
           $.notify({
             icon: 'fa fa-check',

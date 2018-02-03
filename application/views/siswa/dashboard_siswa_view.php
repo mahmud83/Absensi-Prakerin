@@ -39,8 +39,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label name="isi">Keterangan</label>
-                            <textarea class="form-control" name="keterangan" autofocus></textarea>
+                            <label name="isi">Keterangan (<span class="small">Min. 5 karakter</span>)</label>
+                            <textarea class="form-control" name="keterangan" onkeyup="countChar(this)" autofocus></textarea>
                         </div>
                         <div class="form-group">
                             <label name="up">Foto (<span class="small">Max. size 10 MB</span>)</label>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="modal-footer">
                             <div class="row">
-                                <input type="submit" name="insert" value="TAMBAH" class="btn btn-primary btn-flat pull-left">
+                                <input type="submit" id="ket" name="insert" value="TAMBAH" disabled="disabled" class="btn btn-primary btn-flat pull-left">
                                 <div>
                                     <a href="<?php echo base_url(); ?>admin" class="btn btn-danger btn-flat" data-dismiss="modal">KEMBALI</a>
                                 </div>
@@ -167,6 +167,16 @@
             })
         });
     });
+
+    function countChar(val) {
+        var len = val.value.length;
+        if (len >= 5) {
+          $('#ket').removeAttr('disabled');
+        } else {
+          $('#ket').attr('disabled','disabled');
+        }
+    };
+
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();

@@ -41,25 +41,18 @@ class Siswa extends CI_Controller {
 
 	public function insertjurnal()
 	{
-		$this->form_validation->set_rules('keterangan', 'Kegiatan Prakerin', 'trim|required|min_length[7]');
-		if ($this->form_validation->run() == TRUE ) {
-			$config['upload_path'] = './uploads/foto_prakerin/';
-			$config['allowed_types'] = 'jpg|png';
-			$config['max_size'] = '10240';
-			// kalau error karena max. size, ubah di file php.ini (post_max_size) dan (upload_max_filesize)
+		$config['upload_path'] = './uploads/foto_prakerin/';
+		$config['allowed_types'] = 'jpg|png';
+		$config['max_size'] = '10240';
+		// kalau error karena max. size, ubah di file php.ini (post_max_size) dan (upload_max_filesize)
 
-			$this->load->library('upload', $config);
+		$this->load->library('upload', $config);
 
-			if ($this->upload->do_upload('foto')) {
-				if($this->siswa_model->tambahjurnal($this->upload->data()) == TRUE) {
-					$data['main_view'] = 'dashboard_siswa_view';
-					$this->session->set_flashdata('notif', 'Berhasil absen');
-					redirect('siswa');
-				} else {
-					$data['main_view'] = 'dashboard_siswa_view';
-					$this->session->set_flashdata('notif', 'Gagal absen');
-					redirect('siswa');
-				}
+		if ($this->upload->do_upload('foto')) {
+			if($this->siswa_model->tambahjurnal($this->upload->data()) == TRUE) {
+				$data['main_view'] = 'dashboard_siswa_view';
+				$this->session->set_flashdata('notif', 'Berhasil absen');
+				redirect('siswa');
 			} else {
 				$data['main_view'] = 'dashboard_siswa_view';
 				$this->session->set_flashdata('notif', 'Gagal absen');
@@ -67,7 +60,7 @@ class Siswa extends CI_Controller {
 			}
 		} else {
 			$data['main_view'] = 'dashboard_siswa_view';
-			$this->session->set_flashdata('notif', 'The Kegiatan Prakerin field must be at least 10 characters in length.');
+			$this->session->set_flashdata('notif', 'Gagal absen');
 			redirect('siswa');
 		}
 	}
