@@ -55,6 +55,7 @@ class Guru extends CI_Controller {
 			$id_sw = $this->uri->segment(3);
 			$data['jurnal'] = $this->guru_model->get_post_by_id();
 			$data['nama'] = $this->guru_model->getNamaSiswa();
+			$data['jk'] = $this->guru_model->getJK();
 
 			$this->load->view('template_view', $data);
 		}
