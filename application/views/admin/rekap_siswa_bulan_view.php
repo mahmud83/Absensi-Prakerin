@@ -24,7 +24,8 @@
             <div class="box-body">
               <div class="col-lg-6">
                 <div class="row">
-                  <div class="col-lg-9">
+                  <form role="form" method="post" action="<?php echo base_url(); ?>admin/rekap_siswa_bulan">
+                   <div class="col-lg-9">
                     <select name="bulan" class="form-control">
                       <option value="01">Januari</option>
                       <option value="02">Februari</option>
@@ -41,8 +42,9 @@
                     </select>
                   </div>
                   <div class="col-lg-3">
-                    <a href="<?php echo base_url(); ?>admin/rekap_siswa_bulan" class="btn btn-primary btn-block btn-flat">Lihat</a>
-                  </div>
+                    <button class="btn btn-primary btn-flat btn-block" type="submit" name="submit">Lihat</button>
+                  </div> 
+                  </form>
                 </div>
                 <div class="row">
                   <div id="chartperhari" class="col-lg-12">
@@ -55,15 +57,12 @@
                               plotShadow: false,
                               type: 'column'
                           },
-                          title: {
-                              text: 'Keterangan Kehadiran Siswa (<?php echo date('d M Y') ?>)'
-                          },
                           xAxis: {
                             categories: ['Masuk', 'Izin', 'Sakit']
                           },
                           series: [{
                             name: "Jumlah Siswa",
-                            data: [<?php echo $siswaMasukHariIni; ?>, <?php echo $siswaIzinHariIni; ?>, <?php echo $siswaSakitHariIni; ?>]
+                            data: [<?php echo $siswaMasukBulannya; ?>, <?php echo $siswaIzinBulannya; ?>, <?php echo $siswaSakitBulannya; ?>]
                           }],
                       });
                     </script>
@@ -92,7 +91,7 @@
                         }],
                     });
                   </script>
-                </div>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

@@ -115,15 +115,21 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
               <li class="header">MAIN NAVIGATION</li>
-              <li class="active treeview">
-                <a href="#">
-                  <i class="fa fa-plus"></i> <span>Tambah Data</span>
-                  <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-                  </span>
+              <li>
+                <a href="<?php echo base_url(); ?>admin">
+                  <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
+              </li>
+              <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-plus"></i> <span>Tambah Data</span>
+                    <span class="pull-right-container"></span>
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>                            
+
                 <ul class="treeview-menu">
-                  <li class="active"><a href="<?php echo base_url(); ?>admin/addguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
+                    <li><a href="<?php echo base_url(); ?>admin/addguru"><i class="fa fa-circle-o"></i> Data Guru</a></li>
                   <li><a href="<?php echo base_url(); ?>admin/addsiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
                   <li><a href="<?php echo base_url(); ?>admin/addindustri"><i class="fa fa-circle-o"></i> Data Industri</a></li>
                   <li><a href="<?php echo base_url(); ?>admin/addadmin"><i class="fa fa-circle-o"></i> Data Admin</a></li>
@@ -146,6 +152,7 @@
               <li>
                 <a href="<?php echo base_url(); ?>admin/rekapdata">
                   <i class="fa fa-list-alt"></i> <span>Rekap Data Absen Siswa</span>
+                </a>
               </li>
             </ul>
           </section>

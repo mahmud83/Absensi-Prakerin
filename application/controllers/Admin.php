@@ -42,7 +42,6 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view']='admin/add_guru_view';
 			$data['title'] = 'Tambah Data Guru - Prakerin SMK Telkom Malang 2018';
-			$data['last'] = $this->admin_model->getlastIDguru();
 			$data['foto'] = $this->admin_model->getFoto();
 			$this->load->view('template_view', $data);
 		} else {
@@ -57,7 +56,6 @@ class Admin extends CI_Controller {
 			$data['title'] = 'Tambah Data Siswa - Prakerin SMK Telkom Malang 2018';
 			$data['industri'] = $this->admin_model->getIndustri();
 			$data['guru'] = $this->admin_model->getGuru();
-			$data['last'] = $this->admin_model->getlastIDsiswa();
 			$data['foto'] = $this->admin_model->getFoto();
 			$data['foto'] = $this->admin_model->getFoto();
 			$this->load->view('template_view', $data);
@@ -322,7 +320,6 @@ class Admin extends CI_Controller {
 			$data['main_view'] = 'admin/add_industri_view';
 			$data['title'] = 'Tambah Data Industri - Prakerin SMK Telkom Malang 2018';
 			$data['nama_guru'] = $this->admin_model->getNamaGuru();
-			$data['last'] = $this->admin_model->getlastIDindustri();
 			$data['foto'] = $this->admin_model->getFoto();
 			$this->load->view('template_view', $data);
 		} else {
@@ -483,22 +480,22 @@ class Admin extends CI_Controller {
      			TRUE,
      			FALSE);
    				$login = array(
-		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
-		     		"id_level"=> $rowData[0][1],
-		     		"nama"=> $rowData[0][4],
-		     		"username"=> $rowData[0][2],
-		     		"password"=> $rowData[0][3]);
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $this->admin_model->genIDs())), // opsional hapus spasi depan
+		     		"id_level"=> '3',
+		     		"nama"=> $rowData[0][2],
+		     		"username"=> $rowData[0][0],
+		     		"password"=> $rowData[0][1]);
 	     		$data = array(
-		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
-		     		"nama_siswa"=> $rowData[0][4],
-		     		"foto_siswa"=> $rowData[0][5],
-		     		"kelas"=> $rowData[0][6],
-		     		"industri"=> $rowData[0][7],
-		     		"kota"=> $rowData[0][8],
-		     		"nama_guru_pembimbing"=> $rowData[0][9],
-		     		"jenis_kelamin"=> $rowData[0][10],
-		     		"no_telp_siswa"=> $rowData[0][11],
-		     		"alamat_prakerin"=> $rowData[0][12],);
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $this->admin_model->genIDs())), // opsional hapus spasi depan
+		     		"nama_siswa"=> $rowData[0][2],
+		     		"foto_siswa"=> '-',
+		     		"kelas"=> $rowData[0][3],
+		     		"industri"=> $rowData[0][4],
+		     		"kota"=> $rowData[0][5],
+		     		"nama_guru_pembimbing"=> $rowData[0][6],
+		     		"jenis_kelamin"=> $rowData[0][7],
+		     		"no_telp_siswa"=> $rowData[0][8],
+		     		"alamat_prakerin"=> $rowData[0][9],);
 	   			$this->db->insert("tb_login",$login);
 	   			$this->db->insert("tb_user_siswa",$data);
  			} 
@@ -547,17 +544,18 @@ class Admin extends CI_Controller {
      			TRUE,
      			FALSE);
    				$login = array(
-		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
-		     		"id_level"=> $rowData[0][1],
-		     		"nama"=> $rowData[0][4],
-		     		"username"=> $rowData[0][2],
-		     		"password"=> $rowData[0][3]);
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $this->admin_model->genIDg())), // opsional hapus spasi depan
+		     		"id_level"=> '2',
+		     		"nama"=> $rowData[0][2],
+		     		"username"=> $rowData[0][0],
+		     		"password"=> $rowData[0][1]);
 	     		$data = array(
-		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
-		     		"nama_guru"=> $rowData[0][4],
-		     		"foto_guru"=> $rowData[0][5],
-		     		"no_telp_guru"=> $rowData[0][6],
-		     		"kota"=> $rowData[0][7],);
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $this->admin_model->genIDg())), // opsional hapus spasi depan
+		     		"nama_guru"=> $rowData[0][2],
+		     		"jenis_kelamin"=> $rowData[0][3],
+		     		"foto_guru"=> '-',
+		     		"no_telp_guru"=> $rowData[0][4],
+		     		"kota"=> $rowData[0][5],);
 	   			$this->db->insert("tb_login",$login);
 	   			$this->db->insert("tb_user_guru",$data);
  			} 
@@ -606,18 +604,18 @@ class Admin extends CI_Controller {
      			TRUE,
      			FALSE);
    				$login = array(
-		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
-		     		"id_level"=> $rowData[0][1],
-		     		"nama"=> $rowData[0][4],
-		     		"username"=> $rowData[0][2],
-		     		"password"=> $rowData[0][3]);
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $this->admin_model->genIDi())), // opsional hapus spasi depan
+		     		"id_level"=> '4',
+		     		"nama"=> $rowData[0][2],
+		     		"username"=> $rowData[0][0],
+		     		"password"=> $rowData[0][1]);
 	     		$data = array(
-		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $rowData[0][0])), // opsional hapus spasi depan
-		     		"nama_industri"=> $rowData[0][4],
-		     		"kota"=> $rowData[0][5],
-		     		"alamat_industri"=> $rowData[0][6],
-		     		"no_telp_industri"=> $rowData[0][7],
-		     		"nama_guru_pembimbing"=> $rowData[0][8],);
+		     		"id_user"=> trim(preg_replace("/[^a-zA-Z0-9]/", "", $this->admin_model->genIDi())), // opsional hapus spasi depan
+		     		"nama_industri"=> $rowData[0][2],
+		     		"kota"=> $rowData[0][3],
+		     		"alamat_industri"=> $rowData[0][4],
+		     		"no_telp_industri"=> $rowData[0][5],
+		     		"nama_guru_pembimbing"=> $rowData[0][6],);
 	   			$this->db->insert("tb_login",$login);
 	   			$this->db->insert("tb_industri",$data);
  			} 
@@ -633,13 +631,39 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view'] = 'admin/rekap_siswa_view';
 			$data['title'] = 'Rekap Data Absen Siswa - Prakerin SMK Telkom Malang 2018';
-			$data['absen'] = $this->admin_model->tidakmasuk();
+			//$data['absen'] = $this->admin_model->tidakmasuk();
 			$data['foto'] = $this->admin_model->getFoto();
+			//$data['masuk'] = $this->admin_model->get_masuk_per_hari();
+			$data['countSiswaMasukPerbulan'] = $this->admin_model->siswaMasukPerBulan();
+			$data['countSiswaIzinPerbulan'] = $this->admin_model->siswaIzinPerBulan();
+			$data['countSiswaSakitPerbulan'] = $this->admin_model->siswaSakitPerBulan();
+			$data['siswaMasukHariIni'] = $this->admin_model->siswaMasukHariIni();
+			$data['siswaIzinHariIni'] = $this->admin_model->siswaIzinHariIni();
+			$data['siswaSakitHariIni'] = $this->admin_model->siswaSakitHariIni();
 			$this->load->view('template_view', $data);
 		}
 		else{
 			redirect('login');
 		}
+	}
+
+	public function rekap_siswa_bulan()
+	{
+		if ($this->session->userdata('logged_in') == TRUE) {
+			$data['main_view'] = 'admin/rekap_siswa_bulan_view';
+			$data['title'] = 'Rekap Data Absen Siswa - Prakerin SMK Telkom Malang 2018';
+			$data['foto'] = $this->admin_model->getFoto();
+			$data['countSiswaMasukPerbulan'] = $this->admin_model->siswaMasukPerBulan();
+			$data['countSiswaIzinPerbulan'] = $this->admin_model->siswaIzinPerBulan();
+			$data['countSiswaSakitPerbulan'] = $this->admin_model->siswaSakitPerBulan();
+			$data['siswaMasukBulannya'] = $this->admin_model->siswaMasukBulannya();
+			$data['siswaIzinBulannya'] = $this->admin_model->siswaIzinBulannya();
+			$data['siswaSakitBulannya'] = $this->admin_model->siswaSakitBulannya();
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('login');
+		}	
 	}
 
 	public function addadmin()

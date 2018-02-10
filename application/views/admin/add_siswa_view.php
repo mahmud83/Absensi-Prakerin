@@ -120,14 +120,11 @@
                                       <h3 class="box-title">Import Data Siswa</h3>
                                     </div>
                                     <div class="box-body" style="background-color: #3C8DBC; color: white;">
-                                        <a href="<?php echo base_url(); ?>format_import_siswa.xlsx" download><h4 style="color: white; font-weight: 800; padding-bottom: 3px;">Download Format Import</h4></a>
+                                        <a href="<?php echo base_url(); ?>format_import_siswa.xlsx" class="btn btn-info " download style="margin-bottom: 5px; font-weight: bold;">Download Format Import</a>
                                         <?php echo form_open_multipart('admin/importsiswa');?>
                                             <input type="file" name="import" size="20" id='import' required class="pull-left" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
                                             <input type="submit" value="Import Data Siswa" class="pull-right" style="color: black;"/>
                                         </form>
-                                    </div>
-                                    <div class="box-header with-border">
-                                        <h5 class="box-title">ID User Siswa terakhir: <b><?php echo $last;?></b></h5>
                                     </div>
                                     <!-- /.box-body -->
                                 </div>

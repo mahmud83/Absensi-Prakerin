@@ -355,24 +355,6 @@ class Admin_model extends CI_Model {
 		return $this->db->count_all('tb_industri');
 	}
 
-	public function getlastIDsiswa()
-	{
-		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_user_siswa')->row('id_user');
-		return $query;
-	}
-
-	public function getlastIDguru()
-	{
-		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_user_guru')->row('id_user');
-		return $query;
-	}
-
-	public function getlastIDindustri()
-	{
-		$query = $this->db->order_by('id_user', 'DESC')->limit(1)->get('tb_industri')->row('id_user');
-		return $query;
-	}
-
 	public function tidakMasuk()
 	{
 		$bulan = date('m');
@@ -487,6 +469,146 @@ class Admin_model extends CI_Model {
 			return FALSE;
 		}
 	}
+
+	/*public function get_masuk_per_hari()
+	{
+		$bulan = date('m');
+		$tahun = date('Y');
+
+		return $this->db->select('tb_post.tanggal')
+						->select('count(ket_abs) as masuk')
+						->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs', 'Masuk')
+						->group_by('tanggal');
+	}*/
+
+	public function siswaMasukPerBulan()
+	{
+		// $sql = SELECT COUNT(`tb_post`.`nama_siswa`) FROM `tb_post` LEFT JOIN `tb_user_siswa` ON `tb_post`.`id_user` = `tb_user_siswa`.`id_user` WHERE MONTH(`tb_post`.`tanggal`) = 01 AND YEAR(`tb_post`.`tanggal`) = 2018 AND `tb_post`.`ket_abs` = 'Masuk' AND `tb_user_siswa`.`nama_guru_pembimbing` = 'Dra. Peni Wardayani' ;
+
+		$namaguru = $this->session->userdata('jeneng');
+		$bulan = date('m');
+		$tahun = date('Y');
+
+		return $this->db->select('tb_post.id_user')
+						->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs', "Masuk")
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaIzinPerBulan()
+	{
+		// $sql = SELECT COUNT(`tb_post`.`nama_siswa`) FROM `tb_post` LEFT JOIN `tb_user_siswa` ON `tb_post`.`id_user` = `tb_user_siswa`.`id_user` WHERE MONTH(`tb_post`.`tanggal`) = 01 AND YEAR(`tb_post`.`tanggal`) = 2018 AND `tb_post`.`ket_abs` = 'Masuk' AND `tb_user_siswa`.`nama_guru_pembimbing` = 'Dra. Peni Wardayani' ;
+
+		$namaguru = $this->session->userdata('jeneng');
+		$bulan = date('m');
+		$tahun = date('Y');
+
+		return $this->db->select('tb_post.id_user')
+						->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs', "Izin")
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaSakitPerBulan()
+	{
+		// $sql = SELECT COUNT(`tb_post`.`nama_siswa`) FROM `tb_post` LEFT JOIN `tb_user_siswa` ON `tb_post`.`id_user` = `tb_user_siswa`.`id_user` WHERE MONTH(`tb_post`.`tanggal`) = 01 AND YEAR(`tb_post`.`tanggal`) = 2018 AND `tb_post`.`ket_abs` = 'Masuk' AND `tb_user_siswa`.`nama_guru_pembimbing` = 'Dra. Peni Wardayani' ;
+
+		$namaguru = $this->session->userdata('jeneng');
+		$bulan = date('m');
+		$tahun = date('Y');
+
+		return $this->db->select('tb_post.id_user')
+						->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs', "Sakit")
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaMasukHariIni() {
+		$time = date('Y-m-d');
+
+		return $this->db->select('tb_post.id_user')
+						->where('tanggal', $time)
+						->where('ket_abs', "Masuk")
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaSakitHariIni() {
+		$time = date('Y-m-d');
+
+		return $this->db->select('tb_post.id_user')
+						->where('tanggal', $time)
+						->where('ket_abs', "Sakit")
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaIzinHariIni() {
+		$time = date('Y-m-d');
+
+		return $this->db->select('tb_post.id_user')
+						->where('tanggal', $time)
+						->where('ket_abs', "Izin")
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaMasukBulannya()
+	{
+		$bulan = $this->input->post('bulan');
+		$tahun = date('Y');
+
+		return $this->db->select('tb_post.id_user')
+						->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs', "Masuk")
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaIzinBulannya()
+	{
+		$bulan = $this->input->post('bulan');
+		$tahun = date('Y');
+
+		return $this->db->select('tb_post.id_user')
+						->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs', "Izin")
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
+	public function siswaSakitBulannya()
+	{
+		$bulan = $this->input->post('bulan');
+		$tahun = date('Y');
+
+		return $this->db->select('tb_post.id_user')
+						->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs', "Sakit")
+						->from('tb_post')
+						->join('tb_user_siswa', 'tb_post.id_user = tb_user_siswa.id_user', 'left')
+						->count_all_results();
+	}
+
 }
 /* End of file Admin_model.php */
 /* Location: ./application/models/Admin_model.php */

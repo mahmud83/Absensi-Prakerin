@@ -35,7 +35,7 @@
                             <select class="form-control-static" name="ket_abs" style="width: 91.7%; border-color: #D2D6DE; padding-left: 5px;">
                                 <option>Masuk</option>
                                 <option>Sakit</option>
-                                    <option>Izin</option>
+                                <option>Izin</option>
                             </select>
                         </div>
                         <div class="form-group">
