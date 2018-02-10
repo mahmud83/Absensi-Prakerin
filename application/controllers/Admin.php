@@ -43,6 +43,7 @@ class Admin extends CI_Controller {
 			$data['main_view']='admin/add_guru_view';
 			$data['title'] = 'Tambah Data Guru - Prakerin SMK Telkom Malang 2018';
 			$data['last'] = $this->admin_model->getlastIDguru();
+			$data['foto'] = $this->admin_model->getFoto();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -57,6 +58,8 @@ class Admin extends CI_Controller {
 			$data['industri'] = $this->admin_model->getIndustri();
 			$data['guru'] = $this->admin_model->getGuru();
 			$data['last'] = $this->admin_model->getlastIDsiswa();
+			$data['foto'] = $this->admin_model->getFoto();
+			$data['foto'] = $this->admin_model->getFoto();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
@@ -320,6 +323,7 @@ class Admin extends CI_Controller {
 			$data['title'] = 'Tambah Data Industri - Prakerin SMK Telkom Malang 2018';
 			$data['nama_guru'] = $this->admin_model->getNamaGuru();
 			$data['last'] = $this->admin_model->getlastIDindustri();
+			$data['foto'] = $this->admin_model->getFoto();
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');

@@ -19,6 +19,7 @@ class Guru extends CI_Controller {
 			$data['foto'] = $this->guru_model->getFoto();
 			$data['kota'] = $this->guru_model->getKota();
 			$data['siswa'] = $this->guru_model->getKotaSiswa();
+			$data['jk'] = $this->guru_model->getJK();
 			$data['countJumlahS'] = $this->guru_model->countJumlahSiswa();
 			$data['countSudahAbsen'] = $this->guru_model->countSiswaSudahAbsen();
 			$data['countTerconfirm'] = $this->guru_model->countSiswaConfirm();
@@ -136,6 +137,7 @@ class Guru extends CI_Controller {
 			$data['foto'] = $this->guru_model->getFoto();
 			$data['kota'] = $this->guru_model->getKota();
 			$data['siswa'] = $this->guru_model->getKotaSiswa();
+			$data['jk'] = $this->guru_model->getJK();
 			$data['countJumlahS'] = $this->guru_model->countJumlahSiswa();
 			$data['countSudahAbsen'] = $this->guru_model->countSiswaSudahAbsen();
 			$data['countTerconfirm'] = $this->guru_model->countSiswaConfirm();
