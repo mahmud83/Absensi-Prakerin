@@ -579,6 +579,14 @@ class Admin_model extends CI_Model {
 						->result();
 	}
 
+	public function bulannya()
+	{
+		$bulan = $this->input->post('bulan');
+		$query =  $this->db->where('MONTH(tanggal)',$bulan)
+						->get('tb_post');
+		return $query->row()->tanggal;
+	}
+
 	public function siswaMasukBulannya()
 	{
 		$bulan = $this->input->post('bulan');

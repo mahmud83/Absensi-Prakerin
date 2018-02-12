@@ -451,7 +451,7 @@
 
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          Powered by <a href="https://adminlte.io"><strong>Admin LTE</strong></a>
+          Powered by <a href="https://adminlte.io" target="_blank"><strong>Admin LTE</strong></a>
           
         </div>
         <strong>Copyright &copy; 2017-2018 <a href="http://smktelkom-mlg.sch.id/" target="_blank">SMK Telkom Malang</a>.</strong> All rights reserved. <b>Version</b> 1.0.0
@@ -538,13 +538,18 @@
         scrollCollapse: true,
         responsive: true,
       });
-      $('#dataTables-rekap').DataTable({
+      /*$('#dataTables-rekap').DataTable({
         scrollX: true,
         scrollCollapse: true,
         responsive: true,
-      });
+        //bFilter: false,
+        "bLengthChange": false,
+      });*/
     })
   </script>
+  <style type="text/css">
+    .dataTables_filter, .dataTables_info { display: none; }
+  </style>
 
   <!-- bootstrap notify -->
   <script src="<?php echo base_url() ?>dist/js/bootstrap-notify.js"></script>
