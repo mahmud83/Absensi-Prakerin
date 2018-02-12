@@ -567,6 +567,18 @@ class Admin_model extends CI_Model {
 						->count_all_results();
 	}
 
+	public function tidakMasukBulannya()
+	{
+		$bulan = $this->input->post('bulan');
+		$tahun = date('Y');
+
+		return $this->db->where('MONTH(tanggal)', $bulan)
+						->where('YEAR(tanggal)', $tahun)
+						->where('ket_abs !=', 'Masuk')
+						->get('tb_post')
+						->result();
+	}
+
 	public function siswaMasukBulannya()
 	{
 		$bulan = $this->input->post('bulan');

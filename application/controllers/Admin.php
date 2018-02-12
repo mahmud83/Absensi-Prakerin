@@ -631,7 +631,7 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$data['main_view'] = 'admin/rekap_siswa_view';
 			$data['title'] = 'Rekap Data Absen Siswa - Prakerin SMK Telkom Malang 2018';
-			//$data['absen'] = $this->admin_model->tidakmasuk();
+			$data['absen'] = $this->admin_model->tidakmasuk();
 			$data['foto'] = $this->admin_model->getFoto();
 			//$data['masuk'] = $this->admin_model->get_masuk_per_hari();
 			$data['countSiswaMasukPerbulan'] = $this->admin_model->siswaMasukPerBulan();
@@ -653,6 +653,7 @@ class Admin extends CI_Controller {
 			$data['main_view'] = 'admin/rekap_siswa_bulan_view';
 			$data['title'] = 'Rekap Data Absen Siswa - Prakerin SMK Telkom Malang 2018';
 			$data['foto'] = $this->admin_model->getFoto();
+			$data['absen'] = $this->admin_model->tidakMasukBulannya();
 			$data['countSiswaMasukPerbulan'] = $this->admin_model->siswaMasukPerBulan();
 			$data['countSiswaIzinPerbulan'] = $this->admin_model->siswaIzinPerBulan();
 			$data['countSiswaSakitPerbulan'] = $this->admin_model->siswaSakitPerBulan();

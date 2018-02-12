@@ -542,13 +542,6 @@
         scrollX: true,
         scrollCollapse: true,
         responsive: true,
-        dom: 'Bfrtip',
-        buttons: [
-            {
-                extend: 'print',
-                messageTop: 'Bulan <?php echo date("M Y") ?>'
-            }
-        ]
       });
     })
   </script>
