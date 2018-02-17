@@ -7,9 +7,9 @@
 			<div class="col-lg-1 col-md-3 col-sm-12 col-xs-12">
 				<button class="btn btn-danger btn-flat" onclick="history.back(-1)"><i class="fa fa-angle-double-left" style="padding-right: 5px;"></i>Kembali</button>
 			</div>
-      <div class="col-lg-3 col-sm-12 col-xs-12">
-        <button class="btn btn-info btn-flat pull-right" onclick="print('print')"><i class="fa fa-print"></i> Print Rekap Data Absen</button>
-      </div>
+		    <div class="col-lg-3 col-sm-12 col-xs-12">
+			    <button class="btn btn-info btn-flat pull-right" onclick="print('print')"><i class="fa fa-print"></i> Print Rekap Data Absen</button>
+		    </div>
 			<div class="col-lg-4 col-md-6 col-sm-12 pull-right">
 				<div class="row">
 					<form role="form" method="post" action="<?php echo base_url(); ?>admin/rekap_siswa_bulan">

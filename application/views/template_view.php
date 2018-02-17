@@ -149,11 +149,11 @@
                   <li><a href="<?php echo base_url(); ?>admin/dataindustri"><i class="fa fa-circle-o"></i> Data Industri</a></li>
                 </ul>
               </li>
-              <li>
-                <a href="<?php echo base_url(); ?>admin/rekapdata">
+              <!-- <li>
+                <a href="admin/rekapdata">
                   <i class="fa fa-list-alt"></i> <span>Rekap Data Absen Siswa</span>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </section>
           <!-- /.sidebar -->

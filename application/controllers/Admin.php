@@ -19,11 +19,42 @@ class Admin extends CI_Controller {
 			$data['countS'] = $this->admin_model->countSiswa();
 			$data['countI'] = $this->admin_model->countIndustri();
 			$data['foto'] = $this->admin_model->getFoto();
+			$data['absen'] = $this->admin_model->tidakmasuk();
+			$data['countSiswaMasukPerbulan'] = $this->admin_model->siswaMasukPerBulan();
+			$data['countSiswaIzinPerbulan'] = $this->admin_model->siswaIzinPerBulan();
+			$data['countSiswaSakitPerbulan'] = $this->admin_model->siswaSakitPerBulan();
+			$data['siswaMasukHariIni'] = $this->admin_model->siswaMasukHariIni();
+			$data['siswaIzinHariIni'] = $this->admin_model->siswaIzinHariIni();
+			$data['siswaSakitHariIni'] = $this->admin_model->siswaSakitHariIni();
 			$data['title'] = 'Dashboard Admin - Prakerin SMK Telkom Malang 2018';
 			$this->load->view('template_view', $data);
 		} else {
 			redirect('login');
 		}	
+	}
+
+	public function dashboard()
+	{
+		if ($this->session->userdata('logged_in') == TRUE && $this->session->userdata('role') == 1) {
+			$data['main_view'] = 'admin/dashboard_admin_rekap_view';
+			$data['title'] = 'Dashboard Admin - Prakerin SMK Telkom Malang 2018';
+			$data['countG'] = $this->admin_model->countGuru();
+			$data['countS'] = $this->admin_model->countSiswa();
+			$data['countI'] = $this->admin_model->countIndustri();
+			$data['foto'] = $this->admin_model->getFoto();
+			$data['absen'] = $this->admin_model->tidakMasukBulannya();
+			$data['bulan'] = $this->admin_model->bulannya();
+			$data['countSiswaMasukPerbulan'] = $this->admin_model->siswaMasukPerBulan();
+			$data['countSiswaIzinPerbulan'] = $this->admin_model->siswaIzinPerBulan();
+			$data['countSiswaSakitPerbulan'] = $this->admin_model->siswaSakitPerBulan();
+			$data['siswaMasukBulannya'] = $this->admin_model->siswaMasukBulannya();
+			$data['siswaIzinBulannya'] = $this->admin_model->siswaIzinBulannya();
+			$data['siswaSakitBulannya'] = $this->admin_model->siswaSakitBulannya();
+			$this->load->view('template_view', $data);
+		}
+		else{
+			redirect('login');
+		}
 	}
 
 	public function logout()

@@ -113,7 +113,15 @@
             <div class="col-xs-12">
               <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                  <center style="padding: 5px;"><h3 class="box-title" style="font-weight: 600;">Daftar Ketidakhadiran Siswa Bulan <?php echo date("M Y"); ?></h3></center>
+                  <center style="padding: 8px;">
+                    <h3 class="box-title" style="font-weight: 600;">Daftar Ketidakhadiran Siswa 
+                      <?php 
+                        $oldDate = $bulan;
+                        $newDate = date("M Y", strtotime($oldDate));
+                        echo $newDate; 
+                      ?>
+                    </h3>
+                  </center>
                   <table style="width: 100%; table-layout: auto; margin-left: 10px" class="table table-bordered table-hover" id="dataTables-rekap">
                     <thead>
                       <tr>
@@ -164,14 +172,14 @@
                         type: 'column'
                       },
                       title: {
-                        text: 'Jumlah Ketidakhadiran Siswa (<?php echo date("M Y") ?>)'
+                      text: 'Keterangan Kehadiran Siswa (<?php $oldDate = $bulan; $newDate = date("M Y", strtotime($oldDate)); echo $newDate; ?>)'
                       },
                       xAxis: {
                         categories: ['Masuk', 'Izin', 'Sakit']
                       },
                       series: [{
                         name: "Jumlah Siswa",
-                        data: [<?php echo $countSiswaMasukPerbulan; ?>, <?php echo $countSiswaIzinPerbulan; ?>, <?php echo $countSiswaSakitPerbulan; ?>]
+                        data: [<?php echo $siswaMasukBulannya; ?>, <?php echo $siswaIzinBulannya; ?>, <?php echo $siswaSakitBulannya; ?>]
                       }],
                     });
                   </script>
